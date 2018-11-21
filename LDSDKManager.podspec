@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
     s.name             = "LDSDKManager"
-    s.version          = "1.0.1"
+    s.version          = "1.0.2"
     s.summary          = "第三方SDK统一管理组件"
     s.description      = "对应用中集成的第三方SDK（目前包括QQ,微信,易信,支付宝）进行集中管理，按照功能（目前包括第三方登录,分享,支付）开放给各个产品使用。通过接口的方式进行产品集成，方便对第三方SDK进行升级维护。"
     s.license          = 'MIT'
     s.author           = { "张海洋" => "zhanghaiyang@corp.netease.com" }
-    s.homepage         = "https://github.com/Lede-Inc/LDSDKManager_IOS"
-    s.source           = { :git => "https://github.com/Lede-Inc/LDSDKManager_IOS.git", :tag => s.version.to_s }
+    s.homepage         = "https://github.com/poholo/LDSDKManager_IOS"
+    s.source           = { :git => "https://github.com/poholo/LDSDKManager_IOS.git", :tag => s.version.to_s }
 
-    s.platform     = :ios, '6.0'
+    s.platform     = :ios, '8.0'
     s.requires_arc = true
 
     #组件对外提供服务接口
