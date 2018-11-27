@@ -12,7 +12,7 @@
 采用Pod集成：在项目工程的Podfile文件中加载LDSDKManager库：
 
 ```
-pod 'LDSDKManager' :git => 'https://github.com/Lede-Inc/LDSDKManager_IOS.git'
+pod 'LDSDKManager'
 ```
 
 
