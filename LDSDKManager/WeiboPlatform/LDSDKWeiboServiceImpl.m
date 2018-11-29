@@ -208,7 +208,9 @@ typedef void (^LDWeiboCallbackBlock)(WBBaseResponse *resp);
 
         self.wbtoken = [(WBAuthorizeResponse *)response accessToken];
         self.wbCurrentUserID = [(WBAuthorizeResponse *)response userID];
-    } else if ([response isKindOfClass:WBPaymentResponse.class]) {
+    }
+    
+//    else if ([response isKindOfClass:WBPaymentResponse.class]) {
         //        NSString *title = NSLocalizedString(@"支付结果", nil);
         //        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.payStatusCode:
         //        %@\nresponse.payStatusMessage: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态",
@@ -216,7 +218,7 @@ typedef void (^LDWeiboCallbackBlock)(WBBaseResponse *resp);
         //        [(WBPaymentResponse *)response payStatusMessage],
         //        NSLocalizedString(@"响应UserInfo数据", nil),response.userInfo,
         //        NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
-    }
+//    }
 
     if (self.callbackBlock) {
         self.callbackBlock(response);

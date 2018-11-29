@@ -17,7 +17,6 @@
 
 typedef void (^LDSDKWXCallbackBlock)(BaseResp *resp);
 
-@interface LDSDKWXServiceImpl
-    : NSObject <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService>
+@interface LDSDKWXServiceImpl : NSObject <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService>
 
 @end

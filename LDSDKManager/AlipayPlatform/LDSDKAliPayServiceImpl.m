@@ -79,20 +79,17 @@
             payOrder:orderString
           fromScheme:self.aliPayScheme
             callback:^(NSDictionary *resultDic) {
-                NSString *signString = [resultDic objectForKey:@"result"];
-                NSString *memo = [resultDic objectForKey:@"memo"];
-                NSInteger resultStatus = [[resultDic objectForKey:@"resultStatus"] integerValue];
+                NSString *signString = resultDic[@"result"];
+                NSString *memo = resultDic[@"memo"];
+                NSInteger resultStatus = [resultDic[@"resultStatus"] integerValue];
                 if (callback) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         if (resultStatus == 9000) {
                             callback(signString, nil);
                         } else {
-                            NSError *error = [NSError
-                                    errorWithDomain:@"AliPay"
-                                               code:0
-                                           userInfo:[NSDictionary
-                                                   dictionaryWithObjectsAndKeys:
-                                                           memo, @"NSLocalizedDescription", nil]];
+                            NSError *error = [NSError errorWithDomain:@"AliPay"
+                                                                 code:0
+                                                             userInfo:@{@"NSLocalizedDescription": memo}];
                             callback(signString, error);
                         }
 

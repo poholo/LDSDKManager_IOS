@@ -10,7 +10,6 @@
 
 @interface UIImage (LDSDKShare)
 
-- (UIImage *)LDSDKShare_resizedImage:(CGSize)newSize
-                interpolationQuality:(CGInterpolationQuality)quality;
+- (UIImage *)LDSDKShare_resizedImage:(CGSize)newSize interpolationQuality:(CGInterpolationQuality)quality;
 
 @end

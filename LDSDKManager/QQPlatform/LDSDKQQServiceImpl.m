@@ -7,15 +7,14 @@
 //
 
 #import "LDSDKQQServiceImpl.h"
+
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+
 #import "UIImage+LDSDKShare.h"
 
-#import <TencentOpenAPI/QQApiInterface.h>
-#import <TencentOpenAPI/QQApi.h>
-#import <TencentOpenAPI/TencentOAuth.h>
-#import <TencentOpenAPI/TencentApiInterface.h>
-#import <TencentOpenAPI/QQApiInterface.h>
 
-#define kQQPlatformLogin @"login_qq"
+NSString const *kQQPlatformLogin = @"login_qq";
 
 static NSArray *permissions = nil;
 
@@ -48,8 +47,7 @@ static NSArray *permissions = nil;
 - (instancetype)init {
     if (self = [super init]) {
         isLogining = NO;
-        permissions = [NSArray arrayWithObjects:kOPEN_PERMISSION_GET_USER_INFO,
-                                                kOPEN_PERMISSION_GET_SIMPLE_USER_INFO, nil];
+        permissions = @[kOPEN_PERMISSION_GET_USER_INFO, kOPEN_PERMISSION_GET_SIMPLE_USER_INFO];
     }
     return self;
 }
@@ -60,7 +58,7 @@ static NSArray *permissions = nil;
 
 //判断平台是否可用
 - (BOOL)isPlatformAppInstalled {
-    return [QQApi isQQInstalled] && [QQApi isQQSupportApi];
+    return [QQApiInterface isQQInstalled] && [QQApiInterface isQQSupportApi];
 }
 
 //注册平台
@@ -109,19 +107,17 @@ static NSArray *permissions = nil;
 }
 
 - (void)loginToPlatformWithCallback:(LDSDKLoginCallback)callback {
-    if (![QQApi isQQInstalled] || ![QQApi isQQSupportApi]) {
+    if (![QQApiInterface isQQInstalled] || ![QQApiInterface isQQSupportApi]) {
         error = [NSError
                 errorWithDomain:@"QQLogin"
                            code:0
-                       userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"请先安装QQ客户端",
-                                                                           @"NSLocalizedDescription",
-                                       nil]];
+                       userInfo:@{@"NSLocalizedDescription": @"请先安装QQ客户端"}];
         if (callback) {
             callback(nil, nil, error);
         }
         return;
     }
-    if ([QQApi isQQInstalled]) {  //手机QQ登录流程
+    if ([QQApiInterface isQQInstalled]) {  //手机QQ登录流程
         NSLog(@"login by QQ oauth = %@", tencentOAuth);
         if (callback) {
             MyBlock = callback;
@@ -146,12 +142,10 @@ static NSArray *permissions = nil;
 
 
 #pragma mark -
-#pragma mark - 分享部分
+#pragma mark 分享部分
 
-- (void)shareWithContent:(NSDictionary *)content
-             shareModule:(NSUInteger)shareModule
-              onComplete:(LDSDKShareCallback)complete {
-    if (![QQApi isQQInstalled] || ![QQApi isQQSupportApi]) {
+- (void)shareWithContent:(NSDictionary *)content shareModule:(LDSDKShareToModule)shareModule onComplete:(LDSDKShareCallback)complete {
+    if (![QQApiInterface isQQInstalled] || ![QQApiInterface isQQSupportApi]) {
         error = [NSError
                 errorWithDomain:@"QQShare"
                            code:0
@@ -333,23 +327,23 @@ static NSArray *permissions = nil;
     isLogining = NO;
     if (tencentOAuth.accessToken && 0 != [tencentOAuth.accessToken length]) {
         NSMutableDictionary *oauthInfo = [NSMutableDictionary dictionary];
-        [oauthInfo setObject:tencentOAuth.accessToken forKey:kQQ_TOKEN_KEY];
+        oauthInfo[kQQ_TOKEN_KEY] = tencentOAuth.accessToken;
         if (tencentOAuth.expirationDate) {
-            [oauthInfo setObject:tencentOAuth.expirationDate forKey:kQQ_EXPIRADATE_KEY];
+            oauthInfo[kQQ_EXPIRADATE_KEY] = tencentOAuth.expirationDate;
         }
+
         if (tencentOAuth.openId) {
-            [oauthInfo setObject:tencentOAuth.openId forKey:kQQ_OPENID_KEY];
+            oauthInfo[kQQ_OPENID_KEY] = tencentOAuth.openId;
         }
+
         if (MyBlock) {
             MyBlock(oauthInfo, nil, nil);
         }
+
         [tencentOAuth getUserInfo];
 
     } else {  //登录失败，没有获取授权accesstoken
-        error = [NSError
-                errorWithDomain:@"QQLogin"
-                           code:0
-                       userInfo:@{@"NSLocalizedDescription": @"登录失败"}];
+        error = [NSError errorWithDomain:@"QQLogin" code:0 userInfo:@{@"NSLocalizedDescription": @"登录失败"}];
         if (MyBlock) {
             MyBlock(nil, nil, error);
         }
@@ -412,22 +406,22 @@ static NSArray *permissions = nil;
         if (response.detailRetCode == kOpenSDKErrorSuccess) {
             if (MyBlock) {
                 NSMutableDictionary *oauthInfo = [NSMutableDictionary dictionary];
-                [oauthInfo setObject:tencentOAuth.accessToken forKey:kQQ_TOKEN_KEY];
+                oauthInfo[kQQ_TOKEN_KEY] = tencentOAuth.accessToken;
                 if (tencentOAuth.expirationDate) {
-                    [oauthInfo setObject:tencentOAuth.expirationDate forKey:kQQ_EXPIRADATE_KEY];
+                    oauthInfo[kQQ_EXPIRADATE_KEY] = tencentOAuth.expirationDate;
                 }
                 if (tencentOAuth.openId) {
-                    [oauthInfo setObject:tencentOAuth.openId forKey:kQQ_OPENID_KEY];
+                    oauthInfo[kQQ_OPENID_KEY] = tencentOAuth.openId;
                 }
 
                 NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-                NSString *nickName = [response.jsonResponse objectForKey:kQQ_NICKNAME_KEY];
-                NSString *avatarUrl = [response.jsonResponse objectForKey:kQQ_AVATARURL_KEY];
+                NSString *nickName = response.jsonResponse[kQQ_NICKNAME_KEY];
+                NSString *avatarUrl = response.jsonResponse[kQQ_AVATARURL_KEY];
                 if (nickName && [nickName length]) {
-                    [userInfo setObject:nickName forKey:kQQ_NICKNAME_KEY];
+                    userInfo[kQQ_NICKNAME_KEY] = nickName;
                 }
                 if (avatarUrl) {
-                    [userInfo setObject:avatarUrl forKey:kQQ_AVATARURL_KEY];
+                    userInfo[kQQ_AVATARURL_KEY] = avatarUrl;
                 }
 
                 MyBlock(oauthInfo, userInfo, nil);

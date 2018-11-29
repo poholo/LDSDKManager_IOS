@@ -15,8 +15,7 @@
 // The image will be scaled disproportionately if necessary to fit the bounds specified by the
 // parameter
 - (UIImage *)LDSDKShare_resizedImage:(CGSize)newSize
-                interpolationQuality:(CGInterpolationQuality)quality
-{
+                interpolationQuality:(CGInterpolationQuality)quality {
     BOOL drawTransposed;
 
     switch (self.imageOrientation) {
@@ -45,16 +44,15 @@
 - (UIImage *)LDSDKShare_resizedImage:(CGSize)newSize
                            transform:(CGAffineTransform)transform
                       drawTransposed:(BOOL)transpose
-                interpolationQuality:(CGInterpolationQuality)quality
-{
+                interpolationQuality:(CGInterpolationQuality)quality {
     CGRect newRect = CGRectIntegral(CGRectMake(0, 0, newSize.width, newSize.height));
     CGRect transposedRect = CGRectMake(0, 0, newRect.size.height, newRect.size.width);
     CGImageRef imageRef = self.CGImage;
 
     // Build a context that's the same dimensions as the new size
     CGContextRef bitmap = CGBitmapContextCreate(
-        NULL, newRect.size.width, newRect.size.height, CGImageGetBitsPerComponent(imageRef), 0,
-        CGImageGetColorSpace(imageRef), CGImageGetBitmapInfo(imageRef));
+            NULL, newRect.size.width, newRect.size.height, CGImageGetBitsPerComponent(imageRef), 0,
+            CGImageGetColorSpace(imageRef), CGImageGetBitmapInfo(imageRef));
 
     // Rotate and/or flip the image if required by its orientation
     CGContextConcatCTM(bitmap, transform);
@@ -78,8 +76,7 @@
 
 // Returns an affine transform that takes into account the image orientation when drawing a scaled
 // image
-- (CGAffineTransform)LDSDKShare_transformForOrientation:(CGSize)newSize
-{
+- (CGAffineTransform)LDSDKShare_transformForOrientation:(CGSize)newSize {
     CGAffineTransform transform = CGAffineTransformIdentity;
 
     switch (self.imageOrientation) {

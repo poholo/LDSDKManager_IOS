@@ -26,6 +26,19 @@ NSString *const LDSDKShareContentTextKey = @"text";
 NSString *const LDSDKShareContentRedirectURIKey = @"redirectURI";
 NSString *const LDSDKShareTypeKey = @"LDSDKShareTypeKey";
 
+//微信登陆，用户信息的Key
+NSString *const kWX_OPENID_KEY = @"openid";
+NSString *const kWX_NICKNAME_KEY = @"nickname";
+NSString *const kWX_AVATARURL_KEY = @"headimgurl";
+NSString *const kWX_ACCESSTOKEN_KEY = @"access_token";
+// QQ登陆，用户信息的Key
+NSString *const kQQ_OPENID_KEY = @"openId";
+NSString *const kQQ_TOKEN_KEY = @"access_token";
+NSString *const kQQ_NICKNAME_KEY = @"nickname";
+NSString *const kQQ_EXPIRADATE_KEY = @"expirationDate";
+NSString *const kQQ_AVATARURL_KEY = @"figureurl_qq_2";
+
+
 static NSArray *sdkServiceConfigList = nil;
 
 @implementation LDSDKManager
