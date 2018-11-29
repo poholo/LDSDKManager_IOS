@@ -24,8 +24,10 @@ NSString *const LDSDKShareContentImageKey = @"image";
 NSString *const LDSDKShareContentWapUrlKey = @"webpageurl";
 NSString *const LDSDKShareContentTextKey = @"text";
 NSString *const LDSDKShareContentRedirectURIKey = @"redirectURI";
+NSString *const LDSDKShareTypeKey = @"LDSDKShareTypeKey";
 
 static NSArray *sdkServiceConfigList = nil;
+
 @implementation LDSDKManager
 
 /**
@@ -33,15 +35,12 @@ static NSArray *sdkServiceConfigList = nil;
  *
  *  @return YES则配置成功
  */
-+ (void)registerWithPlatformConfigList:(NSArray *)configList;
-{
++ (void)registerWithPlatformConfigList:(NSArray *)configList; {
     if (configList == nil || configList.count == 0) return;
 
     for (NSDictionary *onePlatformConfig in configList) {
-        LDSDKPlatformType platformType =
-            [onePlatformConfig[LDSDKConfigAppPlatformTypeKey] intValue];
-        Class registerServiceImplCls =
-            [[self class] getServiceProviderWithPlatformType:platformType];
+        LDSDKPlatformType platformType = (LDSDKPlatformType) [onePlatformConfig[LDSDKConfigAppPlatformTypeKey] integerValue];
+        Class registerServiceImplCls = [[self class] getServiceProviderWithPlatformType:platformType];
         if (registerServiceImplCls != nil) {
             [[registerServiceImplCls sharedService] registerWithPlatformConfig:onePlatformConfig];
         }
@@ -53,19 +52,16 @@ static NSArray *sdkServiceConfigList = nil;
  *
  *  @return YES
  */
-+ (BOOL)handleOpenURL:(NSURL *)url
-{
++ (BOOL)handleOpenURL:(NSURL *)url {
     if (sdkServiceConfigList == nil) {
-        NSString *plistPath =
-            [[NSBundle mainBundle] pathForResource:@"SDKServiceConfig" ofType:@"plist"];
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"SDKServiceConfig" ofType:@"plist"];
         sdkServiceConfigList = [[NSArray alloc] initWithContentsOfFile:plistPath];
     }
 
     for (NSDictionary *oneSDKServiceConfig in sdkServiceConfigList) {
         Class serviceProvider = NSClassFromString(oneSDKServiceConfig[@"serviceProvider"]);
         if (serviceProvider) {
-            if ([[serviceProvider sharedService]
-                    conformsToProtocol:@protocol(LDSDKRegisterService)]) {
+            if ([[serviceProvider sharedService] conformsToProtocol:@protocol(LDSDKRegisterService)]) {
                 if ([[serviceProvider sharedService] handleResultUrl:url]) {
                     return YES;
                 }
@@ -76,20 +72,17 @@ static NSArray *sdkServiceConfigList = nil;
     return NO;
 }
 
-+ (id)getRegisterService:(LDSDKPlatformType)type
-{
++ (id)getRegisterService:(LDSDKPlatformType)type {
     Class shareServiceImplCls = [self getServiceProviderWithPlatformType:type];
     if (shareServiceImplCls) {
-        if ([[shareServiceImplCls sharedService]
-                conformsToProtocol:@protocol(LDSDKRegisterService)]) {
+        if ([[shareServiceImplCls sharedService] conformsToProtocol:@protocol(LDSDKRegisterService)]) {
             return [shareServiceImplCls sharedService];
         }
     }
     return nil;
 }
 
-+ (id)getAuthService:(LDSDKPlatformType)type
-{
++ (id)getAuthService:(LDSDKPlatformType)type {
     Class shareServiceImplCls = [self getServiceProviderWithPlatformType:type];
     if (shareServiceImplCls) {
         if ([[shareServiceImplCls sharedService] conformsToProtocol:@protocol(LDSDKAuthService)]) {
@@ -99,8 +92,7 @@ static NSArray *sdkServiceConfigList = nil;
     return nil;
 }
 
-+ (id)getShareService:(LDSDKPlatformType)type
-{
++ (id)getShareService:(LDSDKPlatformType)type {
     Class shareServiceImplCls = [self getServiceProviderWithPlatformType:type];
     if (shareServiceImplCls) {
         if ([[shareServiceImplCls sharedService] conformsToProtocol:@protocol(LDSDKShareService)]) {
@@ -110,8 +102,7 @@ static NSArray *sdkServiceConfigList = nil;
     return nil;
 }
 
-+ (id)getPayService:(LDSDKPlatformType)type
-{
++ (id)getPayService:(LDSDKPlatformType)type {
     Class shareServiceImplCls = [self getServiceProviderWithPlatformType:type];
     if (shareServiceImplCls) {
         if ([[shareServiceImplCls sharedService] conformsToProtocol:@protocol(LDSDKPayService)]) {
@@ -124,11 +115,10 @@ static NSArray *sdkServiceConfigList = nil;
 /**
  * 根据平台类型和服务类型获取服务提供者
  */
-+ (Class)getServiceProviderWithPlatformType:(LDSDKPlatformType)platformType
-{
++ (Class)getServiceProviderWithPlatformType:(LDSDKPlatformType)platformType {
     if (sdkServiceConfigList == nil) {
         NSString *plistPath =
-            [[NSBundle mainBundle] pathForResource:@"SDKServiceConfig" ofType:@"plist"];
+                [[NSBundle mainBundle] pathForResource:@"SDKServiceConfig" ofType:@"plist"];
         sdkServiceConfigList = [[NSArray alloc] initWithContentsOfFile:plistPath];
     }
 

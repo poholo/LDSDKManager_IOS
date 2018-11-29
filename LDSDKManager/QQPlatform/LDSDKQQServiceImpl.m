@@ -164,67 +164,76 @@ static NSArray *permissions = nil;
 
 
     //构造QQ、空间分享内容
-    NSString *title = content[@"title"];
-    NSString *description = content[@"description"];
-    NSString *urlString = content[@"webpageurl"];
+    NSString *title = content[LDSDKShareContentTitleKey];
+    NSString *description = content[LDSDKShareContentDescriptionKey];
+    NSString *urlString = content[LDSDKShareContentWapUrlKey];
+    LDSDKShareType shareType = (LDSDKShareType) [content[LDSDKShareTypeKey] integerValue];
 
     QQApiObject *messageObj = nil;
     UIImage *oldImage = content[@"image"];
-    if (urlString) {  //链接分享
-        //原图图片信息
-        UIImage *image = oldImage;
-        NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
-        NSData *thumbData = [NSData dataWithData:imageData];
-        if (oldImage) {
+    switch (shareType) {
+        case LDSDKShareTypeContent: {
+            //原图图片信息
+            UIImage *image = oldImage;
+            NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+            NSData *thumbData = [NSData dataWithData:imageData];
+            if (oldImage) {
+                //缩略图片
+                CGSize thumbSize = image.size;
+                UIImage *thumbImage = image;
+                NSData *thumbData = imageData;
+                while (thumbData.length > 1000 * 1024) {  //缩略图不能超过1M
+                    thumbSize = CGSizeMake(thumbSize.width / 1.5f, thumbSize.height / 1.5f);
+                    thumbImage = [thumbImage LDSDKShare_resizedImage:thumbSize
+                                                interpolationQuality:kCGInterpolationDefault];
+                    thumbData = UIImageJPEGRepresentation(thumbImage, 0.5);
+                }
+            }
+            messageObj = [QQApiNewsObject objectWithURL:[NSURL URLWithString:urlString]
+                                                  title:title
+                                            description:description
+                                       previewImageData:thumbData];
+
+        }
+            break;
+        case LDSDKShareTypeImage: {
+            //原图图片信息
+            UIImage *image = oldImage;
+            NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+            //内容图片(大图)
+            CGSize contentSize = image.size;
+            UIImage *contentImage = image;
+            NSData *contentData = [NSData dataWithData:imageData];
+            if (contentData.length > 5000 * 1024) {  //图片不能超过5M
+                contentSize = CGSizeMake(contentSize.width / 1.5f, contentSize.height / 1.5f);
+                contentImage = [contentImage LDSDKShare_resizedImage:contentSize
+                                                interpolationQuality:kCGInterpolationDefault];
+                contentData = UIImageJPEGRepresentation(contentImage, 0.5);
+            }
+
             //缩略图片
             CGSize thumbSize = image.size;
             UIImage *thumbImage = image;
-            NSData *thumbData = imageData;
+            NSData *thumbData = [NSData dataWithData:imageData];
             while (thumbData.length > 1000 * 1024) {  //缩略图不能超过1M
-                thumbSize = CGSizeMake(thumbSize.width / 1.5, thumbSize.height / 1.5);
+                thumbSize = CGSizeMake(thumbSize.width / 1.5f, thumbSize.height / 1.5f);
                 thumbImage = [thumbImage LDSDKShare_resizedImage:thumbSize
                                             interpolationQuality:kCGInterpolationDefault];
                 thumbData = UIImageJPEGRepresentation(thumbImage, 0.5);
             }
-        }
-        messageObj = [QQApiNewsObject objectWithURL:[NSURL URLWithString:urlString]
-                                              title:title
-                                        description:description
-                                   previewImageData:thumbData];
 
-    } else if (oldImage && shareModule == 1) {  //图片分享
-        //原图图片信息
-        UIImage *image = oldImage;
-        NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
-        //内容图片(大图)
-        CGSize contentSize = image.size;
-        UIImage *contentImage = image;
-        NSData *contentData = [NSData dataWithData:imageData];
-        if (contentData.length > 5000 * 1024) {  //图片不能超过5M
-            contentSize = CGSizeMake(contentSize.width / 1.5, contentSize.height / 1.5);
-            contentImage = [contentImage LDSDKShare_resizedImage:contentSize
-                                            interpolationQuality:kCGInterpolationDefault];
-            contentData = UIImageJPEGRepresentation(contentImage, 0.5);
+            messageObj = [QQApiImageObject objectWithData:contentData
+                                         previewImageData:thumbData
+                                                    title:title
+                                              description:description];
         }
+            break;
+        case LDSDKShareTypeOther: {
 
-        //缩略图片
-        CGSize thumbSize = image.size;
-        UIImage *thumbImage = image;
-        NSData *thumbData = [NSData dataWithData:imageData];
-        while (thumbData.length > 1000 * 1024) {  //缩略图不能超过1M
-            thumbSize = CGSizeMake(thumbSize.width / 1.5, thumbSize.height / 1.5);
-            thumbImage = [thumbImage LDSDKShare_resizedImage:thumbSize
-                                        interpolationQuality:kCGInterpolationDefault];
-            thumbData = UIImageJPEGRepresentation(thumbImage, 0.5);
         }
-
-        messageObj = [QQApiImageObject objectWithData:contentData
-                                     previewImageData:thumbData
-                                                title:title
-                                          description:description];
-    } else {
-        NSLog(@"未知分享");
+            break;
     }
+
     SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:messageObj];
     QQApiSendResultCode resultCode =
             [self sendReq:req

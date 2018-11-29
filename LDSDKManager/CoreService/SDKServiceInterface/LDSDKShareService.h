@@ -17,11 +17,18 @@ FOUNDATION_EXTERN NSString *const LDSDKShareContentImageKey;
 FOUNDATION_EXTERN NSString *const LDSDKShareContentWapUrlKey;
 FOUNDATION_EXTERN NSString *const LDSDKShareContentTextKey;         //新浪微博分享专用
 FOUNDATION_EXTERN NSString *const LDSDKShareContentRedirectURIKey;  //新浪微博分享专用
+FOUNDATION_EXTERN NSString *const LDSDKShareTypeKey;
 
 typedef NS_ENUM(NSUInteger, LDSDKShareToModule) {
     LDSDKShareToContact = 1,  //分享至第三方应用的联系人或组
     LDSDKShareToTimeLine,     //分享至第三方应用的timeLine
     LDSDKShareToOther         //分享至第三方应用的其他模块
+};
+
+typedef NS_ENUM(NSInteger, LDSDKShareType) {
+    LDSDKShareTypeContent,
+    LDSDKShareTypeImage,
+    LDSDKShareTypeOther,
 };
 
 @protocol LDSDKShareService <NSObject>
@@ -34,7 +41,7 @@ typedef NS_ENUM(NSUInteger, LDSDKShareToModule) {
  *  @param complete  分享之后的回调
  */
 - (void)shareWithContent:(NSDictionary *)content
-             shareModule:(NSUInteger)shareModule
+             shareModule:(LDSDKShareToModule)shareModule
               onComplete:(LDSDKShareCallback)complete;
 
 @end
