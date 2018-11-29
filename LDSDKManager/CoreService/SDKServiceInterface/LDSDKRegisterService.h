@@ -8,13 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//应用注册SDK服务，配置信息的Key
-extern NSString *const LDSDKConfigAppIdKey;
-extern NSString *const LDSDKConfigAppSecretKey;
-extern NSString *const LDSDKConfigAppSchemeKey;
-extern NSString *const LDSDKConfigAppPlatformTypeKey;
-extern NSString *const LDSDKConfigAppDescriptionKey;
-
 /*!
  *  @brief  第三方SDK注册、应用安装检测接口
  */

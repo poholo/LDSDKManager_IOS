@@ -23,6 +23,7 @@
 		1A6669356534E30AC3E1314A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6666A92112693B06AEABE7 /* Assets.xcassets */; };
 		1A66699052930A8E82B760AF /* NSDictionary+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666827B1B853A0AAE1F20B /* NSDictionary+LDSDKAdditions.m */; };
 		1A6669D6CFF088563876B3CC /* LDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66633E09CBED3FCCA5C8C2 /* LDAppDelegate.m */; };
+		1A666A3DFBB7201AD7466AE7 /* LDSDKConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6667469EA1DEDA4976C41E /* LDSDKConfig.m */; };
 		1A666A77EF0F8E29B9F35A2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666D12E40B9BDAA78964F3 /* main.m */; };
 		1A666A9669BE89DE26F24D41 /* LDSDKWXServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6661B72E77FC96DFD1F047 /* LDSDKWXServiceImpl.m */; };
 		1A666ABBC5D610EA239A38C9 /* libYixinSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A66653AAF6C17DAD0540A8E /* libYixinSDK.a */; };
@@ -30,10 +31,10 @@
 		1A666F1B3C8F6B000A880E85 /* SDKServiceConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A66622D7BAB93786AB90BD5 /* SDKServiceConfig.plist */; };
 		1A666F7F8C54FBC2D99F2BC4 /* LDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666995154ECC6E3E6ED2FF /* LDViewController.m */; };
 		1A666FEBCAB6B1F262CB0AD1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666BD7B28A1E141A676BE4 /* ViewController.m */; };
-		25DBD60221AFB1820013359C /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25DBD60121AFB1820013359C /* AlipaySDK.framework */; };
-		25DBD60521AFB2250013359C /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25DBD60321AFB2250013359C /* AlipaySDK.framework */; };
-		25DBD60621AFB2250013359C /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 25DBD60421AFB2250013359C /* AlipaySDK.bundle */; };
-		2F0E4C2319077B5D140DCB4F /* libPods-LDSDKManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3D8DA8DB0CB62DA9AA9DF8 /* libPods-LDSDKManager.a */; };
+		257811AD21AFEA27003EE9CD /* LDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666995154ECC6E3E6ED2FF /* LDViewController.m */; };
+		257811AE21AFEA2B003EE9CD /* LDViewDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6668CBF186183056B6F970 /* LDViewDataVM.m */; };
+		257811AF21AFEA4F003EE9CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
+		257811B021AFEB73003EE9CD /* Icon-Netease@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6665807600E09E48BE88B9 /* Icon-Netease@2x.png */; };
 		50542EB51B954E18008B9A79 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50542EB41B954E18008B9A79 /* CoreTelephony.framework */; };
 		50542EB71B95516B008B9A79 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50542EB61B95516B008B9A79 /* QuartzCore.framework */; };
 		50542EB91B955172008B9A79 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50542EB81B955172008B9A79 /* CoreText.framework */; };
@@ -49,6 +50,7 @@
 		62AAD3DD1B85A6C700C5E983 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AAD3DC1B85A6C700C5E983 /* MobileCoreServices.framework */; };
 		62AAD3DF1B85A78F00C5E983 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AAD3DE1B85A78F00C5E983 /* SystemConfiguration.framework */; };
 		832D2E06C45426F023E673C2 /* libPods-LDSDKManager_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 821519A0C24D67DA496BBF73 /* libPods-LDSDKManager_Example.a */; };
+		9A2B88BEE88F2BF54D2C091B /* libPods-LDSDKManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3D8DA8DB0CB62DA9AA9DF8 /* libPods-LDSDKManager.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,7 @@
 		1A66664A63DB7C25EC787523 /* LDSDKQQServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKQQServiceImpl.h; sourceTree = "<group>"; };
 		1A66669C0FD39D15692CDBFB /* UIImage+LDSDKShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LDSDKShare.h"; sourceTree = "<group>"; };
 		1A6666A92112693B06AEABE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A6667469EA1DEDA4976C41E /* LDSDKConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKConfig.m; sourceTree = "<group>"; };
 		1A6668207D98D0DAC0D1020F /* LDSDKYXServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKYXServiceImpl.m; sourceTree = "<group>"; };
 		1A666827B1B853A0AAE1F20B /* NSDictionary+LDSDKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LDSDKAdditions.m"; sourceTree = "<group>"; };
 		1A6668CBF186183056B6F970 /* LDViewDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDViewDataVM.m; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		1A666C63B9BD6F3ECD026D9E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1A666C89C97F3D522AE834EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LDSDKManager/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		1A666CE938E5ED9F05B9AE05 /* LDSDKQQServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKQQServiceImpl.m; sourceTree = "<group>"; };
+		1A666D055041F210EB93D2EC /* LDSDKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKConfig.h; sourceTree = "<group>"; };
 		1A666D12E40B9BDAA78964F3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1A666D16BD6690D6D3811881 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		1A666D323E4589340DEC9D99 /* NSString+LDSDKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LDSDKAdditions.m"; sourceTree = "<group>"; };
@@ -109,12 +113,9 @@
 		1A666EAD76A610BCA6664FD1 /* LDSDKShareService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKShareService.h; sourceTree = "<group>"; };
 		1A666EE9362D99B533A6AA77 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1A666FD103BB764D49CC1FAD /* LDSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKManager.h; sourceTree = "<group>"; };
-		1D07C2EC710CC2AB25FD3715 /* Pods-LDSDKManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager.release.xcconfig"; sourceTree = "<group>"; };
 		1EFC4B24D0ED0814EB838CD1 /* Pods-LDSDKManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager_Example/Pods-LDSDKManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		25DBD5EB21AF90770013359C /* LDSDKManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LDSDKManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25DBD60121AFB1820013359C /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlipaySDK.framework; path = ../LDSDKManager/AlipayPlatform/AliSDK/AlipaySDK.framework; sourceTree = "<group>"; };
-		25DBD60321AFB2250013359C /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
-		25DBD60421AFB2250013359C /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		50542EB41B954E18008B9A79 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		50542EB61B95516B008B9A79 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		50542EB81B955172008B9A79 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -133,10 +134,11 @@
 		62AAD3DA1B85A66B00C5E983 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		62AAD3DC1B85A6C700C5E983 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		62AAD3DE1B85A78F00C5E983 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		72512107CC1F4BE23D725F82 /* Pods-LDSDKManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager.release.xcconfig"; sourceTree = "<group>"; };
 		7A3D8DA8DB0CB62DA9AA9DF8 /* libPods-LDSDKManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LDSDKManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7FB6E7EA2AD63CB922AB7E /* Pods-LDSDKManager_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager_Example/Pods-LDSDKManager_Example.release.xcconfig"; sourceTree = "<group>"; };
 		821519A0C24D67DA496BBF73 /* libPods-LDSDKManager_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LDSDKManager_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE58272401E0E94450FB072E /* Pods-LDSDKManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager.debug.xcconfig"; sourceTree = "<group>"; };
+		A543721F56500307197535CD /* Pods-LDSDKManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,10 +146,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25DBD60221AFB1820013359C /* AlipaySDK.framework in Frameworks */,
-				25DBD60521AFB2250013359C /* AlipaySDK.framework in Frameworks */,
-				2F0E4C2319077B5D140DCB4F /* libPods-LDSDKManager.a in Frameworks */,
+				257811AF21AFEA4F003EE9CD /* UIKit.framework in Frameworks */,
 				1A666ABBC5D610EA239A38C9 /* libYixinSDK.a in Frameworks */,
+				9A2B88BEE88F2BF54D2C091B /* libPods-LDSDKManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +219,8 @@
 				1A66606B5932C2EA69C00253 /* SDKServiceUtils */,
 				1A66648A959F14230CD1F3E6 /* SDKServiceInterface */,
 				1A66622D7BAB93786AB90BD5 /* SDKServiceConfig.plist */,
+				1A6667469EA1DEDA4976C41E /* LDSDKConfig.m */,
+				1A666D055041F210EB93D2EC /* LDSDKConfig.h */,
 			);
 			path = CoreService;
 			sourceTree = "<group>";
@@ -267,19 +270,9 @@
 			path = WechatCommon;
 			sourceTree = "<group>";
 		};
-		1A666A7447A424C33B2C5318 /* AliSDK */ = {
-			isa = PBXGroup;
-			children = (
-				25DBD60421AFB2250013359C /* AlipaySDK.bundle */,
-				25DBD60321AFB2250013359C /* AlipaySDK.framework */,
-			);
-			path = AliSDK;
-			sourceTree = "<group>";
-		};
 		1A666AB5583CFFF60424A43E /* AlipayPlatform */ = {
 			isa = PBXGroup;
 			children = (
-				1A666A7447A424C33B2C5318 /* AliSDK */,
 				1A666A3F8C3979663A31E2A6 /* LDSDKAliPayServiceImpl.h */,
 				1A6665E1328E1C182A55E35E /* LDSDKAliPayServiceImpl.m */,
 			);
@@ -450,8 +443,8 @@
 			children = (
 				1EFC4B24D0ED0814EB838CD1 /* Pods-LDSDKManager_Example.debug.xcconfig */,
 				7F7FB6E7EA2AD63CB922AB7E /* Pods-LDSDKManager_Example.release.xcconfig */,
-				EE58272401E0E94450FB072E /* Pods-LDSDKManager.debug.xcconfig */,
-				1D07C2EC710CC2AB25FD3715 /* Pods-LDSDKManager.release.xcconfig */,
+				A543721F56500307197535CD /* Pods-LDSDKManager.debug.xcconfig */,
+				72512107CC1F4BE23D725F82 /* Pods-LDSDKManager.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -463,11 +456,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25DBD60021AF90790013359C /* Build configuration list for PBXNativeTarget "LDSDKManager" */;
 			buildPhases = (
-				CC4580232365CAD14370A51D /* [CP] Check Pods Manifest.lock */,
+				544132A1BA9D42EB1A12BA9F /* [CP] Check Pods Manifest.lock */,
 				25DBD5E721AF90770013359C /* Sources */,
 				25DBD5E821AF90770013359C /* Frameworks */,
 				25DBD5E921AF90770013359C /* Resources */,
-				F883DA00883D141068610503 /* [CP] Copy Pods Resources */,
+				7948F02988FBF62E02963AE5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -564,10 +557,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25DBD60621AFB2250013359C /* AlipaySDK.bundle in Resources */,
 				1A6669356534E30AC3E1314A /* Assets.xcassets in Resources */,
 				1A666BEA3BEDB1D90D9995E2 /* LaunchScreen.storyboard in Resources */,
 				1A6660EED1E05ED65D7AF5A9 /* Main.storyboard in Resources */,
+				257811B021AFEB73003EE9CD /* Icon-Netease@2x.png in Resources */,
 				1A666F1B3C8F6B000A880E85 /* SDKServiceConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -610,7 +603,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CC4580232365CAD14370A51D /* [CP] Check Pods Manifest.lock */ = {
+		544132A1BA9D42EB1A12BA9F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -628,6 +621,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7948F02988FBF62E02963AE5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager-resources.sh",
+				"${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle",
+				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DBE948ED0FE406292C65FD56 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -635,7 +648,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager_Example/Pods-LDSDKManager_Example-resources.sh",
-				"${PODS_ROOT}/LDSDKManager/LDSDKManager/AlipayPlatform/AliSDK/AlipaySDK.bundle",
+				"${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle",
 				"${PODS_ROOT}/LDSDKManager/LDSDKManager/CoreService/SDKServiceConfig.plist",
 				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
 			);
@@ -648,24 +661,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager_Example/Pods-LDSDKManager_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F883DA00883D141068610503 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager-resources.sh",
-				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -684,7 +679,9 @@
 				1A6668F7F8FAB1196C2A37DB /* LDSDKWeiboServiceImpl.m in Sources */,
 				1A6667665600994F4653A1E7 /* LDSDKYXServiceImpl.m in Sources */,
 				1A66624AD7271C1476381E8F /* LDSDKAliPayServiceImpl.m in Sources */,
+				257811AD21AFEA27003EE9CD /* LDViewController.m in Sources */,
 				1A666024B00236DE0BBFEF7C /* NSString+LDSDKAdditions.m in Sources */,
+				257811AE21AFEA2B003EE9CD /* LDViewDataVM.m in Sources */,
 				1A66699052930A8E82B760AF /* NSDictionary+LDSDKAdditions.m in Sources */,
 				1A666A9669BE89DE26F24D41 /* LDSDKWXServiceImpl.m in Sources */,
 			);
@@ -699,6 +696,7 @@
 				1A6666242CA9ABEBE0946303 /* LDViewDataVM.m in Sources */,
 				1A666A77EF0F8E29B9F35A2F /* main.m in Sources */,
 				1A666F7F8C54FBC2D99F2BC4 /* LDViewController.m in Sources */,
+				1A666A3DFBB7201AD7466AE7 /* LDSDKConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,7 +739,7 @@
 /* Begin XCBuildConfiguration section */
 		25DBD5FE21AF90790013359C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE58272401E0E94450FB072E /* Pods-LDSDKManager.debug.xcconfig */;
+			baseConfigurationReference = A543721F56500307197535CD /* Pods-LDSDKManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -765,12 +763,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 6FNUHS4H7D;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/MCTencentOpenAPI/SDK\"",
-					"\"$(SRCROOT)/../LDSDKManager/AlipayPlatform/AliSDK\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -803,7 +801,7 @@
 		};
 		25DBD5FF21AF90790013359C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D07C2EC710CC2AB25FD3715 /* Pods-LDSDKManager.release.xcconfig */;
+			baseConfigurationReference = 72512107CC1F4BE23D725F82 /* Pods-LDSDKManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -828,11 +826,11 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 6FNUHS4H7D;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/MCTencentOpenAPI/SDK\"",
-					"\"$(SRCROOT)/../LDSDKManager/AlipayPlatform/AliSDK\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -946,20 +944,23 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 6FNUHS4H7D;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/LDSDKManager/AlipayPlatform/AliSDK",
-					"$(PROJECT_DIR)/LDSDKManager/QQPlatform/LDQQSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LDSDKManagerDemo/LDSDKManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PROJECT_DIR}/../LDSDKManager/YixinPlatform/YiXinSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/AlipaySDK-iOS\"",
+					"\"${PODS_ROOT}/Headers/Public/LDSDKManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MCTencentOpenAPI\"",
+					"\"${PODS_ROOT}/Headers/Public/SNWeChatSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/Weibo_SDK\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/LDSDKManagerDemo/Code/LDSDKManager-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/LDSDKManager/WechatPlatform/WeChatSDK",
-					"$(PROJECT_DIR)/LDSDKManager/YixinPlatform/YiXinSDK",
-					"$(PROJECT_DIR)/LDSDKManager/WeiboPlatform/libWeiboSDK",
 					"\"${PROJECT_DIR}/../LDSDKManager/YixinPlatform/YiXinSDK\"/**",
 				);
 				MODULE_NAME = ExampleApp;
@@ -969,6 +970,8 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = RootDev;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				VALID_ARCHS = "arm64 arm64e";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -984,20 +987,23 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 6FNUHS4H7D;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/LDSDKManager/AlipayPlatform/AliSDK",
-					"$(PROJECT_DIR)/LDSDKManager/QQPlatform/LDQQSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LDSDKManagerDemo/LDSDKManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PROJECT_DIR}/../LDSDKManager/YixinPlatform/YiXinSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/AlipaySDK-iOS\"",
+					"\"${PODS_ROOT}/Headers/Public/LDSDKManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MCTencentOpenAPI\"",
+					"\"${PODS_ROOT}/Headers/Public/SNWeChatSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/Weibo_SDK\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/LDSDKManagerDemo/Code/LDSDKManager-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/LDSDKManager/WechatPlatform/WeChatSDK",
-					"$(PROJECT_DIR)/LDSDKManager/YixinPlatform/YiXinSDK",
-					"$(PROJECT_DIR)/LDSDKManager/WeiboPlatform/libWeiboSDK",
 					"\"${PROJECT_DIR}/../LDSDKManager/YixinPlatform/YiXinSDK\"/**",
 				);
 				MODULE_NAME = ExampleApp;
@@ -1007,6 +1013,8 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = RootDev;
 				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				VALID_ARCHS = "arm64 arm64e";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

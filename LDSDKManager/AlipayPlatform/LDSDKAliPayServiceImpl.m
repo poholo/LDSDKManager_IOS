@@ -7,7 +7,10 @@
 //
 
 #import "LDSDKAliPayServiceImpl.h"
+
 #import <AlipaySDK/AlipaySDK.h>
+
+#import "LDSDKConfig.h"
 
 @interface LDSDKAliPayServiceImpl ()
 

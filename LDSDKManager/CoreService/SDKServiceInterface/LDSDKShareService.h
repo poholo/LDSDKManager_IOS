@@ -10,14 +10,6 @@
 
 typedef void (^LDSDKShareCallback)(BOOL success, NSError *error);
 
-//使用SDK分享，分享内容信息的Key
-extern NSString *const LDSDKShareContentTitleKey;
-extern NSString *const LDSDKShareContentDescriptionKey;
-extern NSString *const LDSDKShareContentImageKey;
-extern NSString *const LDSDKShareContentWapUrlKey;
-extern NSString *const LDSDKShareContentTextKey;         //新浪微博分享专用
-extern NSString *const LDSDKShareContentRedirectURIKey;  //新浪微博分享专用
-extern NSString *const LDSDKShareTypeKey;
 
 typedef NS_ENUM(NSUInteger, LDSDKShareToModule) {
     LDSDKShareToContact = 1,  //分享至第三方应用的联系人或组

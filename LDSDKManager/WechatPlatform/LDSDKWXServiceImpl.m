@@ -8,10 +8,12 @@
 
 #import "LDSDKWXServiceImpl.h"
 
-#import "WXApi.h"
+#import <SNWeChatSDK/WXApi.h>
+
 #import "NSString+LDSDKAdditions.h"
 #import "NSDictionary+LDSDKAdditions.h"
 #import "UIImage+LDSDKShare.h"
+#import "LDSDKConfig.h"
 
 NSString *const kWXPlatformLogin = @"login_wx";
 NSString *const kWX_APPID_KEY = @"appid";

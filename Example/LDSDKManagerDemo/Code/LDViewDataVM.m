@@ -5,40 +5,42 @@
 
 #import "LDViewDataVM.h"
 
+#import <UIKit/UIKit.h>
+
 
 @implementation LDViewDataVM
 
 - (NSDictionary *)shareContentWithShareType:(LDSDKShareType)shareType {
     NSDictionary *dict = nil;
-    switch (shareType) {
-        case LDSDKShareTypeContent: {
-            dict = @{LDSDKShareContentTitleKey: @"测试分享",
-                    LDSDKShareContentDescriptionKey: @"测试分享详情",
-                    LDSDKShareContentWapUrlKey: @"www.baidu.com",
-                    LDSDKShareContentImageKey: [UIImage imageNamed:@"Icon-Netease"],
-                    LDSDKShareContentTextKey: @"text",
-                    LDSDKShareTypeKey: @(LDSDKShareTypeContent)};
-        }
-            break;
-        case LDSDKShareTypeImage: {
-            dict = @{LDSDKShareContentTitleKey: @"测试分享",
-                    LDSDKShareContentDescriptionKey: @"测试分享详情",
-                    LDSDKShareContentWapUrlKey: @"www.baidu.com",
-                    LDSDKShareContentImageKey: [UIImage imageNamed:@"Icon-Netease"],
-                    LDSDKShareContentTextKey: @"text",
-                    LDSDKShareTypeKey: @(LDSDKShareTypeImage)};
-        }
-            break;
-        case LDSDKShareTypeOther : {
-            dict = @{LDSDKShareContentTitleKey: @"测试分享",
-                    LDSDKShareContentDescriptionKey: @"测试分享详情",
-                    LDSDKShareContentWapUrlKey: @"www.baidu.com",
-                    LDSDKShareContentImageKey: [UIImage imageNamed:@"Icon-Netease"],
-                    LDSDKShareContentTextKey: @"text",
-                    LDSDKShareTypeKey: @(LDSDKShareTypeImage)};
-        }
-            break;
-    }
+//    switch (shareType) {
+//        case LDSDKShareTypeContent: {
+//            dict = @{LDSDKShareContentTitleKey: @"测试分享",
+//                    LDSDKShareContentDescriptionKey: @"测试分享详情",
+//                    LDSDKShareContentWapUrlKey: @"www.baidu.com",
+//                    LDSDKShareContentImageKey: [UIImage imageNamed:@"Icon-Netease"],
+//                    LDSDKShareContentTextKey: @"text",
+//                    LDSDKShareTypeKey: @(LDSDKShareTypeContent)};
+//        }
+//            break;
+//        case LDSDKShareTypeImage: {
+//            dict = @{LDSDKShareContentTitleKey: @"测试分享",
+//                    LDSDKShareContentDescriptionKey: @"测试分享详情",
+//                    LDSDKShareContentWapUrlKey: @"www.baidu.com",
+//                    LDSDKShareContentImageKey: [UIImage imageNamed:@"Icon-Netease"],
+//                    LDSDKShareContentTextKey: @"text",
+//                    LDSDKShareTypeKey: @(LDSDKShareTypeImage)};
+//        }
+//            break;
+//        case LDSDKShareTypeOther : {
+//            dict = @{LDSDKShareContentTitleKey: @"测试分享",
+//                    LDSDKShareContentDescriptionKey: @"测试分享详情",
+//                    LDSDKShareContentWapUrlKey: @"www.baidu.com",
+//                    LDSDKShareContentImageKey: [UIImage imageNamed:@"Icon-Netease"],
+//                    LDSDKShareContentTextKey: @"text",
+//                    LDSDKShareTypeKey: @(LDSDKShareTypeImage)};
+//        }
+//            break;
+//    }
     return dict;
 }
 

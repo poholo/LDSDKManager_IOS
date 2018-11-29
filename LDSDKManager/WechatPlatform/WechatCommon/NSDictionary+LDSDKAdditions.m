@@ -10,8 +10,7 @@
 
 @implementation NSDictionary (LDSDKAdditions)
 
-- (BOOL)boolForKey:(NSString *)key defaultValue:(BOOL)defaultValue
-{
+- (BOOL)boolForKey:(NSString *)key defaultValue:(BOOL)defaultValue {
     NSObject *object = [self objectForKey:key];
 
     if (object == nil || object == [NSNull null]) {
@@ -19,13 +18,12 @@
     }
 
     if ([object respondsToSelector:@selector(boolValue)]) {
-        return [(id)object boolValue];
+        return [(id) object boolValue];
     }
     return defaultValue;
 }
 
-- (int)intForKey:(NSString *)key defaultValue:(int)defaultValue
-{
+- (int)intForKey:(NSString *)key defaultValue:(int)defaultValue {
     NSObject *object = [self objectForKey:key];
 
     if (object == nil || object == [NSNull null]) {
@@ -33,13 +31,12 @@
     }
 
     if ([object respondsToSelector:@selector(intValue)]) {
-        return [(id)object intValue];
+        return [(id) object intValue];
     }
     return defaultValue;
 }
 
-- (NSInteger)integerForKey:(NSString *)key defaultValue:(NSInteger)defaultValue
-{
+- (NSInteger)integerForKey:(NSString *)key defaultValue:(NSInteger)defaultValue {
     NSObject *object = [self objectForKey:key];
 
     if (object == nil || object == [NSNull null]) {
@@ -47,13 +44,12 @@
     }
 
     if ([object respondsToSelector:@selector(integerValue)]) {
-        return [(id)object integerValue];
+        return [(id) object integerValue];
     }
     return defaultValue;
 }
 
-- (long)longForKey:(NSString *)key defaultValue:(long)defaultValue
-{
+- (long)longForKey:(NSString *)key defaultValue:(long)defaultValue {
     NSObject *object = [self objectForKey:key];
 
     if (object == nil || object == [NSNull null]) {
@@ -61,13 +57,12 @@
     }
 
     if ([object respondsToSelector:@selector(longValue)]) {
-        return [(id)object longValue];
+        return [(id) object longValue];
     }
     return defaultValue;
 }
 
-- (double)doubleForKey:(NSString *)key defaultValue:(double)defaultValue
-{
+- (double)doubleForKey:(NSString *)key defaultValue:(double)defaultValue {
     NSObject *object = [self objectForKey:key];
 
     if (object == nil || object == [NSNull null]) {
@@ -75,13 +70,12 @@
     }
 
     if ([object respondsToSelector:@selector(doubleValue)]) {
-        return [(id)object doubleValue];
+        return [(id) object doubleValue];
     }
     return defaultValue;
 }
 
-- (float)floatForKey:(NSString *)key defaultValue:(float)defaultValue
-{
+- (float)floatForKey:(NSString *)key defaultValue:(float)defaultValue {
     NSObject *object = [self objectForKey:key];
 
     if (object == nil || object == [NSNull null]) {
@@ -89,13 +83,12 @@
     }
 
     if ([object respondsToSelector:@selector(floatValue)]) {
-        return [(id)object floatValue];
+        return [(id) object floatValue];
     }
     return defaultValue;
 }
 
-- (NSString *)stringForKey:(NSString *)key
-{
+- (NSString *)stringForKey:(NSString *)key {
     NSObject *object = [self objectForKey:key];
 
     if (object == nil || object == [NSNull null]) {
@@ -103,13 +96,12 @@
     }
 
     if ([object isKindOfClass:[NSString class]]) {
-        return (NSString *)object;
+        return (NSString *) object;
     }
     return [NSString stringWithFormat:@"%@", object];
 }
 
-- (id)validObjectForKey:(NSString *)key
-{
+- (id)validObjectForKey:(NSString *)key {
     NSObject *object = [self objectForKey:key];
 
     if (object == [NSNull null]) {
@@ -118,20 +110,18 @@
     return object;
 }
 
-- (NSArray *)arrayForKey:(NSString *)key
-{
+- (NSArray *)arrayForKey:(NSString *)key {
     NSObject *object = [self objectForKey:key];
 
     if ([object isKindOfClass:[NSArray class]]) {
-        return (NSArray *)object;
+        return (NSArray *) object;
     } else if ([object isKindOfClass:[NSDictionary class]]) {
-        return [(NSDictionary *)object allValues];
+        return [(NSDictionary *) object allValues];
     }
     return nil;
 }
 
-- (NSDate *)dateForKey:(NSString *)key
-{
+- (NSDate *)dateForKey:(NSString *)key {
     NSString *object = [self objectForKey:key];
 
     if ([object isKindOfClass:[NSString class]]) {
@@ -161,20 +151,17 @@
 
 @implementation NSMutableDictionary (LDSDKAdditions)
 
-- (void)setValidObject:(id)anObject forKey:(id)aKey
-{
+- (void)setValidObject:(id)anObject forKey:(id)aKey {
     if (anObject) {
         [self setObject:anObject forKey:aKey];
     }
 }
 
-- (void)setInteger:(NSInteger)value forKey:(id)key
-{
+- (void)setInteger:(NSInteger)value forKey:(id)key {
     [self setValue:[NSNumber numberWithInteger:value] forKey:key];
 }
 
-- (void)setDouble:(double)value forKey:(id)key
-{
+- (void)setDouble:(double)value forKey:(id)key {
     [self setValue:[NSNumber numberWithDouble:value] forKey:key];
 }
 

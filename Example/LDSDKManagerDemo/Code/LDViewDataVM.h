@@ -4,7 +4,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LDSDKShareService.h"
+
+#import <LDSDKManager/LDSDKShareService.h>
 
 
 @interface LDViewDataVM : NSObject

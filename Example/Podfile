@@ -6,9 +6,9 @@ target 'LDSDKManager_Example' do
 end
 
 target 'LDSDKManager' do
-
     pod 'MCTencentOpenAPI', '3.3.3'
     pod 'SNWeChatSDK'
     pod 'Weibo_SDK', '3.2.3'
+    pod 'AlipaySDK-iOS'
 
 end

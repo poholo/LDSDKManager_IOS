@@ -10,17 +10,6 @@
 
 typedef void (^LDSDKLoginCallback)(NSDictionary *oauthInfo, NSDictionary *userInfo, NSError *error);
 
-//微信登陆，用户信息的Key
-extern NSString *const kWX_OPENID_KEY;
-extern NSString *const kWX_NICKNAME_KEY;
-extern NSString *const kWX_AVATARURL_KEY;
-extern NSString *const kWX_ACCESSTOKEN_KEY;
-// QQ登陆，用户信息的Key
-extern NSString *const kQQ_OPENID_KEY;
-extern NSString *const kQQ_TOKEN_KEY;
-extern NSString *const kQQ_NICKNAME_KEY;
-extern NSString *const kQQ_EXPIRADATE_KEY;
-extern NSString *const kQQ_AVATARURL_KEY;
 
 @protocol LDSDKAuthService <NSObject>
 

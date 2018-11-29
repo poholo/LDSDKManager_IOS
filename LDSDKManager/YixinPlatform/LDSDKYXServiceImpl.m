@@ -9,6 +9,7 @@
 #import "LDSDKYXServiceImpl.h"
 #import "YXApi.h"
 #import "UIImage+LDSDKShare.h"
+#import "LDSDKConfig.h"
 
 @interface LDSDKYXServiceImpl () <YXApiDelegate>
 

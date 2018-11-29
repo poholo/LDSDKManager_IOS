@@ -7,7 +7,9 @@
 //
 
 #import "LDSDKWeiboServiceImpl.h"
+
 #import "WeiboSDK.h"
+#import "LDSDKConfig.h"
 
 typedef void (^LDWeiboCallbackBlock)(WBBaseResponse *resp);
 

@@ -12,6 +12,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 
 #import "UIImage+LDSDKShare.h"
+#import "LDSDKConfig.h"
 
 
 NSString const *kQQPlatformLogin = @"login_qq";

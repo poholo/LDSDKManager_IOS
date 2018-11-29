@@ -7,10 +7,13 @@
 //
 
 #import "LDAppDelegate.h"
-#import "LDSDKManager.h"
-#import "LDSDKRegisterService.h"
+
+#import <LDSDKManager/LDSDKManager.h>
+#import <LDSDKManager/LDSDKAuthService.h>
+#import <LDSDKManager/LDSDKPayService.h>
+#import <LDSDKManager/LDSDKRegisterService.h>
+
 #import "LDViewController.h"
-#import "LDSDKPayService.h"
 
 @implementation LDAppDelegate
 
