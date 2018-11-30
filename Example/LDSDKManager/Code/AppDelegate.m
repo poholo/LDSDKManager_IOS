@@ -10,7 +10,7 @@
 
 #import "LDSDKRegisterService.h"
 #import "LDSDKManager.h"
-#import "LDViewController.h"
+#import "LLDViewController.h"
 
 @interface AppDelegate ()
 
@@ -28,34 +28,34 @@
     /*!
      *  @brief  批量注册第三方SDK
      */
-//    NSArray *regPlatformConfigList = @[
-//            @{
-//                    LDSDKConfigAppIdKey: @"wxd6b4d4ada6beb442",
-//                    LDSDKConfigAppSecretKey: @"a2be3d08a304c26d1e538cd3f02e5362",
-//                    LDSDKConfigAppDescriptionKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"],
-//                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformWeChat)
-//            },
-//            @{
-//                    LDSDKConfigAppIdKey: @"1106976672",
-//                    LDSDKConfigAppSecretKey: @"D76uzXaBnfC4hxyO",
-//                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformQQ)
-//            },
-//            @{
-//                    LDSDKConfigAppIdKey: @"4272693281",
-//                    LDSDKConfigAppSecretKey: @"",
-//                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformYiXin)
-//            },
-//            @{
-//                    LDSDKConfigAppSchemeKey: @"alipay://",
-//                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformAliPay)
-//            },
-//            @{LDSDKConfigAppIdKey: @"3e6b76df2ff8b3aafb050c5defe7427f",
-//                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformWeibo)},
-//    ];
-//
-//    [LDSDKManager registerWithPlatformConfigList:regPlatformConfigList];
+    NSArray *regPlatformConfigList = @[
+            @{
+                    LDSDKConfigAppIdKey: @"wxd6b4d4ada6beb442",
+                    LDSDKConfigAppSecretKey: @"a2be3d08a304c26d1e538cd3f02e5362",
+                    LDSDKConfigAppDescriptionKey:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"],
+                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformWeChat)
+            },
+            @{
+                    LDSDKConfigAppIdKey: @"1106976672",
+                    LDSDKConfigAppSecretKey: @"D76uzXaBnfC4hxyO",
+                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformQQ)
+            },
+            @{
+                    LDSDKConfigAppIdKey: @"4272693281",
+                    LDSDKConfigAppSecretKey: @"",
+                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformYiXin)
+            },
+            @{
+                    LDSDKConfigAppSchemeKey: @"alipay://",
+                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformAliPay)
+            },
+            @{LDSDKConfigAppIdKey: @"3e6b76df2ff8b3aafb050c5defe7427f",
+                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformWeibo)},
+    ];
 
-    LDViewController *view = [[LDViewController alloc] init];
+    [LDSDKManager registerWithPlatformConfigList:regPlatformConfigList];
+
+    LLDViewController *view = [[LLDViewController alloc] init];
     self.window.rootViewController = view;
     [self.window makeKeyAndVisible];
 
