@@ -50,7 +50,6 @@
 		62AAD3DD1B85A6C700C5E983 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AAD3DC1B85A6C700C5E983 /* MobileCoreServices.framework */; };
 		62AAD3DF1B85A78F00C5E983 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62AAD3DE1B85A78F00C5E983 /* SystemConfiguration.framework */; };
 		832D2E06C45426F023E673C2 /* libPods-LDSDKManager_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 821519A0C24D67DA496BBF73 /* libPods-LDSDKManager_Example.a */; };
-		9A2B88BEE88F2BF54D2C091B /* libPods-LDSDKManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3D8DA8DB0CB62DA9AA9DF8 /* libPods-LDSDKManager.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,11 +133,9 @@
 		62AAD3DA1B85A66B00C5E983 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		62AAD3DC1B85A6C700C5E983 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		62AAD3DE1B85A78F00C5E983 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		72512107CC1F4BE23D725F82 /* Pods-LDSDKManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager.release.xcconfig"; sourceTree = "<group>"; };
 		7A3D8DA8DB0CB62DA9AA9DF8 /* libPods-LDSDKManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LDSDKManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7FB6E7EA2AD63CB922AB7E /* Pods-LDSDKManager_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager_Example/Pods-LDSDKManager_Example.release.xcconfig"; sourceTree = "<group>"; };
 		821519A0C24D67DA496BBF73 /* libPods-LDSDKManager_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LDSDKManager_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A543721F56500307197535CD /* Pods-LDSDKManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +145,6 @@
 			files = (
 				257811AF21AFEA4F003EE9CD /* UIKit.framework in Frameworks */,
 				1A666ABBC5D610EA239A38C9 /* libYixinSDK.a in Frameworks */,
-				9A2B88BEE88F2BF54D2C091B /* libPods-LDSDKManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,8 +439,6 @@
 			children = (
 				1EFC4B24D0ED0814EB838CD1 /* Pods-LDSDKManager_Example.debug.xcconfig */,
 				7F7FB6E7EA2AD63CB922AB7E /* Pods-LDSDKManager_Example.release.xcconfig */,
-				A543721F56500307197535CD /* Pods-LDSDKManager.debug.xcconfig */,
-				72512107CC1F4BE23D725F82 /* Pods-LDSDKManager.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -456,11 +450,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25DBD60021AF90790013359C /* Build configuration list for PBXNativeTarget "LDSDKManager" */;
 			buildPhases = (
-				544132A1BA9D42EB1A12BA9F /* [CP] Check Pods Manifest.lock */,
 				25DBD5E721AF90770013359C /* Sources */,
 				25DBD5E821AF90770013359C /* Frameworks */,
 				25DBD5E921AF90770013359C /* Resources */,
-				7948F02988FBF62E02963AE5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -603,44 +595,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		544132A1BA9D42EB1A12BA9F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LDSDKManager-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7948F02988FBF62E02963AE5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager-resources.sh",
-				"${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle",
-				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager/Pods-LDSDKManager-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DBE948ED0FE406292C65FD56 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -739,7 +693,6 @@
 /* Begin XCBuildConfiguration section */
 		25DBD5FE21AF90790013359C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A543721F56500307197535CD /* Pods-LDSDKManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -801,7 +754,6 @@
 		};
 		25DBD5FF21AF90790013359C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72512107CC1F4BE23D725F82 /* Pods-LDSDKManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;

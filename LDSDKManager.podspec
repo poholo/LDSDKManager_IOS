@@ -25,7 +25,6 @@ Pod::Spec.new do |s|
     s.subspec 'QQPlatform' do |ss|
         ss.public_header_files = 'LDSDKManager/QQPlatform/*.h'
         ss.source_files = 'LDSDKManager/QQPlatform/*.{h,m,mm}'
-        ss.dependency 'MCTencentOpenAPI', '3.3.3'
         ss.dependency 'LDSDKManager/CoreService'
     end
 
@@ -34,7 +33,6 @@ Pod::Spec.new do |s|
         ss.public_header_files = 'LDSDKManager/WechatPlatform/*.h'
         ss.source_files = 'LDSDKManager/WechatPlatform/**/*.{h,m,mm}'
                           'LDSDKManager/WechatPlatform/*.{h,m,mm}'
-        ss.dependency 'SNWeChatSDK'
         ss.dependency 'LDSDKManager/CoreService'
     end
 
@@ -50,7 +48,6 @@ Pod::Spec.new do |s|
     s.subspec 'WeiboPlatform' do |ss|
         ss.public_header_files = 'LDSDKManager/WeiboPlatform/*.h'
         ss.source_files = 'LDSDKManager/WeiboPlatform/*{h,m,mm}'
-        ss.dependency 'Weibo_SDK', '3.2.3'
         ss.dependency 'LDSDKManager/CoreService'
     end
 
@@ -58,10 +55,13 @@ Pod::Spec.new do |s|
     s.subspec 'AlipayPlatform' do |ss|
         ss.public_header_files = 'LDSDKManager/AlipayPlatform/*.h'
         ss.source_files = 'LDSDKManager/AlipayPlatform/*{h,m,mm}'
-        ss.dependency 'AlipaySDK-iOS'
         ss.dependency 'LDSDKManager/CoreService'
     end
 
     s.frameworks = 'UIKit', 'CoreGraphics', 'Foundation'
+    s.dependency 'MCTencentOpenAPI', '3.3.3'
+    s.dependency 'SNWeChatSDK'
+    s.dependency 'Weibo_SDK', '3.2.3'
+    s.dependency 'AlipaySDK-iOS'
 
 end

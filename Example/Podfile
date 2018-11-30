@@ -4,11 +4,3 @@ platform :ios, '8.0'
 target 'LDSDKManager_Example' do
   pod 'LDSDKManager', git: 'https://github.com/poholo/LDSDKManager_IOS'
 end
-
-target 'LDSDKManager' do
-    pod 'MCTencentOpenAPI', '3.3.3'
-    pod 'SNWeChatSDK'
-    pod 'Weibo_SDK', '3.2.3'
-    pod 'AlipaySDK-iOS'
-
-end
