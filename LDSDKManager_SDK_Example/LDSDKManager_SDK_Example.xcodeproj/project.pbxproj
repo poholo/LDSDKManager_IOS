@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		25BED6A121B23078000EBCB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6A021B23078000EBCB4 /* AppDelegate.m */; };
+		25BED6A421B23078000EBCB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6A321B23078000EBCB4 /* ViewController.m */; };
+		25BED6A721B23078000EBCB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25BED6A521B23078000EBCB4 /* Main.storyboard */; };
+		25BED6A921B23079000EBCB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25BED6A821B23079000EBCB4 /* Assets.xcassets */; };
+		25BED6AC21B23079000EBCB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25BED6AA21B23079000EBCB4 /* LaunchScreen.storyboard */; };
+		25BED6AF21B23079000EBCB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6AE21B23079000EBCB4 /* main.m */; };
+		25BED6E121B2314E000EBCB4 /* LLDViewDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6B721B2314D000EBCB4 /* LLDViewDataVM.m */; };
+		25BED6E221B2314E000EBCB4 /* LLDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6B821B2314D000EBCB4 /* LLDViewController.m */; };
+		25BED6E321B2314E000EBCB4 /* SDKServiceConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25BED6BC21B2314D000EBCB4 /* SDKServiceConfig.plist */; };
+		25BED6E421B2314E000EBCB4 /* LDSDKConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6BD21B2314D000EBCB4 /* LDSDKConfig.m */; };
+		25BED6E521B2314E000EBCB4 /* LDSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6BE21B2314D000EBCB4 /* LDSDKManager.m */; };
+		25BED6E621B2314E000EBCB4 /* UIImage+LDSDKShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6C121B2314D000EBCB4 /* UIImage+LDSDKShare.m */; };
+		25BED6E721B2314E000EBCB4 /* LDSDKQQServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6CB21B2314D000EBCB4 /* LDSDKQQServiceImpl.m */; };
+		25BED6E821B2314E000EBCB4 /* LDSDKYXServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6CE21B2314D000EBCB4 /* LDSDKYXServiceImpl.m */; };
+		25BED6E921B2314E000EBCB4 /* libYixinSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BED6D021B2314E000EBCB4 /* libYixinSDK.a */; };
+		25BED6EA21B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6D421B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m */; };
+		25BED6EB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m */; };
+		25BED6EC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m */; };
+		25BED6ED21B2314E000EBCB4 /* LDSDKWXServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DD21B2314E000EBCB4 /* LDSDKWXServiceImpl.m */; };
+		25BED6EE21B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m */; };
+		25BED6F121B232AE000EBCB4 /* Icon-Netease@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25BED6F021B232AE000EBCB4 /* Icon-Netease@2x.png */; };
+		B2E1CB74B53D4DFBF93169C4 /* libPods-LDSDKManager_SDK_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1791953689D19644724296 /* libPods-LDSDKManager_SDK_Example.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		25BED69C21B23078000EBCB4 /* LDSDKManager_SDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LDSDKManager_SDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		25BED69F21B23078000EBCB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		25BED6A021B23078000EBCB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		25BED6A221B23078000EBCB4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		25BED6A321B23078000EBCB4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		25BED6A621B23078000EBCB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		25BED6A821B23079000EBCB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		25BED6AB21B23079000EBCB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		25BED6AD21B23079000EBCB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25BED6AE21B23079000EBCB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		25BED6B621B2314D000EBCB4 /* LLDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDViewController.h; sourceTree = "<group>"; };
+		25BED6B721B2314D000EBCB4 /* LLDViewDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDViewDataVM.m; sourceTree = "<group>"; };
+		25BED6B821B2314D000EBCB4 /* LLDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDViewController.m; sourceTree = "<group>"; };
+		25BED6B921B2314D000EBCB4 /* LLDViewDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDViewDataVM.h; sourceTree = "<group>"; };
+		25BED6BC21B2314D000EBCB4 /* SDKServiceConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SDKServiceConfig.plist; sourceTree = "<group>"; };
+		25BED6BD21B2314D000EBCB4 /* LDSDKConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKConfig.m; sourceTree = "<group>"; };
+		25BED6BE21B2314D000EBCB4 /* LDSDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKManager.m; sourceTree = "<group>"; };
+		25BED6C021B2314D000EBCB4 /* UIImage+LDSDKShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LDSDKShare.h"; sourceTree = "<group>"; };
+		25BED6C121B2314D000EBCB4 /* UIImage+LDSDKShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LDSDKShare.m"; sourceTree = "<group>"; };
+		25BED6C321B2314D000EBCB4 /* LDSDKRegisterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKRegisterService.h; sourceTree = "<group>"; };
+		25BED6C421B2314D000EBCB4 /* LDSDKPayService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKPayService.h; sourceTree = "<group>"; };
+		25BED6C521B2314D000EBCB4 /* LDSDKShareService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKShareService.h; sourceTree = "<group>"; };
+		25BED6C621B2314D000EBCB4 /* LDSDKAuthService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAuthService.h; sourceTree = "<group>"; };
+		25BED6C721B2314D000EBCB4 /* LDSDKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKConfig.h; sourceTree = "<group>"; };
+		25BED6C821B2314D000EBCB4 /* LDSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKManager.h; sourceTree = "<group>"; };
+		25BED6CA21B2314D000EBCB4 /* LDSDKQQServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKQQServiceImpl.h; sourceTree = "<group>"; };
+		25BED6CB21B2314D000EBCB4 /* LDSDKQQServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKQQServiceImpl.m; sourceTree = "<group>"; };
+		25BED6CD21B2314D000EBCB4 /* LDSDKYXServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKYXServiceImpl.h; sourceTree = "<group>"; };
+		25BED6CE21B2314D000EBCB4 /* LDSDKYXServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKYXServiceImpl.m; sourceTree = "<group>"; };
+		25BED6D021B2314E000EBCB4 /* libYixinSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYixinSDK.a; sourceTree = "<group>"; };
+		25BED6D121B2314E000EBCB4 /* YXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXApiObject.h; sourceTree = "<group>"; };
+		25BED6D221B2314E000EBCB4 /* YXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXApi.h; sourceTree = "<group>"; };
+		25BED6D421B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWeiboServiceImpl.m; sourceTree = "<group>"; };
+		25BED6D521B2314E000EBCB4 /* LDSDKWeiboServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWeiboServiceImpl.h; sourceTree = "<group>"; };
+		25BED6D721B2314E000EBCB4 /* LDSDKWXServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWXServiceImpl.h; sourceTree = "<group>"; };
+		25BED6D921B2314E000EBCB4 /* NSString+LDSDKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LDSDKAdditions.h"; sourceTree = "<group>"; };
+		25BED6DA21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LDSDKAdditions.h"; sourceTree = "<group>"; };
+		25BED6DB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LDSDKAdditions.m"; sourceTree = "<group>"; };
+		25BED6DC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LDSDKAdditions.m"; sourceTree = "<group>"; };
+		25BED6DD21B2314E000EBCB4 /* LDSDKWXServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWXServiceImpl.m; sourceTree = "<group>"; };
+		25BED6DF21B2314E000EBCB4 /* LDSDKAliPayServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAliPayServiceImpl.h; sourceTree = "<group>"; };
+		25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKAliPayServiceImpl.m; sourceTree = "<group>"; };
+		25BED6F021B232AE000EBCB4 /* Icon-Netease@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Netease@2x.png"; sourceTree = "<group>"; };
+		3AFE1F751C1EB2644AC27411 /* Pods-LDSDKManager_SDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager_SDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example.release.xcconfig"; sourceTree = "<group>"; };
+		8C0F1DEECEE86B18FBC6A0CA /* Pods-LDSDKManager_SDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager_SDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		BF1791953689D19644724296 /* libPods-LDSDKManager_SDK_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LDSDKManager_SDK_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		25BED69921B23078000EBCB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25BED6E921B2314E000EBCB4 /* libYixinSDK.a in Frameworks */,
+				B2E1CB74B53D4DFBF93169C4 /* libPods-LDSDKManager_SDK_Example.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13D8A04FEBE2B7634A5BFFFF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C0F1DEECEE86B18FBC6A0CA /* Pods-LDSDKManager_SDK_Example.debug.xcconfig */,
+				3AFE1F751C1EB2644AC27411 /* Pods-LDSDKManager_SDK_Example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		18F78CFB692A8B3B4F8FD82C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF1791953689D19644724296 /* libPods-LDSDKManager_SDK_Example.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		25BED69321B23078000EBCB4 = {
+			isa = PBXGroup;
+			children = (
+				25BED6EF21B232AE000EBCB4 /* Source */,
+				25BED6B521B2314D000EBCB4 /* Code */,
+				25BED6BA21B2314D000EBCB4 /* LDSDKManager */,
+				25BED69E21B23078000EBCB4 /* LDSDKManager_SDK_Example */,
+				25BED69D21B23078000EBCB4 /* Products */,
+				13D8A04FEBE2B7634A5BFFFF /* Pods */,
+				18F78CFB692A8B3B4F8FD82C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		25BED69D21B23078000EBCB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25BED69C21B23078000EBCB4 /* LDSDKManager_SDK_Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		25BED69E21B23078000EBCB4 /* LDSDKManager_SDK_Example */ = {
+			isa = PBXGroup;
+			children = (
+				25BED69F21B23078000EBCB4 /* AppDelegate.h */,
+				25BED6A021B23078000EBCB4 /* AppDelegate.m */,
+				25BED6A221B23078000EBCB4 /* ViewController.h */,
+				25BED6A321B23078000EBCB4 /* ViewController.m */,
+				25BED6A521B23078000EBCB4 /* Main.storyboard */,
+				25BED6A821B23079000EBCB4 /* Assets.xcassets */,
+				25BED6AA21B23079000EBCB4 /* LaunchScreen.storyboard */,
+				25BED6AD21B23079000EBCB4 /* Info.plist */,
+				25BED6AE21B23079000EBCB4 /* main.m */,
+			);
+			path = LDSDKManager_SDK_Example;
+			sourceTree = "<group>";
+		};
+		25BED6B521B2314D000EBCB4 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6B621B2314D000EBCB4 /* LLDViewController.h */,
+				25BED6B721B2314D000EBCB4 /* LLDViewDataVM.m */,
+				25BED6B821B2314D000EBCB4 /* LLDViewController.m */,
+				25BED6B921B2314D000EBCB4 /* LLDViewDataVM.h */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		25BED6BA21B2314D000EBCB4 /* LDSDKManager */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6BB21B2314D000EBCB4 /* CoreService */,
+				25BED6C921B2314D000EBCB4 /* QQPlatform */,
+				25BED6CC21B2314D000EBCB4 /* YixinPlatform */,
+				25BED6D321B2314E000EBCB4 /* WeiboPlatform */,
+				25BED6D621B2314E000EBCB4 /* WechatPlatform */,
+				25BED6DE21B2314E000EBCB4 /* AlipayPlatform */,
+			);
+			path = LDSDKManager;
+			sourceTree = "<group>";
+		};
+		25BED6BB21B2314D000EBCB4 /* CoreService */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6BC21B2314D000EBCB4 /* SDKServiceConfig.plist */,
+				25BED6BD21B2314D000EBCB4 /* LDSDKConfig.m */,
+				25BED6BE21B2314D000EBCB4 /* LDSDKManager.m */,
+				25BED6BF21B2314D000EBCB4 /* SDKServiceUtils */,
+				25BED6C221B2314D000EBCB4 /* SDKServiceInterface */,
+				25BED6C721B2314D000EBCB4 /* LDSDKConfig.h */,
+				25BED6C821B2314D000EBCB4 /* LDSDKManager.h */,
+			);
+			path = CoreService;
+			sourceTree = "<group>";
+		};
+		25BED6BF21B2314D000EBCB4 /* SDKServiceUtils */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6C021B2314D000EBCB4 /* UIImage+LDSDKShare.h */,
+				25BED6C121B2314D000EBCB4 /* UIImage+LDSDKShare.m */,
+			);
+			path = SDKServiceUtils;
+			sourceTree = "<group>";
+		};
+		25BED6C221B2314D000EBCB4 /* SDKServiceInterface */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6C321B2314D000EBCB4 /* LDSDKRegisterService.h */,
+				25BED6C421B2314D000EBCB4 /* LDSDKPayService.h */,
+				25BED6C521B2314D000EBCB4 /* LDSDKShareService.h */,
+				25BED6C621B2314D000EBCB4 /* LDSDKAuthService.h */,
+			);
+			path = SDKServiceInterface;
+			sourceTree = "<group>";
+		};
+		25BED6C921B2314D000EBCB4 /* QQPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6CA21B2314D000EBCB4 /* LDSDKQQServiceImpl.h */,
+				25BED6CB21B2314D000EBCB4 /* LDSDKQQServiceImpl.m */,
+			);
+			path = QQPlatform;
+			sourceTree = "<group>";
+		};
+		25BED6CC21B2314D000EBCB4 /* YixinPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6CD21B2314D000EBCB4 /* LDSDKYXServiceImpl.h */,
+				25BED6CE21B2314D000EBCB4 /* LDSDKYXServiceImpl.m */,
+				25BED6CF21B2314D000EBCB4 /* YiXinSDK */,
+			);
+			path = YixinPlatform;
+			sourceTree = "<group>";
+		};
+		25BED6CF21B2314D000EBCB4 /* YiXinSDK */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6D021B2314E000EBCB4 /* libYixinSDK.a */,
+				25BED6D121B2314E000EBCB4 /* YXApiObject.h */,
+				25BED6D221B2314E000EBCB4 /* YXApi.h */,
+			);
+			path = YiXinSDK;
+			sourceTree = "<group>";
+		};
+		25BED6D321B2314E000EBCB4 /* WeiboPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6D421B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m */,
+				25BED6D521B2314E000EBCB4 /* LDSDKWeiboServiceImpl.h */,
+			);
+			path = WeiboPlatform;
+			sourceTree = "<group>";
+		};
+		25BED6D621B2314E000EBCB4 /* WechatPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6D721B2314E000EBCB4 /* LDSDKWXServiceImpl.h */,
+				25BED6D821B2314E000EBCB4 /* WechatCommon */,
+				25BED6DD21B2314E000EBCB4 /* LDSDKWXServiceImpl.m */,
+			);
+			path = WechatPlatform;
+			sourceTree = "<group>";
+		};
+		25BED6D821B2314E000EBCB4 /* WechatCommon */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6D921B2314E000EBCB4 /* NSString+LDSDKAdditions.h */,
+				25BED6DA21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.h */,
+				25BED6DB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m */,
+				25BED6DC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m */,
+			);
+			path = WechatCommon;
+			sourceTree = "<group>";
+		};
+		25BED6DE21B2314E000EBCB4 /* AlipayPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6DF21B2314E000EBCB4 /* LDSDKAliPayServiceImpl.h */,
+				25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m */,
+			);
+			path = AlipayPlatform;
+			sourceTree = "<group>";
+		};
+		25BED6EF21B232AE000EBCB4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				25BED6F021B232AE000EBCB4 /* Icon-Netease@2x.png */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		25BED69B21B23078000EBCB4 /* LDSDKManager_SDK_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25BED6B221B23079000EBCB4 /* Build configuration list for PBXNativeTarget "LDSDKManager_SDK_Example" */;
+			buildPhases = (
+				4741B4BD009809A02C0BAB06 /* [CP] Check Pods Manifest.lock */,
+				25BED69821B23078000EBCB4 /* Sources */,
+				25BED69921B23078000EBCB4 /* Frameworks */,
+				25BED69A21B23078000EBCB4 /* Resources */,
+				248BDF0BE44BDB92F2EC7BA7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LDSDKManager_SDK_Example;
+			productName = LDSDKManager_SDK_Example;
+			productReference = 25BED69C21B23078000EBCB4 /* LDSDKManager_SDK_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		25BED69421B23078000EBCB4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = majiancheng;
+				TargetAttributes = {
+					25BED69B21B23078000EBCB4 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 25BED69721B23078000EBCB4 /* Build configuration list for PBXProject "LDSDKManager_SDK_Example" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 25BED69321B23078000EBCB4;
+			productRefGroup = 25BED69D21B23078000EBCB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				25BED69B21B23078000EBCB4 /* LDSDKManager_SDK_Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		25BED69A21B23078000EBCB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25BED6AC21B23079000EBCB4 /* LaunchScreen.storyboard in Resources */,
+				25BED6E321B2314E000EBCB4 /* SDKServiceConfig.plist in Resources */,
+				25BED6A921B23079000EBCB4 /* Assets.xcassets in Resources */,
+				25BED6F121B232AE000EBCB4 /* Icon-Netease@2x.png in Resources */,
+				25BED6A721B23078000EBCB4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		248BDF0BE44BDB92F2EC7BA7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example-resources.sh",
+				"${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle",
+				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4741B4BD009809A02C0BAB06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LDSDKManager_SDK_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		25BED69821B23078000EBCB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25BED6E621B2314E000EBCB4 /* UIImage+LDSDKShare.m in Sources */,
+				25BED6A421B23078000EBCB4 /* ViewController.m in Sources */,
+				25BED6EA21B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m in Sources */,
+				25BED6EC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m in Sources */,
+				25BED6EE21B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m in Sources */,
+				25BED6AF21B23079000EBCB4 /* main.m in Sources */,
+				25BED6E421B2314E000EBCB4 /* LDSDKConfig.m in Sources */,
+				25BED6E121B2314E000EBCB4 /* LLDViewDataVM.m in Sources */,
+				25BED6E821B2314E000EBCB4 /* LDSDKYXServiceImpl.m in Sources */,
+				25BED6A121B23078000EBCB4 /* AppDelegate.m in Sources */,
+				25BED6E521B2314E000EBCB4 /* LDSDKManager.m in Sources */,
+				25BED6E221B2314E000EBCB4 /* LLDViewController.m in Sources */,
+				25BED6E721B2314E000EBCB4 /* LDSDKQQServiceImpl.m in Sources */,
+				25BED6EB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m in Sources */,
+				25BED6ED21B2314E000EBCB4 /* LDSDKWXServiceImpl.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		25BED6A521B23078000EBCB4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25BED6A621B23078000EBCB4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		25BED6AA21B23079000EBCB4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25BED6AB21B23079000EBCB4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		25BED6B021B23079000EBCB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		25BED6B121B23079000EBCB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		25BED6B321B23079000EBCB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C0F1DEECEE86B18FBC6A0CA /* Pods-LDSDKManager_SDK_Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6FNUHS4H7D;
+				INFOPLIST_FILE = LDSDKManager_SDK_Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LDSDKManager/YixinPlatform/YiXinSDK",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gymchina.LDSDKManager-SDK-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		25BED6B421B23079000EBCB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AFE1F751C1EB2644AC27411 /* Pods-LDSDKManager_SDK_Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6FNUHS4H7D;
+				INFOPLIST_FILE = LDSDKManager_SDK_Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LDSDKManager/YixinPlatform/YiXinSDK",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gymchina.LDSDKManager-SDK-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		25BED69721B23078000EBCB4 /* Build configuration list for PBXProject "LDSDKManager_SDK_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25BED6B021B23079000EBCB4 /* Debug */,
+				25BED6B121B23079000EBCB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		25BED6B221B23079000EBCB4 /* Build configuration list for PBXNativeTarget "LDSDKManager_SDK_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25BED6B321B23079000EBCB4 /* Debug */,
+				25BED6B421B23079000EBCB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 25BED69421B23078000EBCB4 /* Project object */;
+}
