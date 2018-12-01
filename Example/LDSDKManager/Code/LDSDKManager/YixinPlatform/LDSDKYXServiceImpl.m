@@ -13,17 +13,16 @@
 
 @interface LDSDKYXServiceImpl () <YXApiDelegate>
 
-@property (nonatomic, copy) NSString *yxAppid;
-@property (nonatomic, copy) NSString *yxAppSecret;
-@property (nonatomic, copy) LDSDKYXCallbackBlock callbackBlock;
+@property(nonatomic, copy) NSString *yxAppid;
+@property(nonatomic, copy) NSString *yxAppSecret;
+@property(nonatomic, copy) LDSDKYXCallbackBlock callbackBlock;
 
 @end
 
 @implementation LDSDKYXServiceImpl
 
 
-+ (instancetype)sharedService
-{
++ (instancetype)sharedService {
     static LDSDKYXServiceImpl *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -36,13 +35,11 @@
 #pragma mark -
 #pragma mark - 配置部分
 
-- (BOOL)isPlatformAppInstalled
-{
+- (BOOL)isPlatformAppInstalled {
     return [YXApi isYXAppInstalled] && [YXApi isYXAppSupportApi];
 }
 
-- (void)registerWithPlatformConfig:(NSDictionary *)config
-{
+- (void)registerWithPlatformConfig:(NSDictionary *)config {
     if (config == nil || config.allKeys.count == 0) return;
 
     NSString *yxAppId = config[LDSDKConfigAppIdKey];
@@ -53,8 +50,7 @@
     }
 }
 
-- (BOOL)isRegistered
-{
+- (BOOL)isRegistered {
     return (self.yxAppid && [self.yxAppid length]);
 }
 
@@ -62,13 +58,11 @@
 #pragma mark -
 #pragma mark - 处理URL回调
 
-- (BOOL)handleResultUrl:(NSURL *)url
-{
+- (BOOL)handleResultUrl:(NSURL *)url {
     return [self handleOpenURL:url];
 }
 
-- (BOOL)handleOpenURL:(NSURL *)url
-{
+- (BOOL)handleOpenURL:(NSURL *)url {
     return [YXApi handleOpenURL:url delegate:self];
 }
 
@@ -78,16 +72,12 @@
 
 - (void)shareWithContent:(NSDictionary *)content
              shareModule:(NSUInteger)shareModule
-              onComplete:(void (^)(BOOL, NSError *))complete
-{
+              onComplete:(void (^)(BOOL, NSError *))complete {
     if (![YXApi isYXAppInstalled] || ![YXApi isYXAppSupportApi]) {
 
-        NSError *error = [NSError
-            errorWithDomain:@"YXShare"
-                       code:0
-                   userInfo:[NSDictionary
-                                dictionaryWithObjectsAndKeys:@"请先安装易信客户端",
-                                                             @"NSLocalizedDescription", nil]];
+        NSError *error = [NSError errorWithDomain:@"YXShare"
+                                             code:0
+                                         userInfo:@{@"NSLocalizedDescription": @"请先安装易信客户端"}];
         if (complete) {
             complete(NO, error);
         }
@@ -170,9 +160,8 @@
          }];
 }
 
-- (void)handleShareResultInActivity:(id)result onComplete:(void (^)(BOOL, NSError *))complete
-{
-    SendMessageToYXResp *response = (SendMessageToYXResp *)result;
+- (void)handleShareResultInActivity:(id)result onComplete:(void (^)(BOOL, NSError *))complete {
+    SendMessageToYXResp *response = (SendMessageToYXResp *) result;
 
     switch (response.code) {
         case kYXRespSuccess:
@@ -182,34 +171,28 @@
 
             break;
         case kYXRespErrUserCancel: {
-            NSError *error = [NSError
-                errorWithDomain:@"YXShare"
-                           code:-2
-                       userInfo:[NSDictionary
-                                    dictionaryWithObjectsAndKeys:@"用户取消分享",
-                                                                 @"NSLocalizedDescription", nil]];
+            NSError *error = [NSError errorWithDomain:@"YXShare"
+                                                 code:-2
+                                             userInfo:@{@"NSLocalizedDescription": @"用户取消分享"}];
             if (complete) {
                 complete(NO, error);
             }
-        } break;
+        }
+            break;
         default: {
-            NSError *error = [NSError
-                errorWithDomain:@"YXShare"
-                           code:-1
-                       userInfo:[NSDictionary
-                                    dictionaryWithObjectsAndKeys:@"分享失败",
-                                                                 @"NSLocalizedDescription", nil]];
+            NSError *error = [NSError errorWithDomain:@"YXShare"
+                                                 code:-1
+                                             userInfo:@{@"NSLocalizedDescription": @"分享失败"}];
             if (complete) {
                 complete(NO, error);
             }
         }
 
-        break;
+            break;
     }
 }
 
-- (BOOL)sendReq:(YXBaseReq *)req callback:(LDSDKYXCallbackBlock)callbackBlock
-{
+- (BOOL)sendReq:(YXBaseReq *)req callback:(LDSDKYXCallbackBlock)callbackBlock {
     self.callbackBlock = callbackBlock;
     return [YXApi sendReq:req];
 }
@@ -217,15 +200,13 @@
 
 #pragma mark YXApiDelegate
 
-- (void)onReceiveRequest:(YXBaseReq *)req
-{
+- (void)onReceiveRequest:(YXBaseReq *)req {
 #ifdef DEBUG
     NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 #endif
 }
 
-- (void)onReceiveResponse:(YXBaseResp *)resp
-{
+- (void)onReceiveResponse:(YXBaseResp *)resp {
 #ifdef DEBUG
     NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 #endif
