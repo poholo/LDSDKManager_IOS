@@ -12,7 +12,7 @@
 采用Pod集成：在项目工程的Podfile文件中加载LDSDKManager库：
 
 ```
-pod 'LDSDKManager'
+pod 'LDSDKManager', git: 'https://github.com/poholo/LDSDKManager_IOS'
 ```
 
 
@@ -171,11 +171,13 @@ LDSDKManager目前有五个submodule，分别是CoreService，QQService，Wechat
         建立新文件夹，导入SDK文件，编写代码实现[SDKServiceInterface文件夹](LDSDKManager/CoreService/SDKServiceInterface) 中的protocol;
         修改SDKServiceConfig.plist，添加新SDK支持的Service以及对应实现的文件名。
 
-
+## updates
+1.0.4 更新依赖方式（pod版），支持最新的sdk
 
 ## Author
 
 张海洋, zhanghaiyang@corp.netease.com, 庞辉, huipang@corp.netease.com
+fork: littleplayer mailjiancheng@163.com
 
 ## License
 
