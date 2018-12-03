@@ -7,7 +7,7 @@
 
 
 //微信登陆，用户信息的Key
- NSString *const kWX_OPENID_KEY;
+extern NSString *const kWX_OPENID_KEY;
 extern NSString *const kWX_NICKNAME_KEY;
 extern NSString *const kWX_AVATARURL_KEY;
 extern NSString *const kWX_ACCESSTOKEN_KEY;
