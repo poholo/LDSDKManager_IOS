@@ -10,15 +10,19 @@
 
 #import "LDSDKConfig.h"
 
+@protocol LDSDKShareService;
+
 
 @interface LDSDKManager : NSObject
+
++ (instancetype)share;
 
 /**
  *  根据配置列表依次注册第三方SDK
  *
  *  @return YES则配置成功
  */
-+ (void)registerWithPlatformConfigList:(NSArray *)configList;
+- (void)registerWithPlatformConfigList:(NSArray *)configList;
 
 /*!
  *  @brief  统一处理各个SDK的回调
@@ -27,34 +31,34 @@
  *
  *  @return 处理成功返回YES，否则返回NO
  */
-+ (BOOL)handleOpenURL:(NSURL *)url;
+- (BOOL)handleOpenURL:(NSURL *)url;
 
 /*!
  *  @brief  获取配置服务
  *
  *  @return 服务实例
  */
-+ (id)getRegisterService:(LDSDKPlatformType)type;
+- (id<LDSDKShareService>)getRegisterService:(LDSDKPlatformType)type;
 
 /*!
  *  @brief  获取登陆服务
  *
  *  @return 服务实例
  */
-+ (id)getAuthService:(LDSDKPlatformType)type;
+- (id)getAuthService:(LDSDKPlatformType)type;
 
 /*!
  *  @brief  获取分享服务
  *
  *  @return 服务实例
  */
-+ (id)getShareService:(LDSDKPlatformType)type;
+- (id)getShareService:(LDSDKPlatformType)type;
 
 /*!
  *  @brief  获取支付服务
  *
  *  @return 服务实例
  */
-+ (id)getPayService:(LDSDKPlatformType)type;
+- (id)getPayService:(LDSDKPlatformType)type;
 
 @end

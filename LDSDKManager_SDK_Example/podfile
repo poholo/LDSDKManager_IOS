@@ -3,7 +3,7 @@ platform :ios, '8.0'
 
 target 'LDSDKManager_SDK_Example' do
   pod 'MCTencentOpenAPI', '3.3.3'
-  pod 'SNWeChatSDK'
+  pod 'WechatOpenSDK'
   pod 'Weibo_SDK', '3.2.3'
   pod 'AlipaySDK-iOS'
 end

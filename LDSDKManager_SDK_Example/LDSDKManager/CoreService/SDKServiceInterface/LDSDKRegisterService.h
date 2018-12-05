@@ -14,14 +14,6 @@
 @protocol LDSDKRegisterService <NSObject>
 
 @required
-
-/*!
- *  @brief  每个注册SDK自行管理其服务单例
- *
- *  @return 返回SDK服务实现的单例
- */
-+ (instancetype)sharedService;
-
 /*!
  *  @brief  检测第三方SDK应用是否安装
  *
@@ -42,7 +34,7 @@
 /*!
  *  @brief  统一处理第三方SDK应用的处理回调
  *
- *  @param url fixMe
+ *  @param url ...
  *
  *  @return 处理成功返回YES，否则返回NO
  */

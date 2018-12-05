@@ -23,13 +23,18 @@ NSString *const LDSDKConfigAppSchemeKey = @"kAppScheme";
 NSString *const LDSDKConfigAppPlatformTypeKey = @"kAppPlatformType";
 NSString *const LDSDKConfigAppDescriptionKey = @"kAppDescription";
 
-NSString *const LDSDKShareContentTitleKey = @"title";
-NSString *const LDSDKShareContentDescriptionKey = @"description";
-NSString *const LDSDKShareContentImageKey = @"image";
-NSString *const LDSDKShareContentWapUrlKey = @"webpageurl";
-NSString *const LDSDKShareContentTextKey = @"text";
-NSString *const LDSDKShareContentRedirectURIKey = @"redirectURI";
+
+NSString *const LDSDKPlatformTypeKey = @"LDSDKPlatformTypeKey";
+NSString *const LDSDKShareToMoudleKey = @"LDSDKShareToMoudleKey";
 NSString *const LDSDKShareTypeKey = @"LDSDKShareTypeKey";
+NSString *const LDSDKShareTitleKey = @"LDSDKShareTitleKey";
+NSString *const LDSDKShareDescKey = @"LDSDKShareDescKey";
+NSString *const LDSDKShareImageKey = @"LDSDKShareImageKey";
+NSString *const LDSDKShareImageUrlKey = @"LDSDKShareImageUrlKey";
+NSString *const LDSDKShareUrlKey = @"LDSDKShareUrlKey";
+NSString *const LDSDKShareTextKey = @"LDSDKShareTextKey";
+NSString *const LDSDKShareRedirectURIKey = @"LDSDKShareRedirectURIKey";
+NSString *const LDSDKShareCallBackKey = @"LDSDKShareCallBackKey";
 
 @implementation LDSDKConfig {
 

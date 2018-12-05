@@ -10,34 +10,34 @@
 
 @implementation LLDViewDataVM
 
-- (NSDictionary *)shareContentWithShareType:(LDSDKShareType)shareType {
+- (NSDictionary *)shareContentWithShareType:(LDShareType)shareType {
     NSDictionary *dict = nil;
     switch (shareType) {
-        case LDSDKShareTypeContent: {
-            dict = @{LDSDKShareContentTitleKey: @"测试分享",
-                    LDSDKShareContentDescriptionKey: @"测试分享详情",
-                    LDSDKShareContentWapUrlKey: @"www.baidu.com",
-                    LDSDKShareContentImageKey: [UIImage imageNamed:@"Icon-Netease"],
-                    LDSDKShareContentTextKey: @"text",
-                    LDSDKShareTypeKey: @(LDSDKShareTypeContent)};
+        case LDShareTypeContent: {
+            dict = @{LDSDKShareTitleKey: @"测试分享",
+                    LDSDKShareDescKey: @"测试分享详情",
+                    LDSDKShareUrlKey: @"www.baidu.com",
+                    LDSDKShareImageKey: [UIImage imageNamed:@"Icon-Netease"],
+                    LDSDKShareTextKey: @"text",
+                    LDShareTypeKey: @(LDShareTypeContent)};
         }
             break;
-        case LDSDKShareTypeImage: {
-            dict = @{LDSDKShareContentTitleKey: @"测试分享",
-                    LDSDKShareContentDescriptionKey: @"测试分享详情",
-                    LDSDKShareContentWapUrlKey: @"www.baidu.com",
-                    LDSDKShareContentImageKey: [UIImage imageNamed:@"Icon-Netease"],
-                    LDSDKShareContentTextKey: @"text",
-                    LDSDKShareTypeKey: @(LDSDKShareTypeImage)};
+        case LDShareTypeImage: {
+            dict = @{LDSDKShareTitleKey: @"测试分享",
+                    LDSDKShareDescKey: @"测试分享详情",
+                    LDSDKShareUrlKey: @"www.baidu.com",
+                    LDSDKShareImageKey: [UIImage imageNamed:@"Icon-Netease"],
+                    LDSDKShareTextKey: @"text",
+                    LDShareTypeKey: @(LDShareTypeImage)};
         }
             break;
-        case LDSDKShareTypeOther : {
-            dict = @{LDSDKShareContentTitleKey: @"测试分享",
-                    LDSDKShareContentDescriptionKey: @"测试分享详情",
-                    LDSDKShareContentWapUrlKey: @"www.baidu.com",
-                    LDSDKShareContentImageKey: [UIImage imageNamed:@"Icon-Netease"],
-                    LDSDKShareContentTextKey: @"text",
-                    LDSDKShareTypeKey: @(LDSDKShareTypeImage)};
+        case LDShareTypeOther : {
+            dict = @{LDSDKShareTitleKey: @"测试分享",
+                    LDSDKShareDescKey: @"测试分享详情",
+                    LDSDKShareUrlKey: @"www.baidu.com",
+                    LDSDKShareImageKey: [UIImage imageNamed:@"Icon-Netease"],
+                    LDSDKShareTextKey: @"text",
+                    LDShareTypeKey: @(LDShareTypeImage)};
         }
             break;
     }

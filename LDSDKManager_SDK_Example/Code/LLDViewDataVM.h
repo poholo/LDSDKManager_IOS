@@ -10,6 +10,6 @@
 
 @interface LLDViewDataVM : NSObject
 
-- (NSDictionary *)shareContentWithShareType:(LDSDKShareType)shareType;
+- (NSDictionary *)shareContentWithShareType:(LDShareType)shareType;
 
 @end

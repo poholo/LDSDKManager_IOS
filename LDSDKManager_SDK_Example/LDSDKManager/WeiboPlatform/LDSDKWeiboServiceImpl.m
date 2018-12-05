@@ -77,9 +77,9 @@ typedef void (^LDWeiboCallbackBlock)(WBBaseResponse *resp);
              shareModule:(NSUInteger)shareModule
               onComplete:(LDSDKShareCallback)complete {
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
-    redirectURI = content[LDSDKShareContentRedirectURIKey];
-    shareText = content[LDSDKShareContentTextKey];
-    shareImage = content[LDSDKShareContentImageKey];
+    redirectURI = content[LDSDKShareRedirectURIKey];
+    shareText = content[LDSDKShareTextKey];
+    shareImage = content[LDSDKShareImageKey];
     NSLog(@"redirectURI = %@", redirectURI);
     NSLog(@"shareText = %@", shareText);
     authRequest.redirectURI = redirectURI;

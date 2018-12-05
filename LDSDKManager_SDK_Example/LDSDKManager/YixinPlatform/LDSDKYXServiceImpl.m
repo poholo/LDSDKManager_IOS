@@ -8,7 +8,7 @@
 
 #import "LDSDKYXServiceImpl.h"
 #import "YXApi.h"
-#import "UIImage+LDSDKShare.h"
+#import "UIImage+LDExtend.h"
 #import "LDSDKConfig.h"
 
 @interface LDSDKYXServiceImpl () <YXApiDelegate>
@@ -100,15 +100,15 @@
             CGSize thumbSize = image.size;
             UIImage *thumbImage = image;
             if (image.scale > 1.0) {
-                thumbImage = [image LDSDKShare_resizedImage:image.size
-                                       interpolationQuality:kCGInterpolationDefault];
+                thumbImage = [image ld_resizedImage:image.size
+                                       quality:kCGInterpolationDefault];
             }
 
             NSData *thumbData = UIImageJPEGRepresentation(thumbImage, 0.0);
             while (thumbData.length > 64 * 1024) {  //不能超过64K
                 thumbSize = CGSizeMake(thumbSize.width / 2.0, thumbSize.height / 2.0);
-                thumbImage = [thumbImage LDSDKShare_resizedImage:thumbSize
-                                            interpolationQuality:kCGInterpolationDefault];
+                thumbImage = [thumbImage ld_resizedImage:thumbSize
+                                            quality:kCGInterpolationDefault];
                 thumbData = UIImageJPEGRepresentation(thumbImage, 0.0);
             }
             [message setThumbData:thumbData];
@@ -127,15 +127,15 @@
         CGSize thumbSize = image.size;
         UIImage *thumbImage = image;
         if (image.scale > 1.0) {
-            thumbImage = [image LDSDKShare_resizedImage:image.size
-                                   interpolationQuality:kCGInterpolationDefault];
+            thumbImage = [image ld_resizedImage:image.size
+                                   quality:kCGInterpolationDefault];
         }
 
         NSData *thumbData = UIImageJPEGRepresentation(thumbImage, 0.0);
         while (thumbData.length > 64 * 1024) {  //不能超过64K
             thumbSize = CGSizeMake(thumbSize.width / 2.0, thumbSize.height / 2.0);
-            thumbImage = [thumbImage LDSDKShare_resizedImage:thumbSize
-                                        interpolationQuality:kCGInterpolationDefault];
+            thumbImage = [thumbImage ld_resizedImage:thumbSize
+                                        quality:kCGInterpolationDefault];
             thumbData = UIImageJPEGRepresentation(thumbImage, 0.0);
         }
         [message setThumbData:thumbData];

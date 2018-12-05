@@ -207,7 +207,7 @@
 
 - (void)shareByQQ {
     NSLog(@"shareByQQ");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage];
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
     [[LDSDKManager getShareService:LDSDKPlatformQQ]
             shareWithContent:shareDict
                  shareModule:LDSDKShareToContact
@@ -222,7 +222,7 @@
 
 - (void)shareByWX {
     NSLog(@"shareByWX");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage];
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
     [[LDSDKManager getShareService:LDSDKPlatformWeChat]
             shareWithContent:shareDict
                  shareModule:LDSDKShareToContact
@@ -237,7 +237,7 @@
 
 - (void)shareByQzone {
     NSLog(@"shareByWX");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage];
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
     [[LDSDKManager getShareService:LDSDKPlatformQQ]
             shareWithContent:shareDict
                  shareModule:LDSDKShareToTimeLine
@@ -252,7 +252,7 @@
 
 - (void)shareByWXTimeline {
     NSLog(@"shareByWX");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage];
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
     [[LDSDKManager getShareService:LDSDKPlatformWeChat]
             shareWithContent:shareDict
                  shareModule:LDSDKShareToTimeLine
@@ -267,7 +267,7 @@
 
 - (void)shareByYXTimeline {
     NSLog(@"shareByWX");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage];
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
     [[LDSDKManager getShareService:LDSDKPlatformYiXin]
             shareWithContent:shareDict
                  shareModule:LDSDKShareToTimeLine
@@ -282,7 +282,7 @@
 
 - (void)shareByYX {
     NSLog(@"shareByYX");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage];
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
     [[LDSDKManager getShareService:LDSDKPlatformYiXin]
             shareWithContent:shareDict
                  shareModule:LDSDKShareToContact
@@ -297,8 +297,8 @@
 
 - (void)shareByWeibo {
     NSLog(@"shareByWeibo");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage];
-//@"http://caipiao.163.com/m", LDSDKShareContentRedirectURIKey
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
+//@"http://caipiao.163.com/m", LDSDKShareRedirectURIKey
     [[LDSDKManager getShareService:LDSDKPlatformWeibo]
             shareWithContent:shareDict
                  shareModule:LDSDKShareToContact
