@@ -1,5 +1,5 @@
 //
-//  LDSDKWXServiceImpl.h
+//  LDSDKWechatServiceImp.h
 //  Pods
 //
 //  Created by yangning on 15-1-29.
@@ -17,6 +17,6 @@
 
 typedef void (^LDSDKWXCallbackBlock)(BaseResp *resp);
 
-@interface LDSDKWXServiceImpl : NSObject <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService>
+@interface LDSDKWechatServiceImp : NSObject <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService>
 
 @end

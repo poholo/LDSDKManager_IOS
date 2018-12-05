@@ -32,9 +32,15 @@ NSString *const LDSDKShareDescKey = @"LDSDKShareDescKey";
 NSString *const LDSDKShareImageKey = @"LDSDKShareImageKey";
 NSString *const LDSDKShareImageUrlKey = @"LDSDKShareImageUrlKey";
 NSString *const LDSDKShareUrlKey = @"LDSDKShareUrlKey";
+NSString *const LDSDKShareMeidaUrlKey = @"LDSDKShareMeidaUrlKey";
 NSString *const LDSDKShareTextKey = @"LDSDKShareTextKey";
 NSString *const LDSDKShareRedirectURIKey = @"LDSDKShareRedirectURIKey";
 NSString *const LDSDKShareCallBackKey = @"LDSDKShareCallBackKey";
+
+NSString *const kErrorMessage = @"kErrorMessage";
+NSString *const kErrorDomain = @"kErrorDomain";
+NSString *const kErrorObject = @"kErrorObject";
+NSString *const kErrorCode = @"kErrorCode";
 
 @implementation LDSDKConfig {
 

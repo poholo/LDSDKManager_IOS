@@ -3,14 +3,14 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "LDSDKQQServiceImplDataVM.h"
+#import "LDSDKQQServiceImpDataVM.h"
 #import "UIImage+LDExtend.h"
 #import "MMBaseShareDto.h"
 
 #import <TencentOpenAPI/QQApiInterface.h>
 
 
-@implementation LDSDKQQServiceImplDataVM
+@implementation LDSDKQQServiceImpDataVM
 
 - (BOOL)isPlatformAppInstalled {
     return [QQApiInterface isQQInstalled] && [QQApiInterface isQQSupportApi];

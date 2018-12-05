@@ -40,7 +40,7 @@
     UIImage *thumbImage = self;
     NSData *imageData = UIImageJPEGRepresentation(self, 1.0);
     NSData *thumbData = [NSData dataWithData:imageData];
-    while (thumbData.length > limitSize) {  //缩略图不能超过1M
+    while (thumbData.length > limitSize) {
         thumbSize = CGSizeMake(thumbSize.width / 1.5f, thumbSize.height / 1.5f);
         thumbImage = [thumbImage ld_resizedImage:thumbSize quality:kCGInterpolationDefault];
         thumbData = UIImageJPEGRepresentation(thumbImage, 0.5);

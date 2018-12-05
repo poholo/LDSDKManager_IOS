@@ -10,8 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^LDSDKShareCallback)(BOOL success, NSError *error);
-
+typedef void (^LDSDKShareCallback)(LDSDKErrorCode code, NSError *error);
 
 @protocol LDSDKShareService <NSObject>
 

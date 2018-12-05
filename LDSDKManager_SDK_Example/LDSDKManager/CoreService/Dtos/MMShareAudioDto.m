@@ -5,8 +5,13 @@
 
 #import "MMShareAudioDto.h"
 
-@implementation MMShareAudioDto {
+@implementation MMShareAudioDto
 
+- (void)setValue:(nullable id)value forUndefinedKey:(NSString *)key {
+    [super setValue:value forUndefinedKey:key];
+    if ([key isEqualToString:LDSDKShareMeidaUrlKey]) {
+        self.mediaUrl = value;
+    }
 }
 
 @end

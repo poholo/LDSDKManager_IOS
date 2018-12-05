@@ -1,19 +1,19 @@
 //
-//  LDSDKQQServiceImpl.m
+//  LDSDKQQServiceImp.m
 //  TestThirdPlatform
 //
 //  Created by ss on 15/8/17.
 //  Copyright (c) 2015年 Lede. All rights reserved.
 //
 
-#import "LDSDKQQServiceImpl.h"
+#import "LDSDKQQServiceImp.h"
 
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 
 #import "UIImage+LDExtend.h"
 #import "LDSDKConfig.h"
-#import "LDSDKQQServiceImplDataVM.h"
+#import "LDSDKQQServiceImpDataVM.h"
 #import "MMBaseShareDto.h"
 #import "QQApiObject+Extend.h"
 #import "MMShareConfigDto.h"
@@ -23,7 +23,7 @@ NSString const *kQQPlatformLogin = @"login_qq";
 
 static NSArray *permissions = nil;
 
-@interface LDSDKQQServiceImpl () <TencentSessionDelegate, QQApiInterfaceDelegate> {
+@interface LDSDKQQServiceImp () <TencentSessionDelegate, QQApiInterfaceDelegate> {
     BOOL isLogining;
     NSError *error;
 
@@ -33,11 +33,11 @@ static NSArray *permissions = nil;
 }
 
 @property(nonatomic, strong) TencentOAuth *tencentOAuth;
-@property(nonatomic, strong) LDSDKQQServiceImplDataVM *dataVM;
+@property(nonatomic, strong) LDSDKQQServiceImpDataVM *dataVM;
 
 @end
 
-@implementation LDSDKQQServiceImpl
+@implementation LDSDKQQServiceImp
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -59,7 +59,7 @@ static NSArray *permissions = nil;
 //注册平台
 - (void)registerWithPlatformConfig:(NSDictionary *)config {
     self.dataVM.configDto = [MMShareConfigDto createDto:config];
-    NSAssert(self.dataVM.configDto.appId, @"[LDSDKQQServiceImpl] appid == NULL");
+    NSAssert(self.dataVM.configDto.appId, @"[LDSDKQQServiceImp] appid == NULL");
     self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
 }
 
@@ -351,9 +351,9 @@ static NSArray *permissions = nil;
 
 #pragma mark - getter
 
-- (LDSDKQQServiceImplDataVM *)dataVM {
+- (LDSDKQQServiceImpDataVM *)dataVM {
     if (!_dataVM) {
-        _dataVM = [LDSDKQQServiceImplDataVM new];
+        _dataVM = [LDSDKQQServiceImpDataVM new];
     }
     return _dataVM;
 }

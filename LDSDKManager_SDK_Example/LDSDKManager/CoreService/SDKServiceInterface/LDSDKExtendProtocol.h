@@ -10,6 +10,7 @@
 
 @protocol LDSDKExtendProtocol <NSObject>
 
+@required
 + (id)shareObject:(MMBaseShareDto *)shareDto;
 
 + (id)textObject:(MMBaseShareDto *)shareDto;
@@ -18,14 +19,16 @@
 
 + (id)imageWebObject:(MMBaseShareDto *)shareDto;
 
-+ (id)imagesObject:(MMBaseShareDto *)shareDto;
-
 + (id)newsObject:(MMBaseShareDto *)shareDto;
 
 + (id)audioObject:(MMBaseShareDto *)shareDto;
 
 + (id)videoObject:(MMBaseShareDto *)shareDto;
 
+@optional
++ (id)imagesObject:(MMBaseShareDto *)shareDto;
+
 + (id)videoZoneObject:(MMBaseShareDto *)shareDto;
+
 
 @end

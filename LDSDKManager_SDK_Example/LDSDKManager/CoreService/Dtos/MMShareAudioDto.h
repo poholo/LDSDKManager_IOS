@@ -8,4 +8,6 @@
 
 @interface MMShareAudioDto : MMShareNewsDto
 
+@property(nonatomic, strong) NSString *mediaUrl;
+
 @end

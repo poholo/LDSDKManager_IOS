@@ -34,9 +34,15 @@ extern NSString *const LDSDKShareDescKey;
 extern NSString *const LDSDKShareImageKey;
 extern NSString *const LDSDKShareImageUrlKey;
 extern NSString *const LDSDKShareUrlKey;
+extern NSString *const LDSDKShareMeidaUrlKey;
 extern NSString *const LDSDKShareTextKey;         //新浪微博分享专用
 extern NSString *const LDSDKShareRedirectURIKey;  //新浪微博分享专用
 extern NSString *const LDSDKShareCallBackKey;
+
+extern NSString *const kErrorMessage;
+extern NSString *const kErrorDomain;
+extern NSString *const kErrorObject;
+extern NSString *const kErrorCode;
 
 typedef NS_ENUM(NSInteger, LDSDKPlatformType) {
     LDSDKPlatformQQ = 1,  // QQ
@@ -59,6 +65,17 @@ typedef NS_ENUM(NSInteger, LDSDKShareType) {
     LDSDKShareTypeAudio,
     LDSDKShareTypeVideo,
 };
+
+typedef NS_ENUM(NSInteger, LDSDKErrorCode) {
+    LDSDKSuccess = 0,                /**< 成功    */
+    LDSDKErrorCodeCommon = -1,       /**< 普通错误类型    */
+    LDSDKErrorCodeUserCancel = -2,   /**< 用户点击取消并返回    */
+    LDSDKErrorCodeSentFail = -3,     /**< 发送失败    */
+    LDSDKErrorCodeAuthDeny = -4,     /**< 授权失败    */
+    LDSDKErrorCodeUnsupport = -5,    /**< 微信不支持    */
+    LDSDKErrorUninstallPlatformApp = -6, ///< 没有安装平台app
+};
+
 
 @interface LDSDKConfig : NSObject
 @end

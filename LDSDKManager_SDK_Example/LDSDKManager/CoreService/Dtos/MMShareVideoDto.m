@@ -6,7 +6,13 @@
 #import "MMShareVideoDto.h"
 
 
-@implementation MMShareVideoDto {
+@implementation MMShareVideoDto
 
+- (void)setValue:(nullable id)value forUndefinedKey:(NSString *)key {
+    [super setValue:value forUndefinedKey:key];
+    if ([key isEqualToString:LDSDKShareMeidaUrlKey]) {
+        self.mediaUrl = value;
+    }
 }
+
 @end

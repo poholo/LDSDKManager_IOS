@@ -9,9 +9,9 @@
 #import "LDSDKShareService.h"
 #import "LDSDKYXServiceImpl.h"
 #import "LDSDKWeiboServiceImpl.h"
-#import "LDSDKQQServiceImpl.h"
+#import "LDSDKQQServiceImp.h"
 #import "LDSDKAliPayServiceImpl.h"
-#import "LDSDKWXServiceImpl.h"
+#import "LDSDKWechatServiceImp.h"
 #import "LDSDKPayService.h"
 #import "LDSDKAuthService.h"
 
@@ -19,9 +19,9 @@
 
 
 @property(nonatomic, strong) LDSDKAliPayServiceImpl *aliPayService;
-@property(nonatomic, strong) LDSDKQQServiceImpl *qqService;
+@property(nonatomic, strong) LDSDKQQServiceImp *qqService;
 @property(nonatomic, strong) LDSDKWeiboServiceImpl *weiboService;
-@property(nonatomic, strong) LDSDKWXServiceImpl *wxService;
+@property(nonatomic, strong) LDSDKWechatServiceImp *wxService;
 @property(nonatomic, strong) LDSDKYXServiceImpl *yxService;
 
 @end
@@ -75,9 +75,9 @@
     return _aliPayService;
 }
 
-- (LDSDKQQServiceImpl *)qqService {
+- (LDSDKQQServiceImp *)qqService {
     if (!_qqService) {
-        _qqService = [LDSDKQQServiceImpl new];
+        _qqService = [LDSDKQQServiceImp new];
     }
     return _qqService;
 }
@@ -89,9 +89,9 @@
     return _weiboService;
 }
 
-- (LDSDKWXServiceImpl *)wxService {
+- (LDSDKWechatServiceImp *)wxService {
     if (!_wxService) {
-        _wxService = [LDSDKWXServiceImpl new];
+        _wxService = [LDSDKWechatServiceImp new];
     }
     return _wxService;
 }

@@ -18,4 +18,6 @@
 
 - (BOOL)isPlatformAppInstalled;
 
+- (NSError *)respError:(id)resp;
+
 @end

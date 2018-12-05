@@ -1,5 +1,5 @@
 //
-//  LDSDKQQServiceImpl.h
+//  LDSDKQQServiceImp.h
 //  TestThirdPlatform
 //
 //  Created by ss on 15/8/17.
@@ -17,6 +17,6 @@
 
 typedef void (^LDSDKQQCallbackBlock)(QQBaseResp *resp);
 
-@interface LDSDKQQServiceImpl : NSObject <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService>
+@interface LDSDKQQServiceImp : NSObject <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService>
 
 @end

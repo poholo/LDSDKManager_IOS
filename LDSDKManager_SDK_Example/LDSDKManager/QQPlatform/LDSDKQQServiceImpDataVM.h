@@ -9,8 +9,8 @@
 #import "LDSDKShareDataVMService.h"
 
 
-@interface LDSDKQQServiceImplDataVM : NSObject <LDSDKShareDataVMService>
+@interface LDSDKQQServiceImpDataVM : NSObject <LDSDKShareDataVMService>
 
-@property (nonatomic, strong) MMShareConfigDto * configDto;
+@property(nonatomic, strong) MMShareConfigDto *configDto;
 
 @end

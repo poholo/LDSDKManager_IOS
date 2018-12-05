@@ -1,19 +1,23 @@
 //
-//  LDSDKWXServiceImpl.m
+//  LDSDKWechatServiceImp.m
 //  Pods
 //
 //  Created by yangning on 15-1-29.
 //
 //
 
-#import "LDSDKWXServiceImpl.h"
+#import "LDSDKWechatServiceImp.h"
 
-#import <SNWeChatSDK/WXApi.h>
+#import <WechatOpenSDK/WXApi.h>
 
 #import "NSString+LDSDKAdditions.h"
 #import "NSDictionary+LDSDKAdditions.h"
 #import "UIImage+LDExtend.h"
 #import "LDSDKConfig.h"
+#import "LDSDKWechatImpDataVM.h"
+#import "MMShareConfigDto.h"
+#import "MMBaseShareDto.h"
+#import "WechatApiExtend.h"
 
 NSString *const kWXPlatformLogin = @"login_wx";
 NSString *const kWX_APPID_KEY = @"appid";
@@ -22,12 +26,11 @@ NSString *const kWX_APPCODE_KEY = @"code";
 NSString *const kWX_GET_TOKEN_URL = @"https://api.weixin.qq.com/sns/oauth2/access_token";
 NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo";
 
-@interface LDSDKWXServiceImpl () <WXApiDelegate, NSURLConnectionDataDelegate> {
+@interface LDSDKWechatServiceImp () <WXApiDelegate, NSURLConnectionDataDelegate> {
     NSDictionary *oauthDict;
 
     void (^MyBlock)(NSDictionary *oauthInfo, NSDictionary *userInfo, NSError *wxerror);
 
-    LDSDKWXCallbackBlock wxcallbackBlock;
     BOOL _shouldHandleWXPay;
     LDSDKPayCallback _wxCallback;
 }
@@ -35,13 +38,18 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 @property(nonatomic, copy) NSString *authAppId;
 @property(nonatomic, copy) NSString *authAppSecret;
 
+@property(nonatomic, copy) LDSDKShareCallback shareCallback;
+@property(nonatomic, copy) LDSDKPayCallback payCallBack;
+
+@property(nonatomic, strong) LDSDKWechatImpDataVM *dataVM;
+
 @end
 
-@implementation LDSDKWXServiceImpl
+@implementation LDSDKWechatServiceImp
 
 
 + (instancetype)sharedService {
-    static LDSDKWXServiceImpl *sharedInstance = nil;
+    static LDSDKWechatServiceImp *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
@@ -54,36 +62,18 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 #pragma mark - 配置部分
 
 - (BOOL)isPlatformAppInstalled {
-    return [WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi];
+    return [self.dataVM isPlatformAppInstalled];
 }
 
 - (void)registerWithPlatformConfig:(NSDictionary *)config {
-    if (config == nil || config.allKeys.count == 0) return;
-
-    NSString *wxAppId = config[LDSDKConfigAppIdKey];
-    NSString *wxAppSecret = config[LDSDKConfigAppSecretKey];
-    NSString *wxDescription = config[LDSDKConfigAppDescriptionKey];
-    if (wxAppId && wxAppSecret && [wxAppId length] && [wxAppSecret length]) {
-        [WXApi registerApp:wxAppId enableMTA:YES];
-        [self registerWXAppId:wxAppId appSecret:wxAppSecret];
-    }
-}
-
-- (BOOL)registerWXAppId:(NSString *)addId appSecret:(NSString *)secret {
-    if (!addId || !secret || ![addId length] || ![secret length]) {
-        return NO;
-    }
-
-    self.authAppId = addId;
-    self.authAppSecret = secret;
-    return YES;
+    self.dataVM.configDto = [MMShareConfigDto createDto:config];
+    NSAssert(self.dataVM.configDto.appId, @"[LDSDKWechatServiceImp] appid == NULL");
+    [WXApi registerApp:self.dataVM.configDto.appId enableMTA:YES];
 }
 
 - (BOOL)isRegistered {
-    return (self.authAppId && [self.authAppId length] && self.authAppSecret &&
-            [self.authAppSecret length]);
+    return (self.authAppId && [self.authAppId length] && self.authAppSecret && [self.authAppSecret length]);
 }
-
 
 #pragma mark -
 #pragma mark - 处理URL回调
@@ -294,78 +284,19 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 #pragma mark -
 #pragma mark - 分享部分
 
-- (void)shareWithContent:(NSDictionary *)content shareModule:(LDSDKShareToModule)shareModule onComplete:(LDSDKShareCallback)complete {
-    if (![WXApi isWXAppInstalled] || ![WXApi isWXAppSupportApi]) {
-        NSError *error = [NSError
-                errorWithDomain:@"WXShare"
-                           code:0
-                       userInfo:@{@"NSLocalizedDescription": @"请先安装微信客户端"}];
-        if (complete) {
-            complete(NO, error);
+- (void)shareContent:(NSDictionary *)exDict {
+    NSError *error = [self.dataVM supportContinue:@"WechatShare"];
+    LDSDKShareCallback callback = exDict[LDSDKShareCallBackKey];
+    if (error) {
+        if (callback) {
+            callback(LDSDKErrorUninstallPlatformApp, error);
         }
         return;
     }
-
-    WXMediaMessage *message = [WXMediaMessage message];
-    NSString *title = content[@"title"];
-    NSString *description = content[@"description"];
-    NSString *urlString = content[@"webpageurl"];
-    UIImage *oldImage = content[@"image"];
-
-    if (urlString) {
-        message.title = title;
-        message.description = description;
-        if (oldImage) {
-            [message setThumbImage:oldImage];
-        }
-
-        WXWebpageObject *ext = [WXWebpageObject object];
-        ext.webpageUrl = urlString;
-        message.mediaObject = ext;
-    } else if (oldImage) {  //分享图片
-        UIImage *image = oldImage;
-        CGSize thumbSize = image.size;
-        UIImage *thumbImage = image;
-        if (image.scale > 1.0) {
-            thumbImage = [image ld_resizedImage:image.size
-                                   quality:kCGInterpolationDefault];
-        }
-
-        NSData *thumbData = UIImageJPEGRepresentation(thumbImage, 0.0);
-        while (thumbData.length > 32 * 1024) {  //不能超过32K
-            thumbSize = CGSizeMake(thumbSize.width / 2.0, thumbSize.height / 2.0);
-            thumbImage = [thumbImage ld_resizedImage:thumbSize
-                                        quality:kCGInterpolationDefault];
-            thumbData = UIImageJPEGRepresentation(thumbImage, 0.0);
-        }
-        [message setThumbData:thumbData];
-
-        WXImageObject *ext = [WXImageObject object];
-        ext.imageData = UIImageJPEGRepresentation(image, 1.0);
-        message.title = title;
-        message.description = description;
-        message.mediaObject = ext;
-    } else {
-        // NSAssert(0, @"WechatTimelien contentItem Error");
-    }
-
-    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
-    req.bText = NO;
-    req.message = message;
-    if (shareModule == 1) {
-        req.scene = WXSceneSession;
-    } else if (shareModule == 2) {
-        req.scene = WXSceneTimeline;
-    } else {
-        req.scene = WXSceneSession;
-    }
-
-    [self sendReq:req
-         callback:^(BaseResp *resp) {
-             if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
-                 [self handleShareResultInActivity:resp onComplete:complete];
-             }
-         }];
+    self.shareCallback = callback;
+    MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
+    SendMessageToWXReq *sendMessageToWXReq = [WechatApiExtend shareObject:shareDto];
+    [WXApi sendReq:sendMessageToWXReq];
 }
 
 
@@ -400,16 +331,6 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
             break;
     }
 }
-
-
-#pragma mark -
-#pragma mark - 发送请求
-
-- (BOOL)sendReq:(BaseReq *)req callback:(LDSDKWXCallbackBlock)callbackBlock {
-    wxcallbackBlock = callbackBlock;
-    return [WXApi sendReq:req];
-}
-
 
 #pragma mark -
 #pragma mark - 构建HTTP请求
@@ -488,7 +409,6 @@ static NSString *LDSDKAFPercentEscapedQueryStringValueFromStringWithEncoding(NSS
 #pragma mark - WXApiDelegate
 
 - (void)onReq:(BaseReq *)req {
-    _shouldHandleWXPay = NO;
 #ifdef DEBUG
     NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 #endif
@@ -498,24 +418,18 @@ static NSString *LDSDKAFPercentEscapedQueryStringValueFromStringWithEncoding(NSS
 #ifdef DEBUG
     NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 #endif
-    if (_wxCallback) {
-        if ([resp isKindOfClass:[PayResp class]]) {
-            PayResp *pResp = (PayResp *) resp;
-            _wxCallback(pResp.returnKey, nil);
-        } else {
-            NSError *error = [NSError
-                    errorWithDomain:@"wxPay"
-                               code:resp.errCode
-                           userInfo:@{@"NSLocalizedDescription": resp.errStr}];
-            _wxCallback(nil, error);
+    NSError *error = [self.dataVM respError:resp];
+    if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        if (self.shareCallback) {
+            self.shareCallback((LDSDKErrorCode) resp.errCode, error);
         }
-        _wxCallback = NULL;
-    } else if (wxcallbackBlock) {
-        wxcallbackBlock(resp);
-        wxcallbackBlock = NULL;
+    } else if ([resp isKindOfClass:[PayResp class]]) {
+        PayResp *pResp = (PayResp *) resp;
+        NSError *error = [NSError errorWithDomain:@"wxPay"
+                                             code:resp.errCode
+                                         userInfo:@{@"NSLocalizedDescription": resp.errStr}];
+        _wxCallback(nil, error);
     }
-
-    _shouldHandleWXPay = NO;
 }
 
 
