@@ -17,7 +17,7 @@
 
 + (QQApiObject *)shareObject:(MMBaseShareDto *)shareDto {
     QQApiObject *apiObject = nil;
-    if (shareDto.shareToModule == LDSDKShareToTimeLine) {
+    if (shareDto.shareToModule == LDSDKShareToContact) {
         switch (shareDto.shareType) {
             case LDSDKShareTypeText : {
                 apiObject = [self textObject:shareDto];
@@ -46,7 +46,7 @@
                 break;
         }
 
-    } else if (shareDto.shareToModule == LDSDKShareToContact) {
+    } else if (shareDto.shareToModule == LDSDKShareToTimeLine) {
         switch (shareDto.shareType) {
             case LDSDKShareTypeText : {
                 apiObject = [self textObject:shareDto];

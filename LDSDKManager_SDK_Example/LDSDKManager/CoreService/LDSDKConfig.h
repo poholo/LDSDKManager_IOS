@@ -45,14 +45,14 @@ extern NSString *const kErrorObject;
 extern NSString *const kErrorCode;
 
 typedef NS_ENUM(NSInteger, LDSDKPlatformType) {
-    LDSDKPlatformQQ = 1,  // QQ
+    LDSDKPlatformQQ,  // QQ
     LDSDKPlatformWeChat,  //微信
     LDSDKPlatformAliPay,  //支付宝
     LDSDKPlatformWeibo,   //新浪微博
 };
 
 typedef NS_ENUM(NSInteger, LDSDKShareToModule) {
-    LDSDKShareToContact = 1,  //分享至第三方应用的联系人或组
+    LDSDKShareToContact,  //分享至第三方应用的联系人或组
     LDSDKShareToTimeLine,     //分享至第三方应用的timeLine
     LDSDKShareToOther         //分享至第三方应用的其他模块
 };

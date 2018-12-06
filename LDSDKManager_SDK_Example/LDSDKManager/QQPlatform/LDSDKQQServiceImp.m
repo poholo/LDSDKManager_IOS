@@ -145,9 +145,9 @@ NSString const *kQQPlatformLogin = @"login_qq";
 
 
 - (QQApiSendResultCode)sendReq:(QQBaseReq *)req shareModule:(LDSDKShareToModule)shareModule callback:(LDSDKQQCallbackBlock)callbackBlock {
-    if (shareModule == 1) {
+    if (shareModule == LDSDKShareToContact) {
         return [QQApiInterface sendReq:req];
-    } else if (shareModule == 2) {
+    } else if (shareModule == LDSDKShareToTimeLine) {
         return [QQApiInterface SendReqToQZone:req];
     } else {
         return EQQAPIMESSAGETYPEINVALID;

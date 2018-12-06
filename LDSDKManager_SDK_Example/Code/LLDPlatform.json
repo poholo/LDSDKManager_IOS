@@ -3,11 +3,11 @@
   "data": [
     {
       "name": "QQ",
-      "type": 1,
+      "type": 0,
       "data": [
         {
-          "name": "TimeLine",
-          "type": 1,
+          "name": "Contract",
+          "type": 0,
           "data": [
             {
               "name": "Text",
@@ -32,8 +32,8 @@
           ]
         },
         {
-          "name": "Contract",
-          "type": 2,
+          "name": "Timeline",
+          "type": 1,
           "data": [
             {
               "name": "Text",
@@ -61,11 +61,11 @@
     },
     {
       "name": "Wechat",
-      "type": 2,
+      "type": 1,
       "data": [
         {
-          "name": "TimeLine",
-          "type": 1,
+          "name": "Contract",
+          "type": 0,
           "data": [
             {
               "name": "Text",
@@ -90,8 +90,8 @@
           ]
         },
         {
-          "name": "Contract",
-          "type": 2,
+          "name": "Timeline",
+          "type": 1,
           "data": [
             {
               "name": "Text",
@@ -119,11 +119,11 @@
     },
     {
       "name": "Weibo",
-      "type": 4,
+      "type": 3,
       "data": [
         {
-          "name": "TimeLine",
-          "type": 1,
+          "name": "Contract",
+          "type": 0,
           "data": [
             {
               "name": "Text",
@@ -148,8 +148,8 @@
           ]
         },
         {
-          "name": "Contract",
-          "type": 2,
+          "name": "Timeline",
+          "type": 1,
           "data": [
             {
               "name": "Text",
