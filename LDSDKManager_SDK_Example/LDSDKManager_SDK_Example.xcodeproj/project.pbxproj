@@ -35,8 +35,6 @@
 		25BED6E521B2314E000EBCB4 /* LDSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6BE21B2314D000EBCB4 /* LDSDKManager.m */; };
 		25BED6E621B2314E000EBCB4 /* UIImage+LDExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6C121B2314D000EBCB4 /* UIImage+LDExtend.m */; };
 		25BED6E721B2314E000EBCB4 /* LDSDKQQServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6CB21B2314D000EBCB4 /* LDSDKQQServiceImp.m */; };
-		25BED6E821B2314E000EBCB4 /* LDSDKYXServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6CE21B2314D000EBCB4 /* LDSDKYXServiceImpl.m */; };
-		25BED6E921B2314E000EBCB4 /* libYixinSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BED6D021B2314E000EBCB4 /* libYixinSDK.a */; };
 		25BED6EA21B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6D421B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m */; };
 		25BED6EB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m */; };
 		25BED6EC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m */; };
@@ -107,11 +105,6 @@
 		25BED6C821B2314D000EBCB4 /* LDSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKManager.h; sourceTree = "<group>"; };
 		25BED6CA21B2314D000EBCB4 /* LDSDKQQServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKQQServiceImp.h; sourceTree = "<group>"; };
 		25BED6CB21B2314D000EBCB4 /* LDSDKQQServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKQQServiceImp.m; sourceTree = "<group>"; };
-		25BED6CD21B2314D000EBCB4 /* LDSDKYXServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKYXServiceImpl.h; sourceTree = "<group>"; };
-		25BED6CE21B2314D000EBCB4 /* LDSDKYXServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKYXServiceImpl.m; sourceTree = "<group>"; };
-		25BED6D021B2314E000EBCB4 /* libYixinSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libYixinSDK.a; sourceTree = "<group>"; };
-		25BED6D121B2314E000EBCB4 /* YXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXApiObject.h; sourceTree = "<group>"; };
-		25BED6D221B2314E000EBCB4 /* YXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXApi.h; sourceTree = "<group>"; };
 		25BED6D421B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWeiboServiceImpl.m; sourceTree = "<group>"; };
 		25BED6D521B2314E000EBCB4 /* LDSDKWeiboServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWeiboServiceImpl.h; sourceTree = "<group>"; };
 		25BED6D721B2314E000EBCB4 /* LDSDKWechatServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWechatServiceImp.h; sourceTree = "<group>"; };
@@ -133,7 +126,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25BED6E921B2314E000EBCB4 /* libYixinSDK.a in Frameworks */,
 				B2E1CB74B53D4DFBF93169C4 /* libPods-LDSDKManager_SDK_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,7 +228,6 @@
 			children = (
 				25BED6BB21B2314D000EBCB4 /* CoreService */,
 				25BED6C921B2314D000EBCB4 /* QQPlatform */,
-				25BED6CC21B2314D000EBCB4 /* YixinPlatform */,
 				25BED6D321B2314E000EBCB4 /* WeiboPlatform */,
 				25BED6D621B2314E000EBCB4 /* WechatPlatform */,
 				25BED6DE21B2314E000EBCB4 /* AlipayPlatform */,
@@ -293,26 +284,6 @@
 				1A666359181CF98B134E92ED /* QQApiObject+Extend.h */,
 			);
 			path = QQPlatform;
-			sourceTree = "<group>";
-		};
-		25BED6CC21B2314D000EBCB4 /* YixinPlatform */ = {
-			isa = PBXGroup;
-			children = (
-				25BED6CD21B2314D000EBCB4 /* LDSDKYXServiceImpl.h */,
-				25BED6CE21B2314D000EBCB4 /* LDSDKYXServiceImpl.m */,
-				25BED6CF21B2314D000EBCB4 /* YiXinSDK */,
-			);
-			path = YixinPlatform;
-			sourceTree = "<group>";
-		};
-		25BED6CF21B2314D000EBCB4 /* YiXinSDK */ = {
-			isa = PBXGroup;
-			children = (
-				25BED6D021B2314E000EBCB4 /* libYixinSDK.a */,
-				25BED6D121B2314E000EBCB4 /* YXApiObject.h */,
-				25BED6D221B2314E000EBCB4 /* YXApi.h */,
-			);
-			path = YiXinSDK;
 			sourceTree = "<group>";
 		};
 		25BED6D321B2314E000EBCB4 /* WeiboPlatform */ = {
@@ -492,7 +463,6 @@
 				25BED6AF21B23079000EBCB4 /* main.m in Sources */,
 				25BED6E421B2314E000EBCB4 /* LDSDKConfig.m in Sources */,
 				25BED6E121B2314E000EBCB4 /* LLDViewDataVM.m in Sources */,
-				25BED6E821B2314E000EBCB4 /* LDSDKYXServiceImpl.m in Sources */,
 				25BED6A121B23078000EBCB4 /* AppDelegate.m in Sources */,
 				25BED6E521B2314E000EBCB4 /* LDSDKManager.m in Sources */,
 				25BED6E221B2314E000EBCB4 /* LLDViewController.m in Sources */,
