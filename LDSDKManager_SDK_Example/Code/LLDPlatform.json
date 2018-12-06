@@ -1,0 +1,179 @@
+{
+  "success": true,
+  "data": [
+    {
+      "name": "QQ",
+      "type": 1,
+      "data": [
+        {
+          "name": "TimeLine",
+          "type": 1,
+          "data": [
+            {
+              "name": "Text",
+              "type": 0
+            },
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "News",
+              "type": 2
+            },
+            {
+              "name": "Audio",
+              "type": 3
+            },
+            {
+              "name": "Video",
+              "type": 4
+            }
+          ]
+        },
+        {
+          "name": "Contract",
+          "type": 2,
+          "data": [
+            {
+              "name": "Text",
+              "type": 0
+            },
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "News",
+              "type": 2
+            },
+            {
+              "name": "Audio",
+              "type": 3
+            },
+            {
+              "name": "Video",
+              "type": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wechat",
+      "type": 2,
+      "data": [
+        {
+          "name": "TimeLine",
+          "type": 1,
+          "data": [
+            {
+              "name": "Text",
+              "type": 0
+            },
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "News",
+              "type": 2
+            },
+            {
+              "name": "Audio",
+              "type": 3
+            },
+            {
+              "name": "Video",
+              "type": 4
+            }
+          ]
+        },
+        {
+          "name": "Contract",
+          "type": 2,
+          "data": [
+            {
+              "name": "Text",
+              "type": 0
+            },
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "News",
+              "type": 2
+            },
+            {
+              "name": "Audio",
+              "type": 3
+            },
+            {
+              "name": "Video",
+              "type": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Weibo",
+      "type": 4,
+      "data": [
+        {
+          "name": "TimeLine",
+          "type": 1,
+          "data": [
+            {
+              "name": "Text",
+              "type": 0
+            },
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "News",
+              "type": 2
+            },
+            {
+              "name": "Audio",
+              "type": 3
+            },
+            {
+              "name": "Video",
+              "type": 4
+            }
+          ]
+        },
+        {
+          "name": "Contract",
+          "type": 2,
+          "data": [
+            {
+              "name": "Text",
+              "type": 0
+            },
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "News",
+              "type": 2
+            },
+            {
+              "name": "Audio",
+              "type": 3
+            },
+            {
+              "name": "Video",
+              "type": 4
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

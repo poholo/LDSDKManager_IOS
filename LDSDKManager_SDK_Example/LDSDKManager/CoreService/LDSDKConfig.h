@@ -47,7 +47,6 @@ extern NSString *const kErrorCode;
 typedef NS_ENUM(NSInteger, LDSDKPlatformType) {
     LDSDKPlatformQQ = 1,  // QQ
     LDSDKPlatformWeChat,  //微信
-    LDSDKPlatformYiXin,   //易信
     LDSDKPlatformAliPay,  //支付宝
     LDSDKPlatformWeibo,   //新浪微博
 };
@@ -67,12 +66,12 @@ typedef NS_ENUM(NSInteger, LDSDKShareType) {
 };
 
 typedef NS_ENUM(NSInteger, LDSDKErrorCode) {
-    LDSDKSuccess = 0,                /**< 成功    */
-    LDSDKErrorCodeCommon = -1,       /**< 普通错误类型    */
-    LDSDKErrorCodeUserCancel = -2,   /**< 用户点击取消并返回    */
-    LDSDKErrorCodeSentFail = -3,     /**< 发送失败    */
-    LDSDKErrorCodeAuthDeny = -4,     /**< 授权失败    */
-    LDSDKErrorCodeUnsupport = -5,    /**< 微信不支持    */
+    LDSDKSuccess = 0,                ///< 成功
+    LDSDKErrorCodeCommon = -1,       ///< 普通错误类型
+    LDSDKErrorCodeUserCancel = -2,   ///< 用户点击取消并返回
+    LDSDKErrorCodeSentFail = -3,     ///< 发送失败
+    LDSDKErrorCodeAuthDeny = -4,     ///< 授权失败
+    LDSDKErrorCodeUnsupport = -5,    ///< 不支持
     LDSDKErrorUninstallPlatformApp = -6, ///< 没有安装平台app
     LDSDKErrorCodePayFail = -7,          ///< 支付失败
     LDSDKErrorUnknow = -999,

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <UIKit/UIKit.h>
+#import "LDSDKConfig.h"
 
 typedef void (^LDSDKShareCallback)(LDSDKErrorCode code, NSError *error);
 

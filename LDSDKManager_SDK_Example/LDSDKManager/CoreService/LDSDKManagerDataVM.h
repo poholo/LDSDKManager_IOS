@@ -8,10 +8,12 @@
 @protocol LDSDKShareService;
 @protocol LDSDKPayService;
 @protocol LDSDKAuthService;
+@protocol LDSDKRegisterService;
 
 
 @interface LDSDKManagerDataVM : NSObject
 
+@property(nonatomic, strong) NSMutableDictionary<NSNumber *, id <LDSDKRegisterService>> *registerServiceDict;
 @property(nonatomic, strong) NSMutableDictionary<NSNumber *, id <LDSDKShareService>> *shareServiceDict;
 @property(nonatomic, strong) NSMutableDictionary<NSNumber *, id <LDSDKPayService>> *payServiceDict;
 @property(nonatomic, strong) NSMutableDictionary<NSNumber *, id <LDSDKAuthService>> *authServiceDict;

@@ -7,12 +7,12 @@
 
 #import "LDSDKConfig.h"
 #import "LDSDKShareService.h"
-#import "LDSDKYXServiceImpl.h"
 #import "LDSDKWeiboServiceImpl.h"
 #import "LDSDKQQServiceImp.h"
 #import "LDSDKAliPayServiceImpl.h"
 #import "LDSDKWechatServiceImp.h"
 #import "LDSDKPayService.h"
+#import "LDSDKRegisterService.h"
 #import "LDSDKAuthService.h"
 
 @interface LDSDKManagerDataVM ()
@@ -22,30 +22,44 @@
 @property(nonatomic, strong) LDSDKQQServiceImp *qqService;
 @property(nonatomic, strong) LDSDKWeiboServiceImpl *weiboService;
 @property(nonatomic, strong) LDSDKWechatServiceImp *wxService;
-@property(nonatomic, strong) LDSDKYXServiceImpl *yxService;
 
 @end
 
 @implementation LDSDKManagerDataVM
 
 - (void)prepare {
+    self.registerServiceDict[@(LDSDKPlatformQQ)] = self.qqService;
+    self.registerServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
+    self.registerServiceDict[@(LDSDKPlatformWeibo)] = self.weiboService;
+    self.registerServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
+
     self.shareServiceDict[@(LDSDKPlatformQQ)] = self.qqService;
     self.shareServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
-    self.shareServiceDict[@(LDSDKPlatformYiXin)] = self.yxService;
     self.shareServiceDict[@(LDSDKPlatformWeibo)] = self.weiboService;
 
     self.payServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
     self.payServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
 
     self.authServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
-    self.authServiceDict[@(LDSDKPlatformAliPay)] = self.wxService;
+    self.authServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
 }
 
 - (void)register:(NSArray<NSDictionary *> *)configs {
-
+    for (NSDictionary *config in configs) {
+        NSNumber *platformType = config[LDSDKConfigAppPlatformTypeKey];
+        id <LDSDKRegisterService> service = self.registerServiceDict[platformType];
+        [service registerWithPlatformConfig:config];
+    }
 }
 
 #pragma mark - getter
+
+- (NSMutableDictionary<NSNumber *, id <LDSDKRegisterService>> *)registerServiceDict {
+    if (!_registerServiceDict) {
+        _registerServiceDict = [NSMutableDictionary new];
+    }
+    return _registerServiceDict;
+}
 
 - (NSMutableDictionary<NSNumber *, id <LDSDKShareService>> *)shareServiceDict {
     if (!_shareServiceDict) {
@@ -94,13 +108,6 @@
         _wxService = [LDSDKWechatServiceImp new];
     }
     return _wxService;
-}
-
-- (LDSDKYXServiceImpl *)yxService {
-    if (!_yxService) {
-        _yxService = [LDSDKYXServiceImpl new];
-    }
-    return _yxService;
 }
 
 

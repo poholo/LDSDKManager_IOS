@@ -15,9 +15,6 @@
     NSString *wechat = [self keyForPlatform:LDSDKPlatformWeChat shareToModule:LDSDKShareToContact];
     NSString *wechatZone = [self keyForPlatform:LDSDKPlatformWeChat shareToModule:LDSDKShareToTimeLine];
 
-    NSString *yx = [self keyForPlatform:LDSDKPlatformYiXin shareToModule:LDSDKShareToContact];
-    NSString *yxZone = [self keyForPlatform:LDSDKPlatformYiXin shareToModule:LDSDKShareToTimeLine];
-
     NSString *weibo = [self keyForPlatform:LDSDKPlatformWeibo shareToModule:LDSDKShareToContact];
     NSString *weiboZone = [self keyForPlatform:LDSDKPlatformWeibo shareToModule:LDSDKShareToTimeLine];
 

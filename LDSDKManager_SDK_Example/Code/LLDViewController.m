@@ -12,6 +12,8 @@
 #import "LDSDKManager.h"
 
 #import "LLDViewDataVM.h"
+#import "LLDPlatformDto.h"
+#import "LLDPlatformCell.h"
 
 @interface LLDViewController () {
     UILabel *infoLabel;
@@ -25,136 +27,89 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.dataVM prepareData];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    [self.tableView registerClass:[LLDPlatformCell class] forCellReuseIdentifier:NSStringFromClass([LLDPlatformCell class])];
+    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([UITableViewHeaderFooterView class])];
+    [self.tableView reloadData];
+}
 
-    UIButton *loginWXBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginWXBtn setFrame:CGRectMake(25, 75, 120, 40)];
-    [loginWXBtn.layer setBorderWidth:1.0];
-    [loginWXBtn setTitle:@"微信登陆" forState:UIControlStateNormal];
-    [loginWXBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [loginWXBtn addTarget:self
-                   action:@selector(loginByWX)
-         forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:loginWXBtn];
+#pragma mark - getter
 
-    UIButton *loginQQBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginQQBtn setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 145, 75, 120, 40)];
-    [loginQQBtn.layer setBorderWidth:1.0];
-    [loginQQBtn setTitle:@"QQ登陆" forState:UIControlStateNormal];
-    [loginQQBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [loginQQBtn addTarget:self
-                   action:@selector(loginByQQ)
-         forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:loginQQBtn];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
 
-    UIButton *shareQQBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [shareQQBtn setFrame:CGRectMake(25, 140, 120, 40)];
-    [shareQQBtn.layer setBorderWidth:1.0];
-    [shareQQBtn setTitle:@"QQ分享" forState:UIControlStateNormal];
-    [shareQQBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [shareQQBtn addTarget:self
-                   action:@selector(shareByQQ)
-         forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:shareQQBtn];
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) return 1;
+    return 44;
+}
 
-    UIButton *shareQzoneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [shareQzoneBtn
-            setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 145, 140, 120, 40)];
-    [shareQzoneBtn.layer setBorderWidth:1.0];
-    [shareQzoneBtn setTitle:@"QQ空间分享" forState:UIControlStateNormal];
-    [shareQzoneBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [shareQzoneBtn addTarget:self
-                      action:@selector(shareByQzone)
-            forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:shareQzoneBtn];
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0)
+        return nil;
+    UITableViewHeaderFooterView *headerFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([UITableViewHeaderFooterView class])];
+    LLDCategoriryDto *categoriryDto = [self.dataVM categroryAtIndex:section - 1];
+    headerFooterView.textLabel.text = categoriryDto.name;
+    return headerFooterView;
+}
 
-    UIButton *shareWXBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [shareWXBtn setFrame:CGRectMake(25, 190, 120, 40)];
-    [shareWXBtn.layer setBorderWidth:1.0];
-    [shareWXBtn setTitle:@"微信分享" forState:UIControlStateNormal];
-    [shareWXBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [shareWXBtn addTarget:self
-                   action:@selector(shareByWX)
-         forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:shareWXBtn];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        LLDPlatformCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([LLDPlatformCell class]) forIndexPath:indexPath];
+        [cell loadData:self.dataVM.dataList];
+        __weak typeof(self) weakSelf = self;
+        cell.callBack = ^(NSUInteger index) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            strongSelf.dataVM.platformIndx = index;
+            [strongSelf.tableView reloadData];
+        };
+        return cell;
+    }
+    LLDShareInfoDto *infoDto = [self.dataVM shareInfoDtoAtCateIndex:indexPath.section - 1 index:indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+    cell.textLabel.text = infoDto.name;
+    return cell;
+}
 
-    UIButton *shareWXTimelineBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [shareWXTimelineBtn
-            setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 145, 190, 120, 40)];
-    [shareWXTimelineBtn.layer setBorderWidth:1.0];
-    [shareWXTimelineBtn setTitle:@"朋友圈分享" forState:UIControlStateNormal];
-    [shareWXTimelineBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [shareWXTimelineBtn addTarget:self
-                           action:@selector(shareByWXTimeline)
-                 forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:shareWXTimelineBtn];
 
-    UIButton *shareYXBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [shareYXBtn setFrame:CGRectMake(25, 240, 120, 40)];
-    [shareYXBtn.layer setBorderWidth:1.0];
-    [shareYXBtn setTitle:@"易信分享" forState:UIControlStateNormal];
-    [shareYXBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [shareYXBtn addTarget:self
-                   action:@selector(shareByYX)
-         forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:shareYXBtn];
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    LLDPlatformDto *platformDto = self.dataVM.curPlatformDto;
+    return platformDto.cates.count + 1;
+}
 
-    UIButton *shareYXTimelineBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [shareYXTimelineBtn
-            setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 145, 240, 120, 40)];
-    [shareYXTimelineBtn.layer setBorderWidth:1.0];
-    [shareYXTimelineBtn setTitle:@"朋友圈分享" forState:UIControlStateNormal];
-    [shareYXTimelineBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [shareYXTimelineBtn addTarget:self
-                           action:@selector(shareByYXTimeline)
-                 forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:shareYXTimelineBtn];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0)
+        return 1;
+    LLDPlatformDto *platformDto = self.dataVM.curPlatformDto;
+    LLDCategoriryDto *categoriryDto = platformDto.cates[section - 1];
+    return categoriryDto.shareInfos.count;
+}
 
-    UIButton *shareWeiboBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [shareWeiboBtn setFrame:CGRectMake(25, 310, 120, 40)];
-    [shareWeiboBtn.layer setBorderWidth:1.0];
-    [shareWeiboBtn setTitle:@"微博分享" forState:UIControlStateNormal];
-    [shareWeiboBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [shareWeiboBtn addTarget:self
-                      action:@selector(shareByWeibo)
-            forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:shareWeiboBtn];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) return;
+    LLDCategoriryDto *categoriryDto = [self.dataVM categroryAtIndex:indexPath.section -1];
+    LLDShareInfoDto *infoDto = [self.dataVM shareInfoDtoAtCateIndex:indexPath.section - 1 index:indexPath.row];
+    [self share:infoDto cate:categoriryDto];
+}
 
-    UIButton *payWXBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [payWXBtn setFrame:CGRectMake(25, 380, 120, 40)];
-    [payWXBtn.layer setBorderWidth:1.0];
-    [payWXBtn setTitle:@"微信支付" forState:UIControlStateNormal];
-    [payWXBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [payWXBtn addTarget:self
-                 action:@selector(payByWX)
-       forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:payWXBtn];
-
-    UIButton *payAliBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [payAliBtn setFrame:CGRectMake([UIScreen mainScreen].bounds.size.width - 145, 380, 120, 40)];
-    [payAliBtn.layer setBorderWidth:1.0];
-    [payAliBtn setTitle:@"支付宝支付" forState:UIControlStateNormal];
-    [payAliBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [payAliBtn addTarget:self
-                  action:@selector(payByAli)
-        forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:payAliBtn];
-
-    infoLabel = [[UILabel alloc]
-            initWithFrame:CGRectMake(25, 450, [UIScreen mainScreen].bounds.size.width - 50, 40)];
-    [infoLabel setBackgroundColor:[UIColor whiteColor]];
-    [infoLabel setText:@"提示信息"];
-    [infoLabel setTextAlignment:NSTextAlignmentCenter];
-    [infoLabel setTextColor:[UIColor redColor]];
-    [infoLabel setFont:[UIFont systemFontOfSize:14]];
-    [infoLabel.layer setBorderWidth:1.0];
-    [infoLabel.layer setBorderColor:[UIColor blackColor].CGColor];
-    [self.view addSubview:infoLabel];
-    // Do any additional setup after loading the view, typically from a nib.
+- (void)share:(LLDShareInfoDto *)shareInfoDto cate:(LLDCategoriryDto *)categoriryDto {
+    __weak typeof(self) weakSelf = self;
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:shareInfoDto.type
+                                                         shareMoudle:categoriryDto.type
+                                                            callBack:^(LDSDKErrorCode errorCode, NSError *error) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (errorCode == LDSDKSuccess) {
+            [infoLabel setText:@"分享成功"];
+        } else {
+            [infoLabel setText:error.localizedDescription];
+        }
+    }];
+    [[[LDSDKManager share] shareService:self.dataVM.curPlatformDto.type] shareContent:shareDict];
 }
 
 - (void)loginByWX {
-    [[LDSDKManager getAuthService:LDSDKPlatformWeChat]
+    [[[LDSDKManager share] authService:LDSDKPlatformWeChat]
             loginToPlatformWithCallback:^(NSDictionary *oauthInfo, NSDictionary *userInfo,
                     NSError *error) {
                 if (error == nil) {
@@ -180,7 +135,7 @@
 }
 
 - (void)loginByQQ {
-    [[LDSDKManager getAuthService:LDSDKPlatformQQ]
+    [[[LDSDKManager share] authService:LDSDKPlatformQQ]
             loginToPlatformWithCallback:^(NSDictionary *oauthInfo, NSDictionary *userInfo,
                     NSError *error) {
                 if (error == nil) {
@@ -206,109 +161,68 @@
 }
 
 - (void)shareByQQ {
-    NSLog(@"shareByQQ");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
-    [[LDSDKManager getShareService:LDSDKPlatformQQ]
-            shareWithContent:shareDict
-                 shareModule:LDSDKShareToContact
-                  onComplete:^(BOOL success, NSError *error) {
-                      if (success) {
-                          [infoLabel setText:@"分享成功"];
-                      } else {
-                          [infoLabel setText:error.localizedDescription];
-                      }
-                  }];
+    __weak typeof(self) weakSelf = self;
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage shareMoudle:LDSDKShareToContact callBack:^(LDSDKErrorCode errorCode, NSError *error) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (errorCode == LDSDKSuccess) {
+            [infoLabel setText:@"分享成功"];
+        } else {
+            [infoLabel setText:error.localizedDescription];
+        }
+    }];
+    [[[LDSDKManager share] shareService:LDSDKPlatformQQ] shareContent:shareDict];
 }
 
 - (void)shareByWX {
-    NSLog(@"shareByWX");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
-    [[LDSDKManager getShareService:LDSDKPlatformWeChat]
-            shareWithContent:shareDict
-                 shareModule:LDSDKShareToContact
-                  onComplete:^(BOOL success, NSError *error) {
-                      if (success) {
-                          [infoLabel setText:@"分享成功"];
-                      } else {
-                          [infoLabel setText:error.localizedDescription];
-                      }
-                  }];
+    __weak typeof(self) weakSelf = self;
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage shareMoudle:LDSDKShareToContact callBack:^(LDSDKErrorCode errorCode, NSError *error) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (errorCode == LDSDKSuccess) {
+            [infoLabel setText:@"分享成功"];
+        } else {
+            [infoLabel setText:error.localizedDescription];
+        }
+    }];
+    [[[LDSDKManager share] shareService:LDSDKPlatformWeChat] shareContent:shareDict];
 }
 
 - (void)shareByQzone {
-    NSLog(@"shareByWX");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
-    [[LDSDKManager getShareService:LDSDKPlatformQQ]
-            shareWithContent:shareDict
-                 shareModule:LDSDKShareToTimeLine
-                  onComplete:^(BOOL success, NSError *error) {
-                      if (success) {
-                          [infoLabel setText:@"分享成功"];
-                      } else {
-                          [infoLabel setText:error.localizedDescription];
-                      }
-                  }];
+    __weak typeof(self) weakSelf = self;
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage shareMoudle:LDSDKShareToTimeLine callBack:^(LDSDKErrorCode errorCode, NSError *error) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (errorCode == LDSDKSuccess) {
+            [infoLabel setText:@"分享成功"];
+        } else {
+            [infoLabel setText:error.localizedDescription];
+        }
+    }];
+    [[[LDSDKManager share] shareService:LDSDKPlatformQQ] shareContent:shareDict];
 }
 
 - (void)shareByWXTimeline {
-    NSLog(@"shareByWX");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
-    [[LDSDKManager getShareService:LDSDKPlatformWeChat]
-            shareWithContent:shareDict
-                 shareModule:LDSDKShareToTimeLine
-                  onComplete:^(BOOL success, NSError *error) {
-                      if (success) {
-                          [infoLabel setText:@"分享成功"];
-                      } else {
-                          [infoLabel setText:error.localizedDescription];
-                      }
-                  }];
-}
-
-- (void)shareByYXTimeline {
-    NSLog(@"shareByWX");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
-    [[LDSDKManager getShareService:LDSDKPlatformYiXin]
-            shareWithContent:shareDict
-                 shareModule:LDSDKShareToTimeLine
-                  onComplete:^(BOOL success, NSError *error) {
-                      if (success) {
-                          [infoLabel setText:@"分享成功"];
-                      } else {
-                          [infoLabel setText:error.localizedDescription];
-                      }
-                  }];
-}
-
-- (void)shareByYX {
-    NSLog(@"shareByYX");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
-    [[LDSDKManager getShareService:LDSDKPlatformYiXin]
-            shareWithContent:shareDict
-                 shareModule:LDSDKShareToContact
-                  onComplete:^(BOOL success, NSError *error) {
-                      if (success) {
-                          [infoLabel setText:@"分享成功"];
-                      } else {
-                          [infoLabel setText:error.localizedDescription];
-                      }
-                  }];
+    __weak typeof(self) weakSelf = self;
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage shareMoudle:LDSDKShareToTimeLine callBack:^(LDSDKErrorCode errorCode, NSError *error) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (errorCode == LDSDKSuccess) {
+            [infoLabel setText:@"分享成功"];
+        } else {
+            [infoLabel setText:error.localizedDescription];
+        }
+    }];
+    [[[LDSDKManager share] shareService:LDSDKPlatformWeChat] shareContent:shareDict];
 }
 
 - (void)shareByWeibo {
-    NSLog(@"shareByWeibo");
-    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDShareTypeImage];
-//@"http://caipiao.163.com/m", LDSDKShareRedirectURIKey
-    [[LDSDKManager getShareService:LDSDKPlatformWeibo]
-            shareWithContent:shareDict
-                 shareModule:LDSDKShareToContact
-                  onComplete:^(BOOL success, NSError *error) {
-                      if (success) {
-                          [infoLabel setText:@"分享成功"];
-                      } else {
-                          [infoLabel setText:error.localizedDescription];
-                      }
-                  }];
+    __weak typeof(self) weakSelf = self;
+    NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage shareMoudle:LDSDKShareToTimeLine callBack:^(LDSDKErrorCode errorCode, NSError *error) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (errorCode == LDSDKSuccess) {
+            [infoLabel setText:@"分享成功"];
+        } else {
+            [infoLabel setText:error.localizedDescription];
+        }
+    }];
+    [[[LDSDKManager share] shareService:LDSDKPlatformWeibo] shareContent:shareDict];
 }
 
 - (void)payByWX {

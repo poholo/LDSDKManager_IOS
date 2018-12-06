@@ -494,4 +494,13 @@ static NSString *LDSDKAFPercentEscapedQueryStringValueFromStringWithEncoding(NSS
     }
 }
 
+
+#pragma mark - getter
+
+- (LDSDKWechatImpDataVM *)dataVM {
+    if (!_dataVM) {
+        _dataVM = [LDSDKWechatImpDataVM new];
+    }
+    return _dataVM;
+}
 @end

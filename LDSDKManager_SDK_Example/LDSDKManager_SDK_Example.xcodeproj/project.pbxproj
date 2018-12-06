@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A6661706C680801D41B7942 /* LLDPlatformCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6663E9D0D44DBAF04D7A7A /* LLDPlatformCell.m */; };
 		1A6661AC8BE61533A2B96BE9 /* MMShareImageDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666127EA405F1B53D42123 /* MMShareImageDto.m */; };
 		1A6661FFE48E2B346269B625 /* LDSDKWeiboDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */; };
 		1A66629A598A993475C021FD /* MMShareTextDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6665F1140CFB91B8D12FA9 /* MMShareTextDto.m */; };
 		1A66636E1B052BFFE79C59FF /* WechatApiExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6663679474BC69B8273C51 /* WechatApiExtend.m */; };
+		1A6663A4A5D580317765E6E9 /* LLDPlatform.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A666A647DD6544631A52487 /* LLDPlatform.json */; };
 		1A6663E4D7ED54C2CC1F6D3B /* MMResultDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66600A9EE8BBE7F1549CDF /* MMResultDto.m */; };
 		1A6665C08B0EAF8CE912D5D2 /* MMShareNewsDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666C55E8D06A08183CC200 /* MMShareNewsDto.m */; };
 		1A6666E99753C1682E9C58B6 /* LDSDKManagerDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */; };
@@ -19,6 +21,7 @@
 		1A666BF58D65BA03B6B35F11 /* WBMessageObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666968C480A1A6C6DD1D48 /* WBMessageObject+Extend.m */; };
 		1A666C203D1FB0D283B9F7CA /* MMShareVideoDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6662F2A12414DA553C9979 /* MMShareVideoDto.m */; };
 		1A666C621D8F79D077427166 /* MMBaseShareDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666E17BC92E5C1505C372B /* MMBaseShareDto.m */; };
+		1A666E1ECEAD6B7C5F356C31 /* LLDPlatformDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66679CCDEC302BCB1E5514 /* LLDPlatformDto.m */; };
 		1A666E488B1131BD86155DC8 /* MMShareAudioDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666F9BFE6FE0D39437114E /* MMShareAudioDto.m */; };
 		1A666EDFC950E1658E2BA4A3 /* LDSDKQQServiceImpDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6666D2372D556033B08462 /* LDSDKQQServiceImpDataVM.m */; };
 		1A666F69734B67EEFAC26B66 /* MMDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66683DE2E650FCDEEA7AE6 /* MMDto.m */; };
@@ -46,11 +49,14 @@
 
 /* Begin PBXFileReference section */
 		1A66600A9EE8BBE7F1549CDF /* MMResultDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMResultDto.m; sourceTree = "<group>"; };
+		1A666104BE4EE4F90B3F7772 /* LLDPlatformDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDPlatformDto.h; sourceTree = "<group>"; };
+		1A66611B79FA9885F8402C13 /* LLDPlatformCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDPlatformCell.h; sourceTree = "<group>"; };
 		1A666127EA405F1B53D42123 /* MMShareImageDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareImageDto.m; sourceTree = "<group>"; };
 		1A66626813C120284EDB2F73 /* LDSDKWechatImpDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWechatImpDataVM.m; sourceTree = "<group>"; };
 		1A6662F2A12414DA553C9979 /* MMShareVideoDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareVideoDto.m; sourceTree = "<group>"; };
 		1A666359181CF98B134E92ED /* QQApiObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QQApiObject+Extend.h"; sourceTree = "<group>"; };
 		1A6663679474BC69B8273C51 /* WechatApiExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatApiExtend.m; sourceTree = "<group>"; };
+		1A6663E9D0D44DBAF04D7A7A /* LLDPlatformCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDPlatformCell.m; sourceTree = "<group>"; };
 		1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKManagerDataVM.m; sourceTree = "<group>"; };
 		1A66654E3190D7B8087A5D9E /* LDSDKQQServiceImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKQQServiceImpDataVM.h; sourceTree = "<group>"; };
 		1A6665D40CCA81503F5A8C8A /* WechatApiExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatApiExtend.h; sourceTree = "<group>"; };
@@ -59,6 +65,7 @@
 		1A6666C6950E57ACAAC59924 /* LDSDKShareDataVMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKShareDataVMService.h; sourceTree = "<group>"; };
 		1A6666D2372D556033B08462 /* LDSDKQQServiceImpDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKQQServiceImpDataVM.m; sourceTree = "<group>"; };
 		1A66670D1869E685D41869FA /* MMShareImageDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareImageDto.h; sourceTree = "<group>"; };
+		1A66679CCDEC302BCB1E5514 /* LLDPlatformDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDPlatformDto.m; sourceTree = "<group>"; };
 		1A6667AC0ACE7C813E263B62 /* MMResultDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMResultDto.h; sourceTree = "<group>"; };
 		1A6667E1CA4C5465DBD20423 /* MMDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDto.h; sourceTree = "<group>"; };
 		1A66683DE2E650FCDEEA7AE6 /* MMDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDto.m; sourceTree = "<group>"; };
@@ -66,6 +73,7 @@
 		1A6669E4450075018B7F50F7 /* MMShareAudioDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareAudioDto.h; sourceTree = "<group>"; };
 		1A666A21677C2B492E9100CE /* LDSDKExtendProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKExtendProtocol.h; sourceTree = "<group>"; };
 		1A666A61666B776D31289793 /* MMShareConfigDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareConfigDto.h; sourceTree = "<group>"; };
+		1A666A647DD6544631A52487 /* LLDPlatform.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LLDPlatform.json; sourceTree = "<group>"; };
 		1A666C55E8D06A08183CC200 /* MMShareNewsDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareNewsDto.m; sourceTree = "<group>"; };
 		1A666C958CAAE2B2351C0C91 /* LDSDKWeiboDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWeiboDataVM.h; sourceTree = "<group>"; };
 		1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWeiboDataVM.m; sourceTree = "<group>"; };
@@ -219,6 +227,11 @@
 				25BED6B721B2314D000EBCB4 /* LLDViewDataVM.m */,
 				25BED6B821B2314D000EBCB4 /* LLDViewController.m */,
 				25BED6B921B2314D000EBCB4 /* LLDViewDataVM.h */,
+				1A66679CCDEC302BCB1E5514 /* LLDPlatformDto.m */,
+				1A666104BE4EE4F90B3F7772 /* LLDPlatformDto.h */,
+				1A666A647DD6544631A52487 /* LLDPlatform.json */,
+				1A6663E9D0D44DBAF04D7A7A /* LLDPlatformCell.m */,
+				1A66611B79FA9885F8402C13 /* LLDPlatformCell.h */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -404,6 +417,7 @@
 				25BED6A921B23079000EBCB4 /* Assets.xcassets in Resources */,
 				25BED6F121B232AE000EBCB4 /* Icon-Netease@2x.png in Resources */,
 				25BED6A721B23078000EBCB4 /* Main.storyboard in Resources */,
+				1A6663A4A5D580317765E6E9 /* LLDPlatform.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +499,8 @@
 				1A6663E4D7ED54C2CC1F6D3B /* MMResultDto.m in Sources */,
 				1A666BF58D65BA03B6B35F11 /* WBMessageObject+Extend.m in Sources */,
 				1A6661FFE48E2B346269B625 /* LDSDKWeiboDataVM.m in Sources */,
+				1A666E1ECEAD6B7C5F356C31 /* LLDPlatformDto.m in Sources */,
+				1A6661706C680801D41B7942 /* LLDPlatformCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

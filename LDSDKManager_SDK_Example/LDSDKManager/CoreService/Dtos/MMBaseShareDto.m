@@ -18,7 +18,7 @@
 
 + (instancetype)factoryCreateShareDto:(NSDictionary *)exDict {
     MMBaseShareDto *dto = nil;
-    LDSDKShareType shareType = (LDSDKShareType) exDict[LDSDKShareTypeKey];
+    LDSDKShareType shareType = (LDSDKShareType) [exDict[LDSDKShareTypeKey] integerValue];
     switch (shareType) {
         case LDSDKShareTypeText: {
             dto = [MMShareTextDto createDto:exDict];
@@ -77,7 +77,6 @@
 #pragma mark override
 
 - (void)setValue:(nullable id)value forUndefinedKey:(NSString *)key {
-    [super setValue:value forUndefinedKey:key];
     if ([key isEqualToString:LDSDKPlatformTypeKey]) {
         self.platformType = (LDSDKPlatformType) [value integerValue];
     } else if ([key isEqualToString:LDSDKShareToMoudleKey]) {

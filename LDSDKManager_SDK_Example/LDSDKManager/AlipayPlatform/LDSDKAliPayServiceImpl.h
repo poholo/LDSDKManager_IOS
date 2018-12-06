@@ -10,7 +10,8 @@
 
 #import "LDSDKRegisterService.h"
 #import "LDSDKPayService.h"
+#import "LDSDKAuthService.h"
 
-@interface LDSDKAliPayServiceImpl : NSObject <LDSDKRegisterService, LDSDKPayService>
+@interface LDSDKAliPayServiceImpl : NSObject <LDSDKRegisterService, LDSDKAuthService, LDSDKPayService>
 
 @end
