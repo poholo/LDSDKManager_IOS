@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A6661AC8BE61533A2B96BE9 /* MMShareImageDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666127EA405F1B53D42123 /* MMShareImageDto.m */; };
+		1A6661FFE48E2B346269B625 /* LDSDKWeiboDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */; };
 		1A66629A598A993475C021FD /* MMShareTextDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6665F1140CFB91B8D12FA9 /* MMShareTextDto.m */; };
 		1A66636E1B052BFFE79C59FF /* WechatApiExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6663679474BC69B8273C51 /* WechatApiExtend.m */; };
 		1A6663E4D7ED54C2CC1F6D3B /* MMResultDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66600A9EE8BBE7F1549CDF /* MMResultDto.m */; };
@@ -15,6 +16,7 @@
 		1A6666E99753C1682E9C58B6 /* LDSDKManagerDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */; };
 		1A666AFC4C4665DECE42B896 /* QQApiObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666D2CBA461049575B8C7A /* QQApiObject+Extend.m */; };
 		1A666BD1EFB4C0CFCAF3CAF5 /* LDSDKWechatImpDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66626813C120284EDB2F73 /* LDSDKWechatImpDataVM.m */; };
+		1A666BF58D65BA03B6B35F11 /* WBMessageObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666968C480A1A6C6DD1D48 /* WBMessageObject+Extend.m */; };
 		1A666C203D1FB0D283B9F7CA /* MMShareVideoDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6662F2A12414DA553C9979 /* MMShareVideoDto.m */; };
 		1A666C621D8F79D077427166 /* MMBaseShareDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666E17BC92E5C1505C372B /* MMBaseShareDto.m */; };
 		1A666E488B1131BD86155DC8 /* MMShareAudioDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666F9BFE6FE0D39437114E /* MMShareAudioDto.m */; };
@@ -62,15 +64,19 @@
 		1A6667AC0ACE7C813E263B62 /* MMResultDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMResultDto.h; sourceTree = "<group>"; };
 		1A6667E1CA4C5465DBD20423 /* MMDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDto.h; sourceTree = "<group>"; };
 		1A66683DE2E650FCDEEA7AE6 /* MMDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDto.m; sourceTree = "<group>"; };
+		1A666968C480A1A6C6DD1D48 /* WBMessageObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WBMessageObject+Extend.m"; sourceTree = "<group>"; };
 		1A6669E4450075018B7F50F7 /* MMShareAudioDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareAudioDto.h; sourceTree = "<group>"; };
 		1A666A21677C2B492E9100CE /* LDSDKExtendProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKExtendProtocol.h; sourceTree = "<group>"; };
 		1A666A61666B776D31289793 /* MMShareConfigDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareConfigDto.h; sourceTree = "<group>"; };
 		1A666C55E8D06A08183CC200 /* MMShareNewsDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareNewsDto.m; sourceTree = "<group>"; };
+		1A666C958CAAE2B2351C0C91 /* LDSDKWeiboDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWeiboDataVM.h; sourceTree = "<group>"; };
+		1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWeiboDataVM.m; sourceTree = "<group>"; };
 		1A666D2CBA461049575B8C7A /* QQApiObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QQApiObject+Extend.m"; sourceTree = "<group>"; };
 		1A666DB70B60159947D421E1 /* LDSDKWechatImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWechatImpDataVM.h; sourceTree = "<group>"; };
 		1A666E17BC92E5C1505C372B /* MMBaseShareDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMBaseShareDto.m; sourceTree = "<group>"; };
 		1A666E6057B5312757C577CE /* MMShareVideoDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareVideoDto.h; sourceTree = "<group>"; };
 		1A666EB9DB47880B1B38ED8B /* LDSDKManagerDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKManagerDataVM.h; sourceTree = "<group>"; };
+		1A666F27228669CA8AC00880 /* WBMessageObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBMessageObject+Extend.h"; sourceTree = "<group>"; };
 		1A666F5626AE94F6428DB586 /* MMShareTextDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareTextDto.h; sourceTree = "<group>"; };
 		1A666F875F698D73AF04ECAE /* MMShareNewsDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareNewsDto.h; sourceTree = "<group>"; };
 		1A666F8C94A607AEDC1EBB1A /* MMShareConfigDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareConfigDto.m; sourceTree = "<group>"; };
@@ -314,6 +320,10 @@
 			children = (
 				25BED6D421B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m */,
 				25BED6D521B2314E000EBCB4 /* LDSDKWeiboServiceImpl.h */,
+				1A666968C480A1A6C6DD1D48 /* WBMessageObject+Extend.m */,
+				1A666F27228669CA8AC00880 /* WBMessageObject+Extend.h */,
+				1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */,
+				1A666C958CAAE2B2351C0C91 /* LDSDKWeiboDataVM.h */,
 			);
 			path = WeiboPlatform;
 			sourceTree = "<group>";
@@ -503,6 +513,8 @@
 				1A666BD1EFB4C0CFCAF3CAF5 /* LDSDKWechatImpDataVM.m in Sources */,
 				1A66636E1B052BFFE79C59FF /* WechatApiExtend.m in Sources */,
 				1A6663E4D7ED54C2CC1F6D3B /* MMResultDto.m in Sources */,
+				1A666BF58D65BA03B6B35F11 /* WBMessageObject+Extend.m in Sources */,
+				1A6661FFE48E2B346269B625 /* LDSDKWeiboDataVM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

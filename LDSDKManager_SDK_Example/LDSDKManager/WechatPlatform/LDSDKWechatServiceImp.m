@@ -57,7 +57,6 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     return sharedInstance;
 }
 
-
 #pragma mark -
 #pragma mark - 配置部分
 
@@ -111,19 +110,19 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     SendAuthReq *req = [[SendAuthReq alloc] init];
     req.scope = @"snsapi_userinfo";
     req.state = @"10000";
-    [self sendReq:req
-         callback:^(BaseResp *resp) {
-             if (callback) {
-                 MyBlock = callback;
-             }
-             if ([resp isKindOfClass:[SendAuthResp class]]) {
-                 SendAuthResp *oauth = (SendAuthResp *) resp;
-                 [self handleWeChatAuthResp:oauth];
-             }
-         }];
+//    [self sendReq:req
+//         callback:^(BaseResp *resp) {
+//             if (callback) {
+//                 MyBlock = callback;
+//             }
+//             if ([resp isKindOfClass:[SendAuthResp class]]) {
+//                 SendAuthResp *oauth = (SendAuthResp *) resp;
+//                 [self handleWeChatAuthResp:oauth];
+//             }
+//         }];
 }
 
-- (BOOL)handleWeChatAuthResp:(SendAuthResp *)resp; {
+- (BOOL)handleWeChatAuthResp:(SendAuthResp *)resp {
     if ([resp isKindOfClass:[SendAuthResp class]]) {
         if (resp.errCode == 0) {  //用户同意
             if (resp.code) {

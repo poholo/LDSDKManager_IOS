@@ -74,6 +74,8 @@ typedef NS_ENUM(NSInteger, LDSDKErrorCode) {
     LDSDKErrorCodeAuthDeny = -4,     /**< 授权失败    */
     LDSDKErrorCodeUnsupport = -5,    /**< 微信不支持    */
     LDSDKErrorUninstallPlatformApp = -6, ///< 没有安装平台app
+    LDSDKErrorCodePayFail = -7,          ///< 支付失败
+    LDSDKErrorUnknow = -999,
 };
 
 

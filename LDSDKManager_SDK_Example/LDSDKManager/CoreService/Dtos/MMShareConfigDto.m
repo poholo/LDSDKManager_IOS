@@ -11,6 +11,7 @@ extern NSString *const LDSDKConfigAppSecretKey;
 extern NSString *const LDSDKConfigAppSchemeKey;
 extern NSString *const LDSDKConfigAppPlatformTypeKey;
 extern NSString *const LDSDKConfigAppDescriptionKey;
+extern NSString *const LDSDKShareRedirectURIKey;
 
 
 @implementation MMShareConfigDto
@@ -27,6 +28,8 @@ extern NSString *const LDSDKConfigAppDescriptionKey;
         self.appPlatformType = value;
     } else if ([key isEqualToString:LDSDKConfigAppDescriptionKey]) {
         self.appDesc = value;
+    } else if ([key isEqualToString:LDSDKShareRedirectURIKey]) {
+        self.redirectURI = value;
     }
 }
 

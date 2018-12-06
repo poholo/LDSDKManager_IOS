@@ -20,4 +20,6 @@
 
 - (NSError *)respError:(id)resp;
 
+- (LDSDKErrorCode)errorCodePlatform:(NSInteger)errorcode;
+
 @end

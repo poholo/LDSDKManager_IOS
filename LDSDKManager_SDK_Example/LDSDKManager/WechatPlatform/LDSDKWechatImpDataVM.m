@@ -25,14 +25,44 @@
 }
 
 - (NSError *)respError:(BaseResp *)resp {
+    LDSDKErrorCode errorCode = [self errorCodePlatform:resp.errCode];
     NSError *error = [NSError errorWithDomain:kErrorDomain
-                                         code:resp.errCode
-                                     userInfo:@{kErrorCode: @(resp.errCode),
+                                         code:errorCode
+                                     userInfo:@{kErrorCode: @(errorCode),
                                              kErrorMessage: resp.errStr,
                                              kErrorObject: resp}];
 
     return error;
 }
 
+- (LDSDKErrorCode)errorCodePlatform:(NSInteger)errorcode {
+    switch (errorcode) {
+        case WXSuccess           : {
+            return LDSDKSuccess;
+        }
+            break;
+        case WXErrCodeCommon     : {
+            return LDSDKErrorCodeCommon;
+        }
+            break;
+        case WXErrCodeUserCancel : {
+            return LDSDKErrorCodeUserCancel;
+        }
+            break;
+        case WXErrCodeSentFail   : {
+            return LDSDKErrorCodeSentFail;
+        }
+            break;
+        case WXErrCodeAuthDeny   : {
+            return LDSDKErrorCodeAuthDeny;
+        }
+            break;
+        case WXErrCodeUnsupport  : {
+            return LDSDKErrorCodeUnsupport;
+        }
+            break;
+    }
+    return LDSDKErrorUnknow;
+}
 
 @end

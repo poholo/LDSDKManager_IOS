@@ -11,50 +11,36 @@
 #import <Weibo_SDK/WeiboSDK.h>
 
 #import "LDSDKConfig.h"
-
-typedef void (^LDWeiboCallbackBlock)(WBBaseResponse *resp);
+#import "LDSDKWeiboDataVM.h"
+#import "MMShareConfigDto.h"
+#import "LDSDKExtendProtocol.h"
+#import "MMBaseShareDto.h"
+#import "WBMessageObject+Extend.h"
 
 @interface LDSDKWeiboServiceImpl () <WeiboSDKDelegate> {
     BOOL isRegistered;
-    NSString *shareText;
-    UIImage *shareImage;
-    NSString *redirectURI;
 }
 
 @property(strong, nonatomic) NSString *wbtoken;
 @property(strong, nonatomic) NSString *wbCurrentUserID;
-@property(nonatomic, copy) LDWeiboCallbackBlock callbackBlock;
+
+@property(nonatomic, strong) LDSDKWeiboDataVM *dataVM;
+@property(nonatomic, copy) LDSDKShareCallback shareCallback;
 
 @end
 
 @implementation LDSDKWeiboServiceImpl
-
-+ (instancetype)sharedService {
-    static LDSDKWeiboServiceImpl *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[self alloc] init];
-    });
-    return sharedInstance;
-}
-
-
 #pragma mark -
-#pragma mark - 配置部分
+#pragma mark 配置部分
 
 - (BOOL)isPlatformAppInstalled {
     return [WeiboSDK isWeiboAppInstalled];
 }
 
 - (void)registerWithPlatformConfig:(NSDictionary *)config {
-    if (config == nil || config.allKeys.count == 0) return;
-
-    isRegistered = NO;
-    NSString *appid = config[LDSDKConfigAppIdKey];
-    if (appid && [appid length] > 0) {
-        NSLog(@"appid = %@", appid);
-        isRegistered = [WeiboSDK registerApp:appid];
-    }
+    self.dataVM.configDto = [MMShareConfigDto createDto:config];
+    NSAssert(self.dataVM.configDto.appId, @"[LDSDKWeiboServiceImp] appid == NULL");
+    [WeiboSDK registerApp:self.dataVM.configDto.appId];
 }
 
 - (BOOL)isRegistered {
@@ -63,7 +49,7 @@ typedef void (^LDWeiboCallbackBlock)(WBBaseResponse *resp);
 
 
 #pragma mark -
-#pragma mark - 处理URL回调
+#pragma mark 处理URL回调
 
 - (BOOL)handleResultUrl:(NSURL *)url {
     return [WeiboSDK handleOpenURL:url delegate:self];
@@ -71,88 +57,22 @@ typedef void (^LDWeiboCallbackBlock)(WBBaseResponse *resp);
 
 
 #pragma mark -
-#pragma mark - 分享部分
+#pragma mark 分享部分
 
-- (void)shareWithContent:(NSDictionary *)content
-             shareModule:(NSUInteger)shareModule
-              onComplete:(LDSDKShareCallback)complete {
+- (void)shareContent:(NSDictionary *)exDict {
+    LDSDKShareCallback callback = exDict[LDSDKShareCallBackKey];
+    self.shareCallback = callback;
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
-    redirectURI = content[LDSDKShareRedirectURIKey];
-    shareText = content[LDSDKShareTextKey];
-    shareImage = content[LDSDKShareImageKey];
-    NSLog(@"redirectURI = %@", redirectURI);
-    NSLog(@"shareText = %@", shareText);
-    authRequest.redirectURI = redirectURI;
-    authRequest.scope = @"all";
+    authRequest.redirectURI = self.dataVM.configDto.redirectURI;
+    MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
+    WBMessageObject *messageObject = [WBMessageObject shareObject:shareDto];
 
-    WBSendMessageToWeiboRequest *request =
-            [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare]
-                                                   authInfo:authRequest
-                                               access_token:self.wbtoken];
-    //    request.shouldOpenWeiboAppInstallPageIfNotInstalled = NO;
-    [self sendReq:request
-         callback:^(WBBaseResponse *resp) {
-             if ([resp isKindOfClass:WBSendMessageToWeiboResponse.class]) {
-                 [self handleShareResultInActivity:resp onComplete:complete];
-             }
-         }];
+    WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:messageObject
+                                                                                  authInfo:authRequest
+                                                                              access_token:self.wbtoken];
+
+    [WeiboSDK sendRequest:request];
 }
-
-- (WBMessageObject *)messageToShare {
-    WBMessageObject *message = [WBMessageObject message];
-
-    if (!shareText) {
-        message.text = NSLocalizedString(@"测试通过WeiboSDK发送文字到微博!", nil);
-    } else {
-        message.text = shareText;
-    }
-
-    if (shareImage) {
-        WBImageObject *image = [WBImageObject object];
-        image.imageData = UIImageJPEGRepresentation(shareImage, 1);
-        message.imageObject = image;
-    }
-
-    return message;
-}
-
-- (void)handleShareResultInActivity:(id)result onComplete:(void (^)(BOOL, NSError *))complete {
-    WBSendMessageToWeiboResponse *response = (WBSendMessageToWeiboResponse *) result;
-
-    switch (response.statusCode) {
-        case WeiboSDKResponseStatusCodeSuccess:
-            if (complete) {
-                complete(YES, nil);
-            }
-
-            break;
-        case WeiboSDKResponseStatusCodeUserCancel: {
-            NSError *error = [NSError errorWithDomain:@"WeiboShare"
-                                                 code:-2
-                                             userInfo:@{@"NSLocalizedDescription": @"用户取消分享"}];
-            if (complete) {
-                complete(NO, error);
-            }
-        }
-            break;
-        default: {
-            NSError *error = [NSError errorWithDomain:@"WeiboShare"
-                                                 code:-1
-                                             userInfo:@{@"NSLocalizedDescription": @"分享失败"}];
-            if (complete) {
-                complete(NO, error);
-            }
-        }
-
-            break;
-    }
-}
-
-- (BOOL)sendReq:(WBBaseRequest *)req callback:(LDWeiboCallbackBlock)callbackBlock {
-    self.callbackBlock = callbackBlock;
-    return [WeiboSDK sendRequest:req];
-}
-
 
 #pragma mark - WeiboSDKDelegate
 
@@ -166,7 +86,7 @@ typedef void (^LDWeiboCallbackBlock)(WBBaseResponse *resp);
 #ifdef DEBUG
     NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 #endif
-
+    NSError *error = [self.dataVM respError:response];
     if ([response isKindOfClass:WBSendMessageToWeiboResponse.class]) {
         //        NSString *title = NSLocalizedString(@"发送结果", nil);
         //        NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@",
@@ -174,8 +94,7 @@ typedef void (^LDWeiboCallbackBlock)(WBBaseResponse *resp);
         //        NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo,
         //        NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
 
-        WBSendMessageToWeiboResponse *sendMessageToWeiboResponse =
-                (WBSendMessageToWeiboResponse *) response;
+        WBSendMessageToWeiboResponse *sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse *) response;
         NSString *accessToken = [sendMessageToWeiboResponse.authResponse accessToken];
         if (accessToken) {
             self.wbtoken = accessToken;
@@ -183,6 +102,9 @@ typedef void (^LDWeiboCallbackBlock)(WBBaseResponse *resp);
         NSString *userID = [sendMessageToWeiboResponse.authResponse userID];
         if (userID) {
             self.wbCurrentUserID = userID;
+        }
+        if (self.shareCallback) {
+            self.shareCallback((LDSDKErrorCode) error.code, error);
         }
     } else if ([response isKindOfClass:WBAuthorizeResponse.class]) {
         //        NSString *title = NSLocalizedString(@"认证结果", nil);
@@ -206,10 +128,17 @@ typedef void (^LDWeiboCallbackBlock)(WBBaseResponse *resp);
     //        NSLocalizedString(@"响应UserInfo数据", nil),response.userInfo,
     //        NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
 //    }
-
-    if (self.callbackBlock) {
-        self.callbackBlock(response);
-    }
+//
 }
+
+#pragma mark - getter
+
+- (LDSDKWeiboDataVM *)dataVM {
+    if (!_dataVM) {
+        _dataVM = [LDSDKWeiboDataVM new];
+    }
+    return _dataVM;
+}
+
 
 @end
