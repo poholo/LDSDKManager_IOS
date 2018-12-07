@@ -144,7 +144,7 @@
                                              description:shareAudioDto.desc
                                          previewImageURL:[NSURL URLWithString:shareAudioDto.imageUrl]];
     }
-
+    apiAudioObject.flashURL = [NSURL URLWithString:shareAudioDto.mediaUrl];
     return apiAudioObject;
 }
 
@@ -164,13 +164,14 @@
                                              description:shareVideoDto.desc
                                          previewImageURL:[NSURL URLWithString:shareVideoDto.imageUrl]];
     }
+    apiVideoObject.flashURL = [NSURL URLWithString:shareVideoDto.mediaUrl];
 
     return apiVideoObject;
 }
 
 + (QQApiVideoForQZoneObject *)videoZoneObject:(MMBaseShareDto *)shareDto {
     MMShareVideoDto *shareVideoDto = (MMShareVideoDto *) shareDto;
-    QQApiVideoForQZoneObject *apiVideoForQZoneObject = [QQApiVideoForQZoneObject objectWithAssetURL:shareVideoDto.url
+    QQApiVideoForQZoneObject *apiVideoForQZoneObject = [QQApiVideoForQZoneObject objectWithAssetURL:shareVideoDto.mediaUrl
                                                                                               title:shareVideoDto.title
                                                                                              extMap:nil];
     return apiVideoForQZoneObject;
