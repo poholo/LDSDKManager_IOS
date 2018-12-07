@@ -15,10 +15,9 @@
 #import "LLDPlatformDto.h"
 #import "LLDPlatformCell.h"
 
-@interface LLDViewController () {
-    UILabel *infoLabel;
-}
+@interface LLDViewController ()
 
+@property(nonatomic, strong) UILabel *infoLabel;
 @property(nonatomic, strong) LLDViewDataVM *dataVM;
 
 @end
@@ -27,6 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self.view addSubview:self.infoLabel];
+
     [self.dataVM prepareData];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     [self.tableView registerClass:[LLDPlatformCell class] forCellReuseIdentifier:NSStringFromClass([LLDPlatformCell class])];
@@ -88,7 +90,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) return;
-    LLDCategoriryDto *categoriryDto = [self.dataVM categroryAtIndex:indexPath.section -1];
+    LLDCategoriryDto *categoriryDto = [self.dataVM categroryAtIndex:indexPath.section - 1];
     LLDShareInfoDto *infoDto = [self.dataVM shareInfoDtoAtCateIndex:indexPath.section - 1 index:indexPath.row];
     [self share:infoDto cate:categoriryDto];
 }
@@ -98,13 +100,13 @@
     NSDictionary *shareDict = [self.dataVM shareContentWithShareType:shareInfoDto.type
                                                          shareMoudle:categoriryDto.type
                                                             callBack:^(LDSDKErrorCode errorCode, NSError *error) {
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        if (errorCode == LDSDKSuccess) {
-            [infoLabel setText:@"分享成功"];
-        } else {
-            [infoLabel setText:error.localizedDescription];
-        }
-    }];
+                                                                __strong typeof(weakSelf) strongSelf = weakSelf;
+                                                                if (errorCode == LDSDKSuccess) {
+                                                                    [strongSelf.infoLabel setText:@"分享成功"];
+                                                                } else {
+                                                                    [strongSelf.infoLabel setText:error.localizedDescription];
+                                                                }
+                                                            }];
     [[[LDSDKManager share] shareService:self.dataVM.curPlatformDto.type] shareContent:shareDict];
 }
 
@@ -114,7 +116,7 @@
                     NSError *error) {
                 if (error == nil) {
                     if (userInfo == nil && oauthInfo != nil) {
-                        [infoLabel setText:@"授权成功"];
+                        [self.infoLabel setText:@"授权成功"];
                     } else {
                         NSString *alet =
                                 [NSString stringWithFormat:@"昵称：%@  头像url：%@",
@@ -129,7 +131,7 @@
                         [alertView show];
                     }
                 } else {
-                    [infoLabel setText:error.localizedDescription];
+                    [self.infoLabel setText:error.localizedDescription];
                 }
             }];
 }
@@ -140,7 +142,7 @@
                     NSError *error) {
                 if (error == nil) {
                     if (userInfo == nil && oauthInfo != nil) {
-                        [infoLabel setText:@"授权成功"];
+                        [self.infoLabel setText:@"授权成功"];
                     } else {
                         NSString *alet =
                                 [NSString stringWithFormat:@"昵称：%@  头像url：%@",
@@ -155,7 +157,7 @@
                         [alertView show];
                     }
                 } else {
-                    [infoLabel setText:error.localizedDescription];
+                    [self.infoLabel setText:error.localizedDescription];
                 }
             }];
 }
@@ -165,9 +167,9 @@
     NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage shareMoudle:LDSDKShareToContact callBack:^(LDSDKErrorCode errorCode, NSError *error) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (errorCode == LDSDKSuccess) {
-            [infoLabel setText:@"分享成功"];
+            [self.infoLabel setText:@"分享成功"];
         } else {
-            [infoLabel setText:error.localizedDescription];
+            [self.infoLabel setText:error.localizedDescription];
         }
     }];
     [[[LDSDKManager share] shareService:LDSDKPlatformQQ] shareContent:shareDict];
@@ -178,9 +180,9 @@
     NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage shareMoudle:LDSDKShareToContact callBack:^(LDSDKErrorCode errorCode, NSError *error) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (errorCode == LDSDKSuccess) {
-            [infoLabel setText:@"分享成功"];
+            [self.infoLabel setText:@"分享成功"];
         } else {
-            [infoLabel setText:error.localizedDescription];
+            [self.infoLabel setText:error.localizedDescription];
         }
     }];
     [[[LDSDKManager share] shareService:LDSDKPlatformWeChat] shareContent:shareDict];
@@ -191,9 +193,9 @@
     NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage shareMoudle:LDSDKShareToTimeLine callBack:^(LDSDKErrorCode errorCode, NSError *error) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (errorCode == LDSDKSuccess) {
-            [infoLabel setText:@"分享成功"];
+            [self.infoLabel setText:@"分享成功"];
         } else {
-            [infoLabel setText:error.localizedDescription];
+            [self.infoLabel setText:error.localizedDescription];
         }
     }];
     [[[LDSDKManager share] shareService:LDSDKPlatformQQ] shareContent:shareDict];
@@ -204,9 +206,9 @@
     NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage shareMoudle:LDSDKShareToTimeLine callBack:^(LDSDKErrorCode errorCode, NSError *error) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (errorCode == LDSDKSuccess) {
-            [infoLabel setText:@"分享成功"];
+            [self.infoLabel setText:@"分享成功"];
         } else {
-            [infoLabel setText:error.localizedDescription];
+            [self.infoLabel setText:error.localizedDescription];
         }
     }];
     [[[LDSDKManager share] shareService:LDSDKPlatformWeChat] shareContent:shareDict];
@@ -217,9 +219,9 @@
     NSDictionary *shareDict = [self.dataVM shareContentWithShareType:LDSDKShareTypeImage shareMoudle:LDSDKShareToTimeLine callBack:^(LDSDKErrorCode errorCode, NSError *error) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (errorCode == LDSDKSuccess) {
-            [infoLabel setText:@"分享成功"];
+            [self.infoLabel setText:@"分享成功"];
         } else {
-            [infoLabel setText:error.localizedDescription];
+            [self.infoLabel setText:error.localizedDescription];
         }
     }];
     [[[LDSDKManager share] shareService:LDSDKPlatformWeibo] shareContent:shareDict];
@@ -230,9 +232,9 @@
 //            payOrder:@""
 //            callback:^(NSString *signString, NSError *error) {
 //                if (error) {
-//                    [infoLabel setText:error.localizedDescription];
+//                    [self.infoLabel setText:error.localizedDescription];
 //                } else if (signString) {
-//                    [infoLabel setText:signString];
+//                    [self.infoLabel setText:signString];
 //                }
 //            }];
 }
@@ -251,9 +253,9 @@
 //                    @"2Fu1YLgXMf26v8pjAVYBKn7nnJbd23OIPNGPiU12s%3D\""
 //            callback:^(NSString *signString, NSError *error) {
 //                if (error) {
-//                    [infoLabel setText:error.localizedDescription];
+//                    [self.infoLabel setText:error.localizedDescription];
 //                } else if (signString) {
-//                    [infoLabel setText:signString];
+//                    [self.infoLabel setText:signString];
 //                }
 //            }];
 }
@@ -270,6 +272,18 @@
         _dataVM = [LLDViewDataVM new];
     }
     return _dataVM;
+}
+
+- (UILabel *)infoLabel {
+    if (!_infoLabel) {
+        _infoLabel = [UILabel new];
+        _infoLabel.frame = CGRectMake(0, CGRectGetHeight(self.view.frame) - 30, CGRectGetWidth(self.view.frame), 30);
+        _infoLabel.backgroundColor = [UIColor whiteColor];
+        _infoLabel.textAlignment = NSTextAlignmentCenter;
+        _infoLabel.textColor = [UIColor blackColor];
+        _infoLabel.font = [UIFont systemFontOfSize:14];
+    }
+    return _infoLabel;
 }
 
 @end

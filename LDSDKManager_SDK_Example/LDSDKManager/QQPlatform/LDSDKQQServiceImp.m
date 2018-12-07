@@ -121,6 +121,7 @@ NSString const *kQQPlatformLogin = @"login_qq";
         }
         return;
     }
+    self.shareCallback = callback;
     MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
     QQApiObject *apiObject = [QQApiObject shareObject:shareDto];
 
