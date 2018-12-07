@@ -47,16 +47,6 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 
 @implementation LDSDKWechatServiceImp
 
-
-+ (instancetype)sharedService {
-    static LDSDKWechatServiceImp *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[self alloc] init];
-    });
-    return sharedInstance;
-}
-
 #pragma mark -
 #pragma mark - 配置部分
 
@@ -331,6 +321,20 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     }
 }
 
+- (BOOL)responseResult:(BaseResp *)resp {
+    NSError *error = [self.dataVM respError:resp];
+    if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        if (self.shareCallback) {
+            self.shareCallback((LDSDKErrorCode) resp.errCode, error);
+        }
+    }
+    return NO;
+}
+
+- (BOOL)handleURL:(NSURL *)url {
+    return NO;
+}
+
 #pragma mark -
 #pragma mark - 构建HTTP请求
 
@@ -417,6 +421,9 @@ static NSString *LDSDKAFPercentEscapedQueryStringValueFromStringWithEncoding(NSS
 #ifdef DEBUG
     NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 #endif
+    if([self.dataVM canResponseResult:resp] && [self responseResult:resp]) {
+        return;
+    }
     NSError *error = [self.dataVM respError:resp];
     if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
         if (self.shareCallback) {

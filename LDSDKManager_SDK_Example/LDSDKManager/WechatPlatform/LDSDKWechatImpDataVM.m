@@ -65,11 +65,16 @@
     return LDSDKErrorUnknow;
 }
 
-
-
 - (NSArray<NSString *> *)permissions {
     return nil;
 }
 
+- (NSString *)errorMsg:(NSInteger)errorcode {
+    return nil;
+}
+
+- (BOOL)canResponseResult:(id)resp {
+    return [resp isKindOfClass:[SendMessageToWXResp class]];
+}
 
 @end

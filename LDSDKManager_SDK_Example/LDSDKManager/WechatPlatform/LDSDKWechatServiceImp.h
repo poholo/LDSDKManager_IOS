@@ -11,12 +11,13 @@
 #import "LDSDKRegisterService.h"
 #import "LDSDKPayService.h"
 #import "LDSDKShareService.h"
+#import "LDSDKHandleURLProtocol.h"
 
 @class BaseReq;
 @class BaseResp;
 
 typedef void (^LDSDKWXCallbackBlock)(BaseResp *resp);
 
-@interface LDSDKWechatServiceImp : NSObject <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService>
+@interface LDSDKWechatServiceImp : NSObject <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>
 
 @end
