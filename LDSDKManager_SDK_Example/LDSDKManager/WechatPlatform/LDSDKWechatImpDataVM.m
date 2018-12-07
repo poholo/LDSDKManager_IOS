@@ -5,6 +5,7 @@
 
 #import <WechatOpenSDK/WXApi.h>
 #import "LDSDKWechatImpDataVM.h"
+#import "NSString+Extend.h"
 
 
 @implementation LDSDKWechatImpDataVM
@@ -29,7 +30,7 @@
     NSError *error = [NSError errorWithDomain:kErrorDomain
                                          code:errorCode
                                      userInfo:@{kErrorCode: @(errorCode),
-                                             kErrorMessage: resp.errStr,
+                                             kErrorMessage: [NSString filterInvalid:resp.errStr],
                                              kErrorObject: resp}];
 
     return error;

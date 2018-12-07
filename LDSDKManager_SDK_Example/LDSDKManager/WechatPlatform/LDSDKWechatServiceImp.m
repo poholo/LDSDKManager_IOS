@@ -283,7 +283,10 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     self.shareCallback = callback;
     MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
     SendMessageToWXReq *sendMessageToWXReq = [WechatApiExtend shareObject:shareDto];
-    [WXApi sendReq:sendMessageToWXReq];
+    BOOL success = [WXApi sendReq:sendMessageToWXReq];
+    if(!success) {
+        NSLog(@"WX error");
+    }
 }
 
 
@@ -330,7 +333,8 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 }
 
 - (BOOL)handleURL:(NSURL *)url {
-    return NO;
+    BOOL success = [WXApi handleOpenURL:url delegate:self];
+    return success;
 }
 
 #pragma mark -
@@ -419,7 +423,7 @@ static NSString *LDSDKAFPercentEscapedQueryStringValueFromStringWithEncoding(NSS
 #ifdef DEBUG
     NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 #endif
-    if([self.dataVM canResponseResult:resp] && [self responseResult:resp]) {
+    if ([self.dataVM canResponseResult:resp] && [self responseResult:resp]) {
         return;
     }
     NSError *error = [self.dataVM respError:resp];

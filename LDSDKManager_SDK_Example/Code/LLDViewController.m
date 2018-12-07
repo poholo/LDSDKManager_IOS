@@ -15,9 +15,10 @@
 #import "LLDPlatformDto.h"
 #import "LLDPlatformCell.h"
 
-@interface LLDViewController ()
+@interface LLDViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, strong) UILabel *infoLabel;
+@property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) LLDViewDataVM *dataVM;
 
 @end
@@ -26,13 +27,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self.view addSubview:self.tableView];
     [self.view addSubview:self.infoLabel];
 
     [self.dataVM prepareData];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
-    [self.tableView registerClass:[LLDPlatformCell class] forCellReuseIdentifier:NSStringFromClass([LLDPlatformCell class])];
-    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([UITableViewHeaderFooterView class])];
     [self.tableView reloadData];
 }
 
@@ -101,7 +99,7 @@
                                                          shareMoudle:categoriryDto.type
                                                             callBack:^(LDSDKErrorCode errorCode, NSError *error) {
                                                                 __strong typeof(weakSelf) strongSelf = weakSelf;
-                                                                strongSelf.infoLabel.text = [NSString stringWithFormat:@"%zd %@", error.code, error.userInfo[kErrorMessage]];
+                                                                strongSelf.infoLabel.text = [NSString stringWithFormat:@"Code:%zd Result:%@", error.code, error.userInfo[kErrorMessage]];
                                                                 strongSelf.infoLabel.textColor = errorCode == LDSDKSuccess ? [UIColor greenColor] : [UIColor redColor];
                                                             }];
     [[[LDSDKManager share] shareService:self.dataVM.curPlatformDto.type] shareContent:shareDict];
@@ -274,13 +272,26 @@
 - (UILabel *)infoLabel {
     if (!_infoLabel) {
         _infoLabel = [UILabel new];
-        _infoLabel.frame = CGRectMake(0, CGRectGetHeight(self.view.frame) - 30, CGRectGetWidth(self.view.frame), 30);
-        _infoLabel.backgroundColor = [UIColor whiteColor];
+        _infoLabel.frame = CGRectMake(0, CGRectGetHeight(self.view.frame) - 60, CGRectGetWidth(self.view.frame), 60);
+        _infoLabel.backgroundColor = [UIColor orangeColor];
         _infoLabel.textAlignment = NSTextAlignmentCenter;
         _infoLabel.textColor = [UIColor blackColor];
-        _infoLabel.font = [UIFont systemFontOfSize:14];
+        _infoLabel.font = [UIFont boldSystemFontOfSize:20];
     }
     return _infoLabel;
+}
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 60) style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+        [_tableView registerClass:[LLDPlatformCell class] forCellReuseIdentifier:NSStringFromClass([LLDPlatformCell class])];
+        [_tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([UITableViewHeaderFooterView class])];
+
+    }
+    return _tableView;
 }
 
 @end
