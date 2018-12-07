@@ -122,9 +122,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
             NSError *error = [NSError errorWithDomain:@"WXLogin"
                                                  code:0
                                              userInfo:@{@"NSLocalizedDescription": @"登录失败"}];
-            if (MyBlock) {
-                MyBlock(nil, nil, error);
-            }
+
         }
         return YES;
     } else {
