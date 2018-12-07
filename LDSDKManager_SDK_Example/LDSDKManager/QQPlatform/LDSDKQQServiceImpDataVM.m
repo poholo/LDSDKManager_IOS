@@ -29,12 +29,14 @@
     return error;
 }
 
-- (NSError *)respError:(id)resp {
-    LDSDKErrorCode errorCode = [self errorCodePlatform:resp];
+- (NSError *)respError:(NSNumber *)resp {
+    QQApiSendResultCode code = (QQApiSendResultCode) resp.integerValue;
+    LDSDKErrorCode errorCode = [self errorCodePlatform:code];
+    NSString *errorMsg = [self errorMsg:code];
     NSError *error = [NSError errorWithDomain:kErrorDomain
                                          code:errorCode
                                      userInfo:@{kErrorCode: @(errorCode),
-                                             kErrorMessage: @"",
+                                             kErrorMessage: errorMsg,
                                              kErrorObject: resp}];
 
     return error;
@@ -142,6 +144,85 @@
             break;
     }
     return LDSDKErrorCodePayFail;
+}
+
+- (NSString *)errorMsg:(NSInteger)errorcode {
+    QQApiSendResultCode qqErrorCode = (QQApiSendResultCode) errorcode;
+    switch (qqErrorCode) {
+        case EQQAPISENDSUCESS : {
+            return @"成功";
+        }
+            break;
+        case EQQAPIQQNOTINSTALLED  : {
+            return @"QQ未安装";
+        }
+            break;
+        case EQQAPIQQNOTSUPPORTAPI  : {
+            return @"QQ api不支持";
+        }
+            break;
+        case EQQAPIMESSAGETYPEINVALID  : {
+            return @"无效";
+        }
+            break;
+        case EQQAPIMESSAGECONTENTNULL  : {
+            return @"内容为空";
+        }
+            break;
+        case EQQAPIMESSAGECONTENTINVALID: {
+            return @"内容无效";
+        }
+            break;
+        case EQQAPIAPPNOTREGISTED : {
+            return @"没有注册的app";
+        }
+            break;
+        case EQQAPIAPPSHAREASYNC : {
+            return @"异步分享";
+        }
+            break;
+        case EQQAPIMESSAGEARKCONTENTNULL: {
+            return @"ark内容为空";
+        }
+            break;
+        case EQQAPISENDFAILD : {
+            return @"发送失败";
+        }
+            break;
+        case EQQAPISHAREDESTUNKNOWN : {
+            return @"未指定分享到QQ或者TIM";
+        }
+            break;
+        case EQQAPITIMSENDFAILD  : {
+            return @"TIM发送失败";
+        }
+            break;
+        case EQQAPITIMNOTINSTALLED : {
+            return @"TIM未安装";
+        }
+            break;
+        case EQQAPITIMNOTSUPPORTAPI : {
+            return @"TIM不支持的API";
+        }
+            break;
+        case EQQAPIQZONENOTSUPPORTTEXT : {
+            return @"QQZone不支持文本";
+        }
+            break;
+        case EQQAPIQZONENOTSUPPORTIMAGE : {
+            return @"QQ空间不支持图片";
+        }
+            break;
+        case EQQAPIVERSIONNEEDUPDATE : {
+            return @"QQ版本需要更新";
+        }
+            break;
+        case ETIMAPIVERSIONNEEDUPDATE : {
+            return @"TIM版本需要更新";
+        }
+            break;
+    }
+    return @"";
 }
 
 

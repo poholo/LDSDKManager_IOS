@@ -22,6 +22,8 @@
 
 - (LDSDKErrorCode)errorCodePlatform:(NSInteger)errorcode;
 
+- (NSString *)errorMsg:(NSInteger)errorcode;
+
 - (NSArray<NSString *> *)permissions;
 
 @end

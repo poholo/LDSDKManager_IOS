@@ -101,11 +101,8 @@
                                                          shareMoudle:categoriryDto.type
                                                             callBack:^(LDSDKErrorCode errorCode, NSError *error) {
                                                                 __strong typeof(weakSelf) strongSelf = weakSelf;
-                                                                if (errorCode == LDSDKSuccess) {
-                                                                    [strongSelf.infoLabel setText:@"分享成功"];
-                                                                } else {
-                                                                    [strongSelf.infoLabel setText:error.localizedDescription];
-                                                                }
+                                                                strongSelf.infoLabel.text = error.userInfo[kErrorMessage];
+                                                                strongSelf.infoLabel.textColor = errorCode == LDSDKSuccess ? [UIColor greenColor] : [UIColor redColor];
                                                             }];
     [[[LDSDKManager share] shareService:self.dataVM.curPlatformDto.type] shareContent:shareDict];
 }

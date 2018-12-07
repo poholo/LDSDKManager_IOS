@@ -654,7 +654,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LDSDKManager/YixinPlatform/YiXinSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gymchina.LDSDKManager-SDK-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.firebull;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
@@ -677,7 +677,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LDSDKManager/YixinPlatform/YiXinSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gymchina.LDSDKManager-SDK-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.firebull;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";

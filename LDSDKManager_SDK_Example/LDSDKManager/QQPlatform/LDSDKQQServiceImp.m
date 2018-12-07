@@ -134,13 +134,9 @@ NSString const *kQQPlatformLogin = @"login_qq";
                                               }
                                           }];
 
-    if (resultCode != EQQAPISENDSUCESS) {
-        error = [NSError errorWithDomain:@"QQShare"
-                                    code:-2
-                                userInfo:@{kErrorMessage: @"分享失败"}];
-        if (callback) {
-            callback([self.dataVM errorCodePlatform:resultCode], error);
-        }
+    error = [self.dataVM respError:@(resultCode)];
+    if (self.shareCallback) {
+        self.shareCallback((LDSDKErrorCode) error.code, error);
     }
 }
 
@@ -178,11 +174,6 @@ NSString const *kQQPlatformLogin = @"login_qq";
 #ifdef DEBUG
     NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 #endif
-    NSError *error = [self.dataVM respError:resp];
-
-    if (self.shareCallback) {
-        self.shareCallback((LDSDKErrorCode) error.code, error);
-    }
 }
 
 - (void)isOnlineResponse:(NSDictionary *)response {
@@ -221,9 +212,7 @@ NSString const *kQQPlatformLogin = @"login_qq";
     NSError *error = [NSError errorWithDomain:@"QQLogin"
                                          code:LDSDKErrorUnknow
                                      userInfo:@{@"NSLocalizedDescription": @"登录失败"}];
-    if (self.shareCallback) {
-        self.shareCallback((LDSDKErrorCode) error.code, error);
-    }
+
 }
 
 //登录时网络有问题的回调
@@ -233,9 +222,6 @@ NSString const *kQQPlatformLogin = @"login_qq";
             errorWithDomain:@"QQLogin"
                        code:LDSDKErrorUnknow
                    userInfo:@{@"NSLocalizedDescription": @"请检查网络"}];
-    if (self.shareCallback) {
-        self.shareCallback((LDSDKErrorCode) error.code, error);
-    }
 }
 
 
