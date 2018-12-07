@@ -11,12 +11,13 @@
 #import "LDSDKAuthService.h"
 #import "LDSDKRegisterService.h"
 #import "LDSDKShareService.h"
+#import "LDSDKHandleURLProtocol.h"
 
 @class QQBaseReq;
 @class QQBaseResp;
 
 typedef void (^LDSDKQQCallbackBlock)(QQBaseResp *resp);
 
-@interface LDSDKQQServiceImp : NSObject <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService>
+@interface LDSDKQQServiceImp : NSObject <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKHandleURLProtocol>
 
 @end

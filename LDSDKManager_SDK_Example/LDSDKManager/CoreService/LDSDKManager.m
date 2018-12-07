@@ -60,21 +60,6 @@
     return self.dataVM.payServiceDict[@(type)];
 }
 
-- (BOOL)handleOpenURL:(NSURL *)url {
-//    for (NSDictionary *oneSDKServiceConfig in sdkServiceConfigList) {
-//        Class serviceProvider = NSClassFromString(oneSDKServiceConfig[@"serviceProvider"]);
-//        if (serviceProvider) {
-//            if ([[serviceProvider sharedService] conformsToProtocol:@protocol(LDSDKRegisterService)]) {
-//                if ([[serviceProvider sharedService] handleResultUrl:url]) {
-//                    return YES;
-//                }
-//            }
-//        }
-//    }
-
-    return NO;
-}
-
 #pragma mark -getter
 
 - (LDSDKManagerDataVM *)dataVM {
@@ -83,4 +68,15 @@
     }
     return _dataVM;
 }
+
+- (BOOL)handleURL:(NSURL *)url {
+    for (id <LDSDKHandleURLProtocol> handle in self.dataVM.registerServiceDict.allValues) {
+        if ([handle conformsToProtocol:@protocol(LDSDKHandleURLProtocol)]) {
+            BOOL success = [handle handleURL:url];
+            if (success) return YES;
+        }
+    }
+    return NO;
+}
+
 @end

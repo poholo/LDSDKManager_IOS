@@ -16,4 +16,6 @@ typedef void (^LDSDKShareCallback)(LDSDKErrorCode code, NSError *error);
 
 - (void)shareContent:(NSDictionary *)exDict;
 
+- (BOOL)responseResult:(id)resp;
+
 @end

@@ -14,6 +14,7 @@
 #import "LDSDKPayService.h"
 #import "LDSDKRegisterService.h"
 #import "LDSDKAuthService.h"
+#import "LDSDKHandleURLProtocol.h"
 
 @interface LDSDKManagerDataVM ()
 
@@ -54,7 +55,7 @@
 
 #pragma mark - getter
 
-- (NSMutableDictionary<NSNumber *, id <LDSDKRegisterService>> *)registerServiceDict {
+- (NSMutableDictionary<NSNumber *, id <LDSDKRegisterService, LDSDKHandleURLProtocol>> *)registerServiceDict {
     if (!_registerServiceDict) {
         _registerServiceDict = [NSMutableDictionary new];
     }

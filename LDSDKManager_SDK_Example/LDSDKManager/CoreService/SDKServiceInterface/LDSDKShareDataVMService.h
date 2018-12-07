@@ -26,4 +26,10 @@
 
 - (NSArray<NSString *> *)permissions;
 
+- (BOOL)canResponseResult:(id)resp;
+
+@optional
+- (NSError *)respErrorCode:(NSInteger)code;
+
+
 @end

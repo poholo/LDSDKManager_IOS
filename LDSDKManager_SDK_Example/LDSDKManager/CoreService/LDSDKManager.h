@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 
 #import "LDSDKConfig.h"
+#import "LDSDKHandleURLProtocol.h"
 
 @protocol LDSDKShareService;
 @protocol LDSDKAuthService;
 @protocol LDSDKPayService;
 
 
-@interface LDSDKManager : NSObject
+@interface LDSDKManager : NSObject <LDSDKHandleURLProtocol>
 
 + (instancetype)share;
 
@@ -62,6 +63,5 @@
  *
  *  @return 处理成功返回YES，否则返回NO
  */
-- (BOOL)handleOpenURL:(NSURL *)url;
 
 @end

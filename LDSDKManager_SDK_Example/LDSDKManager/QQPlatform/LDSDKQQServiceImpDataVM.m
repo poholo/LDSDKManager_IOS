@@ -10,6 +10,7 @@
 #import "UIImage+LDExtend.h"
 #import "MMBaseShareDto.h"
 #import "sdkdef.h"
+#import "NSString+Extend.h"
 
 
 @implementation LDSDKQQServiceImpDataVM
@@ -17,7 +18,6 @@
 - (BOOL)isPlatformAppInstalled {
     return [QQApiInterface isQQInstalled] && [QQApiInterface isQQSupportApi];
 }
-
 
 - (NSError *)supportContinue:(NSString *)module {
     NSError *error;
@@ -29,18 +29,31 @@
     return error;
 }
 
-- (NSError *)respError:(NSNumber *)resp {
-    QQApiSendResultCode code = (QQApiSendResultCode) resp.integerValue;
+- (NSError *)respError:(QQBaseResp *)resp {
+    QQApiSendResultCode code = (QQApiSendResultCode) [resp.result integerValue];
+    LDSDKErrorCode errorCode = [self errorCodePlatform:code];
+    NSString *errorMsg = resp.errorDescription;
+    NSError *error = [NSError errorWithDomain:kErrorDomain
+                                         code:errorCode
+                                     userInfo:@{kErrorCode: @(errorCode),
+                                             kErrorMessage: [NSString filterInvalid:errorMsg],
+                                             kErrorObject: resp}];
+
+    return error;
+}
+
+- (NSError *)respErrorCode:(NSInteger)code {
     LDSDKErrorCode errorCode = [self errorCodePlatform:code];
     NSString *errorMsg = [self errorMsg:code];
     NSError *error = [NSError errorWithDomain:kErrorDomain
                                          code:errorCode
                                      userInfo:@{kErrorCode: @(errorCode),
-                                             kErrorMessage: errorMsg,
-                                             kErrorObject: resp}];
+                                             kErrorMessage: [NSString filterInvalid:errorMsg],
+                                             kErrorObject: @(code)}];
 
     return error;
 }
+
 
 - (NSInteger)moduleToPlatform:(LDSDKShareToModule)module {
     switch (module) {
@@ -61,11 +74,9 @@
     return 0;
 }
 
-
 - (NSArray<NSString *> *)permissions {
     return @[kOPEN_PERMISSION_GET_USER_INFO, kOPEN_PERMISSION_GET_SIMPLE_USER_INFO];
 }
-
 
 - (LDSDKErrorCode)errorCodePlatform:(NSInteger)errorcode {
     QQApiSendResultCode qqErrorCode = (QQApiSendResultCode) errorcode;
@@ -223,6 +234,10 @@
             break;
     }
     return @"";
+}
+
+- (BOOL)canResponseResult:(QQBaseResp *)resp {
+    return [resp isKindOfClass:[SendMessageToQQResp class]];
 }
 
 

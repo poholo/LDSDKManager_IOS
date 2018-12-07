@@ -127,21 +127,25 @@ NSString const *kQQPlatformLogin = @"login_qq";
 
     SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:apiObject];
 
-    QQApiSendResultCode resultCode = [self sendReq:req shareModule:shareDto.shareToModule
-                                          callback:^(QQBaseResp *resp) {
-                                              if ([resp isKindOfClass:[SendMessageToQQResp class]]) {
-                                                  [self handleShareResultInActivity:resp onComplete:callback];
-                                              }
-                                          }];
-
-    error = [self.dataVM respError:@(resultCode)];
-    if (self.shareCallback) {
-        self.shareCallback((LDSDKErrorCode) error.code, error);
+    QQApiSendResultCode resultCode = [self sendReq:req shareModule:shareDto.shareToModule];
+    LDSDKErrorCode errorCode = [self.dataVM errorCodePlatform:resultCode];
+    if (errorCode != LDSDKSuccess) {
+        error = [self.dataVM respError:@(resultCode)];
+        if (self.shareCallback) {
+            self.shareCallback((LDSDKErrorCode) error.code, error);
+        }
     }
 }
 
+- (BOOL)handleURL:(NSURL *)url {
+    BOOL success = [QQApiInterface handleOpenURL:url delegate:self];
+    if ([TencentOAuth CanHandleOpenURL:url]) {
+        [TencentOAuth HandleOpenURL:url];
+    }
+    return success;
+}
 
-- (QQApiSendResultCode)sendReq:(QQBaseReq *)req shareModule:(LDSDKShareToModule)shareModule callback:(LDSDKQQCallbackBlock)callbackBlock {
+- (QQApiSendResultCode)sendReq:(QQBaseReq *)req shareModule:(LDSDKShareToModule)shareModule {
     if (shareModule == LDSDKShareToContact) {
         return [QQApiInterface sendReq:req];
     } else if (shareModule == LDSDKShareToTimeLine) {
@@ -151,15 +155,15 @@ NSString const *kQQPlatformLogin = @"login_qq";
     }
 }
 
-- (void)handleShareResultInActivity:(id)result onComplete:(LDSDKShareCallback)complete {
-    SendMessageToQQResp *response = (SendMessageToQQResp *) result;
-
-    NSError *error = [self.dataVM respError:response];
-
-    if (complete) {
-        complete(YES, nil);
+- (BOOL)responseResult:(SendMessageToQQResp *)resp {
+    NSError *error = [self.dataVM respError:resp];
+    if (self.shareCallback) {
+        self.shareCallback((LDSDKErrorCode) error.code, error);
+        return YES;
     }
+    return NO;
 }
+
 
 #pragma mark -
 #pragma mark  WXApiDelegate
@@ -174,6 +178,10 @@ NSString const *kQQPlatformLogin = @"login_qq";
 #ifdef DEBUG
     NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 #endif
+    if ([self.dataVM canResponseResult:resp] && [self responseResult:resp]) {
+        return;
+    }
+
 }
 
 - (void)isOnlineResponse:(NSDictionary *)response {
