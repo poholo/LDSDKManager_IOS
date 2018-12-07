@@ -22,8 +22,6 @@
 
 - (LDSDKErrorCode)errorCodePlatform:(NSInteger)errorcode;
 
-- (NSInteger)mobuleToPlatform:(LDSDKShareToModule)module;
-
 - (NSArray<NSString *> *)permissions;
 
 @end

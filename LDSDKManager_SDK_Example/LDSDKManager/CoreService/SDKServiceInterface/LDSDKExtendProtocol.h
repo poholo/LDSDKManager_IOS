@@ -5,6 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "LDSDKConfig.h"
+
 @class MMBaseShareDto;
 
 
@@ -24,6 +26,9 @@
 + (id)audioObject:(MMBaseShareDto *)shareDto;
 
 + (id)videoObject:(MMBaseShareDto *)shareDto;
+
++ (NSInteger)moduleToPlatform:(LDSDKShareToModule)module;
+
 
 @optional
 + (id)imagesObject:(MMBaseShareDto *)shareDto;

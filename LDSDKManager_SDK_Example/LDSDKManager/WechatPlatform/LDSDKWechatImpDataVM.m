@@ -65,4 +65,11 @@
     return LDSDKErrorUnknow;
 }
 
+
+
+- (NSArray<NSString *> *)permissions {
+    return nil;
+}
+
+
 @end

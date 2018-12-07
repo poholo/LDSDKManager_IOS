@@ -40,7 +40,7 @@
     return error;
 }
 
-- (NSInteger)mobuleToPlatform:(LDSDKShareToModule)module {
+- (NSInteger)moduleToPlatform:(LDSDKShareToModule)module {
     switch (module) {
         case LDSDKShareToTimeLine: {
 

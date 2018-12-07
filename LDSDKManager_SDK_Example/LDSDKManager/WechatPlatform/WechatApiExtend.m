@@ -51,7 +51,7 @@
     SendMessageToWXReq *sendMessageToWXReq = [SendMessageToWXReq new];
     sendMessageToWXReq.text = shareDto.desc;
     sendMessageToWXReq.bText = YES;
-    sendMessageToWXReq.scene = (int) shareDto.shareType;
+    sendMessageToWXReq.scene = (int) [WechatApiExtend moduleToPlatform:shareDto.shareToModule];
     return sendMessageToWXReq;
 }
 
@@ -75,9 +75,10 @@
 }
 
 + (SendMessageToWXReq *)newsObject:(MMBaseShareDto *)shareDto {
-    WXTextObject *wxTextObject = [WXTextObject object];
-    wxTextObject.contentText = shareDto.desc;
-    SendMessageToWXReq *sendMessageToWXReq = [self factoryMessageWXReq:shareDto media:wxTextObject];
+    MMShareNewsDto *shareNewsDto = (MMShareNewsDto *) shareDto;
+    WXWebpageObject *wxWebpageObject = [WXWebpageObject object];
+    wxWebpageObject.webpageUrl = shareNewsDto.url;
+    SendMessageToWXReq *sendMessageToWXReq = [self factoryMessageWXReq:shareDto media:wxWebpageObject];
     return sendMessageToWXReq;
 }
 
@@ -103,7 +104,7 @@
     MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
     SendMessageToWXReq *sendMessageToWXReq = [SendMessageToWXReq new];
     sendMessageToWXReq.bText = NO;
-    sendMessageToWXReq.scene = (int) shareDto.shareType;
+    sendMessageToWXReq.scene = (int) [WechatApiExtend moduleToPlatform:shareImageDto.shareToModule];
 
     WXMediaMessage *wxMediaMessage = [WXMediaMessage message];
     wxMediaMessage.title = shareImageDto.title;
@@ -116,5 +117,21 @@
     return sendMessageToWXReq;
 }
 
++ (NSInteger)moduleToPlatform:(LDSDKShareToModule)module {
+    switch (module) {
+        case LDSDKShareToTimeLine: {
+            return WXSceneTimeline;
+        }
+            break;
+        case LDSDKShareToContact: {
+            return WXSceneSession;
+        }
+            break;
+        case LDSDKShareToOther: {
+        }
+            break;
+    }
+    return WXSceneSession;
+}
 
 @end
