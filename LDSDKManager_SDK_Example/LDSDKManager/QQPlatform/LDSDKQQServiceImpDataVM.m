@@ -54,26 +54,6 @@
     return error;
 }
 
-
-- (NSInteger)moduleToPlatform:(LDSDKShareToModule)module {
-    switch (module) {
-        case LDSDKShareToTimeLine: {
-
-        }
-            break;
-        case LDSDKShareToContact: {
-
-        }
-            break;
-        case LDSDKShareToOther: {
-
-        }
-            break;
-    }
-
-    return 0;
-}
-
 - (NSArray<NSString *> *)permissions {
     return @[kOPEN_PERMISSION_GET_USER_INFO, kOPEN_PERMISSION_GET_SIMPLE_USER_INFO];
 }

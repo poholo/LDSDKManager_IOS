@@ -9,6 +9,7 @@
 #import "MMShareImageDto.h"
 #import "UIImage+LDExtend.h"
 #import "MMShareNewsDto.h"
+#import "MMShareVideoDto.h"
 
 
 @implementation WBMessageObject (Extend)
@@ -93,12 +94,12 @@
 }
 
 + (WBMessageObject *)videoObject:(MMBaseShareDto *)shareDto {
-    MMShareNewsDto *shareNewsDto = (MMShareNewsDto *) shareDto;
+    MMShareVideoDto *shareVideoDto = (MMShareVideoDto *) shareDto;
     WBMessageObject *messageObject = [WBMessageObject message];
     messageObject.text = shareDto.desc;
 
     WBNewVideoObject *newVideoObject = [WBNewVideoObject object];
-    [newVideoObject addVideo:[NSURL URLWithString:shareNewsDto.url]];
+    [newVideoObject addVideo:[NSURL URLWithString:shareVideoDto.mediaUrl]];
     messageObject.videoObject = newVideoObject;
     return messageObject;
 }

@@ -6,6 +6,9 @@
 //  Copyright (c) 2015年 Lede. All rights reserved.
 //
 
+/***
+ * qq 空间视频分享只支持本地相册视频
+ */
 #import <Foundation/Foundation.h>
 
 #import "LDSDKAuthService.h"
