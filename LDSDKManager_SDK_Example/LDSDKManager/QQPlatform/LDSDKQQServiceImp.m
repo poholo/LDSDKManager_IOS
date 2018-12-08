@@ -27,6 +27,7 @@ NSString const *kQQPlatformLogin = @"login_qq";
 @property(nonatomic, strong) LDSDKQQServiceImpDataVM *dataVM;
 
 @property(nonatomic, copy) LDSDKShareCallback shareCallback;
+@property(nonatomic, copy) LDSDKLoginCallback loginCallback;
 
 @end
 
@@ -71,7 +72,6 @@ NSString const *kQQPlatformLogin = @"login_qq";
 }
 
 
-#pragma mark -
 #pragma mark 登陆部分
 
 - (BOOL)isLoginEnabledOnPlatform {
@@ -84,24 +84,14 @@ NSString const *kQQPlatformLogin = @"login_qq";
 }
 
 - (void)loginToPlatformWithCallback:(LDSDKLoginCallback)callback {
-    NSError *error = [self.dataVM supportContinue:@"QQLogin"];
-    if (error) {
+    self.loginCallback = callback;
 
-        return;
+    if (!self.tencentOAuth) {
+        self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
     }
 
-    if ([QQApiInterface isQQInstalled]) {  //手机QQ登录流程
-        NSLog(@"login by QQ oauth = %@", self.tencentOAuth);
-        if (callback) {
-        }
-        error = nil;
-        if (!self.tencentOAuth) {
-            NSLog(@"tencentOauth && permissions = %@", self.dataVM.permissions);
-            self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
-        }
-        //此处可set Token、oppenId、有效期 等参数
-        [self.tencentOAuth authorize:self.dataVM.permissions];
-    }
+    self.tencentOAuth.authMode = kAuthModeClientSideToken;
+    [self.tencentOAuth authorize:self.dataVM.permissions];
 }
 
 - (void)logoutFromPlatform {
@@ -110,7 +100,6 @@ NSString const *kQQPlatformLogin = @"login_qq";
 }
 
 
-#pragma mark -
 #pragma mark 分享部分
 
 - (void)shareContent:(NSDictionary *)exDict {
@@ -170,15 +159,11 @@ NSString const *kQQPlatformLogin = @"login_qq";
 #pragma mark  WXApiDelegate
 
 - (void)onReq:(QQBaseReq *)req {
-#ifdef DEBUG
-    NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
-#endif
+    LDLog(@"%@", req);
 }
 
 - (void)onResp:(QQBaseResp *)resp {
-#ifdef DEBUG
-    NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
-#endif
+    LDLog(@"%@", resp);
     if ([self.dataVM canResponseResult:resp] && [self responseResult:resp]) {
         return;
     }
@@ -186,18 +171,13 @@ NSString const *kQQPlatformLogin = @"login_qq";
 }
 
 - (void)isOnlineResponse:(NSDictionary *)response {
-#ifdef DEBUG
-    NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
-#endif
+    LDLog(@"%@", response);
 }
 
-
 #pragma mark -
-#pragma mark - TencentLoginDelegate
+#pragma mark TencentLoginDelegate
 
-//登录成功后的回调
 - (void)tencentDidLogin {
-    NSLog(@"did login");
     if (self.tencentOAuth.accessToken && 0 != [self.tencentOAuth.accessToken length]) {
         NSMutableDictionary *oauthInfo = [NSMutableDictionary dictionary];
         oauthInfo[kQQ_TOKEN_KEY] = self.tencentOAuth.accessToken;
@@ -210,36 +190,36 @@ NSString const *kQQPlatformLogin = @"login_qq";
         }
 
         [self.tencentOAuth getUserInfo];
-        //TODO::
     } else {  //登录失败，没有获取授权accesstoken
 //        error = [NSError errorWithDomain:@"QQLogin" code:0 userInfo:@{@"NSLocalizedDescription": @"登录失败"}];
     }
 }
 
-//登录失败后的回调
 - (void)tencentDidNotLogin:(BOOL)cancelled {
-    NSError *error = [NSError errorWithDomain:@"QQLogin"
-                                         code:LDSDKErrorUnknow
-                                     userInfo:@{@"NSLocalizedDescription": @"登录失败"}];
+    NSError *error = [NSError errorWithDomain:kErrorDomain
+                                         code:LDSDKLoginUserCancel
+                                     userInfo:@{kErrorMessage: @"登录失败"}];
+    if (self.loginCallback) {
+        self.loginCallback(LDSDKLoginUserCancel, error, nil, nil);
+    }
 
 }
 
-//登录时网络有问题的回调
 - (void)tencentDidNotNetWork {
-    NSLog(@"did not network");
     NSError *error = [NSError
-            errorWithDomain:@"QQLogin"
-                       code:LDSDKErrorUnknow
-                   userInfo:@{@"NSLocalizedDescription": @"请检查网络"}];
+            errorWithDomain:kErrorDomain
+                       code:LDSDKLoginNoNet
+                   userInfo:@{kErrorMessage: @"请检查网络"}];
+    if (self.loginCallback) {
+        self.loginCallback(LDSDKLoginNoNet, error, nil, nil);
+    }
 }
 
 
-#pragma mark -
 #pragma mark TencentSessionDelegate
 
-//退出登录的回调
 - (void)tencentDidLogout {
-    NSLog(@"退出登录");
+    LDLog(@"退出登录");
 }
 
 // API授权不够，需增量授权
@@ -249,7 +229,7 @@ NSString const *kQQPlatformLogin = @"login_qq";
 
 //获取用户个人信息回调
 - (void)getUserInfoResponse:(APIResponse *)response {
-    NSLog(@"getUserInfo %d  %@ \n %@", response.retCode, response.message, response.errorMsg);
+    LDLog(@"getUserInfo %d  %@ \n %@", response.retCode, response.message, response.errorMsg);
 //    if (response.retCode == URLREQUEST_FAILED) {  //失败
 //        if (MyBlock) {
 //            MyBlock(nil, nil, error);

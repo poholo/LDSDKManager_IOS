@@ -56,6 +56,24 @@
               "type": 4
             }
           ]
+        },
+        {
+          "name": "Auth",
+          "type": 4,
+          "data": [
+            {
+              "name": "登录授权",
+              "type": 0
+            },
+            {
+              "name": "扫码登录",
+              "type": 1
+            },
+            {
+              "name": "退出登录",
+              "type": 0
+            }
+          ]
         }
       ]
     },
@@ -121,32 +139,6 @@
       "name": "Weibo",
       "type": 3,
       "data": [
-        {
-          "name": "Contract",
-          "type": 0,
-          "data": [
-            {
-              "name": "Text",
-              "type": 0
-            },
-            {
-              "name": "Image",
-              "type": 1
-            },
-            {
-              "name": "News",
-              "type": 2
-            },
-            {
-              "name": "Audio",
-              "type": 3
-            },
-            {
-              "name": "Video",
-              "type": 4
-            }
-          ]
-        },
         {
           "name": "Timeline",
           "type": 1,

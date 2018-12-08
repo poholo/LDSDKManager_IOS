@@ -43,6 +43,7 @@
 
     self.authServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
     self.authServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
+    self.authServiceDict[@(LDSDKPlatformQQ)] = self.qqService;
 }
 
 - (void)register:(NSArray<NSDictionary *> *)configs {

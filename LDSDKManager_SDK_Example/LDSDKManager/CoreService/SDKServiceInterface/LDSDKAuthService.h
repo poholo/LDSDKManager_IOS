@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^LDSDKLoginCallback)(NSDictionary *oauthInfo, NSDictionary *userInfo, NSError *error);
+#import "LDSDKConfig.h"
+
+typedef void (^LDSDKLoginCallback)(LDSDKLoginCode, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo);
 
 
 @protocol LDSDKAuthService <NSObject>

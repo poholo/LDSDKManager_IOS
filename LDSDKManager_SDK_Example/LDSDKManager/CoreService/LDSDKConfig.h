@@ -66,7 +66,7 @@ typedef NS_ENUM(NSInteger, LDSDKShareType) {
 };
 
 typedef NS_ENUM(NSInteger, LDSDKErrorCode) {
-    LDSDKSuccess = 0,                ///< 成功
+    LDSDKSuccess = 1,                ///< 成功
     LDSDKErrorCodeCommon = -1,       ///< 普通错误类型
     LDSDKErrorCodeUserCancel = -2,   ///< 用户点击取消并返回
     LDSDKErrorCodeSentFail = -3,     ///< 发送失败
@@ -75,6 +75,14 @@ typedef NS_ENUM(NSInteger, LDSDKErrorCode) {
     LDSDKErrorUninstallPlatformApp = -6, ///< 没有安装平台app
     LDSDKErrorCodePayFail = -7,          ///< 支付失败
     LDSDKErrorUnknow = -999,
+};
+
+typedef NS_ENUM(NSInteger, LDSDKLoginCode) {
+    LDSDKLoginSuccess = 1,
+    LDSDKLoginFailed = -1,
+    LDSDKLoginNoNet = -2,
+    LDSDKLoginUserCancel = -3,
+    LDSDKLoginNoAuth = -4,
 };
 
 #if DEBUG

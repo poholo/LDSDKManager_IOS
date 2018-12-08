@@ -97,7 +97,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
                                              code:0
                                          userInfo:@{@"NSLocalizedDescription": @"请先安装微信客户端"}];
         if (callback) {
-            callback(nil, nil, error);
+            callback(nil, nil, error, nil);
         }
         return;
     }
