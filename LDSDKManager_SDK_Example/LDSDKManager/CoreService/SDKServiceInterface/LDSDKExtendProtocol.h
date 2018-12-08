@@ -31,6 +31,9 @@
 
 
 @optional
+
++ (id)textZoneObject:(MMBaseShareDto *)shareDto;
+
 + (id)imagesObject:(MMBaseShareDto *)shareDto;
 
 + (id)videoZoneObject:(MMBaseShareDto *)shareDto;

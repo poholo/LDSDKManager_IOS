@@ -44,7 +44,7 @@
 		25BED6EC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m */; };
 		25BED6ED21B2314E000EBCB4 /* LDSDKWechatServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DD21B2314E000EBCB4 /* LDSDKWechatServiceImp.m */; };
 		25BED6EE21B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m */; };
-		25BED6F121B232AE000EBCB4 /* Icon-Netease@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25BED6F021B232AE000EBCB4 /* Icon-Netease@2x.png */; };
+		25CAC7CD21BBAA3100F0C267 /* think.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25CAC7CC21BBAA3100F0C267 /* think.jpg */; };
 		B2E1CB74B53D4DFBF93169C4 /* libPods-LDSDKManager_SDK_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1791953689D19644724296 /* libPods-LDSDKManager_SDK_Example.a */; };
 /* End PBXBuildFile section */
 
@@ -127,7 +127,7 @@
 		25BED6DD21B2314E000EBCB4 /* LDSDKWechatServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWechatServiceImp.m; sourceTree = "<group>"; };
 		25BED6DF21B2314E000EBCB4 /* LDSDKAliPayServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAliPayServiceImpl.h; sourceTree = "<group>"; };
 		25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKAliPayServiceImpl.m; sourceTree = "<group>"; };
-		25BED6F021B232AE000EBCB4 /* Icon-Netease@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Netease@2x.png"; sourceTree = "<group>"; };
+		25CAC7CC21BBAA3100F0C267 /* think.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = think.jpg; sourceTree = "<group>"; };
 		3AFE1F751C1EB2644AC27411 /* Pods-LDSDKManager_SDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager_SDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8C0F1DEECEE86B18FBC6A0CA /* Pods-LDSDKManager_SDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager_SDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BF1791953689D19644724296 /* libPods-LDSDKManager_SDK_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LDSDKManager_SDK_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,7 +216,6 @@
 				25BED6A221B23078000EBCB4 /* ViewController.h */,
 				25BED6A321B23078000EBCB4 /* ViewController.m */,
 				25BED6A521B23078000EBCB4 /* Main.storyboard */,
-				25BED6A821B23079000EBCB4 /* Assets.xcassets */,
 				25BED6AA21B23079000EBCB4 /* LaunchScreen.storyboard */,
 				25BED6AD21B23079000EBCB4 /* Info.plist */,
 				25BED6AE21B23079000EBCB4 /* main.m */,
@@ -356,7 +355,8 @@
 		25BED6EF21B232AE000EBCB4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				25BED6F021B232AE000EBCB4 /* Icon-Netease@2x.png */,
+				25CAC7CC21BBAA3100F0C267 /* think.jpg */,
+				25BED6A821B23079000EBCB4 /* Assets.xcassets */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -421,8 +421,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				25BED6AC21B23079000EBCB4 /* LaunchScreen.storyboard in Resources */,
+				25CAC7CD21BBAA3100F0C267 /* think.jpg in Resources */,
 				25BED6A921B23079000EBCB4 /* Assets.xcassets in Resources */,
-				25BED6F121B232AE000EBCB4 /* Icon-Netease@2x.png in Resources */,
 				25BED6A721B23078000EBCB4 /* Main.storyboard in Resources */,
 				1A6663A4A5D580317765E6E9 /* LLDPlatform.json in Resources */,
 			);

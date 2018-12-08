@@ -49,7 +49,7 @@
     } else if (shareDto.shareToModule == LDSDKShareToTimeLine) {
         switch (shareDto.shareType) {
             case LDSDKShareTypeText : {
-                apiObject = [self textObject:shareDto];
+                apiObject = [self textZoneObject:shareDto];
             }
                 break;
             case LDSDKShareTypeImage : {
@@ -79,6 +79,11 @@
     return apiTextObject;
 }
 
++ (QQApiImageArrayForQZoneObject *)textZoneObject:(MMBaseShareDto *)shareDto {
+    QQApiImageArrayForQZoneObject *apiImageArrayForQZoneObject = [QQApiImageArrayForQZoneObject objectWithimageDataArray:nil title:shareDto.desc extMap:nil];
+    return apiImageArrayForQZoneObject;
+}
+
 + (QQApiImageObject *)imageObject:(MMBaseShareDto *)shareDto {
     MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
     NSData *imageData1M = [shareImageDto.image ld_compressImageLimitSize:1000 * 1024];
@@ -101,9 +106,10 @@
 
 + (QQApiImageArrayForQZoneObject *)imagesObject:(MMBaseShareDto *)shareDto {
     MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
-    UIImage *image = shareImageDto.image;
-    NSAssert(image, @"image != NULL");
-    QQApiImageArrayForQZoneObject *apiImageArrayForQZoneObject = [QQApiImageArrayForQZoneObject objectWithimageDataArray:@[image]
+
+    NSData *imageData5M = [shareImageDto.image ld_compressImageLimitSize:5000 * 1024];
+    NSAssert(imageData5M, @"image != NULL");
+    QQApiImageArrayForQZoneObject *apiImageArrayForQZoneObject = [QQApiImageArrayForQZoneObject objectWithimageDataArray:@[imageData5M]
                                                                                                                    title:shareDto.title
                                                                                                                   extMap:nil];
     return apiImageArrayForQZoneObject;
