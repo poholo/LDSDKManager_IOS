@@ -77,7 +77,9 @@
 #pragma mark override
 
 - (void)setValue:(nullable id)value forUndefinedKey:(NSString *)key {
-    if ([key isEqualToString:LDSDKPlatformTypeKey]) {
+    if ([key isEqualToString:LDSDKIdentifierKey]) {
+        self.dtoId = value;
+    } else if ([key isEqualToString:LDSDKPlatformTypeKey]) {
         self.platformType = (LDSDKPlatformType) [value integerValue];
     } else if ([key isEqualToString:LDSDKShareToMoudleKey]) {
         self.shareToModule = (LDSDKShareToModule) [value integerValue];

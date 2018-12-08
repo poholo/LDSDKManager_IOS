@@ -57,7 +57,7 @@
 			<string>weibo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>sina.3e6b76df2ff8b3aafb050c5defe7427f</string>
+				<string>wb3780912137</string>
 			</array>
 		</dict>
 	</array>
@@ -124,5 +124,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+<!--    <key>NSPhotoLibraryUsageDescription</key>-->
+<!--    <string>use photos</string>-->
 </dict>
 </plist>

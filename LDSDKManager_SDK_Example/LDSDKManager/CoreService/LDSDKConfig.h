@@ -26,6 +26,7 @@ extern NSString *const LDSDKConfigAppDescriptionKey;
 
 
 //使用SDK分享，分享内容信息的Key
+extern NSString *const LDSDKIdentifierKey;
 extern NSString *const LDSDKPlatformTypeKey;
 extern NSString *const LDSDKShareToMoudleKey;
 extern NSString *const LDSDKShareTypeKey;

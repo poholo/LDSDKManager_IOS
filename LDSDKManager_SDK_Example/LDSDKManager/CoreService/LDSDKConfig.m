@@ -23,7 +23,7 @@ NSString *const LDSDKConfigAppSchemeKey = @"kAppScheme";
 NSString *const LDSDKConfigAppPlatformTypeKey = @"kAppPlatformType";
 NSString *const LDSDKConfigAppDescriptionKey = @"kAppDescription";
 
-
+NSString *const LDSDKIdentifierKey = @"LDSDKIdentifierKey";
 NSString *const LDSDKPlatformTypeKey = @"LDSDKPlatformTypeKey";
 NSString *const LDSDKShareToMoudleKey = @"LDSDKShareToMoudleKey";
 NSString *const LDSDKShareTypeKey = @"LDSDKShareTypeKey";

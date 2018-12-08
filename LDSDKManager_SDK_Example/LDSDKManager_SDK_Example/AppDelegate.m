@@ -38,9 +38,13 @@
                     LDSDKConfigAppSchemeKey: @"alipay://",
                     LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformAliPay)
             },
-            @{LDSDKConfigAppIdKey: @"3e6b76df2ff8b3aafb050c5defe7427f",
-                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformWeibo)},
+            @{
+                    LDSDKConfigAppIdKey: @"3780912137",
+                    LDSDKConfigAppSecretKey: @"9b005c1c44deeb4b8c58f71a447ed780",
+                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformWeibo)
+            },
     ];
+
 
     [[LDSDKManager share] registerWithPlatformConfigList:regPlatformConfigList];
 

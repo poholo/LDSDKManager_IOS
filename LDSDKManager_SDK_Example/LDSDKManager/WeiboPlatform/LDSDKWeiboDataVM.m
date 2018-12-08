@@ -5,6 +5,7 @@
 
 
 #import "LDSDKWeiboDataVM.h"
+#import "NSString+Extend.h"
 
 #import <Weibo_SDK/WeiboSDK.h>
 
@@ -27,10 +28,11 @@
 
 - (NSError *)respError:(WBBaseResponse *)resp {
     LDSDKErrorCode errorCode = [self errorCodePlatform:resp.statusCode];
+    NSString *errorMsg = [self errorMsg:resp.statusCode];
     NSError *error = [NSError errorWithDomain:kErrorDomain
                                          code:errorCode
                                      userInfo:@{kErrorCode: @(errorCode),
-                                             kErrorMessage: @"", //TODO:: weibo error info
+                                             kErrorMessage: [NSString filterInvalid:errorMsg],
                                              kErrorObject: resp}];
 
     return error;
@@ -66,5 +68,48 @@
     }
     return LDSDKErrorUnknow;
 }
+
+- (NSString *)errorMsg:(NSInteger)errorcode {
+    switch (errorcode) {
+        case WeiboSDKResponseStatusCodeSuccess           : {
+            return @"成功";
+        }
+            break;
+        case WeiboSDKResponseStatusCodeUserCancel : {
+            return @"用户取消";
+        }
+            break;
+        case WeiboSDKResponseStatusCodeShareInSDKFailed: {
+            return @"SDK分享失败";
+        }
+            break;
+        case WeiboSDKResponseStatusCodeSentFail   : {
+            return @"发送失败";
+        }
+            break;
+        case WeiboSDKResponseStatusCodeAuthDeny   : {
+            return @"Auth拒绝";
+        }
+            break;
+        case WeiboSDKResponseStatusCodeUnsupport  : {
+            return @"不支持";
+        }
+            break;
+        case WeiboSDKResponseStatusCodePayFail: {
+            return @"支付失败";
+        }
+            break;
+    }
+    return @"";
+}
+
+- (NSArray<NSString *> *)permissions {
+    return nil;
+}
+
+- (BOOL)canResponseResult:(id)resp {
+    return [resp isKindOfClass:[WBSendMessageToWeiboResponse class]];
+}
+
 
 @end

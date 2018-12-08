@@ -74,6 +74,34 @@
     [WeiboSDK sendRequest:request];
 }
 
+- (BOOL)responseResult:(WBSendMessageToWeiboResponse *)resp {
+    NSError *error = [self.dataVM respError:resp];
+    //        NSString *title = NSLocalizedString(@"发送结果", nil);
+    //        NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@",
+    //        NSLocalizedString(@"响应状态", nil), (int)response.statusCode,
+    //        NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo,
+    //        NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
+
+    NSString *accessToken = [resp.authResponse accessToken];
+    if (accessToken) {
+        self.wbtoken = accessToken;
+    }
+    NSString *userID = [resp.authResponse userID];
+    if (userID) {
+        self.wbCurrentUserID = userID;
+    }
+    if (self.shareCallback) {
+        self.shareCallback((LDSDKErrorCode) error.code, error);
+    }
+    return NO;
+}
+
+- (BOOL)handleURL:(NSURL *)url {
+    BOOL success = [WeiboSDK handleOpenURL:url delegate:self];
+    return success;
+}
+
+
 #pragma mark - WeiboSDKDelegate
 
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request; {
@@ -86,6 +114,9 @@
 #ifdef DEBUG
     NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 #endif
+    if ([self.dataVM canResponseResult:response] & [self responseResult:response]) {
+        return;
+    }
     NSError *error = [self.dataVM respError:response];
     if ([response isKindOfClass:WBSendMessageToWeiboResponse.class]) {
         //        NSString *title = NSLocalizedString(@"发送结果", nil);

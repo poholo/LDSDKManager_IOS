@@ -47,9 +47,11 @@
     NSDictionary *dict = nil;
     switch (shareType) {
         case LDSDKShareTypeText: {
-            dict = @{LDSDKShareTitleKey: @"测试分享",
-                    LDSDKShareDescKey: @"测试分享详情",
-                    LDSDKShareUrlKey: @"www.baidu.com",
+            dict = @{
+                    LDSDKIdentifierKey: @"identifier",
+                    LDSDKShareTitleKey: [self title],
+                    LDSDKShareDescKey: @"集成的第三方SDK（目前包括QQ,微信,易信,支付宝）进行集中管理，按照功能（目前包括第三方登录,分享,支付）开放给各个产品使用。通过接口的方式进行产品集成，方便对第三方SDK进行升级维护。",
+                    LDSDKShareUrlKey: [self link],
                     LDSDKShareImageKey: [UIImage imageNamed:@"Icon-Netease"],
                     LDSDKShareTextKey: @"text",
                     LDSDKShareCallBackKey: callBack,
@@ -60,9 +62,11 @@
         }
             break;
         case LDSDKShareTypeImage: {
-            dict = @{LDSDKShareTitleKey: @"测试分享",
-                    LDSDKShareDescKey: @"测试分享详情",
-                    LDSDKShareUrlKey: @"www.baidu.com",
+            dict = @{
+                    LDSDKIdentifierKey: @"identifier",
+                    LDSDKShareTitleKey: [self title],
+                    LDSDKShareDescKey: @"集成的第三方SDK（目前包括QQ,微信,易信,支付宝）进行集中管理，按照功能（目前包括第三方登录,分享,支付）开放给各个产品使用。通过接口的方式进行产品集成，方便对第三方SDK进行升级维护。",
+                    LDSDKShareUrlKey: [self link],
                     LDSDKShareImageKey: [UIImage imageNamed:@"Icon-Netease"],
                     LDSDKShareTextKey: @"text",
                     LDSDKShareCallBackKey: callBack,
@@ -72,9 +76,11 @@
         }
             break;
         case LDSDKShareTypeNews: {
-            dict = @{LDSDKShareTitleKey: @"测试分享",
-                    LDSDKShareDescKey: @"测试分享详情",
-                    LDSDKShareUrlKey: @"www.baidu.com",
+            dict = @{
+                    LDSDKIdentifierKey: @"identifier",
+                    LDSDKShareTitleKey: [self title],
+                    LDSDKShareDescKey: @"集成的第三方SDK（目前包括QQ,微信,易信,支付宝）进行集中管理，按照功能（目前包括第三方登录,分享,支付）开放给各个产品使用。通过接口的方式进行产品集成，方便对第三方SDK进行升级维护。",
+                    LDSDKShareUrlKey: [self link],
                     LDSDKShareImageKey: [UIImage imageNamed:@"Icon-Netease"],
                     LDSDKShareTextKey: @"text",
                     LDSDKShareCallBackKey: callBack,
@@ -84,8 +90,10 @@
         }
             break;
         case LDSDKShareTypeAudio: {
-            dict = @{LDSDKShareTitleKey: @"测试分享",
-                    LDSDKShareDescKey: @"测试分享详情",
+            dict = @{
+                    LDSDKIdentifierKey: @"identifier",
+                    LDSDKShareTitleKey: [self title],
+                    LDSDKShareDescKey: @"集成的第三方SDK（目前包括QQ,微信,易信,支付宝）进行集中管理，按照功能（目前包括第三方登录,分享,支付）开放给各个产品使用。通过接口的方式进行产品集成，方便对第三方SDK进行升级维护。",
                     LDSDKShareUrlKey: @"https://music.163.com/#/song?id=26145721&userid=9598943",
                     LDSDKShareImageKey: [UIImage imageNamed:@"Icon-Netease"],
                     LDSDKShareTextKey: @"text",
@@ -97,9 +105,11 @@
         }
             break;
         case LDSDKShareTypeVideo: {
-            dict = @{LDSDKShareTitleKey: @"测试分享",
-                    LDSDKShareDescKey: @"测试分享详情",
-                    LDSDKShareUrlKey: @"www.baidu.com",
+            dict = @{
+                    LDSDKIdentifierKey: @"identifier",
+                    LDSDKShareTitleKey: [self title],
+                    LDSDKShareDescKey: [self desc],
+                    LDSDKShareUrlKey: [self link],
                     LDSDKShareImageKey: [UIImage imageNamed:@"Icon-Netease"],
                     LDSDKShareTextKey: @"text",
                     LDSDKShareMeidaUrlKey: @"http://ksy.fffffive.com/mda-hfshah045smezhtf/mda-hfshah045smezhtf.mp4",
@@ -111,6 +121,19 @@
             break;
     }
     return dict;
+}
+
+- (NSString *)title {
+    return @"标题LDSDKManager_SDK";
+}
+
+- (NSString *)desc {
+    return @"集成的第三方SDK（目前包括QQ,微信,易信,支付宝）进行集中管理，按照功能（目前包括第三方登录,分享,支付）开放给各个产品使用。通过接口的方式进行产品集成，方便对第三方SDK进行升级维护。";
+}
+
+
+- (NSString *)link {
+    return @"https://github.com/poholo/LDSDKManager_IOS";
 }
 
 - (NSMutableArray<LLDPlatformDto *> *)dataList {

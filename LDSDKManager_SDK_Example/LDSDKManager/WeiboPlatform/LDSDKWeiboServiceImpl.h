@@ -8,7 +8,8 @@
 
 #import "LDSDKRegisterService.h"
 #import "LDSDKShareService.h"
+#import "LDSDKHandleURLProtocol.h"
 
-@interface LDSDKWeiboServiceImpl : NSObject <LDSDKRegisterService, LDSDKShareService>
+@interface LDSDKWeiboServiceImpl : NSObject <LDSDKRegisterService, LDSDKShareService, LDSDKHandleURLProtocol>
 
 @end

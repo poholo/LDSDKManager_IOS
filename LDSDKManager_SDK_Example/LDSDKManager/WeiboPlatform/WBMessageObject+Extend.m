@@ -103,5 +103,9 @@
     return messageObject;
 }
 
++ (NSInteger)moduleToPlatform:(LDSDKShareToModule)module {
+    return 0;
+}
+
 
 @end
