@@ -14,6 +14,8 @@
 
 @property(nonatomic, strong) MMShareConfigDto *configDto;
 
+- (NSError *)registerValidate;
+
 - (NSError *)supportContinue:(NSString *)module;
 
 - (BOOL)isPlatformAppInstalled;

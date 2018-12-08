@@ -24,7 +24,7 @@
 /*!
  *  @brief  注册获取第三方SDK使用权限
  */
-- (void)registerWithPlatformConfig:(NSDictionary *)config;
+- (NSError *)registerWithPlatformConfig:(NSDictionary *)config;
 
 /*!
  *  @brief  判断是否已经获取注册权限

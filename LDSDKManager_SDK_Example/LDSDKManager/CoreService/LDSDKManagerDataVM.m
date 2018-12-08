@@ -46,11 +46,14 @@
 }
 
 - (void)register:(NSArray<NSDictionary *> *)configs {
+    LDLog(@"*******[PlatformRegister]Start************");
     for (NSDictionary *config in configs) {
         NSNumber *platformType = config[LDSDKConfigAppPlatformTypeKey];
         id <LDSDKRegisterService> service = self.registerServiceDict[platformType];
-        [service registerWithPlatformConfig:config];
+        NSError *error = [service registerWithPlatformConfig:config];
+        LDLog(@"[Code]%zd %@", error.code, error.userInfo[kErrorMessage]);
     }
+    LDLog(@"*******[PlatformRegister]End************");
 }
 
 #pragma mark - getter

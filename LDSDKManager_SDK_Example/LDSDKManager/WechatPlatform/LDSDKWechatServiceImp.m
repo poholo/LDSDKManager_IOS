@@ -54,10 +54,14 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     return [self.dataVM isPlatformAppInstalled];
 }
 
-- (void)registerWithPlatformConfig:(NSDictionary *)config {
+- (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
     self.dataVM.configDto = [MMShareConfigDto createDto:config];
-    NSAssert(self.dataVM.configDto.appId, @"[LDSDKWechatServiceImp] appid == NULL");
-    [WXApi registerApp:self.dataVM.configDto.appId enableMTA:YES];
+    NSError *error = [self.dataVM registerValidate];
+    BOOL success = [WXApi registerApp:self.dataVM.configDto.appId enableMTA:YES];
+    if (!success) {
+        error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"Wechat register error"}];
+    }
+    return error;
 }
 
 - (BOOL)isRegistered {
@@ -284,7 +288,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
     SendMessageToWXReq *sendMessageToWXReq = [WechatApiExtend shareObject:shareDto];
     BOOL success = [WXApi sendReq:sendMessageToWXReq];
-    if(!success) {
+    if (!success) {
         NSLog(@"WX error");
     }
 }

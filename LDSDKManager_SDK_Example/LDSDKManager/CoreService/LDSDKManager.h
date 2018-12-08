@@ -63,5 +63,5 @@
  *
  *  @return 处理成功返回YES，否则返回NO
  */
-
+- (BOOL)handleURL:(NSURL *)url;
 @end

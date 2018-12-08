@@ -6,9 +6,20 @@
 #import <WechatOpenSDK/WXApi.h>
 #import "LDSDKWechatImpDataVM.h"
 #import "NSString+Extend.h"
+#import "MMShareConfigDto.h"
 
 
 @implementation LDSDKWechatImpDataVM
+
+- (NSError *)registerValidate {
+    NSError *error;
+    if (self.configDto.appId == nil || self.configDto.appId.length == 0) {
+        error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"Wechat appid == NULL"}];
+    } else {
+        error = [NSError errorWithDomain:kErrorDomain code:LDSDKSuccess userInfo:@{kErrorMessage: @"Wechat reister success"}];
+    }
+    return error;
+}
 
 - (BOOL)isPlatformAppInstalled {
     return [WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi];

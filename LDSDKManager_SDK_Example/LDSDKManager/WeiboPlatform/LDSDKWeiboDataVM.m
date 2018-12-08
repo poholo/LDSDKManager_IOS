@@ -6,10 +6,21 @@
 
 #import "LDSDKWeiboDataVM.h"
 #import "NSString+Extend.h"
+#import "MMShareConfigDto.h"
 
 #import <Weibo_SDK/WeiboSDK.h>
 
 @implementation LDSDKWeiboDataVM
+
+- (NSError *)registerValidate {
+    NSError *error;
+    if (self.configDto.appId == nil || self.configDto.appId.length == 0) {
+        error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"Weibo appid == NULL"}];
+    } else {
+        error = [NSError errorWithDomain:kErrorDomain code:LDSDKSuccess userInfo:@{kErrorMessage: @"Weibo reister success"}];
+    }
+    return error;
+}
 
 - (BOOL)isPlatformAppInstalled {
     return [WeiboSDK isWeiboAppInstalled] && [WeiboSDK isCanShareInWeiboAPP];

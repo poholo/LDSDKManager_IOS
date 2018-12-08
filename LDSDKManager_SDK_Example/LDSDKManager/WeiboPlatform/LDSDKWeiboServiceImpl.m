@@ -37,10 +37,14 @@
     return [WeiboSDK isWeiboAppInstalled];
 }
 
-- (void)registerWithPlatformConfig:(NSDictionary *)config {
+- (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
     self.dataVM.configDto = [MMShareConfigDto createDto:config];
-    NSAssert(self.dataVM.configDto.appId, @"[LDSDKWeiboServiceImp] appid == NULL");
-    [WeiboSDK registerApp:self.dataVM.configDto.appId];
+    NSError *error = [self.dataVM registerValidate];
+    BOOL success = [WeiboSDK registerApp:self.dataVM.configDto.appId];
+    if(!success) {
+        error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"Weibo register error"}];
+    }
+    return error;
 }
 
 - (BOOL)isRegistered {

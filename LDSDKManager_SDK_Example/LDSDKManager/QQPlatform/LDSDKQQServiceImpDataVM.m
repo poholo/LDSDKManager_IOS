@@ -11,12 +11,23 @@
 #import "MMBaseShareDto.h"
 #import "sdkdef.h"
 #import "NSString+Extend.h"
+#import "MMShareConfigDto.h"
 
 
 @implementation LDSDKQQServiceImpDataVM
 
 - (BOOL)isPlatformAppInstalled {
     return [QQApiInterface isQQInstalled] && [QQApiInterface isQQSupportApi];
+}
+
+- (NSError *)registerValidate {
+    NSError *error;
+    if (self.configDto.appId == nil || self.configDto.appId.length == 0) {
+        error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"QQ appid == NULL"}];
+    } else {
+        error = [NSError errorWithDomain:kErrorDomain code:LDSDKSuccess userInfo:@{kErrorMessage: @"QQ reister success"}];
+    }
+    return error;
 }
 
 - (NSError *)supportContinue:(NSString *)module {

@@ -36,7 +36,6 @@ extern NSString *const LDSDKShareImageKey;
 extern NSString *const LDSDKShareImageUrlKey;
 extern NSString *const LDSDKShareUrlKey;
 extern NSString *const LDSDKShareMeidaUrlKey;
-extern NSString *const LDSDKShareTextKey;         //新浪微博分享专用
 extern NSString *const LDSDKShareRedirectURIKey;  //新浪微博分享专用
 extern NSString *const LDSDKShareCallBackKey;
 
@@ -78,6 +77,11 @@ typedef NS_ENUM(NSInteger, LDSDKErrorCode) {
     LDSDKErrorUnknow = -999,
 };
 
+#if DEBUG
+#define LDLog(fmt, ...) NSLog((@"%s %d " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define LDLog(fmt, ...)
+#endif
 
 @interface LDSDKConfig : NSObject
 @end

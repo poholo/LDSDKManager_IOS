@@ -42,10 +42,11 @@ NSString const *kQQPlatformLogin = @"login_qq";
 }
 
 //注册平台
-- (void)registerWithPlatformConfig:(NSDictionary *)config {
+- (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
     self.dataVM.configDto = [MMShareConfigDto createDto:config];
-    NSAssert(self.dataVM.configDto.appId, @"[LDSDKQQServiceImp] appid == NULL");
+    NSError *error = [self.dataVM registerValidate];
     self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
+    return error;
 }
 
 - (BOOL)registerQQPlatformAppId:(NSString *)appId {

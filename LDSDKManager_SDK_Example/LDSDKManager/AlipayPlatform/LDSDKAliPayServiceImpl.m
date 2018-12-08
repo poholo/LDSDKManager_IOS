@@ -38,13 +38,14 @@
 }
 
 
-- (void)registerWithPlatformConfig:(NSDictionary *)config {
-    if (config == nil || config.allKeys.count == 0) return;
+- (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
+    if (config == nil || config.allKeys.count == 0) return nil;
 
     NSString *appScheme = config[LDSDKConfigAppSchemeKey];
     if (appScheme && [appScheme length]) {
         self.aliPayScheme = appScheme;
     }
+    return nil;
 }
 
 - (BOOL)isRegistered {
