@@ -239,7 +239,7 @@
     return @"";
 }
 
-- (BOOL)canResponseResult:(QQBaseResp *)resp {
+- (BOOL)canResponseShareResult:(QQBaseResp *)resp {
     return [resp isKindOfClass:[SendMessageToQQResp class]];
 }
 

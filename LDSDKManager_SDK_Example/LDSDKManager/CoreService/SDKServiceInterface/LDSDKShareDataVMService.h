@@ -28,7 +28,9 @@
 
 - (NSArray<NSString *> *)permissions;
 
-- (BOOL)canResponseResult:(id)resp;
+- (BOOL)canResponseShareResult:(id)resp;
+
+- (BOOL)canResponseAuthResult:(id)resp;
 
 @optional
 - (NSError *)respErrorCode:(NSInteger)code;

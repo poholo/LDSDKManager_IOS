@@ -10,7 +10,7 @@
 
 #import "LDSDKConfig.h"
 
-typedef void (^LDSDKLoginCallback)(LDSDKLoginCode, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo);
+typedef void (^LDSDKAuthCallback)(LDSDKLoginCode, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo);
 
 
 @protocol LDSDKAuthService <NSObject>
@@ -27,7 +27,7 @@ typedef void (^LDSDKLoginCallback)(LDSDKLoginCode, NSError *error, NSDictionary 
  *
  *  @param callback 登陆回调
  */
-- (void)loginToPlatformWithCallback:(LDSDKLoginCallback)callback;
+- (void)loginToPlatformWithCallback:(LDSDKAuthCallback)callback;
 
 /*!
  *  @brief  退出登陆，主要是QQ平台

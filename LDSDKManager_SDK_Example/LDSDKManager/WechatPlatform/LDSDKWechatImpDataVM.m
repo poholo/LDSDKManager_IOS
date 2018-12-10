@@ -85,8 +85,21 @@
     return nil;
 }
 
-- (BOOL)canResponseResult:(id)resp {
+- (BOOL)canResponseShareResult:(id)resp {
     return [resp isKindOfClass:[SendMessageToWXResp class]];
 }
+
+- (BOOL)canResponseAuthResult:(id)resp {
+    return [resp isKindOfClass:[SendAuthResp class]];
+}
+
+- (NSError *)validateAuthToken:(NSDictionary *)dict {
+    if (dict[@"errcode"]) {
+        NSError *error = [NSError errorWithDomain:kErrorDomain code:[dict[@"errcode"] integerValue] userInfo:@{kErrorMessage: dict[@"errmsg"]}];
+        return error;
+    }
+    return nil;
+}
+
 
 @end

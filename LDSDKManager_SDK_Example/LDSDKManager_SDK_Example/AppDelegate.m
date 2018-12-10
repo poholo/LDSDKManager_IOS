@@ -23,14 +23,14 @@
 
     NSArray *regPlatformConfigList = @[
             @{
-                    LDSDKConfigAppIdKey: @"wxd6b4d4ada6beb442",
-                    LDSDKConfigAppSecretKey: @"a2be3d08a304c26d1e538cd3f02e5362",
+                    LDSDKConfigAppIdKey: @"wxe7103e0bd671f704",
+                    LDSDKConfigAppSecretKey: @"d92d58696ab48a5ef4784e4e54976ce7",
                     LDSDKConfigAppDescriptionKey: [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"],
                     LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformWeChat)
             },
             @{
-                    LDSDKConfigAppIdKey: @"1106976672",
-                    LDSDKConfigAppSecretKey: @"D76uzXaBnfC4hxyO",
+                    LDSDKConfigAppIdKey: @"1101701640",
+                    LDSDKConfigAppSecretKey: @"AivRsxOiPoiXklp5",
                     LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformQQ)
             },
 

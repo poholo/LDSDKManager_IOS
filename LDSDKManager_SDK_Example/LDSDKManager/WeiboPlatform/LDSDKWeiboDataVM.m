@@ -118,7 +118,7 @@
     return nil;
 }
 
-- (BOOL)canResponseResult:(id)resp {
+- (BOOL)canResponseShareResult:(id)resp {
     return [resp isKindOfClass:[WBSendMessageToWeiboResponse class]];
 }
 

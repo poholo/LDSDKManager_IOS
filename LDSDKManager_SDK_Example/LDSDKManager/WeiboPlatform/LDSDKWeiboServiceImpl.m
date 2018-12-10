@@ -118,7 +118,7 @@
 #ifdef DEBUG
     NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 #endif
-    if ([self.dataVM canResponseResult:response] & [self responseResult:response]) {
+    if ([self.dataVM canResponseShareResult:response] & [self responseResult:response]) {
         return;
     }
     NSError *error = [self.dataVM respError:response];

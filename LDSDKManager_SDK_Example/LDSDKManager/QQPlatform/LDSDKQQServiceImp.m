@@ -27,7 +27,7 @@ NSString const *kQQPlatformLogin = @"login_qq";
 @property(nonatomic, strong) LDSDKQQServiceImpDataVM *dataVM;
 
 @property(nonatomic, copy) LDSDKShareCallback shareCallback;
-@property(nonatomic, copy) LDSDKLoginCallback loginCallback;
+@property(nonatomic, copy) LDSDKAuthCallback loginCallback;
 
 @end
 
@@ -83,7 +83,7 @@ NSString const *kQQPlatformLogin = @"login_qq";
     }
 }
 
-- (void)loginToPlatformWithCallback:(LDSDKLoginCallback)callback {
+- (void)loginToPlatformWithCallback:(LDSDKAuthCallback)callback {
     self.loginCallback = callback;
 
     if (!self.tencentOAuth) {
@@ -120,7 +120,7 @@ NSString const *kQQPlatformLogin = @"login_qq";
     QQApiSendResultCode resultCode = [self sendReq:req shareModule:shareDto.shareToModule];
     LDSDKErrorCode errorCode = [self.dataVM errorCodePlatform:resultCode];
     if (errorCode != LDSDKSuccess) {
-        error = [self.dataVM respError:@(resultCode)];
+        error = [self.dataVM respErrorCode:resultCode];
         if (self.shareCallback) {
             self.shareCallback((LDSDKErrorCode) error.code, error);
         }
@@ -164,7 +164,7 @@ NSString const *kQQPlatformLogin = @"login_qq";
 
 - (void)onResp:(QQBaseResp *)resp {
     LDLog(@"%@", resp);
-    if ([self.dataVM canResponseResult:resp] && [self responseResult:resp]) {
+    if ([self.dataVM canResponseShareResult:resp] && [self responseResult:resp]) {
         return;
     }
 
