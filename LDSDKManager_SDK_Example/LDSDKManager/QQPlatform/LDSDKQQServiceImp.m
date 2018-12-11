@@ -21,7 +21,7 @@
 
 @interface LDSDKQQServiceImp () <TencentSessionDelegate, QQApiInterfaceDelegate>
 
-@property(nonatomic, strong) TencentOAuth *tencentOAuth;
+@property(nonatomic, strong) TencentOAuth *tencentAuth;
 @property(nonatomic, strong) LDSDKQQServiceImpDataVM *dataVM;
 
 @property(nonatomic, copy) LDSDKShareCallback shareCallback;
@@ -44,7 +44,7 @@
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
     self.dataVM.configDto = [MMShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
-    self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
+    self.tencentAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
     return error;
 }
 
@@ -72,24 +72,37 @@
 
 #pragma mark 登陆部分
 
-- (BOOL)isLoginEnabledOnPlatform {
-    return YES;
-}
-
-- (void)loginToPlatformWithCallback:(LDSDKAuthCallback)callback {
+- (void)authPlatformCallback:(LDSDKAuthCallback)callback {
     self.authCallback = callback;
 
-    if (!self.tencentOAuth) {
-        self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
+    if (!self.tencentAuth) {
+        self.tencentAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
     }
 
-    self.tencentOAuth.authMode = kAuthModeClientSideToken;
-    [self.tencentOAuth authorize:self.dataVM.permissions];
+    self.tencentAuth.authMode = kAuthModeClientSideToken;
+    [self.tencentAuth authorize:self.dataVM.permissions];
 }
 
-- (void)logoutFromPlatform {
-    [self.tencentOAuth logout:self];
-    self.tencentOAuth = nil;
+- (void)authPlatformQRCallback:(LDSDKAuthCallback)callback {
+    self.authCallback = callback;
+
+    if (!self.tencentAuth) {
+        self.tencentAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
+    }
+
+    self.tencentAuth.authMode = kAuthModeClientSideToken;
+    [self.tencentAuth authorizeWithQRlogin:self.dataVM.permissions];
+}
+
+- (void)authLogoutPlatformCallback:(LDSDKAuthCallback)callBack {
+    self.authCallback = callBack;
+    if (!self.tencentAuth) {
+        if (self.authCallback) {
+            self.authCallback(LDSDKLoginSuccess, nil, nil, nil);
+        }
+    } else {
+        [self.tencentAuth logout:self];
+    }
 }
 
 
@@ -171,11 +184,11 @@
 #pragma mark TencentLoginDelegate
 
 - (void)tencentDidLogin {
-    self.dataVM.authDict = [self.dataVM wrapAuth:self.tencentOAuth];
+    self.dataVM.authDict = [self.dataVM wrapAuth:self.tencentAuth];
     if (self.authCallback) {
         self.authCallback(LDSDKLoginSuccess, nil, self.dataVM.authDict, nil);
     }
-    [self.tencentOAuth getUserInfo];
+    [self.tencentAuth getUserInfo];
 }
 
 - (void)tencentDidNotLogin:(BOOL)cancelled {
@@ -201,10 +214,15 @@
 #pragma mark TencentSessionDelegate
 
 - (void)tencentDidLogout {
-    LDLog(@"退出登录");
+    self.dataVM.authDict = nil;
+    self.dataVM.userInfo = nil;
+    self.tencentAuth = nil;
+    if (self.authCallback) {
+        self.authCallback(LDSDKLoginSuccess, nil, nil, nil);
+    }
 }
 
-- (BOOL)tencentNeedPerformIncrAuth:(TencentOAuth *)tencentOAuth withPermissions:(NSArray *)permissions {
+- (BOOL)tencentNeedPerformIncrAuth:(TencentOAuth *)tencentAuth withPermissions:(NSArray *)permissions {
     return YES;
 }
 
@@ -214,7 +232,7 @@
     if (response.retCode == URLREQUEST_SUCCEED) {  //成功用户资料
         if (response.detailRetCode == kOpenSDKErrorSuccess) {
             if (self.authCallback) {
-                self.dataVM.authDict = [self.dataVM wrapAuth:self.tencentOAuth];
+                self.dataVM.authDict = [self.dataVM wrapAuth:self.tencentAuth];
                 self.dataVM.userInfo = [self.dataVM wrapAuthUserInfo:response];
                 self.authCallback(LDSDKLoginSuccess, nil, self.dataVM.authDict, self.dataVM.userInfo);
             }

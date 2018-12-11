@@ -73,17 +73,21 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 #pragma mark -
 #pragma mark - 登陆部分
 
-- (BOOL)isLoginEnabledOnPlatform {
-    return [self isPlatformAppInstalled] && [self isRegistered];
-}
-
-- (void)loginToPlatformWithCallback:(LDSDKAuthCallback)callback {
+- (void)authPlatformCallback:(LDSDKAuthCallback)callback {
     self.authCallback = callback;
     SendAuthReq *req = [[SendAuthReq alloc] init];
     req.scope = @"snsapi_userinfo";
     req.state = @"10000";
     UIViewController *viewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     [WXApi sendAuthReq:req viewController:viewController delegate:self];
+}
+
+- (void)authPlatformQRCallback:(LDSDKAuthCallback)callBack {
+    self.authCallback = callBack;
+    if (self.authCallback) {
+        NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginFailed userInfo:@{kErrorMessage: @"Not support QR Auth"}];
+        self.authCallback(LDSDKLoginFailed, error, nil, nil);
+    }
 }
 
 - (void)reqAuthCode:(NSString *)code {
@@ -109,7 +113,14 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 
 }
 
-- (void)logoutFromPlatform {
+- (void)authLogoutPlatformCallback:(LDSDKAuthCallback)callBack {
+    self.authCallback = callBack;
+    self.dataVM.authDict = nil;
+    self.dataVM.code = nil;
+    self.dataVM.userInfo = nil;
+    if (self.authCallback) {
+        self.authCallback(LDSDKLoginSuccess, nil, nil, nil);
+    }
 }
 
 
@@ -293,7 +304,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
         NSError *error = [self.dataVM validateAuthToken:resultDict];
         if (error) {
             if (self.authCallback) {
-                self.authCallback(error.code, error, nil, nil);
+                self.authCallback((LDSDKLoginCode) error.code, error, nil, nil);
             }
         } else {
             self.dataVM.authDict = [self.dataVM wrapAuth:resultDict];
@@ -306,7 +317,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
         NSError *error = [self.dataVM validateAuthToken:resultDict];
         if (error) {
             if (self.authCallback) {
-                self.authCallback(error.code, error, nil, nil);
+                self.authCallback((LDSDKLoginCode) error.code, error, nil, nil);
             }
         } else {
             self.dataVM.userInfo = [self.dataVM wrapAuthUserInfo:resultDict];

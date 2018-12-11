@@ -91,36 +91,86 @@
     LLDCategoriryDto *categoriryDto = [self.dataVM categroryAtIndex:indexPath.section - 1];
 
     if (categoriryDto.type == 4) {
-        //Auth
-        id <LDSDKAuthService> authService = [[LDSDKManager share] authService:self.dataVM.curPlatformDto.type];
-        __weak typeof(self) weakSelf = self;
-        [authService loginToPlatformWithCallback:^(LDSDKLoginCode code, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo) {
-            LDLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            if (code == LDSDKLoginSuccess) {
-                if (userInfo == nil && oauthInfo != nil) {
-                    [strongSelf.infoLabel setText:@"授权成功"];
-                } else {
-                    NSString *alert = [NSString stringWithFormat:@"昵称：%@  头像url：%@",
-                                                                 userInfo[LDSDK_NICKNAME_KEY],
-                                                                 userInfo[LDSDK_AVATARURL_KEY]];
-                    NSLog(@"message = %@", alert);
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登陆成功"
-                                                                        message:alert
-                                                                       delegate:self
-                                                              cancelButtonTitle:@"cancel"
-                                                              otherButtonTitles:@"ok", nil];
-                    [alertView show];
-                }
-            } else {
-                [strongSelf.infoLabel setText:error.userInfo[kErrorMessage]];
-            }
-        }];
+        if (indexPath.row == 0) {
+            [self authLogin];
+        } else if (indexPath.row == 1) {
+            [self authQRLogin];
+        } else if (indexPath.row == 2) {
+            [self authLogout];
+        }
         return;
     }
 
     LLDShareInfoDto *infoDto = [self.dataVM shareInfoDtoAtCateIndex:indexPath.section - 1 index:indexPath.row];
     [self share:infoDto cate:categoriryDto];
+}
+
+- (void)authLogin {
+    id <LDSDKAuthService> authService = [[LDSDKManager share] authService:self.dataVM.curPlatformDto.type];
+    __weak typeof(self) weakSelf = self;
+    [authService authPlatformCallback:^(LDSDKLoginCode code, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo) {
+        LDLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (code == LDSDKLoginSuccess) {
+            if (userInfo == nil && oauthInfo != nil) {
+                [strongSelf.infoLabel setText:@"授权成功"];
+            } else {
+                NSString *alert = [NSString stringWithFormat:@"昵称：%@  头像url：%@",
+                                                             userInfo[LDSDK_NICKNAME_KEY],
+                                                             userInfo[LDSDK_AVATARURL_KEY]];
+                NSLog(@"message = %@", alert);
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登陆成功"
+                                                                    message:alert
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"cancel"
+                                                          otherButtonTitles:@"ok", nil];
+                [alertView show];
+            }
+        } else {
+            [strongSelf.infoLabel setText:error.userInfo[kErrorMessage]];
+        }
+    }];
+}
+
+- (void)authQRLogin {
+    id <LDSDKAuthService> authService = [[LDSDKManager share] authService:self.dataVM.curPlatformDto.type];
+    __weak typeof(self) weakSelf = self;
+    [authService authPlatformQRCallback:^(LDSDKLoginCode code, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo) {
+        LDLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (code == LDSDKLoginSuccess) {
+            if (userInfo == nil && oauthInfo != nil) {
+                [strongSelf.infoLabel setText:@"授权成功"];
+            } else {
+                NSString *alert = [NSString stringWithFormat:@"昵称：%@  头像url：%@",
+                                                             userInfo[LDSDK_NICKNAME_KEY],
+                                                             userInfo[LDSDK_AVATARURL_KEY]];
+                NSLog(@"message = %@", alert);
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登陆成功"
+                                                                    message:alert
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"cancel"
+                                                          otherButtonTitles:@"ok", nil];
+                [alertView show];
+            }
+        } else {
+            [strongSelf.infoLabel setText:error.userInfo[kErrorMessage]];
+        }
+    }];
+}
+
+- (void)authLogout {
+    id <LDSDKAuthService> authService = [[LDSDKManager share] authService:self.dataVM.curPlatformDto.type];
+    __weak typeof(self) weakSelf = self;
+    [authService authLogoutPlatformCallback:^(LDSDKLoginCode code, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo) {
+        LDLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (code == LDSDKLoginSuccess) {
+            [strongSelf.infoLabel setText:@"退出登录成功"];
+        } else {
+            [strongSelf.infoLabel setText:error.userInfo[kErrorMessage]];
+        }
+    }];
 }
 
 - (void)share:(LLDShareInfoDto *)shareInfoDto cate:(LLDCategoriryDto *)categoriryDto {
