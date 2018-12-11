@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 张海洋. All rights reserved.
 //
 
+//  http://open.weibo.com/wiki/2/users/show 微博个人信息
+
 #import "LDSDKWeiboServiceImpl.h"
 
 #import <Weibo_SDK/WeiboSDK.h>
@@ -16,16 +18,15 @@
 #import "LDSDKExtendProtocol.h"
 #import "MMBaseShareDto.h"
 #import "WBMessageObject+Extend.h"
+#import "LDNetworkManager.h"
 
-@interface LDSDKWeiboServiceImpl () <WeiboSDKDelegate> {
-    BOOL isRegistered;
-}
 
-@property(strong, nonatomic) NSString *wbtoken;
-@property(strong, nonatomic) NSString *wbCurrentUserID;
+@interface LDSDKWeiboServiceImpl () <WeiboSDKDelegate, WBHttpRequestDelegate>
 
+@property(nonatomic, strong) LDNetworkManager *networkManager;
 @property(nonatomic, strong) LDSDKWeiboDataVM *dataVM;
 @property(nonatomic, copy) LDSDKShareCallback shareCallback;
+@property(nonatomic, copy) LDSDKAuthCallback authCallback;
 
 @end
 
@@ -41,18 +42,12 @@
     self.dataVM.configDto = [MMShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
     BOOL success = [WeiboSDK registerApp:self.dataVM.configDto.appId];
-    if(!success) {
+    if (!success) {
         error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"Weibo register error"}];
     }
     return error;
 }
 
-- (BOOL)isRegistered {
-    return isRegistered;
-}
-
-
-#pragma mark -
 #pragma mark 处理URL回调
 
 - (BOOL)handleResultUrl:(NSURL *)url {
@@ -60,7 +55,6 @@
 }
 
 
-#pragma mark -
 #pragma mark 分享部分
 
 - (void)shareContent:(NSDictionary *)exDict {
@@ -73,29 +67,57 @@
 
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:messageObject
                                                                                   authInfo:authRequest
-                                                                              access_token:self.wbtoken];
+                                                                              access_token:self.dataVM.token];
 
     [WeiboSDK sendRequest:request];
 }
 
-- (BOOL)responseResult:(WBSendMessageToWeiboResponse *)resp {
+- (BOOL)responseResult:(WBBaseResponse *)resp {
     NSError *error = [self.dataVM respError:resp];
-    //        NSString *title = NSLocalizedString(@"发送结果", nil);
-    //        NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@",
-    //        NSLocalizedString(@"响应状态", nil), (int)response.statusCode,
-    //        NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo,
-    //        NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
-
-    NSString *accessToken = [resp.authResponse accessToken];
-    if (accessToken) {
-        self.wbtoken = accessToken;
-    }
-    NSString *userID = [resp.authResponse userID];
-    if (userID) {
-        self.wbCurrentUserID = userID;
-    }
-    if (self.shareCallback) {
-        self.shareCallback((LDSDKErrorCode) error.code, error);
+    if ([resp isKindOfClass:[WBSendMessageToWeiboResponse class]]) {
+        WBSendMessageToWeiboResponse *response = (WBSendMessageToWeiboResponse *) resp;
+        self.dataVM.token = [response.authResponse accessToken];
+        self.dataVM.userId = [response.authResponse userID];
+        if (self.shareCallback) {
+            self.shareCallback((LDSDKErrorCode) error.code, error);
+        }
+        return YES;
+    } else if ([resp isKindOfClass:[WBAuthorizeResponse class]]) {
+        if ((LDSDKErrorCode) error.code == LDSDKSuccess) {
+            WBAuthorizeResponse *response = (WBAuthorizeResponse *) resp;
+            self.dataVM.authDict = [self.dataVM wrapAuth:response];
+            if (self.authCallback) {
+                self.authCallback(LDSDKLoginSuccess, nil, self.dataVM.authDict, nil);
+            }
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@", self.dataVM.token, self.dataVM.userId]];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+            [request setHTTPMethod:@"GET"];
+            __weak typeof(self) weakSelf = self;
+            [self.networkManager dataTaskWithRequest:request callBack:^(BOOL success, NSDictionary *data) {
+                __strong typeof(weakSelf) strongSelf = weakSelf;
+                if (success) {
+                    NSError *err = [self.dataVM validateAuthToken:data];
+                    if (err) {
+                        if (strongSelf.authCallback) {
+                            strongSelf.authCallback((LDSDKLoginCode) err.code, error, nil, nil);
+                        }
+                    } else {
+                        strongSelf.dataVM.userInfo = [self.dataVM wrapAuthUserInfo:data];
+                        if (strongSelf.authCallback) {
+                            strongSelf.authCallback(LDSDKLoginSuccess, nil, self.dataVM.authDict, self.dataVM.userInfo);
+                        }
+                    }
+                } else {
+                    NSError *err = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginFailed userInfo:@{kErrorMessage: @"取用户数据失败"}];
+                    strongSelf.authCallback(LDSDKLoginFailed, err, nil, nil);
+                }
+            }];
+            return YES;
+        } else {
+            if (self.authCallback) {
+                self.authCallback((LDSDKLoginCode) error.code, error, nil, nil);
+            }
+        }
     }
     return NO;
 }
@@ -106,42 +128,56 @@
 }
 
 
+#pragma mark - Auth
+
+- (void)authPlatformCallback:(LDSDKAuthCallback)callback {
+    self.authCallback = callback;
+    if (self.dataVM.configDto.redirectURI.length == 0) {
+        NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginMissParams userInfo:@{kErrorMessage: @"MissParams: redirectURI"}];
+        if (self.authCallback) {
+            self.authCallback(LDSDKLoginMissParams, error, nil, nil);
+        }
+        return;
+    }
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.redirectURI = self.dataVM.configDto.redirectURI;
+    request.scope = @"all";
+    [WeiboSDK sendRequest:request];
+}
+
+- (void)authPlatformQRCallback:(LDSDKAuthCallback)callBack {
+
+}
+
+- (void)authLogoutPlatformCallback:(LDSDKAuthCallback)callBack {
+    self.authCallback = callBack;
+    if (self.dataVM.token) {
+        [WeiboSDK logOutWithToken:self.dataVM.token delegate:self withTag:nil];
+    } else {
+        if (self.authCallback) {
+            self.authCallback(LDSDKLoginSuccess, nil, nil, nil);
+        }
+    }
+}
+
 #pragma mark - WeiboSDKDelegate
 
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request; {
-#ifdef DEBUG
-    NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
-#endif
+    LDLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 }
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
-#ifdef DEBUG
-    NSLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
-#endif
-    if ([self.dataVM canResponseShareResult:response] & [self responseResult:response]) {
+    LDLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
+    if ([self.dataVM canResponseShareResult:response] && [self responseResult:response]) {
         return;
     }
-    NSError *error = [self.dataVM respError:response];
-    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class]) {
-        //        NSString *title = NSLocalizedString(@"发送结果", nil);
-        //        NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@",
-        //        NSLocalizedString(@"响应状态", nil), (int)response.statusCode,
-        //        NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo,
-        //        NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
 
-        WBSendMessageToWeiboResponse *sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse *) response;
-        NSString *accessToken = [sendMessageToWeiboResponse.authResponse accessToken];
-        if (accessToken) {
-            self.wbtoken = accessToken;
-        }
-        NSString *userID = [sendMessageToWeiboResponse.authResponse userID];
-        if (userID) {
-            self.wbCurrentUserID = userID;
-        }
-        if (self.shareCallback) {
-            self.shareCallback((LDSDKErrorCode) error.code, error);
-        }
-    } else if ([response isKindOfClass:WBAuthorizeResponse.class]) {
+    if ([self.dataVM canResponseAuthResult:response] && [self responseResult:response]) {
+        return;
+    }
+
+    NSError *error = [self.dataVM respError:response];
+    if ([response isKindOfClass:WBAuthorizeResponse.class]) {
         //        NSString *title = NSLocalizedString(@"认证结果", nil);
         //        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId:
         //        %@\nresponse.accessToken: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态",
@@ -150,8 +186,8 @@
         //        NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo,
         //        NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
 
-        self.wbtoken = [(WBAuthorizeResponse *) response accessToken];
-        self.wbCurrentUserID = [(WBAuthorizeResponse *) response userID];
+        self.dataVM.token = [(WBAuthorizeResponse *) response accessToken];
+        self.dataVM.userId = [(WBAuthorizeResponse *) response userID];
     }
 
 //    else if ([response isKindOfClass:WBPaymentResponse.class]) {
@@ -166,7 +202,52 @@
 //
 }
 
+#pragma mark WBHttpRequestDelegate
+
+/**
+ 收到一个来自微博Http请求的响应
+ */
+- (void)request:(WBHttpRequest *)request didReceiveResponse:(NSURLResponse *)response {
+
+}
+
+/**
+ 收到一个来自微博Http请求失败的响应
+ */
+- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error {
+
+}
+
+/**
+ 收到一个来自微博Http请求的网络返回
+ */
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result {
+
+}
+
+/**
+ 收到一个来自微博Http请求的网络返回
+ */
+- (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)data {
+
+}
+
+/**
+ 收到快速SSO授权的重定向
+ */
+- (void)request:(WBHttpRequest *)request didReciveRedirectResponseWithURI:(NSURL *)redirectUrl {
+
+}
+
+
 #pragma mark - getter
+
+- (LDNetworkManager *)networkManager {
+    if (!_networkManager) {
+        _networkManager = [LDNetworkManager new];
+    }
+    return _networkManager;
+}
 
 - (LDSDKWeiboDataVM *)dataVM {
     if (!_dataVM) {

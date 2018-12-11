@@ -109,6 +109,8 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 
     NSMutableURLRequest *request = [self requestWithMethod:@"POST" path:kWX_GET_USERINFO_URL parameters:paramDict];
 
+    [[NSURLSession sharedSession] dataTaskWithRequest:request];
+
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
 }

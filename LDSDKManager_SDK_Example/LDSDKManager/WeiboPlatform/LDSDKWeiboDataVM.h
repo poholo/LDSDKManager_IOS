@@ -10,6 +10,13 @@
 
 @interface LDSDKWeiboDataVM : NSObject <LDSDKShareDataVMService>
 
+@property(strong, nonatomic) NSString *token;
+@property(strong, nonatomic) NSString *userId;
+
 @property(nonatomic, strong) MMShareConfigDto *configDto;
+@property(nonatomic, strong) NSDictionary *authDict;
+@property(nonatomic, strong) NSDictionary *userInfo;
+
+- (NSError *)validateAuthToken:(NSDictionary *)dict;
 
 @end

@@ -41,6 +41,7 @@
             @{
                     LDSDKConfigAppIdKey: @"3780912137",
                     LDSDKConfigAppSecretKey: @"9b005c1c44deeb4b8c58f71a447ed780",
+                    LDSDKShareRedirectURIKey: @"https://sns.whalecloud.com/sina2/callback",
                     LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformWeibo)
             },
     ];

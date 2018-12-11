@@ -14,6 +14,7 @@
 		1A66636E1B052BFFE79C59FF /* WechatApiExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6663679474BC69B8273C51 /* WechatApiExtend.m */; };
 		1A6663A4A5D580317765E6E9 /* LLDPlatform.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A666A647DD6544631A52487 /* LLDPlatform.json */; };
 		1A6663E4D7ED54C2CC1F6D3B /* MMResultDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66600A9EE8BBE7F1549CDF /* MMResultDto.m */; };
+		1A6665B3B72994118BE70B93 /* LDNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666CFEB5DD4366A46A29C8 /* LDNetworkManager.m */; };
 		1A6665C08B0EAF8CE912D5D2 /* MMShareNewsDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666C55E8D06A08183CC200 /* MMShareNewsDto.m */; };
 		1A6666E99753C1682E9C58B6 /* LDSDKManagerDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */; };
 		1A666AFC4C4665DECE42B896 /* QQApiObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666D2CBA461049575B8C7A /* QQApiObject+Extend.m */; };
@@ -82,6 +83,7 @@
 		1A666C55E8D06A08183CC200 /* MMShareNewsDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareNewsDto.m; sourceTree = "<group>"; };
 		1A666C958CAAE2B2351C0C91 /* LDSDKWeiboDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWeiboDataVM.h; sourceTree = "<group>"; };
 		1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWeiboDataVM.m; sourceTree = "<group>"; };
+		1A666CFEB5DD4366A46A29C8 /* LDNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNetworkManager.m; sourceTree = "<group>"; };
 		1A666D2CBA461049575B8C7A /* QQApiObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QQApiObject+Extend.m"; sourceTree = "<group>"; };
 		1A666DB70B60159947D421E1 /* LDSDKWechatImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWechatImpDataVM.h; sourceTree = "<group>"; };
 		1A666DD0795A4B5F900816A0 /* NSDictionary+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extend.h"; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		1A666E17BC92E5C1505C372B /* MMBaseShareDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMBaseShareDto.m; sourceTree = "<group>"; };
 		1A666E59EF570465593128F9 /* NSString+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extend.h"; sourceTree = "<group>"; };
 		1A666E6057B5312757C577CE /* MMShareVideoDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareVideoDto.h; sourceTree = "<group>"; };
+		1A666E760BA7309EEB425C43 /* LDNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNetworkManager.h; sourceTree = "<group>"; };
 		1A666EB9DB47880B1B38ED8B /* LDSDKManagerDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKManagerDataVM.h; sourceTree = "<group>"; };
 		1A666F27228669CA8AC00880 /* WBMessageObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBMessageObject+Extend.h"; sourceTree = "<group>"; };
 		1A666F5626AE94F6428DB586 /* MMShareTextDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareTextDto.h; sourceTree = "<group>"; };
@@ -165,6 +168,15 @@
 				BF1791953689D19644724296 /* libPods-LDSDKManager_SDK_Example.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A66622225E99B7016F4458B /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				1A666CFEB5DD4366A46A29C8 /* LDNetworkManager.m */,
+				1A666E760BA7309EEB425C43 /* LDNetworkManager.h */,
+			);
+			path = Net;
 			sourceTree = "<group>";
 		};
 		1A666DEF637993C5C1742BA1 /* Dtos */ = {
@@ -268,6 +280,7 @@
 				1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */,
 				1A666EB9DB47880B1B38ED8B /* LDSDKManagerDataVM.h */,
 				1A666DEF637993C5C1742BA1 /* Dtos */,
+				1A66622225E99B7016F4458B /* Net */,
 			);
 			path = CoreService;
 			sourceTree = "<group>";
@@ -519,6 +532,7 @@
 				1A6661706C680801D41B7942 /* LLDPlatformCell.m in Sources */,
 				1A666B0E84A7F2B56C134278 /* NSString+Extend.m in Sources */,
 				1A666CA45BF42343110E17DC /* NSDictionary+Extend.m in Sources */,
+				1A6665B3B72994118BE70B93 /* LDNetworkManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -122,5 +122,37 @@
     return [resp isKindOfClass:[WBSendMessageToWeiboResponse class]];
 }
 
+- (BOOL)canResponseAuthResult:(id)resp {
+    return [resp isKindOfClass:[WBAuthorizeResponse class]];
+}
+
+- (NSDictionary *)wrapAuth:(WBAuthorizeResponse *)auth {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    dict[LDSDK_TOKEN_KEY] = auth.accessToken;
+    dict[LDSDK_EXPIRADATE_KEY] = auth.expirationDate;
+    self.userId = auth.userID;
+    self.token = auth.accessToken;
+    return dict;
+}
+
+- (NSDictionary *)wrapAuthUserInfo:(NSDictionary *)userinfo {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+
+    dict[LDSDK_NICKNAME_KEY] = userinfo[@"name"];
+    dict[LDSDK_AVATARURL_KEY] = userinfo[@"profile_image_url"];
+    dict[LDSDK_GENDER_KEY] = userinfo[@"gender"];
+    dict[LDSDK_UNION_ID] = userinfo[@"id"];
+    return dict;
+}
+
+- (NSError *)validateAuthToken:(NSDictionary *)dict {
+    if (dict[@"error_code"] || dict == nil) {
+        NSString *msg = dict[@"error"] ? dict[@"error"] : @"Req failed";
+        NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginFailed userInfo:@{kErrorMessage: msg}];
+        return error;
+    }
+    return nil;
+}
+
 
 @end
