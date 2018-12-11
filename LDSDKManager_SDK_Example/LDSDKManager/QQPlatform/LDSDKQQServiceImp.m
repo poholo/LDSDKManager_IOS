@@ -25,7 +25,7 @@
 @property(nonatomic, strong) LDSDKQQServiceImpDataVM *dataVM;
 
 @property(nonatomic, copy) LDSDKShareCallback shareCallback;
-@property(nonatomic, copy) LDSDKAuthCallback loginCallback;
+@property(nonatomic, copy) LDSDKAuthCallback authCallback;
 
 @end
 
@@ -77,7 +77,7 @@
 }
 
 - (void)loginToPlatformWithCallback:(LDSDKAuthCallback)callback {
-    self.loginCallback = callback;
+    self.authCallback = callback;
 
     if (!self.tencentOAuth) {
         self.tencentOAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
@@ -171,6 +171,10 @@
 #pragma mark TencentLoginDelegate
 
 - (void)tencentDidLogin {
+    self.dataVM.authDict = [self.dataVM wrapAuth:self.tencentOAuth];
+    if (self.authCallback) {
+        self.authCallback(LDSDKLoginSuccess, nil, self.dataVM.authDict, nil);
+    }
     [self.tencentOAuth getUserInfo];
 }
 
@@ -178,8 +182,8 @@
     NSError *error = [NSError errorWithDomain:kErrorDomain
                                          code:LDSDKLoginUserCancel
                                      userInfo:@{kErrorMessage: @"用户取消"}];
-    if (self.loginCallback) {
-        self.loginCallback(LDSDKLoginUserCancel, error, nil, nil);
+    if (self.authCallback) {
+        self.authCallback(LDSDKLoginUserCancel, error, nil, nil);
     }
 
 }
@@ -188,8 +192,8 @@
     NSError *error = [NSError errorWithDomain:kErrorDomain
                                          code:LDSDKLoginNoNet
                                      userInfo:@{kErrorMessage: @"请检查网络"}];
-    if (self.loginCallback) {
-        self.loginCallback(LDSDKLoginNoNet, error, nil, nil);
+    if (self.authCallback) {
+        self.authCallback(LDSDKLoginNoNet, error, nil, nil);
     }
 }
 
@@ -209,16 +213,16 @@
     LDLog(@"getUserInfo %d  %@ \n %@", response.retCode, response.message, response.errorMsg);
     if (response.retCode == URLREQUEST_SUCCEED) {  //成功用户资料
         if (response.detailRetCode == kOpenSDKErrorSuccess) {
-            if (self.loginCallback) {
+            if (self.authCallback) {
                 self.dataVM.authDict = [self.dataVM wrapAuth:self.tencentOAuth];
                 self.dataVM.userInfo = [self.dataVM wrapAuthUserInfo:response];
-                self.loginCallback(LDSDKLoginSuccess, nil, self.dataVM.authDict, self.dataVM.userInfo);
+                self.authCallback(LDSDKLoginSuccess, nil, self.dataVM.authDict, self.dataVM.userInfo);
             }
         } else {  //获取失败
-            if (self.loginCallback) {
+            if (self.authCallback) {
                 NSString *msg = response.errorMsg.length > 0 ? response.errorMsg : @"网络异常";
                 NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginFailed userInfo:@{kErrorMessage: msg}];
-                self.loginCallback(LDSDKLoginFailed, error, nil, nil);
+                self.authCallback(LDSDKLoginFailed, error, nil, nil);
             }
         }
     }

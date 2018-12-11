@@ -297,6 +297,9 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
             }
         } else {
             self.dataVM.authDict = [self.dataVM wrapAuth:resultDict];
+            if (self.authCallback) {
+                self.authCallback(LDSDKLoginSuccess, nil, self.dataVM.authDict, nil);
+            }
             [self reqUserInfo:self.dataVM.authDict[LDSDK_TOKEN_KEY] openId:self.dataVM.authDict[LDSDK_OPENID_KEY]];
         }
     } else if ([urlStr isEqualToString:kWX_GET_USERINFO_URL]) {
