@@ -82,7 +82,8 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     SendAuthReq *req = [[SendAuthReq alloc] init];
     req.scope = @"snsapi_userinfo";
     req.state = @"10000";
-    [WXApi sendAuthReq:req viewController:nil delegate:self];
+    UIViewController *viewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [WXApi sendAuthReq:req viewController:viewController delegate:self];
 }
 
 - (void)reqAuthCode:(NSString *)code {
@@ -199,16 +200,23 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 
 
 - (BOOL)responseResult:(BaseResp *)resp {
-    NSError *error = [self.dataVM respError:resp];
     if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
         if (self.shareCallback) {
+            NSError *error = [self.dataVM respError:resp];
             self.shareCallback((LDSDKErrorCode) resp.errCode, error);
             return YES;
         }
     } else if ([resp isKindOfClass:[SendAuthResp class]]) {
         SendAuthResp *authResp = (SendAuthResp *) resp;
         self.dataVM.code = authResp.code;
-        [self reqAuthCode:self.dataVM.code];
+        if (self.dataVM.code.length > 0) {
+            [self reqAuthCode:self.dataVM.code];
+        } else {
+            if (self.authCallback) {
+                NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginUserCancel userInfo:@{kErrorMessage: @"用户取消"}];
+                self.authCallback(LDSDKLoginUserCancel, error, nil, nil);
+            }
+        }
         return YES;
     }
     return NO;

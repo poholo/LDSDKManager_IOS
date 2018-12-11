@@ -8,7 +8,7 @@
 
 /***
  * 1. 微信分享取消的时候回调是0 - success [官方bug] 导致分享回调无法确认到达率。
- *
+ * 2. 支持一下小程序分享
  */
 
 #import <Foundation/Foundation.h>

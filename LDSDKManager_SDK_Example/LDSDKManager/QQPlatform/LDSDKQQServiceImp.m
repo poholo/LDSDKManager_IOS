@@ -177,7 +177,7 @@
 - (void)tencentDidNotLogin:(BOOL)cancelled {
     NSError *error = [NSError errorWithDomain:kErrorDomain
                                          code:LDSDKLoginUserCancel
-                                     userInfo:@{kErrorMessage: @"登录失败"}];
+                                     userInfo:@{kErrorMessage: @"用户取消"}];
     if (self.loginCallback) {
         self.loginCallback(LDSDKLoginUserCancel, error, nil, nil);
     }
