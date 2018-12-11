@@ -12,12 +12,11 @@
 
 #import "NSString+LDSDKAdditions.h"
 #import "NSDictionary+LDSDKAdditions.h"
-#import "UIImage+LDExtend.h"
-#import "LDSDKConfig.h"
 #import "LDSDKWechatImpDataVM.h"
 #import "MMShareConfigDto.h"
 #import "MMBaseShareDto.h"
 #import "WechatApiExtend.h"
+#import "NSDictionary+Extend.h"
 
 NSString *const kWX_APPID_KEY = @"appid";
 NSString *const kWX_APPSECRET_KEY = @"secret";
@@ -219,31 +218,6 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     return success;
 }
 
-#pragma mark -
-#pragma mark - 构建HTTP请求
-
-- (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
-    NSParameterAssert(method);
-    if (!path) {
-        path = @"";
-    }
-
-    NSURL *url = [NSURL URLWithString:path];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url
-                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                            timeoutInterval:10];
-    [request setHTTPMethod:method];
-
-    if (parameters) {
-        NSString *charset = (__bridge NSString *) CFStringConvertEncodingToIANACharSetName(
-                CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
-        [request setValue:[NSString stringWithFormat:@"application/x-www-form-urlencoded; charset=%@", charset] forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPBody:[@"aaa" dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-
-    return request;
-}
-
 
 #pragma mark - WXApiDelegate
 
@@ -277,20 +251,56 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 
 
 #pragma mark -
-#pragma mark - NSURLConnectionDataDelegate
+#pragma mark - 构建HTTP请求
+
+- (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
+    NSParameterAssert(method);
+    if (!path) {
+        path = @"";
+    }
+
+    NSURL *url = [NSURL URLWithString:path];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url
+                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                            timeoutInterval:10];
+    [request setHTTPMethod:method];
+
+    if (parameters) {
+        NSString *charset = (__bridge NSString *) CFStringConvertEncodingToIANACharSetName(
+                CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+        [request setValue:[NSString stringWithFormat:@"application/x-www-form-urlencoded; charset=%@", charset] forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:[[parameters query] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+
+    return request;
+}
+
+#pragma mark NSURLConnectionDataDelegate
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     NSString *urlStr = connection.currentRequest.URL.absoluteString;
     NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     if ([urlStr isEqualToString:kWX_GET_TOKEN_URL]) {
-        NSError * error = [self.dataVM validateAuthToken:resultDict];
-
-        self.dataVM.authDict = resultDict;
-        [self reqUserInfo:resultDict[kWX_ACCESSTOKEN_KEY] openId:resultDict[kWX_OPENID_KEY]];
+        NSError *error = [self.dataVM validateAuthToken:resultDict];
+        if (error) {
+            if (self.authCallback) {
+                self.authCallback(error.code, error, nil, nil);
+            }
+        } else {
+            self.dataVM.authDict = resultDict;
+            [self reqUserInfo:resultDict[kWX_ACCESSTOKEN_KEY] openId:resultDict[kWX_OPENID_KEY]];
+        }
     } else if ([urlStr isEqualToString:kWX_GET_USERINFO_URL]) {
-        self.dataVM.userInfo = resultDict;
-        if (self.authCallback) {
-            self.authCallback(LDSDKLoginSuccess, nil, self.dataVM.authDict, self.dataVM.userInfo);
+        NSError *error = [self.dataVM validateAuthToken:resultDict];
+        if (error) {
+            if (self.authCallback) {
+                self.authCallback(error.code, error, nil, nil);
+            }
+        } else {
+            self.dataVM.userInfo = resultDict;
+            if (self.authCallback) {
+                self.authCallback(LDSDKLoginSuccess, nil, self.dataVM.authDict, self.dataVM.userInfo);
+            }
         }
     }
 }
@@ -301,7 +311,8 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     if (self.authCallback) {
-        self.authCallback(LDSDKLoginNoNet, nil, nil, nil);
+        NSError *err = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginNoNet userInfo:error.userInfo];
+        self.authCallback(LDSDKLoginNoNet, err, nil, nil);
     }
 }
 

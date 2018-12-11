@@ -22,6 +22,7 @@
 		1A666BF58D65BA03B6B35F11 /* WBMessageObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666968C480A1A6C6DD1D48 /* WBMessageObject+Extend.m */; };
 		1A666C203D1FB0D283B9F7CA /* MMShareVideoDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6662F2A12414DA553C9979 /* MMShareVideoDto.m */; };
 		1A666C621D8F79D077427166 /* MMBaseShareDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666E17BC92E5C1505C372B /* MMBaseShareDto.m */; };
+		1A666CA45BF42343110E17DC /* NSDictionary+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6662398B5F6F551A787470 /* NSDictionary+Extend.m */; };
 		1A666E1ECEAD6B7C5F356C31 /* LLDPlatformDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66679CCDEC302BCB1E5514 /* LLDPlatformDto.m */; };
 		1A666E488B1131BD86155DC8 /* MMShareAudioDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666F9BFE6FE0D39437114E /* MMShareAudioDto.m */; };
 		1A666EDFC950E1658E2BA4A3 /* LDSDKQQServiceImpDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6666D2372D556033B08462 /* LDSDKQQServiceImpDataVM.m */; };
@@ -54,6 +55,7 @@
 		1A666104BE4EE4F90B3F7772 /* LLDPlatformDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDPlatformDto.h; sourceTree = "<group>"; };
 		1A66611B79FA9885F8402C13 /* LLDPlatformCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDPlatformCell.h; sourceTree = "<group>"; };
 		1A666127EA405F1B53D42123 /* MMShareImageDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareImageDto.m; sourceTree = "<group>"; };
+		1A6662398B5F6F551A787470 /* NSDictionary+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extend.m"; sourceTree = "<group>"; };
 		1A66626813C120284EDB2F73 /* LDSDKWechatImpDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWechatImpDataVM.m; sourceTree = "<group>"; };
 		1A6662F2A12414DA553C9979 /* MMShareVideoDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareVideoDto.m; sourceTree = "<group>"; };
 		1A666359181CF98B134E92ED /* QQApiObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QQApiObject+Extend.h"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWeiboDataVM.m; sourceTree = "<group>"; };
 		1A666D2CBA461049575B8C7A /* QQApiObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QQApiObject+Extend.m"; sourceTree = "<group>"; };
 		1A666DB70B60159947D421E1 /* LDSDKWechatImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWechatImpDataVM.h; sourceTree = "<group>"; };
+		1A666DD0795A4B5F900816A0 /* NSDictionary+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extend.h"; sourceTree = "<group>"; };
 		1A666DEE695E8D87C2BDDAFD /* NSString+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extend.m"; sourceTree = "<group>"; };
 		1A666E17BC92E5C1505C372B /* MMBaseShareDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMBaseShareDto.m; sourceTree = "<group>"; };
 		1A666E59EF570465593128F9 /* NSString+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extend.h"; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 				25BED6C121B2314D000EBCB4 /* UIImage+LDExtend.m */,
 				1A666DEE695E8D87C2BDDAFD /* NSString+Extend.m */,
 				1A666E59EF570465593128F9 /* NSString+Extend.h */,
+				1A6662398B5F6F551A787470 /* NSDictionary+Extend.m */,
+				1A666DD0795A4B5F900816A0 /* NSDictionary+Extend.h */,
 			);
 			path = SDKServiceUtils;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 				1A666E1ECEAD6B7C5F356C31 /* LLDPlatformDto.m in Sources */,
 				1A6661706C680801D41B7942 /* LLDPlatformCell.m in Sources */,
 				1A666B0E84A7F2B56C134278 /* NSString+Extend.m in Sources */,
+				1A666CA45BF42343110E17DC /* NSDictionary+Extend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
