@@ -12,5 +12,7 @@
 @interface LDSDKQQServiceImpDataVM : NSObject <LDSDKShareDataVMService>
 
 @property(nonatomic, strong) MMShareConfigDto *configDto;
+@property(nonatomic, strong) NSDictionary *authDict;
+@property(nonatomic, strong) NSDictionary *userInfo;
 
 @end

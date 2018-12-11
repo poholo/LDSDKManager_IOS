@@ -12,6 +12,13 @@
 #import "sdkdef.h"
 #import "NSString+Extend.h"
 #import "MMShareConfigDto.h"
+#import "TencentOAuth.h"
+
+NSString *const kQQ_OPENID_KEY = @"openId";
+NSString *const kQQ_TOKEN_KEY = @"access_token";
+NSString *const kQQ_NICKNAME_KEY = @"nickname";
+NSString *const kQQ_EXPIRADATE_KEY = @"expirationDate";
+NSString *const kQQ_AVATARURL_KEY = @"figureurl_qq_2";
 
 
 @implementation LDSDKQQServiceImpDataVM
@@ -241,6 +248,48 @@
 
 - (BOOL)canResponseShareResult:(QQBaseResp *)resp {
     return [resp isKindOfClass:[SendMessageToQQResp class]];
+}
+
+- (BOOL)canResponseAuthResult:(id)resp {
+    return NO;
+}
+
+- (NSDictionary *)wrapAuth:(TencentOAuth *)auth {
+    NSMutableDictionary *authDict = [NSMutableDictionary new];
+    authDict[LDSDK_TOKEN_KEY] = auth.accessToken;
+    authDict[LDSDK_OPENID_KEY] = auth.openId;
+    authDict[LDSDK_EXPIRADATE_KEY] = auth.expirationDate;
+    return authDict;
+}
+
+- (NSDictionary *)wrapAuthUserInfo:(APIResponse *)userinfo {
+    /**
+     ret": 0,
+	"msg": "",
+	"is_lost": 0,
+	"nickname": "littleplayer",
+	"gender": "男",
+	"province": "",
+	"city": "",
+	"year": "1988",
+	"constellation": "",
+	"figureurl": "http:\/\/qzapp.qlogo.cn\/qzapp\/1101701640\/D393347E8D9CC9FACB08799B7CF9BC18\/30",
+	"figureurl_1": "http:\/\/qzapp.qlogo.cn\/qzapp\/1101701640\/D393347E8D9CC9FACB08799B7CF9BC18\/50",
+	"figureurl_2": "http:\/\/qzapp.qlogo.cn\/qzapp\/1101701640\/D393347E8D9CC9FACB08799B7CF9BC18\/100",
+	"figureurl_qq_1": "http:\/\/thirdqq.qlogo.cn\/qqapp\/1101701640\/D393347E8D9CC9FACB08799B7CF9BC18\/40",
+	"figureurl_qq_2": "http:\/\/thirdqq.qlogo.cn\/qqapp\/1101701640\/D393347E8D9CC9FACB08799B7CF9BC18\/100",
+	"is_yellow_vip": "0",
+	"vip": "0",
+	"yellow_vip_level": "0",
+	"level": "0",
+	"is_yellow_year_vip": "0"
+     */
+    NSMutableDictionary *userDict = [NSMutableDictionary new];
+    NSDictionary *json = userinfo.jsonResponse;
+    userDict[LDSDK_NICKNAME_KEY] = json[kQQ_NICKNAME_KEY];
+    userDict[LDSDK_AVATARURL_KEY] = json[kQQ_AVATARURL_KEY];
+    userDict[LDSDK_GENDER_KEY] = json[kQQ_AVATARURL_KEY];
+    return userDict;
 }
 
 

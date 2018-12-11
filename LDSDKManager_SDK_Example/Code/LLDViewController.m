@@ -93,8 +93,28 @@
     if (categoriryDto.type == 4) {
         //Auth
         id <LDSDKAuthService> authService = [[LDSDKManager share] authService:self.dataVM.curPlatformDto.type];
+        __weak typeof(self) weakSelf = self;
         [authService loginToPlatformWithCallback:^(LDSDKLoginCode code, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo) {
             LDLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if (code == LDSDKLoginSuccess) {
+                if (userInfo == nil && oauthInfo != nil) {
+                    [strongSelf.infoLabel setText:@"授权成功"];
+                } else {
+                    NSString *alert = [NSString stringWithFormat:@"昵称：%@  头像url：%@",
+                                                                 userInfo[LDSDK_NICKNAME_KEY],
+                                                                 userInfo[LDSDK_AVATARURL_KEY]];
+                    NSLog(@"message = %@", alert);
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登陆成功"
+                                                                        message:alert
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"cancel"
+                                                              otherButtonTitles:@"ok", nil];
+                    [alertView show];
+                }
+            } else {
+                [strongSelf.infoLabel setText:error.userInfo[kErrorMessage]];
+            }
         }];
         return;
     }
@@ -113,56 +133,6 @@
                                                                 strongSelf.infoLabel.textColor = errorCode == LDSDKSuccess ? [UIColor greenColor] : [UIColor redColor];
                                                             }];
     [[[LDSDKManager share] shareService:self.dataVM.curPlatformDto.type] shareContent:shareDict];
-}
-
-- (void)loginByWX {
-    [[[LDSDKManager share] authService:LDSDKPlatformWeChat]
-            loginToPlatformWithCallback:^(LDSDKLoginCode code, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo) {
-                if (error == nil) {
-                    if (userInfo == nil && oauthInfo != nil) {
-                        [self.infoLabel setText:@"授权成功"];
-                    } else {
-                        NSString *alet =
-                                [NSString stringWithFormat:@"昵称：%@  头像url：%@",
-                                                           [userInfo objectForKey:kWX_NICKNAME_KEY],
-                                                           [userInfo objectForKey:kWX_AVATARURL_KEY]];
-                        NSLog(@"message = %@", alet);
-                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登陆成功"
-                                                                            message:alet
-                                                                           delegate:self
-                                                                  cancelButtonTitle:@"OK"
-                                                                  otherButtonTitles:@"Cancel", nil];
-                        [alertView show];
-                    }
-                } else {
-                    [self.infoLabel setText:error.localizedDescription];
-                }
-            }];
-}
-
-- (void)loginByQQ {
-    [[[LDSDKManager share] authService:LDSDKPlatformQQ]
-            loginToPlatformWithCallback:^(LDSDKLoginCode code, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo) {
-                if (error == nil) {
-                    if (userInfo == nil && oauthInfo != nil) {
-                        [self.infoLabel setText:@"授权成功"];
-                    } else {
-                        NSString *alet =
-                                [NSString stringWithFormat:@"昵称：%@  头像url：%@",
-                                                           [userInfo objectForKey:kQQ_NICKNAME_KEY],
-                                                           [userInfo objectForKey:kQQ_AVATARURL_KEY]];
-                        NSLog(@"message = %@", alet);
-                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登陆成功"
-                                                                            message:alet
-                                                                           delegate:self
-                                                                  cancelButtonTitle:@"OK"
-                                                                  otherButtonTitles:@"Cancel", nil];
-                        [alertView show];
-                    }
-                } else {
-                    [self.infoLabel setText:error.localizedDescription];
-                }
-            }];
 }
 
 - (void)payByWX {

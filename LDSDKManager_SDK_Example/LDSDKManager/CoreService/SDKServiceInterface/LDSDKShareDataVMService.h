@@ -13,6 +13,8 @@
 @protocol LDSDKShareDataVMService <NSObject>
 
 @property(nonatomic, strong) MMShareConfigDto *configDto;
+@property(nonatomic, strong) NSDictionary *authDict;
+@property(nonatomic, strong) NSDictionary *userInfo;
 
 - (NSError *)registerValidate;
 
@@ -31,6 +33,10 @@
 - (BOOL)canResponseShareResult:(id)resp;
 
 - (BOOL)canResponseAuthResult:(id)resp;
+
+- (NSDictionary *)wrapAuth:(id)auth;
+
+- (NSDictionary *)wrapAuthUserInfo:(id)userinfo;
 
 @optional
 - (NSError *)respErrorCode:(NSInteger)code;

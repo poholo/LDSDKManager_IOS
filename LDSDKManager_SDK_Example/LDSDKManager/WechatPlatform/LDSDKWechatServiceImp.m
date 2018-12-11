@@ -24,6 +24,7 @@ NSString *const kWX_APPCODE_KEY = @"code";
 NSString *const kWX_GET_TOKEN_URL = @"https://api.weixin.qq.com/sns/oauth2/access_token";
 NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo";
 
+
 @interface LDSDKWechatServiceImp () <WXApiDelegate, NSURLConnectionDataDelegate>
 
 @property(nonatomic, copy) LDSDKShareCallback shareCallback;
@@ -98,8 +99,8 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 
 - (void)reqUserInfo:(NSString *)accessToken openId:(NSString *)openId {
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
-    paramDict[kWX_ACCESSTOKEN_KEY] = accessToken;
-    paramDict[kWX_OPENID_KEY] = openId;
+    paramDict[@"access_token"] = accessToken;
+    paramDict[@"openid"] = openId;
 
     NSMutableURLRequest *request = [self requestWithMethod:@"POST" path:kWX_GET_USERINFO_URL parameters:paramDict];
 
@@ -287,8 +288,8 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
                 self.authCallback(error.code, error, nil, nil);
             }
         } else {
-            self.dataVM.authDict = resultDict;
-            [self reqUserInfo:resultDict[kWX_ACCESSTOKEN_KEY] openId:resultDict[kWX_OPENID_KEY]];
+            self.dataVM.authDict = [self.dataVM wrapAuth:resultDict];
+            [self reqUserInfo:self.dataVM.authDict[LDSDK_TOKEN_KEY] openId:self.dataVM.authDict[LDSDK_OPENID_KEY]];
         }
     } else if ([urlStr isEqualToString:kWX_GET_USERINFO_URL]) {
         NSError *error = [self.dataVM validateAuthToken:resultDict];
@@ -297,7 +298,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
                 self.authCallback(error.code, error, nil, nil);
             }
         } else {
-            self.dataVM.userInfo = resultDict;
+            self.dataVM.userInfo = [self.dataVM wrapAuthUserInfo:resultDict];
             if (self.authCallback) {
                 self.authCallback(LDSDKLoginSuccess, nil, self.dataVM.authDict, self.dataVM.userInfo);
             }

@@ -5,17 +5,15 @@
 
 #import "LDSDKConfig.h"
 
-//微信登陆，用户信息的Key
-NSString *const kWX_OPENID_KEY = @"openid";
-NSString *const kWX_NICKNAME_KEY = @"nickname";
-NSString *const kWX_AVATARURL_KEY = @"headimgurl";
-NSString *const kWX_ACCESSTOKEN_KEY = @"access_token";
-// QQ登陆，用户信息的Key
-NSString *const kQQ_OPENID_KEY = @"openId";
-NSString *const kQQ_TOKEN_KEY = @"access_token";
-NSString *const kQQ_NICKNAME_KEY = @"nickname";
-NSString *const kQQ_EXPIRADATE_KEY = @"expirationDate";
-NSString *const kQQ_AVATARURL_KEY = @"figureurl_qq_2";
+
+NSString *const LDSDK_OPENID_KEY = @"openid";
+NSString *const LDSDK_TOKEN_KEY = @"token";
+NSString *const LDSDK_EXPIRADATE_KEY = @"expiredate";
+NSString *const LDSDK_UNION_ID = @"unionid";
+NSString *const LDSDK_NICKNAME_KEY = @"nickname";
+NSString *const LDSDK_AVATARURL_KEY = @"avatar";
+NSString *const LDSDK_GENDER_KEY = @"gender";
+
 
 NSString *const LDSDKConfigAppIdKey = @"kAppID";
 NSString *const LDSDKConfigAppSecretKey = @"kAppSecret";

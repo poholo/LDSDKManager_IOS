@@ -3,11 +3,15 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import <WechatOpenSDK/WXApi.h>
 #import "LDSDKWechatImpDataVM.h"
+
+#import <WechatOpenSDK/WXApi.h>
+
 #import "NSString+Extend.h"
 #import "MMShareConfigDto.h"
 
+NSString *const kWX_NICKNAME_KEY = @"nickname";
+NSString *const kWX_AVATARURL_KEY = @"headimgurl";
 
 @implementation LDSDKWechatImpDataVM
 
@@ -99,6 +103,36 @@
         return error;
     }
     return nil;
+}
+
+- (NSDictionary *)wrapAuth:(NSDictionary *)auth {
+    NSMutableDictionary *authDict = [NSMutableDictionary new];
+    authDict[LDSDK_TOKEN_KEY] = auth[@"access_token"];
+    authDict[LDSDK_OPENID_KEY] = auth[@"openid"];
+    authDict[LDSDK_EXPIRADATE_KEY] = auth[@"expires_in"];
+    return authDict;
+}
+
+- (NSDictionary *)wrapAuthUserInfo:(NSDictionary *)user {
+    NSMutableDictionary *userDict = [NSMutableDictionary new];
+    userDict[LDSDK_NICKNAME_KEY] = user[@"nickname"];
+    userDict[LDSDK_AVATARURL_KEY] = user[@"headimgurl"];
+    userDict[LDSDK_GENDER_KEY] = user[@"sex"];
+    userDict[LDSDK_OPENID_KEY] = user[@"openid"];
+    userDict[LDSDK_UNION_ID] = user[@"unionid"];
+    return userDict;
+    /**
+     * {
+"openid":"OPENID",
+"nickname":"NICKNAME",
+"sex":1,
+"province":"PROVINCE",
+"city":"CITY",
+"country":"COUNTRY",
+"headimgurl": "http://wx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/0",
+"privilege":["PRIVILEGE1","PRIVILEGE2"],
+"unionid": " o6_bmasdasdsad6_2sgVt7hMZOPfL"}
+     */
 }
 
 
