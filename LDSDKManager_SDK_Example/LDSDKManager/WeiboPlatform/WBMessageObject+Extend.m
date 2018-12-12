@@ -43,6 +43,7 @@
         }
             break;
     }
+
     return messageObject;
 }
 
@@ -58,7 +59,7 @@
     messageObject.text = shareDto.desc;
 
     WBImageObject *imageObject = [WBImageObject object];
-    imageObject.isShareToStory = NO;
+    imageObject.isShareToStory = shareImageDto.shareToModule == LDSDKShareToWeiboStory;;
     NSData *imageData10M = [shareImageDto.image ld_compressImageLimitSize:10 * 1000 * 1024];
     imageObject.imageData = imageData10M;
     messageObject.imageObject = imageObject;
@@ -100,6 +101,7 @@
 
     WBNewVideoObject *newVideoObject = [WBNewVideoObject object];
     [newVideoObject addVideo:[NSURL URLWithString:shareVideoDto.mediaUrl]];
+    newVideoObject.isShareToStory = shareVideoDto.shareToModule == LDSDKShareToWeiboStory;
     messageObject.videoObject = newVideoObject;
     return messageObject;
 }

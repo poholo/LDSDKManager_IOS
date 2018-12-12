@@ -286,6 +286,20 @@
           ]
         },
         {
+          "name": "Story",
+          "type": 3,
+          "data": [
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "Video[微博端故事不稳定]",
+              "type": 4
+            }
+          ]
+        },
+        {
           "name": "Auth",
           "type": 99,
           "data": [
