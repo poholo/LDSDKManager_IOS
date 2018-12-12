@@ -11,6 +11,7 @@
 #import "UIImage+LDExtend.h"
 #import "MMShareAudioDto.h"
 #import "MMShareVideoDto.h"
+#import "MMShareFileDto.h"
 
 
 @implementation WechatApiExtend
@@ -41,6 +42,10 @@
             break;
         case LDSDKShareTypeVideo : {
             sendMessageToWXReq = [self videoObject:shareDto];
+        }
+            break;
+        case LDSDKShareTypeFile: {
+            sendMessageToWXReq = [self fileObject:shareDto];
         }
             break;
     }
@@ -100,6 +105,18 @@
     return sendMessageToWXReq;
 }
 
++ (SendMessageToWXReq *)fileObject:(MMBaseShareDto *)shareDto {
+    MMShareFileDto *shareFileDto = (MMShareFileDto *) shareDto;
+    WXFileObject *wxFileObject = [WXFileObject object];
+    NSURL *URL = [NSURL URLWithString:shareFileDto.mediaUrl];
+    wxFileObject.fileExtension = URL.pathExtension;
+    NSData *data = [NSData dataWithContentsOfURL:URL];
+    wxFileObject.fileData = data;
+    SendMessageToWXReq *sendMessageToWXReq = [self factoryMessageWXReq:shareDto media:wxFileObject];
+    return sendMessageToWXReq;
+}
+
+
 + (SendMessageToWXReq *)factoryMessageWXReq:(MMBaseShareDto *)shareDto media:(id)media {
     MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
     SendMessageToWXReq *sendMessageToWXReq = [SendMessageToWXReq new];
@@ -127,7 +144,8 @@
             return WXSceneSession;
         }
             break;
-        case LDSDKShareToOther: {
+        case LDSDKShareToFavorites: {
+            return WXSceneFavorite;
         }
             break;
     }

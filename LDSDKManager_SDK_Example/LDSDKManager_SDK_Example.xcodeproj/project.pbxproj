@@ -19,6 +19,7 @@
 		1A6666E99753C1682E9C58B6 /* LDSDKManagerDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */; };
 		1A666AFC4C4665DECE42B896 /* QQApiObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666D2CBA461049575B8C7A /* QQApiObject+Extend.m */; };
 		1A666B0E84A7F2B56C134278 /* NSString+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666DEE695E8D87C2BDDAFD /* NSString+Extend.m */; };
+		1A666BB0DEE76D1C29E0CB57 /* MMShareFileDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66679D08FA77FE49090CF5 /* MMShareFileDto.m */; };
 		1A666BD1EFB4C0CFCAF3CAF5 /* LDSDKWechatImpDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66626813C120284EDB2F73 /* LDSDKWechatImpDataVM.m */; };
 		1A666BF58D65BA03B6B35F11 /* WBMessageObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666968C480A1A6C6DD1D48 /* WBMessageObject+Extend.m */; };
 		1A666C203D1FB0D283B9F7CA /* MMShareVideoDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6662F2A12414DA553C9979 /* MMShareVideoDto.m */; };
@@ -71,11 +72,13 @@
 		1A6666D2372D556033B08462 /* LDSDKQQServiceImpDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKQQServiceImpDataVM.m; sourceTree = "<group>"; };
 		1A66670D1869E685D41869FA /* MMShareImageDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareImageDto.h; sourceTree = "<group>"; };
 		1A66679CCDEC302BCB1E5514 /* LLDPlatformDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDPlatformDto.m; sourceTree = "<group>"; };
+		1A66679D08FA77FE49090CF5 /* MMShareFileDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareFileDto.m; sourceTree = "<group>"; };
 		1A6667AC0ACE7C813E263B62 /* MMResultDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMResultDto.h; sourceTree = "<group>"; };
 		1A6667E1CA4C5465DBD20423 /* MMDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDto.h; sourceTree = "<group>"; };
 		1A66683DE2E650FCDEEA7AE6 /* MMDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDto.m; sourceTree = "<group>"; };
 		1A6668C33E0DEC8B07D8C0E6 /* LDSDKHandleURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKHandleURLProtocol.h; sourceTree = "<group>"; };
 		1A666968C480A1A6C6DD1D48 /* WBMessageObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WBMessageObject+Extend.m"; sourceTree = "<group>"; };
+		1A66699F9DE521FB9D32C88D /* MMShareFileDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareFileDto.h; sourceTree = "<group>"; };
 		1A6669E4450075018B7F50F7 /* MMShareAudioDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareAudioDto.h; sourceTree = "<group>"; };
 		1A666A21677C2B492E9100CE /* LDSDKExtendProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKExtendProtocol.h; sourceTree = "<group>"; };
 		1A666A61666B776D31289793 /* MMShareConfigDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareConfigDto.h; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				1A666A61666B776D31289793 /* MMShareConfigDto.h */,
 				1A66600A9EE8BBE7F1549CDF /* MMResultDto.m */,
 				1A6667AC0ACE7C813E263B62 /* MMResultDto.h */,
+				1A66679D08FA77FE49090CF5 /* MMShareFileDto.m */,
+				1A66699F9DE521FB9D32C88D /* MMShareFileDto.h */,
 			);
 			path = Dtos;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				1A666B0E84A7F2B56C134278 /* NSString+Extend.m in Sources */,
 				1A666CA45BF42343110E17DC /* NSDictionary+Extend.m in Sources */,
 				1A6665B3B72994118BE70B93 /* LDNetworkManager.m in Sources */,
+				1A666BB0DEE76D1C29E0CB57 /* MMShareFileDto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

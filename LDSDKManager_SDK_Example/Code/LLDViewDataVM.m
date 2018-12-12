@@ -116,6 +116,21 @@
                     LDSDKShareTypeKey: @(LDSDKShareTypeVideo)};
         }
             break;
+        case LDSDKShareTypeFile: {
+            dict = @{
+                    LDSDKIdentifierKey: @"identifier",
+                    LDSDKShareTitleKey: [self title],
+                    LDSDKShareDescKey: [self desc],
+                    LDSDKShareUrlKey: [self link],
+                    LDSDKShareImageKey: [UIImage imageNamed:@"think.jpg"],
+                    LDSDKShareMeidaUrlKey: [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"media" ofType:@"mp4"]].absoluteString,
+//                    LDSDKShareMeidaUrlKey: @"http://ksy.fffffive.com/mda-hfshah045smezhtf/mda-hfshah045smezhtf.mp4",
+                    LDSDKShareCallBackKey: callBack,
+                    LDSDKShareToMoudleKey: @(shareToModule),
+                    LDSDKShareTypeKey: @(shareType),
+                    LDSDKShareTypeKey: @(LDSDKShareTypeVideo)};
+        }
+            break;
     }
     return dict;
 }

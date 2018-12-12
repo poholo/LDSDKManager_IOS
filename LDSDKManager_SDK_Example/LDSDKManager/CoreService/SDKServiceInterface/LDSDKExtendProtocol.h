@@ -27,6 +27,8 @@
 
 + (id)videoObject:(MMBaseShareDto *)shareDto;
 
++ (id)fileObject:(MMBaseShareDto *)shareDto;
+
 + (NSInteger)moduleToPlatform:(LDSDKShareToModule)module;
 
 

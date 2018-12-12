@@ -11,6 +11,7 @@
 #import "MMShareNewsDto.h"
 #import "MMShareAudioDto.h"
 #import "MMShareVideoDto.h"
+#import "MMShareFileDto.h"
 
 
 @implementation QQApiObject (Extend)
@@ -44,6 +45,10 @@
                 apiObject = [self videoObject:shareDto];
             }
                 break;
+            case LDSDKShareTypeFile: {
+                apiObject = [self fileObject:shareDto];
+            }
+                break;
         }
 
     } else if (shareDto.shareToModule == LDSDKShareToTimeLine) {
@@ -67,6 +72,10 @@
                 break;
             case LDSDKShareTypeVideo : {
                 apiObject = [self videoZoneObject:shareDto];
+            }
+                break;
+            case LDSDKShareTypeFile: {
+                apiObject = [self fileObject:shareDto];
             }
                 break;
         }
@@ -174,6 +183,18 @@
 
     return apiVideoObject;
 }
+
++ (id)fileObject:(MMBaseShareDto *)shareDto {
+    MMShareFileDto *shareFileDto = (MMShareFileDto *) shareDto;
+    QQApiFileObject *qqApiFileObject = nil;
+    NSData *imageData = [shareFileDto.image ld_compressImageLimitSize:1000 * 1024];
+
+    NSURL *URL = [NSURL URLWithString:shareFileDto.mediaUrl];
+    NSData *data = [NSData dataWithContentsOfURL:URL];
+    qqApiFileObject = [QQApiFileObject objectWithData:data previewImageData:imageData title:shareFileDto.title description:shareFileDto.desc];
+    return qqApiFileObject;
+}
+
 
 + (QQApiVideoForQZoneObject *)videoZoneObject:(MMBaseShareDto *)shareDto {
     MMShareVideoDto *shareVideoDto = (MMShareVideoDto *) shareDto;

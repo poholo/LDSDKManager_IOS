@@ -49,9 +49,10 @@ typedef NS_ENUM(NSInteger, LDSDKPlatformType) {
 };
 
 typedef NS_ENUM(NSInteger, LDSDKShareToModule) {
-    LDSDKShareToContact,  //分享至第三方应用的联系人或组
-    LDSDKShareToTimeLine,     //分享至第三方应用的timeLine
-    LDSDKShareToOther         //分享至第三方应用的其他模块
+    LDSDKShareToContact,      ///< 联系人或组
+    LDSDKShareToTimeLine,     ///< timeLine
+    LDSDKShareToFavorites,    ///< 收藏模块
+    LDSDKShareToWeiboStory,   ///< 微博故事
 };
 
 typedef NS_ENUM(NSInteger, LDSDKShareType) {
@@ -60,6 +61,7 @@ typedef NS_ENUM(NSInteger, LDSDKShareType) {
     LDSDKShareTypeNews,
     LDSDKShareTypeAudio,
     LDSDKShareTypeVideo,
+    LDSDKShareTypeFile,
 };
 
 typedef NS_ENUM(NSInteger, LDSDKErrorCode) {
