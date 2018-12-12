@@ -85,7 +85,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 - (void)authPlatformQRCallback:(LDSDKAuthCallback)callBack {
     self.authCallback = callBack;
     if (self.authCallback) {
-        NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginFailed userInfo:@{kErrorMessage: @"Not support QR Auth"}];
+        NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginFailed userInfo:@{kErrorMessage: @"Not support QR Auth except[公众号登录]"}];
         self.authCallback(LDSDKLoginFailed, error, nil, nil);
     }
 }

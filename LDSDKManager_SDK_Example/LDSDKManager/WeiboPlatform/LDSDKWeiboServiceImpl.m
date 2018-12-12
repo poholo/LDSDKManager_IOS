@@ -147,7 +147,11 @@
 }
 
 - (void)authPlatformQRCallback:(LDSDKAuthCallback)callBack {
-
+    self.authCallback = callBack;
+    if (self.authCallback) {
+        NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginFailed userInfo:@{kErrorMessage: @"Not support QR Auth"}];
+        self.authCallback(LDSDKLoginFailed, error, nil, nil);
+    }
 }
 
 - (void)authLogoutPlatformCallback:(LDSDKAuthCallback)callBack {
