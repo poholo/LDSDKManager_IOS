@@ -7,118 +7,76 @@
 //
 
 #import "LDSDKManager.h"
+
 #import "LDSDKRegisterService.h"
 #import "LDSDKPayService.h"
 #import "LDSDKAuthService.h"
 #import "LDSDKShareService.h"
+#import "LDSDKManagerDataVM.h"
 
+@interface LDSDKManager ()
 
-static NSArray *sdkServiceConfigList = nil;
+@property(nonatomic, strong) LDSDKManagerDataVM *dataVM;
+
+@end
+
 
 @implementation LDSDKManager
 
-/**
- *  根据配置列表依次注册第三方SDK
- *
- *  @return YES则配置成功
- */
-+ (void)registerWithPlatformConfigList:(NSArray *)configList; {
-    if (configList == nil || configList.count == 0) return;
-
-    for (NSDictionary *onePlatformConfig in configList) {
-        LDSDKPlatformType platformType = (LDSDKPlatformType) [onePlatformConfig[LDSDKConfigAppPlatformTypeKey] integerValue];
-        Class registerServiceImplCls = [[self class] getServiceProviderWithPlatformType:platformType];
-        if (registerServiceImplCls != nil) {
-            [[registerServiceImplCls sharedService] registerWithPlatformConfig:onePlatformConfig];
-        }
-    }
++ (instancetype)share {
+    static dispatch_once_t predicate;
+    static LDSDKManager *manager;
+    dispatch_once(&predicate, ^{
+        manager = [LDSDKManager new];
+    });
+    return manager;
 }
 
-/**
- *  处理应用回调URL
- *
- *  @return YES
- */
-+ (BOOL)handleOpenURL:(NSURL *)url {
-    if (sdkServiceConfigList == nil) {
-        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"SDKServiceConfig" ofType:@"plist"];
-        sdkServiceConfigList = [[NSArray alloc] initWithContentsOfFile:plistPath];
+- (instancetype)init {
+    if (self = [super init]) {
+        [self.dataVM prepare];
     }
+    return self;
+}
 
-    for (NSDictionary *oneSDKServiceConfig in sdkServiceConfigList) {
-        Class serviceProvider = NSClassFromString(oneSDKServiceConfig[@"serviceProvider"]);
-        if (serviceProvider) {
-            if ([[serviceProvider sharedService] conformsToProtocol:@protocol(LDSDKRegisterService)]) {
-                if ([[serviceProvider sharedService] handleResultUrl:url]) {
-                    return YES;
-                }
-            }
+- (void)registerWithPlatformConfigList:(NSArray *)configList; {
+    [self.dataVM register:configList];
+}
+
+
+- (id <LDSDKShareService>)registerService:(LDSDKPlatformType)type {
+    return self.dataVM.shareServiceDict[@(type)];
+}
+
+- (id <LDSDKAuthService>)authService:(LDSDKPlatformType)type {
+    return self.dataVM.authServiceDict[@(type)];
+}
+
+- (id <LDSDKShareService>)shareService:(LDSDKPlatformType)type {
+    return self.dataVM.shareServiceDict[@(type)];
+}
+
+- (id <LDSDKPayService>)payService:(LDSDKPlatformType)type {
+    return self.dataVM.payServiceDict[@(type)];
+}
+
+#pragma mark -getter
+
+- (LDSDKManagerDataVM *)dataVM {
+    if (!_dataVM) {
+        _dataVM = [LDSDKManagerDataVM new];
+    }
+    return _dataVM;
+}
+
+- (BOOL)handleURL:(NSURL *)url {
+    for (id <LDSDKHandleURLProtocol> handle in self.dataVM.registerServiceDict.allValues) {
+        if ([handle conformsToProtocol:@protocol(LDSDKHandleURLProtocol)]) {
+            BOOL success = [handle handleURL:url];
+            if (success) return YES;
         }
     }
-
     return NO;
-}
-
-+ (id)getRegisterService:(LDSDKPlatformType)type {
-    Class shareServiceImplCls = [self getServiceProviderWithPlatformType:type];
-    if (shareServiceImplCls) {
-        if ([[shareServiceImplCls sharedService] conformsToProtocol:@protocol(LDSDKRegisterService)]) {
-            return [shareServiceImplCls sharedService];
-        }
-    }
-    return nil;
-}
-
-+ (id)getAuthService:(LDSDKPlatformType)type {
-    Class shareServiceImplCls = [self getServiceProviderWithPlatformType:type];
-    if (shareServiceImplCls) {
-        if ([[shareServiceImplCls sharedService] conformsToProtocol:@protocol(LDSDKAuthService)]) {
-            return [shareServiceImplCls sharedService];
-        }
-    }
-    return nil;
-}
-
-+ (id)getShareService:(LDSDKPlatformType)type {
-    Class shareServiceImplCls = [self getServiceProviderWithPlatformType:type];
-    if (shareServiceImplCls) {
-        if ([[shareServiceImplCls sharedService] conformsToProtocol:@protocol(LDSDKShareService)]) {
-            return [shareServiceImplCls sharedService];
-        }
-    }
-    return nil;
-}
-
-+ (id)getPayService:(LDSDKPlatformType)type {
-    Class shareServiceImplCls = [self getServiceProviderWithPlatformType:type];
-    if (shareServiceImplCls) {
-        if ([[shareServiceImplCls sharedService] conformsToProtocol:@protocol(LDSDKPayService)]) {
-            return [shareServiceImplCls sharedService];
-        }
-    }
-    return nil;
-}
-
-/**
- * 根据平台类型和服务类型获取服务提供者
- */
-+ (Class)getServiceProviderWithPlatformType:(LDSDKPlatformType)platformType {
-    if (sdkServiceConfigList == nil) {
-        NSString *plistPath =
-                [[NSBundle mainBundle] pathForResource:@"SDKServiceConfig" ofType:@"plist"];
-        sdkServiceConfigList = [[NSArray alloc] initWithContentsOfFile:plistPath];
-    }
-
-    Class serviceProvider = nil;
-    for (NSDictionary *oneSDKServiceConfig in sdkServiceConfigList) {
-        // find the specified platform
-        if ([oneSDKServiceConfig[@"platformType"] intValue] == platformType) {
-            serviceProvider = NSClassFromString(oneSDKServiceConfig[@"serviceProvider"]);
-            break;
-        }  // if
-    }
-
-    return serviceProvider;
 }
 
 @end

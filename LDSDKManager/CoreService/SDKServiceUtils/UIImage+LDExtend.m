@@ -6,16 +6,15 @@
 //
 //
 
-#import "UIImage+LDSDKShare.h"
+#import "UIImage+LDExtend.h"
 
-@implementation UIImage (LDSDKShare)
+@implementation UIImage (LDExtend)
 
 
 // Returns a rescaled copy of the image, taking into account its orientation
 // The image will be scaled disproportionately if necessary to fit the bounds specified by the
 // parameter
-- (UIImage *)LDSDKShare_resizedImage:(CGSize)newSize
-                interpolationQuality:(CGInterpolationQuality)quality {
+- (UIImage *)ld_resizedImage:(CGSize)newSize quality:(CGInterpolationQuality)quality {
     BOOL drawTransposed;
 
     switch (self.imageOrientation) {
@@ -30,21 +29,35 @@
             drawTransposed = NO;
     }
 
-    return [self LDSDKShare_resizedImage:newSize
-                               transform:[self LDSDKShare_transformForOrientation:newSize]
-                          drawTransposed:drawTransposed
-                    interpolationQuality:quality];
+    return [self ld_resizedImage:newSize
+                       transform:[self LDSDKShare_transformForOrientation:newSize]
+                  drawTransposed:drawTransposed
+                         quality:quality];
 }
+
+- (NSData *)ld_compressImageLimitSize:(long long)limitSize {
+    CGSize thumbSize = self.size;
+    UIImage *thumbImage = self;
+    NSData *imageData = UIImageJPEGRepresentation(self, 1.0);
+    NSData *thumbData = [NSData dataWithData:imageData];
+    while (thumbData.length > limitSize) {
+        thumbSize = CGSizeMake(thumbSize.width / 1.5f, thumbSize.height / 1.5f);
+        thumbImage = [thumbImage ld_resizedImage:thumbSize quality:kCGInterpolationDefault];
+        thumbData = UIImageJPEGRepresentation(thumbImage, 0.5);
+    }
+    return thumbData;
+}
+
 
 // Returns a copy of the image that has been transformed using the given affine transform and scaled
 // to the new size
 // The new image's orientation will be UIImageOrientationUp, regardless of the current image's
 // orientation
 // If the new size is not integral, it will be rounded up
-- (UIImage *)LDSDKShare_resizedImage:(CGSize)newSize
-                           transform:(CGAffineTransform)transform
-                      drawTransposed:(BOOL)transpose
-                interpolationQuality:(CGInterpolationQuality)quality {
+- (UIImage *)ld_resizedImage:(CGSize)newSize
+                   transform:(CGAffineTransform)transform
+              drawTransposed:(BOOL)transpose
+                     quality:(CGInterpolationQuality)quality {
     CGRect newRect = CGRectIntegral(CGRectMake(0, 0, newSize.width, newSize.height));
     CGRect transposedRect = CGRectMake(0, 0, newRect.size.height, newRect.size.width);
     CGImageRef imageRef = self.CGImage;

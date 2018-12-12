@@ -9,16 +9,52 @@
 #import <Foundation/Foundation.h>
 
 #import "LDSDKConfig.h"
+#import "LDSDKHandleURLProtocol.h"
+
+@protocol LDSDKShareService;
+@protocol LDSDKAuthService;
+@protocol LDSDKPayService;
 
 
-@interface LDSDKManager : NSObject
+@interface LDSDKManager : NSObject <LDSDKHandleURLProtocol>
+
++ (instancetype)share;
 
 /**
  *  根据配置列表依次注册第三方SDK
  *
  *  @return YES则配置成功
  */
-+ (void)registerWithPlatformConfigList:(NSArray *)configList;
+- (void)registerWithPlatformConfigList:(NSArray *)configList;
+
+/*!
+ *  @brief  获取配置服务
+ *
+ *  @return 服务实例
+ */
+- (id <LDSDKShareService>)registerService:(LDSDKPlatformType)type;
+
+/*!
+ *  @brief  获取登陆服务
+ *
+ *  @return 服务实例
+ */
+- (id <LDSDKAuthService>)authService:(LDSDKPlatformType)type;
+
+/*!
+ *  @brief  获取分享服务
+ *
+ *  @return 服务实例
+ */
+- (id <LDSDKShareService>)shareService:(LDSDKPlatformType)type;
+
+/*!
+ *  @brief  获取支付服务
+ *
+ *  @return 服务实例
+ */
+- (id <LDSDKPayService>)payService:(LDSDKPlatformType)type;
+
 
 /*!
  *  @brief  统一处理各个SDK的回调
@@ -27,34 +63,5 @@
  *
  *  @return 处理成功返回YES，否则返回NO
  */
-+ (BOOL)handleOpenURL:(NSURL *)url;
-
-/*!
- *  @brief  获取配置服务
- *
- *  @return 服务实例
- */
-+ (id)getRegisterService:(LDSDKPlatformType)type;
-
-/*!
- *  @brief  获取登陆服务
- *
- *  @return 服务实例
- */
-+ (id)getAuthService:(LDSDKPlatformType)type;
-
-/*!
- *  @brief  获取分享服务
- *
- *  @return 服务实例
- */
-+ (id)getShareService:(LDSDKPlatformType)type;
-
-/*!
- *  @brief  获取支付服务
- *
- *  @return 服务实例
- */
-+ (id)getPayService:(LDSDKPlatformType)type;
-
+- (BOOL)handleURL:(NSURL *)url;
 @end

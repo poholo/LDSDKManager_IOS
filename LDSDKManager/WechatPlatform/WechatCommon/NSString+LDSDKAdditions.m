@@ -11,8 +11,7 @@
 
 @implementation NSString (LDSDKAdditions)
 
-- (unichar)StringToASCIIChar:(NSString *)str
-{
+- (unichar)StringToASCIIChar:(NSString *)str {
     if ([str length] < 2) {
         return 0;
     }
@@ -39,8 +38,7 @@
     return one * 16 + two;
 }
 
-- (NSData *)base16Data
-{
+- (NSData *)base16Data {
     if ([self length] % 2 != 0) {
         return nil;
     }
@@ -54,40 +52,36 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (BOOL)isEmptyOrWhitespace
-{
+- (BOOL)isEmptyOrWhitespace {
     return !self.length ||
-           ![self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length;
+            ![self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length;
 }
 
 
-- (NSString *)URLEncodedString
-{
-    NSString *result = (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(
-        kCFAllocatorDefault, (__bridge CFStringRef)self, NULL, CFSTR("!*'()^;:@&=+$,/?%#[]"),
-        kCFStringEncodingUTF8);
+- (NSString *)URLEncodedString {
+    NSString *result = (__bridge_transfer NSString *) CFURLCreateStringByAddingPercentEscapes(
+            kCFAllocatorDefault, (__bridge CFStringRef) self, NULL, CFSTR("!*'()^;:@&=+$,/?%#[]"),
+            kCFStringEncodingUTF8);
     return result;
 }
 
-- (NSString *)URLDecodedString
-{
+- (NSString *)URLDecodedString {
     NSString *result =
-        (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(
-            kCFAllocatorDefault, (__bridge CFStringRef)self, CFSTR(""), kCFStringEncodingUTF8);
+            (__bridge_transfer NSString *) CFURLCreateStringByReplacingPercentEscapesUsingEncoding(
+                    kCFAllocatorDefault, (__bridge CFStringRef) self, CFSTR(""), kCFStringEncodingUTF8);
     return result;
 }
 
-- (NSString *)md5String
-{
+- (NSString *)md5String {
     if ([self length] == 0) return nil;
 
     const char *value = [self UTF8String];
 
     unsigned char outputBuffer[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(value, (CC_LONG)strlen(value), outputBuffer);
+    CC_MD5(value, (CC_LONG) strlen(value), outputBuffer);
 
     NSMutableString *outputString =
-        [[NSMutableString alloc] initWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+            [[NSMutableString alloc] initWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
     for (NSInteger count = 0; count < CC_MD5_DIGEST_LENGTH; count++) {
         [outputString appendFormat:@"%02x", outputBuffer[count]];
     }
@@ -95,8 +89,7 @@
     return outputString;
 }
 
-- (NSDictionary *)urlParamsDecodeDictionary
-{
+- (NSDictionary *)urlParamsDecodeDictionary {
     NSArray *pairs = [self componentsSeparatedByString:@"&"];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     for (NSString *pair in pairs) {

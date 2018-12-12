@@ -1,24 +1,21 @@
 Pod::Spec.new do |s|
     s.name             = 'LDSDKManager'
-    s.version          = '1.0.4'
-    s.summary          = '第三方SDK统一管理组件'
-    s.description      = '对应用中集成的第三方SDK（目前包括QQ,微信,易信,支付宝）进行集中管理，按照功能（目前包括第三方登录,分享,支付）开放给各个产品使用。通过接口的方式进行产品集成，方便对第三方SDK进行升级维护。'
+    s.version          = '1.0.5'
+    s.summary          = 'iOS第三方聚合库'
+    s.description      = '主要聚合QQ、微信、微博、支付宝等第三方库，抽象封装分享、授权、支付功能，以便其他开发者能快速接入。'
     s.license          = 'MIT'
     s.author           = { 'littleplayer' => 'mailjiancheng@163.com' }
-    #origin athor {张海洋' => 'zhanghaiyang@corp.netease.com' }
     s.homepage         = 'https://github.com/poholo/LDSDKManager_IOS'
-    s.source           = { :git => 'https://github.com/poholo/LDSDKManager_IOS.git', :tag => s.version.to_s }
+    s.source           = { :git => "https://github.com/poholo/PlayerKit.git", :tag => "#{s.version}" }
 
     s.platform     = :ios, '8.0'
     s.requires_arc = true
 
     #组件对外提供服务接口
     s.subspec 'CoreService' do |ss|
-        ss.public_header_files = 'LDSDKManager/CoreService/LDSDKManager.h',
-                                 'LDSDKManager/CoreService/LDSDKConfig.h',
-                                 'LDSDKManager/CoreService/SDKServiceInterface/*.h'
+        ss.public_header_files = 'LDSDKManager/CoreService/*.h'
         ss.source_files = 'LDSDKManager/CoreService/**/*.{h,m,mm}'
-        ss.resources = ['LDSDKManager/CoreService/SDKServiceConfig.plist']
+                          'LDSDKManager/CoreService/*.{h,m,mm}'
     end
 
     #QQ平台SDK集成
@@ -33,14 +30,6 @@ Pod::Spec.new do |s|
         ss.public_header_files = 'LDSDKManager/WechatPlatform/*.h'
         ss.source_files = 'LDSDKManager/WechatPlatform/**/*.{h,m,mm}'
                           'LDSDKManager/WechatPlatform/*.{h,m,mm}'
-        ss.dependency 'LDSDKManager/CoreService'
-    end
-
-    #易信平台SDK集成
-    s.subspec 'YixinPlatform' do |ss|
-        ss.public_header_files = 'LDSDKManager/YixinPlatform/YiXinSDK/*.h'
-        ss.source_files = 'LDSDKManager/YixinPlatform/**/*.{h,m,mm}'
-        ss.vendored_library = 'LDSDKManager/YixinPlatform/YiXinSDK/libYixinSDK.a'
         ss.dependency 'LDSDKManager/CoreService'
     end
 
@@ -59,9 +48,9 @@ Pod::Spec.new do |s|
     end
 
     s.frameworks = 'UIKit', 'CoreGraphics', 'Foundation'
-    s.dependency 'MCTencentOpenAPI', '3.3.3'
-    s.dependency 'SNWeChatSDK'
-    s.dependency 'Weibo_SDK', '3.2.3'
+    s.dependency 'MCTencentOpenAPI'
+    s.dependency 'WechatOpenSDK'
+    s.dependency 'Weibo_SDK'
     s.dependency 'AlipaySDK-iOS'
 
 end

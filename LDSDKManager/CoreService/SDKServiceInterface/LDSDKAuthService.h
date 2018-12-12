@@ -8,28 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^LDSDKLoginCallback)(NSDictionary *oauthInfo, NSDictionary *userInfo, NSError *error);
+#import "LDSDKConfig.h"
+
+typedef void (^LDSDKAuthCallback)(LDSDKLoginCode, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo);
 
 
 @protocol LDSDKAuthService <NSObject>
-
-/*!
- *  @brief  判断该平台是否支持登陆
- *
- *  @return 已安装返回YES，否则返回NO
- */
-- (BOOL)isLoginEnabledOnPlatform;
 
 /*!
  *  @brief  第三方登陆
  *
  *  @param callback 登陆回调
  */
-- (void)loginToPlatformWithCallback:(LDSDKLoginCallback)callback;
+- (void)authPlatformCallback:(LDSDKAuthCallback)callback;
+
+- (void)authPlatformQRCallback:(LDSDKAuthCallback)callBack;
 
 /*!
  *  @brief  退出登陆，主要是QQ平台
  */
-- (void)logoutFromPlatform;
+- (void)authLogoutPlatformCallback:(LDSDKAuthCallback)callBack;;
 
 @end
