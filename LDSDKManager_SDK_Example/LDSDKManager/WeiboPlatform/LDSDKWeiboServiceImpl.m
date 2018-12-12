@@ -66,6 +66,15 @@
     MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
     WBMessageObject *messageObject = [WBMessageObject shareObject:shareDto];
 
+    if (!shareDto || !messageObject) {
+        if (self.shareCallback) {
+            NSError *err = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeUnsupport userInfo:@{kErrorMessage: @"Not support: check params"}];
+            self.shareCallback(LDSDKErrorCodeUnsupport, err);
+        }
+        return;
+    }
+
+
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:messageObject
                                                                                   authInfo:authRequest
                                                                               access_token:self.dataVM.token];

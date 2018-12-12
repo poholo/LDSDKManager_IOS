@@ -29,6 +29,8 @@
 
 + (id)fileObject:(MMBaseShareDto *)shareDto;
 
++ (id)miniProgram:(MMBaseShareDto *)shareDto;
+
 + (NSInteger)moduleToPlatform:(LDSDKShareToModule)module;
 
 

@@ -12,12 +12,13 @@
 #import "MMShareAudioDto.h"
 #import "MMShareVideoDto.h"
 #import "MMShareFileDto.h"
+#import "MMShareMiniProgramDto.h"
 
 
 @implementation WechatApiExtend
 
-+ (SendMessageToWXReq *)shareObject:(MMBaseShareDto *)shareDto {
-    SendMessageToWXReq *sendMessageToWXReq = nil;
++ (BaseReq *)shareObject:(MMBaseShareDto *)shareDto {
+    BaseReq *sendMessageToWXReq = nil;
     switch (shareDto.shareType) {
         case LDSDKShareTypeText : {
             sendMessageToWXReq = [self textObject:shareDto];
@@ -46,6 +47,10 @@
             break;
         case LDSDKShareTypeFile: {
             sendMessageToWXReq = [self fileObject:shareDto];
+        }
+            break;
+        case LDSDKShareTypeMiniProgram: {
+            sendMessageToWXReq = [self miniProgram:shareDto];
         }
             break;
     }
@@ -114,6 +119,15 @@
     wxFileObject.fileData = data;
     SendMessageToWXReq *sendMessageToWXReq = [self factoryMessageWXReq:shareDto media:wxFileObject];
     return sendMessageToWXReq;
+}
+
++ (WXLaunchMiniProgramReq *)miniProgram:(MMBaseShareDto *)shareDto {
+    MMShareMiniProgramDto *shareMiniProgramDto = (MMShareMiniProgramDto *) shareDto;
+    WXLaunchMiniProgramReq *wxLaunchMiniProgramReq = [WXLaunchMiniProgramReq object];
+    wxLaunchMiniProgramReq.userName = shareMiniProgramDto.miniProgramId;
+    wxLaunchMiniProgramReq.miniProgramType = (WXMiniProgramType) shareMiniProgramDto.miniProgramType;
+    wxLaunchMiniProgramReq.path = shareMiniProgramDto.url;
+    return wxLaunchMiniProgramReq;
 }
 
 

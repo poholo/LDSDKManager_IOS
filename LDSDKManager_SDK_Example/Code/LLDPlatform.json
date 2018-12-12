@@ -172,6 +172,10 @@
             {
               "name": "File",
               "type": 5
+            },
+            {
+              "name": "MiniProgram",
+              "type": 6
             }
           ]
         },

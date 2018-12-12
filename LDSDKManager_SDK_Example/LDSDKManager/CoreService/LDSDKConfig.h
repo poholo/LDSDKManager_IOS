@@ -35,6 +35,8 @@ extern NSString *const LDSDKShareUrlKey;
 extern NSString *const LDSDKShareMeidaUrlKey;
 extern NSString *const LDSDKShareRedirectURIKey;  //新浪微博分享专用
 extern NSString *const LDSDKShareCallBackKey;
+extern NSString *const LDSDKShareMiniProgramIdKey;
+extern NSString *const LDSDKShareNiniProgramTypeKey;
 
 extern NSString *const kErrorMessage;
 extern NSString *const kErrorDomain;
@@ -63,6 +65,7 @@ typedef NS_ENUM(NSInteger, LDSDKShareType) {
     LDSDKShareTypeAudio,
     LDSDKShareTypeVideo,
     LDSDKShareTypeFile,
+    LDSDKShareTypeMiniProgram,
 };
 
 typedef NS_ENUM(NSInteger, LDSDKErrorCode) {
@@ -85,6 +88,12 @@ typedef NS_ENUM(NSInteger, LDSDKLoginCode) {
     LDSDKLoginNoAuth = -4,
     LDSDKLogoutFailed = -10,
     LDSDKLoginMissParams = -80,
+};
+
+typedef NS_ENUM(NSUInteger, LDSDKMiniProgramType) {
+    LDSDKMiniProgramTypeRelease = 0,       //**< 正式版  */
+    LDSDKMiniProgramTypeTest = 1,        //**< 开发版  */
+    LDSDKMiniProgramTypePreview = 2,         //**< 体验版  */
 };
 
 #if DEBUG

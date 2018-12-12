@@ -202,6 +202,15 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     self.shareCallback = callback;
     MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
     SendMessageToWXReq *sendMessageToWXReq = [WechatApiExtend shareObject:shareDto];
+
+    if (!shareDto || !sendMessageToWXReq) {
+        if (self.shareCallback) {
+            NSError *err = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeUnsupport userInfo:@{kErrorMessage: @"Not support: check params"}];
+            self.shareCallback(LDSDKErrorCodeUnsupport, err);
+        }
+        return;
+    }
+
     BOOL success = [WXApi sendReq:sendMessageToWXReq];
     if (!success) {
         error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"初始化请求失败"}];

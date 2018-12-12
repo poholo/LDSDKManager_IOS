@@ -128,7 +128,22 @@
                     LDSDKShareCallBackKey: callBack,
                     LDSDKShareToMoudleKey: @(shareToModule),
                     LDSDKShareTypeKey: @(shareType),
-                    LDSDKShareTypeKey: @(LDSDKShareTypeVideo)};
+                    LDSDKShareTypeKey: @(LDSDKShareTypeFile)};
+        }
+            break;
+        case LDSDKShareTypeMiniProgram: {
+
+            dict = @{
+                    LDSDKIdentifierKey: @"identifier",
+                    LDSDKShareUrlKey: [self link],
+                    LDSDKShareCallBackKey: callBack,
+                    LDSDKShareToMoudleKey: @(shareToModule),
+                    LDSDKShareTypeKey: @(shareType),
+                    LDSDKShareTypeKey: @(LDSDKShareTypeMiniProgram),
+                    LDSDKShareMiniProgramIdKey: @"gh_9df325345345",
+                    LDSDKShareNiniProgramTypeKey: @(LDSDKMiniProgramTypeTest)
+            };
+
         }
             break;
     }

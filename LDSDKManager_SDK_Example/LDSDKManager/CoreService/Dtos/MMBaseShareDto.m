@@ -12,6 +12,7 @@
 #import "MMShareVideoDto.h"
 #import "MMShareConfigDto.h"
 #import "MMShareFileDto.h"
+#import "MMShareMiniProgramDto.h"
 
 
 @implementation MMBaseShareDto
@@ -43,6 +44,10 @@
             break;
         case LDSDKShareTypeFile: {
             dto = [MMShareFileDto createDto:exDict];
+        }
+            break;
+        case LDSDKShareTypeMiniProgram: {
+            dto = [MMShareMiniProgramDto createDto:exDict];
         }
             break;
     }

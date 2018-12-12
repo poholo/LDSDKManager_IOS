@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A6661706C680801D41B7942 /* LLDPlatformCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6663E9D0D44DBAF04D7A7A /* LLDPlatformCell.m */; };
 		1A6661AC8BE61533A2B96BE9 /* MMShareImageDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666127EA405F1B53D42123 /* MMShareImageDto.m */; };
+		1A6661FFC82017D670279031 /* MMShareMiniProgramDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666006A6086AACBBF260AF /* MMShareMiniProgramDto.m */; };
 		1A6661FFE48E2B346269B625 /* LDSDKWeiboDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */; };
 		1A66629A598A993475C021FD /* MMShareTextDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6665F1140CFB91B8D12FA9 /* MMShareTextDto.m */; };
 		1A66636E1B052BFFE79C59FF /* WechatApiExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6663679474BC69B8273C51 /* WechatApiExtend.m */; };
@@ -53,12 +54,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A666006A6086AACBBF260AF /* MMShareMiniProgramDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareMiniProgramDto.m; sourceTree = "<group>"; };
 		1A66600A9EE8BBE7F1549CDF /* MMResultDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMResultDto.m; sourceTree = "<group>"; };
 		1A666104BE4EE4F90B3F7772 /* LLDPlatformDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDPlatformDto.h; sourceTree = "<group>"; };
 		1A66611B79FA9885F8402C13 /* LLDPlatformCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDPlatformCell.h; sourceTree = "<group>"; };
 		1A666127EA405F1B53D42123 /* MMShareImageDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareImageDto.m; sourceTree = "<group>"; };
 		1A6662398B5F6F551A787470 /* NSDictionary+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extend.m"; sourceTree = "<group>"; };
 		1A66626813C120284EDB2F73 /* LDSDKWechatImpDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWechatImpDataVM.m; sourceTree = "<group>"; };
+		1A666296CC6D522C8B773AE2 /* MMShareMiniProgramDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareMiniProgramDto.h; sourceTree = "<group>"; };
 		1A6662F2A12414DA553C9979 /* MMShareVideoDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareVideoDto.m; sourceTree = "<group>"; };
 		1A666359181CF98B134E92ED /* QQApiObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QQApiObject+Extend.h"; sourceTree = "<group>"; };
 		1A6663679474BC69B8273C51 /* WechatApiExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatApiExtend.m; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				1A6667AC0ACE7C813E263B62 /* MMResultDto.h */,
 				1A66679D08FA77FE49090CF5 /* MMShareFileDto.m */,
 				1A66699F9DE521FB9D32C88D /* MMShareFileDto.h */,
+				1A666006A6086AACBBF260AF /* MMShareMiniProgramDto.m */,
+				1A666296CC6D522C8B773AE2 /* MMShareMiniProgramDto.h */,
 			);
 			path = Dtos;
 			sourceTree = "<group>";
@@ -539,6 +544,7 @@
 				1A666CA45BF42343110E17DC /* NSDictionary+Extend.m in Sources */,
 				1A6665B3B72994118BE70B93 /* LDNetworkManager.m in Sources */,
 				1A666BB0DEE76D1C29E0CB57 /* MMShareFileDto.m in Sources */,
+				1A6661FFC82017D670279031 /* MMShareMiniProgramDto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
