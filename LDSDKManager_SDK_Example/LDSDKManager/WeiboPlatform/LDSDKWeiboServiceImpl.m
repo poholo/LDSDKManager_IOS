@@ -7,6 +7,7 @@
 //
 
 //  http://open.weibo.com/wiki/2/users/show 微博个人信息
+//  http://open.weibo.com/wiki/微博API
 
 #import "LDSDKWeiboServiceImpl.h"
 
@@ -21,7 +22,7 @@
 #import "LDNetworkManager.h"
 
 
-@interface LDSDKWeiboServiceImpl () <WeiboSDKDelegate, WBHttpRequestDelegate>
+@interface LDSDKWeiboServiceImpl () <WeiboSDKDelegate>
 
 @property(nonatomic, strong) LDNetworkManager *networkManager;
 @property(nonatomic, strong) LDSDKWeiboDataVM *dataVM;
@@ -152,7 +153,25 @@
 - (void)authLogoutPlatformCallback:(LDSDKAuthCallback)callBack {
     self.authCallback = callBack;
     if (self.dataVM.token) {
-        [WeiboSDK logOutWithToken:self.dataVM.token delegate:self withTag:nil];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.weibo.com/oauth2/revokeoauth2?access_token=%@", self.dataVM.token]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+        [request setHTTPMethod:@"GET"];
+        __weak typeof(self) weakSelf = self;
+        [self.networkManager dataTaskWithRequest:request callBack:^(BOOL success, NSDictionary *data) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if (success && [data[@"result"] boolValue]) {
+                if (strongSelf.authCallback) {
+                    strongSelf.authCallback(LDSDKLoginSuccess, nil, nil, nil);
+                    strongSelf.dataVM.userInfo = nil;
+                    strongSelf.dataVM.authDict = nil;
+                    strongSelf.dataVM.userId = nil;
+                    strongSelf.dataVM.token = nil;
+                }
+            } else {
+                NSError *err = [NSError errorWithDomain:kErrorDomain code:LDSDKLogoutFailed userInfo:@{kErrorMessage: @"取消授权失败"}];
+                strongSelf.authCallback(LDSDKLogoutFailed, err, nil, nil);
+            }
+        }];
     } else {
         if (self.authCallback) {
             self.authCallback(LDSDKLoginSuccess, nil, nil, nil);
@@ -175,21 +194,6 @@
     if ([self.dataVM canResponseAuthResult:response] && [self responseResult:response]) {
         return;
     }
-
-    NSError *error = [self.dataVM respError:response];
-    if ([response isKindOfClass:WBAuthorizeResponse.class]) {
-        //        NSString *title = NSLocalizedString(@"认证结果", nil);
-        //        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId:
-        //        %@\nresponse.accessToken: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态",
-        //        nil), (int)response.statusCode,[(WBAuthorizeResponse *)response userID],
-        //        [(WBAuthorizeResponse *)response accessToken],
-        //        NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo,
-        //        NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
-
-        self.dataVM.token = [(WBAuthorizeResponse *) response accessToken];
-        self.dataVM.userId = [(WBAuthorizeResponse *) response userID];
-    }
-
 //    else if ([response isKindOfClass:WBPaymentResponse.class]) {
     //        NSString *title = NSLocalizedString(@"支付结果", nil);
     //        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.payStatusCode:
@@ -201,44 +205,6 @@
 //    }
 //
 }
-
-#pragma mark WBHttpRequestDelegate
-
-/**
- 收到一个来自微博Http请求的响应
- */
-- (void)request:(WBHttpRequest *)request didReceiveResponse:(NSURLResponse *)response {
-
-}
-
-/**
- 收到一个来自微博Http请求失败的响应
- */
-- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error {
-
-}
-
-/**
- 收到一个来自微博Http请求的网络返回
- */
-- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result {
-
-}
-
-/**
- 收到一个来自微博Http请求的网络返回
- */
-- (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)data {
-
-}
-
-/**
- 收到快速SSO授权的重定向
- */
-- (void)request:(WBHttpRequest *)request didReciveRedirectResponseWithURI:(NSURL *)redirectUrl {
-
-}
-
 
 #pragma mark - getter
 

@@ -80,6 +80,7 @@ typedef NS_ENUM(NSInteger, LDSDKLoginCode) {
     LDSDKLoginNoNet = -2,
     LDSDKLoginUserCancel = -3,
     LDSDKLoginNoAuth = -4,
+    LDSDKLogoutFailed = -10,
     LDSDKLoginMissParams = -80,
 };
 
