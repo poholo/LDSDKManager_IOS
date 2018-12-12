@@ -53,6 +53,7 @@ typedef NS_ENUM(NSInteger, LDSDKShareToModule) {
     LDSDKShareToTimeLine,     ///< timeLine
     LDSDKShareToFavorites,    ///< 收藏模块
     LDSDKShareToWeiboStory,   ///< 微博故事
+    LDSDKShareToDataLine,     ///< QQ数据线
 };
 
 typedef NS_ENUM(NSInteger, LDSDKShareType) {

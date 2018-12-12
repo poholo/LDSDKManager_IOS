@@ -19,37 +19,7 @@
 + (QQApiObject *)shareObject:(MMBaseShareDto *)shareDto {
     QQApiObject *apiObject = nil;
     if (shareDto.shareToModule == LDSDKShareToContact) {
-        switch (shareDto.shareType) {
-            case LDSDKShareTypeText : {
-                apiObject = [self textObject:shareDto];
-            }
-                break;
-            case LDSDKShareTypeImage : {
-                MMShareImageDto *imageDto = (MMShareImageDto *) shareDto;
-                if (imageDto.image) {
-                    apiObject = [self imageObject:shareDto];
-                } else {
-                    apiObject = [self imageWebObject:shareDto];
-                }
-            }
-                break;
-            case LDSDKShareTypeNews : {
-                apiObject = [self newsObject:shareDto];
-            }
-                break;
-            case LDSDKShareTypeAudio : {
-                apiObject = [self audioObject:shareDto];
-            }
-                break;
-            case LDSDKShareTypeVideo : {
-                apiObject = [self videoObject:shareDto];
-            }
-                break;
-            case LDSDKShareTypeFile: {
-                apiObject = [self fileObject:shareDto];
-            }
-                break;
-        }
+        apiObject = [QQApiObject shareCommenObject:shareDto];
 
     } else if (shareDto.shareToModule == LDSDKShareToTimeLine) {
         switch (shareDto.shareType) {
@@ -79,6 +49,50 @@
             }
                 break;
         }
+    } else if (shareDto.shareToModule == LDSDKShareToFavorites) {
+        apiObject = [QQApiObject shareCommenObject:shareDto];
+        apiObject.cflag = kQQAPICtrlFlagQQShareFavorites;
+
+    } else if (shareDto.shareToModule == LDSDKShareToDataLine) {
+        apiObject = [QQApiObject shareCommenObject:shareDto];
+        apiObject.cflag = kQQAPICtrlFlagQQShareDataline;
+
+    }
+    return apiObject;
+}
+
++ (QQApiObject *)shareCommenObject:(MMBaseShareDto *)shareDto {
+    QQApiObject *apiObject = nil;
+    switch (shareDto.shareType) {
+        case LDSDKShareTypeText : {
+            apiObject = [self textObject:shareDto];
+        }
+            break;
+        case LDSDKShareTypeImage : {
+            MMShareImageDto *imageDto = (MMShareImageDto *) shareDto;
+            if (imageDto.image) {
+                apiObject = [self imageObject:shareDto];
+            } else {
+                apiObject = [self imageWebObject:shareDto];
+            }
+        }
+            break;
+        case LDSDKShareTypeNews : {
+            apiObject = [self newsObject:shareDto];
+        }
+            break;
+        case LDSDKShareTypeAudio : {
+            apiObject = [self audioObject:shareDto];
+        }
+            break;
+        case LDSDKShareTypeVideo : {
+            apiObject = [self videoObject:shareDto];
+        }
+            break;
+        case LDSDKShareTypeFile: {
+            apiObject = [self fileObject:shareDto];
+        }
+            break;
     }
     return apiObject;
 }
@@ -192,6 +206,7 @@
     NSURL *URL = [NSURL URLWithString:shareFileDto.mediaUrl];
     NSData *data = [NSData dataWithContentsOfURL:URL];
     qqApiFileObject = [QQApiFileObject objectWithData:data previewImageData:imageData title:shareFileDto.title description:shareFileDto.desc];
+    qqApiFileObject.fileName = URL.lastPathComponent;
     return qqApiFileObject;
 }
 

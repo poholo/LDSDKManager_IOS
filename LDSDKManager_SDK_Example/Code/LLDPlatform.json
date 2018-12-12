@@ -58,6 +58,62 @@
             {
               "name": "Video",
               "type": 4
+            }
+          ]
+        },
+        {
+          "name": "Favirates",
+          "type": 2,
+          "data": [
+            {
+              "name": "Text",
+              "type": 0
+            },
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "News",
+              "type": 2
+            },
+            {
+              "name": "Audio",
+              "type": 3
+            },
+            {
+              "name": "Video",
+              "type": 4
+            },
+            {
+              "name": "File",
+              "type": 5
+            }
+          ]
+        },
+        {
+          "name": "DataLine数据线",
+          "type": 4,
+          "data": [
+            {
+              "name": "Text",
+              "type": 0
+            },
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "News",
+              "type": 2
+            },
+            {
+              "name": "Audio",
+              "type": 3
+            },
+            {
+              "name": "Video",
+              "type": 4
             },
             {
               "name": "File",
@@ -67,7 +123,7 @@
         },
         {
           "name": "Auth",
-          "type": 4,
+          "type": 99,
           "data": [
             {
               "name": "登录授权",
@@ -177,7 +233,7 @@
         },
         {
           "name": "Auth",
-          "type": 4,
+          "type": 99,
           "data": [
             {
               "name": "登录授权",
@@ -227,7 +283,7 @@
         },
         {
           "name": "Auth",
-          "type": 4,
+          "type": 99,
           "data": [
             {
               "name": "登录授权",

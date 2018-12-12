@@ -90,7 +90,7 @@
     if (indexPath.section == 0) return;
     LLDCategoriryDto *categoriryDto = [self.dataVM categroryAtIndex:indexPath.section - 1];
 
-    if (categoriryDto.type == 4) {
+    if (categoriryDto.type == 99) {
         if (indexPath.row == 0) {
             [self authLogin];
         } else if (indexPath.row == 1) {

@@ -8,6 +8,8 @@
 
 /***
  * qq 空间视频分享只支持本地相册视频
+ * qq 分享文件给收藏夹不支持
+ * qq 分享文件给联系人不支持
  */
 #import <Foundation/Foundation.h>
 

@@ -293,4 +293,9 @@ NSString *const kQQ_AVATARURL_KEY = @"figureurl_qq_2";
 }
 
 
+- (NSString *)arkJson {
+    return @"{\"app\": \"LDSDKManager_IOS\", \"view\": \"Share\", \"meta\": \"LDSDKManager_IOS\"}";
+}
+
+
 @end

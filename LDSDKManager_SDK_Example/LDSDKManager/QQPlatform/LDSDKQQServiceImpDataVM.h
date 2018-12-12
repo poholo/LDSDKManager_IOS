@@ -15,4 +15,6 @@
 @property(nonatomic, strong) NSDictionary *authDict;
 @property(nonatomic, strong) NSDictionary *userInfo;
 
+- (NSString *)arkJson;
+
 @end

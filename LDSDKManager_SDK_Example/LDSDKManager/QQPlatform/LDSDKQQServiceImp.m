@@ -69,6 +69,74 @@
     return [TencentOAuth HandleOpenURL:url] || [QQApiInterface handleOpenURL:url delegate:self];
 }
 
+#pragma mark 分享部分
+
+- (void)shareContent:(NSDictionary *)exDict {
+    NSError *error = [self.dataVM supportContinue:@"QQShare"];
+    LDSDKShareCallback callback = exDict[LDSDKShareCallBackKey];
+    if (error) {
+        if (callback) {
+            callback(LDSDKErrorUninstallPlatformApp, error);
+        }
+        return;
+    }
+    self.shareCallback = callback;
+    MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
+    QQApiObject *apiObject = [QQApiObject shareObject:shareDto];
+    if (!shareDto || !apiObject) {
+        if (self.shareCallback) {
+            NSError *err = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeUnsupport userInfo:@{kErrorMessage: @"Not support: check params"}];
+            self.shareCallback(LDSDKErrorCodeUnsupport, err);
+        }
+        return;
+    }
+
+    SendMessageToQQReq *req;
+
+    if (apiObject.cflag > kQQAPICtrlFlagQQShare) {
+        ArkObject *arkObject = [ArkObject objectWithData:[self.dataVM arkJson] qqApiObject:apiObject];
+        req = [SendMessageToQQReq reqWithArkContent:arkObject];
+    } else {
+        req = [SendMessageToQQReq reqWithContent:apiObject];
+    }
+
+    QQApiSendResultCode resultCode = [self sendReq:req shareModule:shareDto.shareToModule];
+    LDSDKErrorCode errorCode = [self.dataVM errorCodePlatform:resultCode];
+    if (errorCode != LDSDKSuccess) {
+        error = [self.dataVM respErrorCode:resultCode];
+        if (self.shareCallback) {
+            self.shareCallback((LDSDKErrorCode) error.code, error);
+        }
+    }
+}
+
+- (BOOL)handleURL:(NSURL *)url {
+    BOOL success = [QQApiInterface handleOpenURL:url delegate:self];
+    if ([TencentOAuth CanHandleOpenURL:url]) {
+        [TencentOAuth HandleOpenURL:url];
+    }
+    return success;
+}
+
+- (QQApiSendResultCode)sendReq:(QQBaseReq *)req shareModule:(LDSDKShareToModule)shareModule {
+    if (shareModule == LDSDKShareToContact || shareModule == LDSDKShareToDataLine || shareModule == LDSDKShareToFavorites) {
+        return [QQApiInterface sendReq:req];
+    } else if (shareModule == LDSDKShareToTimeLine) {
+        return [QQApiInterface SendReqToQZone:req];
+    } else {
+        return EQQAPIMESSAGETYPEINVALID;
+    }
+}
+
+- (BOOL)responseResult:(SendMessageToQQResp *)resp {
+    NSError *error = [self.dataVM respError:resp];
+    if (self.shareCallback) {
+        self.shareCallback((LDSDKErrorCode) error.code, error);
+        return YES;
+    }
+    return NO;
+}
+
 
 #pragma mark 登陆部分
 
@@ -103,61 +171,6 @@
     } else {
         [self.tencentAuth logout:self];
     }
-}
-
-
-#pragma mark 分享部分
-
-- (void)shareContent:(NSDictionary *)exDict {
-    NSError *error = [self.dataVM supportContinue:@"QQShare"];
-    LDSDKShareCallback callback = exDict[LDSDKShareCallBackKey];
-    if (error) {
-        if (callback) {
-            callback(LDSDKErrorUninstallPlatformApp, error);
-        }
-        return;
-    }
-    self.shareCallback = callback;
-    MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
-    QQApiObject *apiObject = [QQApiObject shareObject:shareDto];
-
-    SendMessageToQQReq *req = [SendMessageToQQReq reqWithContent:apiObject];
-
-    QQApiSendResultCode resultCode = [self sendReq:req shareModule:shareDto.shareToModule];
-    LDSDKErrorCode errorCode = [self.dataVM errorCodePlatform:resultCode];
-    if (errorCode != LDSDKSuccess) {
-        error = [self.dataVM respErrorCode:resultCode];
-        if (self.shareCallback) {
-            self.shareCallback((LDSDKErrorCode) error.code, error);
-        }
-    }
-}
-
-- (BOOL)handleURL:(NSURL *)url {
-    BOOL success = [QQApiInterface handleOpenURL:url delegate:self];
-    if ([TencentOAuth CanHandleOpenURL:url]) {
-        [TencentOAuth HandleOpenURL:url];
-    }
-    return success;
-}
-
-- (QQApiSendResultCode)sendReq:(QQBaseReq *)req shareModule:(LDSDKShareToModule)shareModule {
-    if (shareModule == LDSDKShareToContact) {
-        return [QQApiInterface sendReq:req];
-    } else if (shareModule == LDSDKShareToTimeLine) {
-        return [QQApiInterface SendReqToQZone:req];
-    } else {
-        return EQQAPIMESSAGETYPEINVALID;
-    }
-}
-
-- (BOOL)responseResult:(SendMessageToQQResp *)resp {
-    NSError *error = [self.dataVM respError:resp];
-    if (self.shareCallback) {
-        self.shareCallback((LDSDKErrorCode) error.code, error);
-        return YES;
-    }
-    return NO;
 }
 
 
