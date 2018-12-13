@@ -7,25 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A6664D6229D0CD6FD878F06 /* LDViewDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6667C239F9862DBDE313BB /* LDViewDataVM.m */; };
-		1A666619024E5E00A63118B3 /* LDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6662166985FEBF897A6021 /* LDViewController.m */; };
-		1A66683D64E66B1876D8FDB7 /* Icon-Netease@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A6665D4D131A8559E38DF5D /* Icon-Netease@2x.png */; };
 		250ECDF921B238C600328991 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 250ECDF821B238C600328991 /* AppDelegate.m */; };
 		250ECDFC21B238C600328991 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250ECDFB21B238C600328991 /* ViewController.m */; };
 		250ECDFF21B238C600328991 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 250ECDFD21B238C600328991 /* Main.storyboard */; };
 		250ECE0121B238C700328991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 250ECE0021B238C700328991 /* Assets.xcassets */; };
 		250ECE0421B238C700328991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 250ECE0221B238C700328991 /* LaunchScreen.storyboard */; };
 		250ECE0721B238C700328991 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 250ECE0621B238C700328991 /* main.m */; };
+		257CBDD921C201C2002303C7 /* LLDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CBDD021C201C2002303C7 /* LLDViewController.m */; };
+		257CBDDA21C201C2002303C7 /* LLDPlatformCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CBDD421C201C2002303C7 /* LLDPlatformCell.m */; };
+		257CBDDB21C201C2002303C7 /* LLDPlatformDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CBDD521C201C2002303C7 /* LLDPlatformDto.m */; };
+		257CBDDC21C201C2002303C7 /* LLDViewDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CBDD621C201C2002303C7 /* LLDViewDataVM.m */; };
+		257CBDDD21C201C2002303C7 /* LLDPlatform.json in Resources */ = {isa = PBXBuildFile; fileRef = 257CBDD821C201C2002303C7 /* LLDPlatform.json */; };
+		257CBDE021C20356002303C7 /* media.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 257CBDDE21C20356002303C7 /* media.mp4 */; };
+		257CBDE121C20356002303C7 /* think.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 257CBDDF21C20356002303C7 /* think.jpg */; };
 		DB762AD1D08D9821A944D00C /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B05E1DEF7679A62F3A8983 /* libPods-Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		07708E4F1CEFF60414FC2D49 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
-		1A6662166985FEBF897A6021 /* LDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDViewController.m; sourceTree = "<group>"; };
-		1A6663B8AECA7D3712C8DC04 /* LDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDViewController.h; sourceTree = "<group>"; };
-		1A6665D4D131A8559E38DF5D /* Icon-Netease@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Netease@2x.png"; sourceTree = "<group>"; };
-		1A6667C239F9862DBDE313BB /* LDViewDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDViewDataVM.m; sourceTree = "<group>"; };
-		1A666C15E567BB7238DD55F7 /* LDViewDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDViewDataVM.h; sourceTree = "<group>"; };
 		250ECDF421B238C600328991 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		250ECDF721B238C600328991 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		250ECDF821B238C600328991 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,6 +35,17 @@
 		250ECE0321B238C700328991 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		250ECE0521B238C700328991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		250ECE0621B238C700328991 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		257CBDD021C201C2002303C7 /* LLDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDViewController.m; sourceTree = "<group>"; };
+		257CBDD121C201C2002303C7 /* LLDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDViewController.h; sourceTree = "<group>"; };
+		257CBDD221C201C2002303C7 /* LLDViewDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDViewDataVM.h; sourceTree = "<group>"; };
+		257CBDD321C201C2002303C7 /* LLDPlatformDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDPlatformDto.h; sourceTree = "<group>"; };
+		257CBDD421C201C2002303C7 /* LLDPlatformCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDPlatformCell.m; sourceTree = "<group>"; };
+		257CBDD521C201C2002303C7 /* LLDPlatformDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDPlatformDto.m; sourceTree = "<group>"; };
+		257CBDD621C201C2002303C7 /* LLDViewDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDViewDataVM.m; sourceTree = "<group>"; };
+		257CBDD721C201C2002303C7 /* LLDPlatformCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDPlatformCell.h; sourceTree = "<group>"; };
+		257CBDD821C201C2002303C7 /* LLDPlatform.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LLDPlatform.json; sourceTree = "<group>"; };
+		257CBDDE21C20356002303C7 /* media.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = media.mp4; path = ../../LDSDKManager_SDK_Example/Source/media.mp4; sourceTree = "<group>"; };
+		257CBDDF21C20356002303C7 /* think.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = think.jpg; path = ../../LDSDKManager_SDK_Example/Source/think.jpg; sourceTree = "<group>"; };
 		92B05E1DEF7679A62F3A8983 /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE07397589BD8A24D7906FED /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,10 +65,15 @@
 		1A6665C85074EBB363B7E1D5 /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				1A666C15E567BB7238DD55F7 /* LDViewDataVM.h */,
-				1A6667C239F9862DBDE313BB /* LDViewDataVM.m */,
-				1A6663B8AECA7D3712C8DC04 /* LDViewController.h */,
-				1A6662166985FEBF897A6021 /* LDViewController.m */,
+				257CBDD821C201C2002303C7 /* LLDPlatform.json */,
+				257CBDD721C201C2002303C7 /* LLDPlatformCell.h */,
+				257CBDD421C201C2002303C7 /* LLDPlatformCell.m */,
+				257CBDD321C201C2002303C7 /* LLDPlatformDto.h */,
+				257CBDD521C201C2002303C7 /* LLDPlatformDto.m */,
+				257CBDD121C201C2002303C7 /* LLDViewController.h */,
+				257CBDD021C201C2002303C7 /* LLDViewController.m */,
+				257CBDD221C201C2002303C7 /* LLDViewDataVM.h */,
+				257CBDD621C201C2002303C7 /* LLDViewDataVM.m */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -66,7 +81,8 @@
 		1A666E819388E5F3A31DA87B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				1A6665D4D131A8559E38DF5D /* Icon-Netease@2x.png */,
+				257CBDDE21C20356002303C7 /* media.mp4 */,
+				257CBDDF21C20356002303C7 /* think.jpg */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -183,10 +199,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				257CBDE021C20356002303C7 /* media.mp4 in Resources */,
+				257CBDDD21C201C2002303C7 /* LLDPlatform.json in Resources */,
 				250ECE0421B238C700328991 /* LaunchScreen.storyboard in Resources */,
 				250ECE0121B238C700328991 /* Assets.xcassets in Resources */,
+				257CBDE121C20356002303C7 /* think.jpg in Resources */,
 				250ECDFF21B238C600328991 /* Main.storyboard in Resources */,
-				1A66683D64E66B1876D8FDB7 /* Icon-Netease@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,13 +219,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh",
 				"${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle",
-				"${PODS_ROOT}/LDSDKManager/LDSDKManager/CoreService/SDKServiceConfig.plist",
 				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDKServiceConfig.plist",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,10 +257,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				250ECDFC21B238C600328991 /* ViewController.m in Sources */,
+				257CBDD921C201C2002303C7 /* LLDViewController.m in Sources */,
+				257CBDDC21C201C2002303C7 /* LLDViewDataVM.m in Sources */,
+				257CBDDA21C201C2002303C7 /* LLDPlatformCell.m in Sources */,
+				257CBDDB21C201C2002303C7 /* LLDPlatformDto.m in Sources */,
 				250ECE0721B238C700328991 /* main.m in Sources */,
 				250ECDF921B238C600328991 /* AppDelegate.m in Sources */,
-				1A6664D6229D0CD6FD878F06 /* LDViewDataVM.m in Sources */,
-				1A666619024E5E00A63118B3 /* LDViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

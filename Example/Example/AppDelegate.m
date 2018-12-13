@@ -9,9 +9,9 @@
 #import "AppDelegate.h"
 
 #import <LDSDKManager/LDSDKConfig.h>
-#import <LDSDKManager.h>
+#import <LDSDKManager/LDSDKManager.h>
 
-#import "LDViewController.h"
+#import "LLDViewController.h"
 
 @interface AppDelegate ()
 
@@ -43,11 +43,6 @@
                     LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformQQ)
             },
             @{
-                    LDSDKConfigAppIdKey: @"4272693281",
-                    LDSDKConfigAppSecretKey: @"",
-                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformYiXin)
-            },
-            @{
                     LDSDKConfigAppSchemeKey: @"alipay://",
                     LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformAliPay)
             },
@@ -55,10 +50,10 @@
                     LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformWeibo)},
     ];
 
-    [LDSDKManager registerWithPlatformConfigList:regPlatformConfigList];
+    [[LDSDKManager share] registerWithPlatformConfigList:regPlatformConfigList];
 
-    LDViewController *view = [[LDViewController alloc] init];
-    self.window.rootViewController = view;
+    LLDViewController *controller = [[LLDViewController alloc] init];
+    self.window.rootViewController = controller;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -88,6 +83,16 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    BOOL success = [[LDSDKManager share] handleURL:url];
+    return success;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    BOOL success = [[LDSDKManager share] handleURL:url];
+    return success;
 }
 
 
