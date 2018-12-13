@@ -6,13 +6,13 @@
 #import "LDSDKQQServiceImpDataVM.h"
 
 #import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/sdkdef.h>
+#import <TencentOpenAPI/TencentOAuth.h>
 
 #import "UIImage+LDExtend.h"
 #import "MMBaseShareDto.h"
-#import "sdkdef.h"
 #import "NSString+Extend.h"
 #import "MMShareConfigDto.h"
-#import "TencentOAuth.h"
 
 NSString *const kQQ_OPENID_KEY = @"openId";
 NSString *const kQQ_TOKEN_KEY = @"access_token";
@@ -163,6 +163,10 @@ NSString *const kQQ_AVATARURL_KEY = @"figureurl_qq_2";
             return LDSDKErrorCodeUnsupport;
         }
             break;
+        default: {
+            return LDSDKErrorCodePayFail;
+        }
+            break;
     }
     return LDSDKErrorCodePayFail;
 }
@@ -240,6 +244,10 @@ NSString *const kQQ_AVATARURL_KEY = @"figureurl_qq_2";
             break;
         case ETIMAPIVERSIONNEEDUPDATE : {
             return @"TIM版本需要更新";
+        }
+            break;
+        default: {
+            return @"";
         }
             break;
     }

@@ -75,14 +75,14 @@
     return _shareServiceDict;
 }
 
-- (NSMutableDictionary<NSNumber *, id <LDSDKShareService>> *)payServiceDict {
+- (NSMutableDictionary<NSNumber *, id <LDSDKPayService>> *)payServiceDict {
     if (!_payServiceDict) {
         _payServiceDict = [NSMutableDictionary new];
     }
     return _payServiceDict;
 }
 
-- (NSMutableDictionary<NSNumber *, id <LDSDKShareService>> *)authServiceDict {
+- (NSMutableDictionary<NSNumber *, id <LDSDKAuthService>> *)authServiceDict {
     if (!_authServiceDict) {
         _authServiceDict = [NSMutableDictionary new];
     }

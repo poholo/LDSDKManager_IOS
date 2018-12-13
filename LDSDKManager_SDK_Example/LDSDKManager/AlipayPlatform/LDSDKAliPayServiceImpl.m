@@ -29,6 +29,18 @@
     return sharedInstance;
 }
 
+- (void)authPlatformCallback:(LDSDKAuthCallback)callback {
+
+}
+
+- (void)authPlatformQRCallback:(LDSDKAuthCallback)callBack {
+
+}
+
+- (void)authLogoutPlatformCallback:(LDSDKAuthCallback)callBack {
+
+}
+
 
 #pragma mark -
 #pragma mark - 配置部分

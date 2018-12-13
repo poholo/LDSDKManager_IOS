@@ -27,7 +27,6 @@
             }
                 break;
             case LDSDKShareTypeImage : {
-                MMShareImageDto *imageDto = (MMShareImageDto *) shareDto;
                 apiObject = [self imagesObject:shareDto];
             }
                 break;
@@ -45,6 +44,9 @@
                 break;
             case LDSDKShareTypeFile: {
                 apiObject = [self fileObject:shareDto];
+            }
+                break;
+            default: {
             }
                 break;
         }
@@ -92,6 +94,9 @@
             apiObject = [self fileObject:shareDto];
         }
             break;
+        case LDSDKShareTypeMiniProgram: {
+            return nil;
+        }
     }
     return apiObject;
 }
