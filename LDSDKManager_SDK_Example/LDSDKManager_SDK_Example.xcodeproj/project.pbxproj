@@ -66,6 +66,7 @@
 		1A666359181CF98B134E92ED /* QQApiObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QQApiObject+Extend.h"; sourceTree = "<group>"; };
 		1A6663679474BC69B8273C51 /* WechatApiExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatApiExtend.m; sourceTree = "<group>"; };
 		1A6663E9D0D44DBAF04D7A7A /* LLDPlatformCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDPlatformCell.m; sourceTree = "<group>"; };
+		1A6664042975B8C1B7C31D8B /* LDSDKManager.podspec */ = {isa = PBXFileReference; lastKnownFileType = file.podspec; path = LDSDKManager.podspec; sourceTree = "<group>"; };
 		1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKManagerDataVM.m; sourceTree = "<group>"; };
 		1A66654E3190D7B8087A5D9E /* LDSDKQQServiceImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKQQServiceImpDataVM.h; sourceTree = "<group>"; };
 		1A6665D40CCA81503F5A8C8A /* WechatApiExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatApiExtend.h; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 		1A666E6057B5312757C577CE /* MMShareVideoDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareVideoDto.h; sourceTree = "<group>"; };
 		1A666E760BA7309EEB425C43 /* LDNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNetworkManager.h; sourceTree = "<group>"; };
 		1A666EB9DB47880B1B38ED8B /* LDSDKManagerDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKManagerDataVM.h; sourceTree = "<group>"; };
+		1A666ED5122C9ACE351AA2DF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1A666F27228669CA8AC00880 /* WBMessageObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBMessageObject+Extend.h"; sourceTree = "<group>"; };
 		1A666F5626AE94F6428DB586 /* MMShareTextDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareTextDto.h; sourceTree = "<group>"; };
 		1A666F875F698D73AF04ECAE /* MMShareNewsDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareNewsDto.h; sourceTree = "<group>"; };
@@ -224,6 +226,8 @@
 				25BED69D21B23078000EBCB4 /* Products */,
 				13D8A04FEBE2B7634A5BFFFF /* Pods */,
 				18F78CFB692A8B3B4F8FD82C /* Frameworks */,
+				1A6664042975B8C1B7C31D8B /* LDSDKManager.podspec */,
+				1A666ED5122C9ACE351AA2DF /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
