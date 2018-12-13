@@ -11,7 +11,8 @@
 #import "LDSDKRegisterService.h"
 #import "LDSDKPayService.h"
 #import "LDSDKAuthService.h"
+#import "LDSDKHandleURLProtocol.h"
 
-@interface LDSDKAliPayServiceImpl : NSObject <LDSDKRegisterService, LDSDKAuthService, LDSDKPayService>
+@interface LDSDKAliPayServiceImpl : NSObject <LDSDKRegisterService, LDSDKAuthService, LDSDKPayService, LDSDKHandleURLProtocol>
 
 @end

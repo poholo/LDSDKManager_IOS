@@ -41,6 +41,10 @@
 
 }
 
+- (BOOL)handleURL:(NSURL *)url {
+    return NO;
+}
+
 
 #pragma mark -
 #pragma mark - 配置部分
