@@ -7,11 +7,6 @@
 
 #import "LDSDKConfig.h"
 #import "LDSDKShareService.h"
-#import "LDSDKWeiboServiceImpl.h"
-#import "LDSDKQQServiceImp.h"
-#import "LDSDKAliPayServiceImpl.h"
-#import "LDSDKWechatServiceImp.h"
-
 #import "LDSDKPayService.h"
 #import "LDSDKRegisterService.h"
 #import "LDSDKAuthService.h"
@@ -20,10 +15,10 @@
 @interface LDSDKManagerDataVM ()
 
 
-@property(nonatomic, strong) LDSDKAliPayServiceImpl *aliPayService;
-@property(nonatomic, strong) LDSDKQQServiceImp *qqService;
-@property(nonatomic, strong) LDSDKWeiboServiceImpl *weiboService;
-@property(nonatomic, strong) LDSDKWechatServiceImp *wxService;
+@property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKPayService, LDSDKHandleURLProtocol> aliPayService;
+@property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> qqService;
+@property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> weiboService;
+@property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> wxService;
 
 @end
 
@@ -75,44 +70,44 @@
     return _shareServiceDict;
 }
 
-- (NSMutableDictionary<NSNumber *, id <LDSDKShareService>> *)payServiceDict {
+- (NSMutableDictionary<NSNumber *, id <LDSDKPayService>> *)payServiceDict {
     if (!_payServiceDict) {
         _payServiceDict = [NSMutableDictionary new];
     }
     return _payServiceDict;
 }
 
-- (NSMutableDictionary<NSNumber *, id <LDSDKShareService>> *)authServiceDict {
+- (NSMutableDictionary<NSNumber *, id <LDSDKAuthService>> *)authServiceDict {
     if (!_authServiceDict) {
         _authServiceDict = [NSMutableDictionary new];
     }
     return _authServiceDict;
 }
 
-- (LDSDKAliPayServiceImpl *)aliPayService {
+- (id <LDSDKAuthService, LDSDKRegisterService, LDSDKPayService, LDSDKHandleURLProtocol>)aliPayService {
     if (!_aliPayService) {
-        _aliPayService = [LDSDKAliPayServiceImpl new];
+        _aliPayService = (id <LDSDKAuthService, LDSDKRegisterService, LDSDKPayService, LDSDKHandleURLProtocol>) [NSClassFromString(@"LDSDKAliPayServiceImpl") new];
     }
     return _aliPayService;
 }
 
-- (LDSDKQQServiceImp *)qqService {
+- (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>)qqService {
     if (!_qqService) {
-        _qqService = [LDSDKQQServiceImp new];
+        _qqService = (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>) [NSClassFromString(@"LDSDKQQServiceImp") new];
     }
     return _qqService;
 }
 
-- (LDSDKWeiboServiceImpl *)weiboService {
+- (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>)weiboService {
     if (!_weiboService) {
-        _weiboService = [LDSDKWeiboServiceImpl new];
+        _weiboService = (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>) [NSClassFromString(@"LDSDKWeiboServiceImpl") new];
     }
     return _weiboService;
 }
 
-- (LDSDKWechatServiceImp *)wxService {
+- (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>)wxService {
     if (!_wxService) {
-        _wxService = [LDSDKWechatServiceImp new];
+        _wxService = (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>) [NSClassFromString(@"LDSDKWechatServiceImp") new];
     }
     return _wxService;
 }

@@ -14,42 +14,36 @@
 @interface NSDictionary (LDSDKAdditions)
 
 /**
- *  @param defaulValue 若key对应值为空, 则返回此默认值.
  *
  *  @return 返回key对应值的bool值, 如果值为nil或NSNull, 返回defaultValue.
  */
 - (BOOL)boolForKey:(NSString *)key defaultValue:(BOOL)defaultValue;
 
 /**
- *  @param defaulValue 若key对应值为空, 则返回此默认值.
  *
  *  @return 返回key对应值的int值, 如果值为nil或NSNull, 返回defaultValue.
  */
 - (int)intForKey:(NSString *)key defaultValue:(int)defaultValue;
 
 /**
- *  @param defaulValue 若key对应值为空, 则返回此默认值.
  *
  *  @return 返回key对应值的integer值, 如果值为nil或NSNull, 返回defaultValue.
  */
 - (NSInteger)integerForKey:(NSString *)key defaultValue:(NSInteger)defaultValue;
 
 /**
- *  @param defaulValue 若key对应值为空, 则返回此默认值.
  *
  *  @return 返回key对应值的long值, 如果值为nil或NSNull, 返回defaultValue.
  */
 - (long)longForKey:(NSString *)key defaultValue:(long)defaultValue;
 
 /**
- *  @param defaulValue 若key对应值为空, 则返回此默认值.
  *
  *  @return 返回key对应值的double值, 如果值为nil或NSNull, 返回defaultValue.
  */
 - (double)doubleForKey:(NSString *)key defaultValue:(double)defaultValue;
 
 /**
- *  @param defaulValue 若key对应值为空, 则返回此默认值.
  *
  *  @return 返回key对应值的float值, 如果值为nil或NSNull, 返回defaultValue.
  */

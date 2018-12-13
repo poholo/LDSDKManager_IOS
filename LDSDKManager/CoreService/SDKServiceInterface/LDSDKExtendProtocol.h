@@ -29,12 +29,11 @@
 
 + (id)fileObject:(MMBaseShareDto *)shareDto;
 
+@optional
+
 + (id)miniProgram:(MMBaseShareDto *)shareDto;
 
 + (NSInteger)moduleToPlatform:(LDSDKShareToModule)module;
-
-
-@optional
 
 + (id)textZoneObject:(MMBaseShareDto *)shareDto;
 

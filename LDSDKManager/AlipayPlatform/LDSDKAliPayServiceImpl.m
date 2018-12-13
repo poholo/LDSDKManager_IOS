@@ -29,6 +29,22 @@
     return sharedInstance;
 }
 
+- (void)authPlatformCallback:(LDSDKAuthCallback)callback {
+
+}
+
+- (void)authPlatformQRCallback:(LDSDKAuthCallback)callBack {
+
+}
+
+- (void)authLogoutPlatformCallback:(LDSDKAuthCallback)callBack {
+
+}
+
+- (BOOL)handleURL:(NSURL *)url {
+    return NO;
+}
+
 
 #pragma mark -
 #pragma mark - 配置部分
