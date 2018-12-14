@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A666016C845E6B642C06A87 /* LDSDKAliPayDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66626D80CD6ACA68204C63 /* LDSDKAliPayDataVM.m */; };
+		1A6660189792B6C89680ACAE /* APBaseReq+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666D1589198C978DD6B135 /* APBaseReq+Extend.m */; };
 		1A6661706C680801D41B7942 /* LLDPlatformCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6663E9D0D44DBAF04D7A7A /* LLDPlatformCell.m */; };
 		1A6661AC8BE61533A2B96BE9 /* MMShareImageDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666127EA405F1B53D42123 /* MMShareImageDto.m */; };
 		1A6661FFC82017D670279031 /* MMShareMiniProgramDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666006A6086AACBBF260AF /* MMShareMiniProgramDto.m */; };
@@ -47,7 +49,7 @@
 		25BED6EB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m */; };
 		25BED6EC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m */; };
 		25BED6ED21B2314E000EBCB4 /* LDSDKWechatServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DD21B2314E000EBCB4 /* LDSDKWechatServiceImp.m */; };
-		25BED6EE21B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m */; };
+		25BED6EE21B2314E000EBCB4 /* LDSDKAliPayServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImp.m */; };
 		25CAC7CD21BBAA3100F0C267 /* think.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25CAC7CC21BBAA3100F0C267 /* think.jpg */; };
 		25CAC83521BBAF1100F0C267 /* media.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 25CAC83421BBAF1100F0C267 /* media.mp4 */; };
 		B2E1CB74B53D4DFBF93169C4 /* libPods-LDSDKManager_SDK_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1791953689D19644724296 /* libPods-LDSDKManager_SDK_Example.a */; };
@@ -61,13 +63,14 @@
 		1A666127EA405F1B53D42123 /* MMShareImageDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareImageDto.m; sourceTree = "<group>"; };
 		1A6662398B5F6F551A787470 /* NSDictionary+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extend.m"; sourceTree = "<group>"; };
 		1A66626813C120284EDB2F73 /* LDSDKWechatImpDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWechatImpDataVM.m; sourceTree = "<group>"; };
+		1A66626D80CD6ACA68204C63 /* LDSDKAliPayDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKAliPayDataVM.m; sourceTree = "<group>"; };
 		1A666296CC6D522C8B773AE2 /* MMShareMiniProgramDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareMiniProgramDto.h; sourceTree = "<group>"; };
 		1A6662F2A12414DA553C9979 /* MMShareVideoDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareVideoDto.m; sourceTree = "<group>"; };
 		1A666359181CF98B134E92ED /* QQApiObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QQApiObject+Extend.h"; sourceTree = "<group>"; };
 		1A6663679474BC69B8273C51 /* WechatApiExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatApiExtend.m; sourceTree = "<group>"; };
 		1A6663E9D0D44DBAF04D7A7A /* LLDPlatformCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDPlatformCell.m; sourceTree = "<group>"; };
-		1A6664042975B8C1B7C31D8B /* LDSDKManager.podspec */ = {isa = PBXFileReference; lastKnownFileType = file.podspec; path = LDSDKManager.podspec; sourceTree = "<group>"; };
 		1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKManagerDataVM.m; sourceTree = "<group>"; };
+		1A66653B7905552ED02382B7 /* LDSDKManager.podspec */ = {isa = PBXFileReference; lastKnownFileType = file.podspec; name = LDSDKManager.podspec; path = ../LDSDKManager.podspec; sourceTree = "<group>"; };
 		1A66654E3190D7B8087A5D9E /* LDSDKQQServiceImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKQQServiceImpDataVM.h; sourceTree = "<group>"; };
 		1A6665D40CCA81503F5A8C8A /* WechatApiExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatApiExtend.h; sourceTree = "<group>"; };
 		1A6665F1140CFB91B8D12FA9 /* MMShareTextDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareTextDto.m; sourceTree = "<group>"; };
@@ -84,13 +87,16 @@
 		1A666968C480A1A6C6DD1D48 /* WBMessageObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WBMessageObject+Extend.m"; sourceTree = "<group>"; };
 		1A66699F9DE521FB9D32C88D /* MMShareFileDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareFileDto.h; sourceTree = "<group>"; };
 		1A6669E4450075018B7F50F7 /* MMShareAudioDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareAudioDto.h; sourceTree = "<group>"; };
+		1A6669F906C98CE674981912 /* LDSDKAliPayDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAliPayDataVM.h; sourceTree = "<group>"; };
 		1A666A21677C2B492E9100CE /* LDSDKExtendProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKExtendProtocol.h; sourceTree = "<group>"; };
 		1A666A61666B776D31289793 /* MMShareConfigDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareConfigDto.h; sourceTree = "<group>"; };
 		1A666A647DD6544631A52487 /* LLDPlatform.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LLDPlatform.json; sourceTree = "<group>"; };
+		1A666AABE1F1D5BB28E2C484 /* APBaseReq+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APBaseReq+Extend.h"; sourceTree = "<group>"; };
 		1A666C55E8D06A08183CC200 /* MMShareNewsDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareNewsDto.m; sourceTree = "<group>"; };
 		1A666C958CAAE2B2351C0C91 /* LDSDKWeiboDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWeiboDataVM.h; sourceTree = "<group>"; };
 		1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWeiboDataVM.m; sourceTree = "<group>"; };
 		1A666CFEB5DD4366A46A29C8 /* LDNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNetworkManager.m; sourceTree = "<group>"; };
+		1A666D1589198C978DD6B135 /* APBaseReq+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APBaseReq+Extend.m"; sourceTree = "<group>"; };
 		1A666D2CBA461049575B8C7A /* QQApiObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QQApiObject+Extend.m"; sourceTree = "<group>"; };
 		1A666DB70B60159947D421E1 /* LDSDKWechatImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWechatImpDataVM.h; sourceTree = "<group>"; };
 		1A666DD0795A4B5F900816A0 /* NSDictionary+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extend.h"; sourceTree = "<group>"; };
@@ -140,8 +146,8 @@
 		25BED6DB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LDSDKAdditions.m"; sourceTree = "<group>"; };
 		25BED6DC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LDSDKAdditions.m"; sourceTree = "<group>"; };
 		25BED6DD21B2314E000EBCB4 /* LDSDKWechatServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWechatServiceImp.m; sourceTree = "<group>"; };
-		25BED6DF21B2314E000EBCB4 /* LDSDKAliPayServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAliPayServiceImpl.h; sourceTree = "<group>"; };
-		25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKAliPayServiceImpl.m; sourceTree = "<group>"; };
+		25BED6DF21B2314E000EBCB4 /* LDSDKAliPayServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAliPayServiceImp.h; sourceTree = "<group>"; };
+		25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKAliPayServiceImp.m; sourceTree = "<group>"; };
 		25CAC7CC21BBAA3100F0C267 /* think.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = think.jpg; sourceTree = "<group>"; };
 		25CAC83421BBAF1100F0C267 /* media.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = media.mp4; sourceTree = "<group>"; };
 		3AFE1F751C1EB2644AC27411 /* Pods-LDSDKManager_SDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager_SDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -226,8 +232,8 @@
 				25BED69D21B23078000EBCB4 /* Products */,
 				13D8A04FEBE2B7634A5BFFFF /* Pods */,
 				18F78CFB692A8B3B4F8FD82C /* Frameworks */,
-				1A6664042975B8C1B7C31D8B /* LDSDKManager.podspec */,
 				1A666ED5122C9ACE351AA2DF /* README.md */,
+				1A66653B7905552ED02382B7 /* LDSDKManager.podspec */,
 			);
 			sourceTree = "<group>";
 		};
@@ -380,8 +386,12 @@
 		25BED6DE21B2314E000EBCB4 /* AlipayPlatform */ = {
 			isa = PBXGroup;
 			children = (
-				25BED6DF21B2314E000EBCB4 /* LDSDKAliPayServiceImpl.h */,
-				25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m */,
+				25BED6DF21B2314E000EBCB4 /* LDSDKAliPayServiceImp.h */,
+				25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImp.m */,
+				1A66626D80CD6ACA68204C63 /* LDSDKAliPayDataVM.m */,
+				1A6669F906C98CE674981912 /* LDSDKAliPayDataVM.h */,
+				1A666D1589198C978DD6B135 /* APBaseReq+Extend.m */,
+				1A666AABE1F1D5BB28E2C484 /* APBaseReq+Extend.h */,
 			);
 			path = AlipayPlatform;
 			sourceTree = "<group>";
@@ -516,7 +526,7 @@
 				25BED6A421B23078000EBCB4 /* ViewController.m in Sources */,
 				25BED6EA21B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m in Sources */,
 				25BED6EC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m in Sources */,
-				25BED6EE21B2314E000EBCB4 /* LDSDKAliPayServiceImpl.m in Sources */,
+				25BED6EE21B2314E000EBCB4 /* LDSDKAliPayServiceImp.m in Sources */,
 				25BED6AF21B23079000EBCB4 /* main.m in Sources */,
 				25BED6E421B2314E000EBCB4 /* LDSDKConfig.m in Sources */,
 				25BED6E121B2314E000EBCB4 /* LLDViewDataVM.m in Sources */,
@@ -549,6 +559,8 @@
 				1A6665B3B72994118BE70B93 /* LDNetworkManager.m in Sources */,
 				1A666BB0DEE76D1C29E0CB57 /* MMShareFileDto.m in Sources */,
 				1A6661FFC82017D670279031 /* MMShareMiniProgramDto.m in Sources */,
+				1A666016C845E6B642C06A87 /* LDSDKAliPayDataVM.m in Sources */,
+				1A6660189792B6C89680ACAE /* APBaseReq+Extend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

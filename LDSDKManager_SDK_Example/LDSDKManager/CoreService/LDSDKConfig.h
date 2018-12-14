@@ -38,6 +38,9 @@ extern NSString *const LDSDKShareCallBackKey;
 extern NSString *const LDSDKShareMiniProgramIdKey;
 extern NSString *const LDSDKShareNiniProgramTypeKey;
 
+extern NSString * const LDSDKAuthUrlKey;
+extern NSString * const LDSDKAuthSchemaKey;
+
 extern NSString *const kErrorMessage;
 extern NSString *const kErrorDomain;
 extern NSString *const kErrorObject;

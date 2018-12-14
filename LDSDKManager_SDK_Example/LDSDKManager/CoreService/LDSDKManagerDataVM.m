@@ -15,7 +15,7 @@
 @interface LDSDKManagerDataVM ()
 
 
-@property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKPayService, LDSDKHandleURLProtocol> aliPayService;
+@property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> aliPayService;
 @property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> qqService;
 @property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> weiboService;
 @property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> wxService;
@@ -33,6 +33,7 @@
     self.shareServiceDict[@(LDSDKPlatformQQ)] = self.qqService;
     self.shareServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
     self.shareServiceDict[@(LDSDKPlatformWeibo)] = self.weiboService;
+    self.shareServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
 
     self.payServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
     self.payServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
@@ -84,9 +85,9 @@
     return _authServiceDict;
 }
 
-- (id <LDSDKAuthService, LDSDKRegisterService, LDSDKPayService, LDSDKHandleURLProtocol>)aliPayService {
+- (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>)aliPayService {
     if (!_aliPayService) {
-        _aliPayService = (id <LDSDKAuthService, LDSDKRegisterService, LDSDKPayService, LDSDKHandleURLProtocol>) [NSClassFromString(@"LDSDKAliPayServiceImpl") new];
+        _aliPayService = (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>) [NSClassFromString(@"LDSDKAliPayServiceImp") new];
     }
     return _aliPayService;
 }

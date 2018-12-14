@@ -140,7 +140,7 @@
 
 #pragma mark 登陆部分
 
-- (void)authPlatformCallback:(LDSDKAuthCallback)callback {
+- (void)authPlatformCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict {
     self.authCallback = callback;
 
     if (!self.tencentAuth) {
@@ -151,9 +151,8 @@
     [self.tencentAuth authorize:self.dataVM.permissions];
 }
 
-- (void)authPlatformQRCallback:(LDSDKAuthCallback)callback {
+- (void)authPlatformQRCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict {
     self.authCallback = callback;
-
     if (!self.tencentAuth) {
         self.tencentAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
     }

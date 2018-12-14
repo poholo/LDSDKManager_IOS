@@ -36,6 +36,8 @@
 
             @{
                     LDSDKConfigAppSchemeKey: @"alipay://",
+                    LDSDKConfigAppIdKey: @"2018121462531700",
+                    LDSDKConfigAppSecretKey: @"AivRsxOiPoiXklp5",
                     LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformAliPay)
             },
             @{
@@ -49,8 +51,9 @@
 
     [[LDSDKManager share] registerWithPlatformConfigList:regPlatformConfigList];
 
-    LLDViewController *view = [[LLDViewController alloc] init];
-    self.window.rootViewController = view;
+    LLDViewController *controller = [[LLDViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
 
     return YES;

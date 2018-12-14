@@ -27,6 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"LDSDKManager";
+
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.infoLabel];
 
@@ -129,7 +131,7 @@
         } else {
             [strongSelf.infoLabel setText:error.userInfo[kErrorMessage]];
         }
-    }];
+    } ext:nil];
 }
 
 - (void)authQRLogin {
@@ -156,7 +158,7 @@
         } else {
             [strongSelf.infoLabel setText:error.userInfo[kErrorMessage]];
         }
-    }];
+    } ext:nil];
 }
 
 - (void)authLogout {

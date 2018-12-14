@@ -70,10 +70,9 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 }
 
 
-#pragma mark -
-#pragma mark - 登陆部分
+#pragma mark - auth
 
-- (void)authPlatformCallback:(LDSDKAuthCallback)callback {
+- (void)authPlatformCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict {
     self.authCallback = callback;
     SendAuthReq *req = [[SendAuthReq alloc] init];
     req.scope = @"snsapi_userinfo";
@@ -82,8 +81,9 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     [WXApi sendAuthReq:req viewController:viewController delegate:self];
 }
 
-- (void)authPlatformQRCallback:(LDSDKAuthCallback)callBack {
-    self.authCallback = callBack;
+
+- (void)authPlatformQRCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict {
+    self.authCallback = callback;
     if (self.authCallback) {
         NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginFailed userInfo:@{kErrorMessage: @"Not support QR Auth except[公众号登录]"}];
         self.authCallback(LDSDKLoginFailed, error, nil, nil);
@@ -219,7 +219,6 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
         }
     }
 }
-
 
 - (BOOL)responseResult:(BaseResp *)resp {
     if ([resp isKindOfClass:[SendMessageToWXResp class]]) {

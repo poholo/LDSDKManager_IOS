@@ -140,7 +140,7 @@
 
 #pragma mark - Auth
 
-- (void)authPlatformCallback:(LDSDKAuthCallback)callback {
+- (void)authPlatformCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict {
     self.authCallback = callback;
     if (self.dataVM.configDto.redirectURI.length == 0) {
         NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginMissParams userInfo:@{kErrorMessage: @"MissParams: redirectURI"}];
@@ -155,8 +155,8 @@
     [WeiboSDK sendRequest:request];
 }
 
-- (void)authPlatformQRCallback:(LDSDKAuthCallback)callBack {
-    self.authCallback = callBack;
+- (void)authPlatformQRCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict {
+    self.authCallback = callback;
     if (self.authCallback) {
         NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginFailed userInfo:@{kErrorMessage: @"Not support QR Auth"}];
         self.authCallback(LDSDKLoginFailed, error, nil, nil);

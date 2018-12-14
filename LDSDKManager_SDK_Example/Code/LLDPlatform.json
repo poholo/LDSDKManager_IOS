@@ -318,6 +318,90 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Alipay支付宝",
+      "type": 2,
+      "data": [
+        {
+          "name": "Contract",
+          "type": 0,
+          "data": [
+            {
+              "name": "Text",
+              "type": 0
+            },
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "News",
+              "type": 2
+            },
+            {
+              "name": "Audio",
+              "type": 3
+            },
+            {
+              "name": "Video",
+              "type": 4
+            },
+            {
+              "name": "File",
+              "type": 5
+            },
+            {
+              "name": "MiniProgram",
+              "type": 6
+            }
+          ]
+        },
+        {
+          "name": "Timeline",
+          "type": 1,
+          "data": [
+            {
+              "name": "Text",
+              "type": 0
+            },
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "News",
+              "type": 2
+            },
+            {
+              "name": "Audio",
+              "type": 3
+            },
+            {
+              "name": "Video",
+              "type": 4
+            }
+          ]
+        },
+        {
+          "name": "Auth",
+          "type": 99,
+          "data": [
+            {
+              "name": "登录授权",
+              "type": 0
+            },
+            {
+              "name": "扫码登录[不支持]",
+              "type": 1
+            },
+            {
+              "name": "退出登录",
+              "type": 0
+            }
+          ]
+        }
+      ]
     }
   ]
 }
