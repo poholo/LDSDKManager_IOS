@@ -32,13 +32,31 @@
 
 @implementation LDSDKAliPayServiceImp
 
-+ (instancetype)sharedService {
-    static LDSDKAliPayServiceImp *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[self alloc] init];
-    });
-    return sharedInstance;
+
+#pragma mark -
+#pragma mark - 配置部分
+
+- (BOOL)isPlatformAppInstalled {
+    return YES;
+}
+
+
+- (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
+    self.dataVM.configDto = [MMShareConfigDto createDto:config];
+    NSError *error = [self.dataVM registerValidate];
+    BOOL success = [APOpenAPI registerApp:self.dataVM.configDto.appId];
+    if (!success) {
+        error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"AlipayShare register error"}];
+    }
+    return error;
+}
+
+- (BOOL)isRegistered {
+    return (self.aliPayScheme && [self.aliPayScheme length]);
+}
+
+- (BOOL)handleResultUrl:(NSURL *)url {
+    return [self payProcessOrderWithPaymentResult:url standbyCallback:NULL];
 }
 
 #pragma mark - share
@@ -150,32 +168,6 @@
     return handle;
 }
 
-
-#pragma mark -
-#pragma mark - 配置部分
-
-- (BOOL)isPlatformAppInstalled {
-    return YES;
-}
-
-
-- (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
-    self.dataVM.configDto = [MMShareConfigDto createDto:config];
-    NSError *error = [self.dataVM registerValidate];
-    BOOL success = [APOpenAPI registerApp:self.dataVM.configDto.appId];
-    if (!success) {
-        error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"AlipayShare register error"}];
-    }
-    return error;
-}
-
-- (BOOL)isRegistered {
-    return (self.aliPayScheme && [self.aliPayScheme length]);
-}
-
-- (BOOL)handleResultUrl:(NSURL *)url {
-    return [self payProcessOrderWithPaymentResult:url standbyCallback:NULL];
-}
 
 
 #pragma mark -

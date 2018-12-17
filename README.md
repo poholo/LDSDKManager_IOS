@@ -146,6 +146,16 @@ pod 'LDSDKManager'
 			<string>sina.xxxxxxxx</string>
 		</array>
 	</dict>
+	<dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>alipayShare</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+        	<string>apxxxxxxxx</string>
+        </array>
+    </dict>
 </array>
 ```
 
