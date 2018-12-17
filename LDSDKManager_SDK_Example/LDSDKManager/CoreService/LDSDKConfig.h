@@ -38,8 +38,8 @@ extern NSString *const LDSDKShareCallBackKey;
 extern NSString *const LDSDKShareMiniProgramIdKey;
 extern NSString *const LDSDKShareNiniProgramTypeKey;
 
-extern NSString * const LDSDKAuthUrlKey;
-extern NSString * const LDSDKAuthSchemaKey;
+extern NSString *const LDSDKAuthUrlKey;
+extern NSString *const LDSDKAuthSchemaKey;
 
 extern NSString *const kErrorMessage;
 extern NSString *const kErrorDomain;
@@ -47,10 +47,11 @@ extern NSString *const kErrorObject;
 extern NSString *const kErrorCode;
 
 typedef NS_ENUM(NSInteger, LDSDKPlatformType) {
-    LDSDKPlatformQQ,  // QQ
-    LDSDKPlatformWeChat,  //微信
-    LDSDKPlatformAliPay,  //支付宝
-    LDSDKPlatformWeibo,   //新浪微博
+    LDSDKPlatformQQ,  ///< QQ
+    LDSDKPlatformWeChat,  ///< 微信
+    LDSDKPlatformAliPay,  ///< 支付宝
+    LDSDKPlatformWeibo,   ///< 新浪微博
+    LDSDKPlatformTelegaram, ///< 电报、币用
 };
 
 typedef NS_ENUM(NSInteger, LDSDKShareToModule) {

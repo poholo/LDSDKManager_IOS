@@ -19,6 +19,7 @@
 @property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> qqService;
 @property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> weiboService;
 @property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> wxService;
+@property(nonatomic, strong) id <LDSDKRegisterService, LDSDKShareService> telegramService;
 
 @end
 
@@ -29,11 +30,13 @@
     self.registerServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
     self.registerServiceDict[@(LDSDKPlatformWeibo)] = self.weiboService;
     self.registerServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
+    self.registerServiceDict[@(LDSDKPlatformTelegaram)] = self.telegramService;
 
     self.shareServiceDict[@(LDSDKPlatformQQ)] = self.qqService;
     self.shareServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
     self.shareServiceDict[@(LDSDKPlatformWeibo)] = self.weiboService;
     self.shareServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
+    self.shareServiceDict[@(LDSDKPlatformTelegaram)] = self.telegramService;
 
     self.payServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
     self.payServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
@@ -113,5 +116,10 @@
     return _wxService;
 }
 
-
+- (id <LDSDKRegisterService, LDSDKShareService>)telegramService {
+    if (!_telegramService) {
+        _telegramService = (id <LDSDKRegisterService, LDSDKShareService>) [NSClassFromString(@"LDSDKTelegramServiceImp") new];
+    }
+    return _telegramService;
+}
 @end

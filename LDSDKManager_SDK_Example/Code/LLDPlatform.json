@@ -320,7 +320,7 @@
       ]
     },
     {
-      "name": "Alipay支付宝",
+      "name": "Alipay",
       "type": 2,
       "data": [
         {
@@ -398,6 +398,22 @@
             {
               "name": "退出登录",
               "type": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Telegram",
+      "type": 4,
+      "data": [
+        {
+          "name": "Contract",
+          "type": 0,
+          "data": [
+            {
+              "name": "News",
+              "type": 2
             }
           ]
         }

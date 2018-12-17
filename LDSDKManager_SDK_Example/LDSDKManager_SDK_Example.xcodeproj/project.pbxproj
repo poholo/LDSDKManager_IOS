@@ -14,9 +14,11 @@
 		1A6661FFC82017D670279031 /* MMShareMiniProgramDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666006A6086AACBBF260AF /* MMShareMiniProgramDto.m */; };
 		1A6661FFE48E2B346269B625 /* LDSDKWeiboDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */; };
 		1A66629A598A993475C021FD /* MMShareTextDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6665F1140CFB91B8D12FA9 /* MMShareTextDto.m */; };
+		1A666310B4B19D0D5CAF60BC /* LDSDKTelegramServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6664F5FBA12FA70794E939 /* LDSDKTelegramServiceImp.m */; };
 		1A66636E1B052BFFE79C59FF /* WechatApiExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6663679474BC69B8273C51 /* WechatApiExtend.m */; };
 		1A6663A4A5D580317765E6E9 /* LLDPlatform.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A666A647DD6544631A52487 /* LLDPlatform.json */; };
 		1A6663E4D7ED54C2CC1F6D3B /* MMResultDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66600A9EE8BBE7F1549CDF /* MMResultDto.m */; };
+		1A6665854669E28842617F1D /* LDSDKTelegramDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6664B0B69365E5E90ABEF3 /* LDSDKTelegramDataVM.m */; };
 		1A6665B3B72994118BE70B93 /* LDNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666CFEB5DD4366A46A29C8 /* LDNetworkManager.m */; };
 		1A6665C08B0EAF8CE912D5D2 /* MMShareNewsDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666C55E8D06A08183CC200 /* MMShareNewsDto.m */; };
 		1A6666E99753C1682E9C58B6 /* LDSDKManagerDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */; };
@@ -70,6 +72,8 @@
 		1A6663679474BC69B8273C51 /* WechatApiExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatApiExtend.m; sourceTree = "<group>"; };
 		1A6663E9D0D44DBAF04D7A7A /* LLDPlatformCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDPlatformCell.m; sourceTree = "<group>"; };
 		1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKManagerDataVM.m; sourceTree = "<group>"; };
+		1A6664B0B69365E5E90ABEF3 /* LDSDKTelegramDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKTelegramDataVM.m; sourceTree = "<group>"; };
+		1A6664F5FBA12FA70794E939 /* LDSDKTelegramServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKTelegramServiceImp.m; sourceTree = "<group>"; };
 		1A66653B7905552ED02382B7 /* LDSDKManager.podspec */ = {isa = PBXFileReference; lastKnownFileType = file.podspec; name = LDSDKManager.podspec; path = ../LDSDKManager.podspec; sourceTree = "<group>"; };
 		1A66654E3190D7B8087A5D9E /* LDSDKQQServiceImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKQQServiceImpDataVM.h; sourceTree = "<group>"; };
 		1A6665D40CCA81503F5A8C8A /* WechatApiExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatApiExtend.h; sourceTree = "<group>"; };
@@ -89,9 +93,11 @@
 		1A6669E4450075018B7F50F7 /* MMShareAudioDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareAudioDto.h; sourceTree = "<group>"; };
 		1A6669F906C98CE674981912 /* LDSDKAliPayDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAliPayDataVM.h; sourceTree = "<group>"; };
 		1A666A21677C2B492E9100CE /* LDSDKExtendProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKExtendProtocol.h; sourceTree = "<group>"; };
+		1A666A5330F49741D389291B /* LDSDKTelegramServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKTelegramServiceImp.h; sourceTree = "<group>"; };
 		1A666A61666B776D31289793 /* MMShareConfigDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareConfigDto.h; sourceTree = "<group>"; };
 		1A666A647DD6544631A52487 /* LLDPlatform.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LLDPlatform.json; sourceTree = "<group>"; };
 		1A666AABE1F1D5BB28E2C484 /* APBaseReq+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APBaseReq+Extend.h"; sourceTree = "<group>"; };
+		1A666AFDF5D8878E24EB5225 /* LDSDKTelegramDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKTelegramDataVM.h; sourceTree = "<group>"; };
 		1A666C2C63C803A817872234 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1A666C55E8D06A08183CC200 /* MMShareNewsDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareNewsDto.m; sourceTree = "<group>"; };
 		1A666C958CAAE2B2351C0C91 /* LDSDKWeiboDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWeiboDataVM.h; sourceTree = "<group>"; };
@@ -184,6 +190,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1A666179EBF5FFE0FAB07F14 /* TelegramPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				1A6664F5FBA12FA70794E939 /* LDSDKTelegramServiceImp.m */,
+				1A666A5330F49741D389291B /* LDSDKTelegramServiceImp.h */,
+				1A6664B0B69365E5E90ABEF3 /* LDSDKTelegramDataVM.m */,
+				1A666AFDF5D8878E24EB5225 /* LDSDKTelegramDataVM.h */,
+			);
+			path = TelegramPlatform;
+			sourceTree = "<group>";
+		};
 		1A66622225E99B7016F4458B /* Net */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +208,20 @@
 				1A666E760BA7309EEB425C43 /* LDNetworkManager.h */,
 			);
 			path = Net;
+			sourceTree = "<group>";
+		};
+		1A666314A139BA4A7D40E617 /* MomoPlatform */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MomoPlatform;
+			sourceTree = "<group>";
+		};
+		1A666CEEC9F1C09AE6080884 /* DingTalkPlatform */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DingTalkPlatform;
 			sourceTree = "<group>";
 		};
 		1A666DEF637993C5C1742BA1 /* Dtos */ = {
@@ -284,6 +315,9 @@
 				25BED6D321B2314E000EBCB4 /* WeiboPlatform */,
 				25BED6D621B2314E000EBCB4 /* WechatPlatform */,
 				25BED6DE21B2314E000EBCB4 /* AlipayPlatform */,
+				1A666CEEC9F1C09AE6080884 /* DingTalkPlatform */,
+				1A666179EBF5FFE0FAB07F14 /* TelegramPlatform */,
+				1A666314A139BA4A7D40E617 /* MomoPlatform */,
 			);
 			path = LDSDKManager;
 			sourceTree = "<group>";
@@ -561,6 +595,8 @@
 				1A6661FFC82017D670279031 /* MMShareMiniProgramDto.m in Sources */,
 				1A666016C845E6B642C06A87 /* LDSDKAliPayDataVM.m in Sources */,
 				1A6660189792B6C89680ACAE /* APBaseReq+Extend.m in Sources */,
+				1A666310B4B19D0D5CAF60BC /* LDSDKTelegramServiceImp.m in Sources */,
+				1A6665854669E28842617F1D /* LDSDKTelegramDataVM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

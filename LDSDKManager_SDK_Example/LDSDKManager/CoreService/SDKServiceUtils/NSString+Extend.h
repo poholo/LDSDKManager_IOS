@@ -9,4 +9,18 @@
 
 + (NSString *)filterInvalid:(NSString *)originString;
 
+- (NSString *)escapedURLString;
+
+- (NSString *)urlEncode;
+
+- (NSString *)urlDecode;
+
+- (NSString *)addUrlFromDictionary:(NSDictionary *)params hasQuestionMark:(NSString *)hasQuestionMark;
+
+- (NSDictionary *)params;
+
+- (NSMutableString *)urlParamString:(NSMutableDictionary *)quaryDict;
+
+- (NSString *)urlForAddQuryItems:(NSDictionary <NSString *, NSString *> *)queryItems;
+
 @end
