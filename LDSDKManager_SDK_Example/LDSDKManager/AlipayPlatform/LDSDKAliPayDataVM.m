@@ -30,37 +30,62 @@
     return NO;
 }
 
-- (NSError *)respError:(NSDictionary *)resp {
-    NSInteger errorcode = [resp[@"resultStatus"] integerValue];
-    NSString *errorMsg = [self errorMsg:errorcode];
-    LDSDKLoginCode errorCode = LDSDKLoginFailed;
-    if (errorcode == 10000 || errorcode == 9000) {
-        errorCode = LDSDKLoginSuccess;
-    } else if (errorcode == 20000) {
-        errorCode = LDSDKLoginFailed;
-    } else if (errorcode == 20001) {
-        errorCode = LDSDKLoginNoAuth;
-    } else if (errorcode == 40001) {
-        errorCode = LDSDKLoginMissParams;
-    } else if (errorcode == 40002) {
-        errorCode = LDSDKLoginMissParams;
-    } else if (errorcode == 40004) {
-        errorCode = LDSDKLoginFailed;
-    } else if (errorcode == 40006) {
-        errorcode = LDSDKLoginNoAuth;
-    } else if (errorcode == 4000) {
-        errorCode = LDSDKLoginFailed;
-    } else if (errorcode == 5000) {
-        errorCode = LDSDKLoginFailed;
-    } else if (errorcode == 6001) {
-        errorCode = LDSDKLoginUserCancel;
-    } else if (errorcode == 6002) {
-        errorCode = LDSDKLoginNoNet;
-    } else if (errorcode == 6004) {
-        errorCode = LDSDKLoginFailed;
+- (NSError *)respError:(id)resp {
+    if ([resp isKindOfClass:[APBaseResp class]]) {
+        APBaseResp *apBaseResp = (APBaseResp *) resp;
+        NSInteger errorcode = apBaseResp.errCode;
+        NSString *errorMsg = [self errorMsg:errorcode];
+        if (errorcode == APSuccess) {
+        } else if (errorcode == APErrCodeCommon) {
+            errorcode = LDSDKSuccess;
+        } else if (errorcode == APErrCodeUserCancel) {
+            errorcode = LDSDKErrorCodeUserCancel;
+        } else if (errorcode == APErrCodeSentFail) {
+            errorcode = LDSDKErrorCodeSentFail;
+        } else if (errorcode == APErrCodeAuthDeny) {
+            errorcode = LDSDKErrorCodeAuthDeny;
+        } else if (errorcode == APErrCodeUnsupport) {
+            errorcode = LDSDKErrorCodeUnsupport;
+        }
+
+        NSError *error = [NSError errorWithDomain:kErrorDomain code:errorcode userInfo:@{kErrorMessage: errorMsg ? errorMsg : @""}];
+        return error;
+
+    } else if ([resp isKindOfClass:[NSDictionary class]]) {
+        NSInteger errorcode = [resp[@"resultStatus"] integerValue];
+        NSString *errorMsg = [self errorMsg:errorcode];
+        LDSDKLoginCode errorCode = LDSDKLoginFailed;
+        if (errorcode == 10000 || errorcode == 9000) {
+            errorCode = LDSDKLoginSuccess;
+        } else if (errorcode == 20000) {
+            errorCode = LDSDKLoginFailed;
+        } else if (errorcode == 20001) {
+            errorCode = LDSDKLoginNoAuth;
+        } else if (errorcode == 40001) {
+            errorCode = LDSDKLoginMissParams;
+        } else if (errorcode == 40002) {
+            errorCode = LDSDKLoginMissParams;
+        } else if (errorcode == 40004) {
+            errorCode = LDSDKLoginFailed;
+        } else if (errorcode == 40006) {
+            errorcode = LDSDKLoginNoAuth;
+        } else if (errorcode == 4000) {
+            errorCode = LDSDKLoginFailed;
+        } else if (errorcode == 5000) {
+            errorCode = LDSDKLoginFailed;
+        } else if (errorcode == 6001) {
+            errorCode = LDSDKLoginUserCancel;
+        } else if (errorcode == 6002) {
+            errorCode = LDSDKLoginNoNet;
+        } else if (errorcode == 6004) {
+            errorCode = LDSDKLoginFailed;
+        }
+
+        NSError *error = [NSError errorWithDomain:kErrorDomain code:errorCode userInfo:@{kErrorMessage: errorMsg ? errorMsg : @""}];
+        return error;
     }
-    NSError *error = [NSError errorWithDomain:kErrorDomain code:errorCode userInfo:@{kErrorMessage: errorMsg ? errorMsg : @""}];
-    return error;
+    return nil;
+
 }
 
 - (LDSDKErrorCode)errorCodePlatform:(NSInteger)errorcode {
@@ -94,6 +119,18 @@
         return @"网络连接出错";
     } else if (errorcode == 6004) {
         return @"支付结果未知（有可能已经支付成功），请查询商户订单列表中订单的支付状态";
+    } else if (errorcode == APSuccess) {
+        return @"成功";
+    } else if (errorcode == APErrCodeCommon) {
+        return @"错误";
+    } else if (errorcode == APErrCodeUserCancel) {
+        return @"用户取消";
+    } else if (errorcode == APErrCodeSentFail) {
+        return @"发送失败";
+    } else if (errorcode == APErrCodeAuthDeny) {
+        return @"权限不足";
+    } else if (errorcode == APErrCodeUnsupport) {
+        return @"不支持";
     }
 
     return nil;

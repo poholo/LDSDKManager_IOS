@@ -77,6 +77,10 @@
 - (BOOL)responseResult:(APBaseResp *)resp {
     if ([resp isKindOfClass:[APSendMessageToAPResp class]]) {
         APSendMessageToAPResp *response = (APSendMessageToAPResp *) resp;
+        NSError *error = [self.dataVM respError:resp];
+        if (self.shareCallback) {
+            self.shareCallback((LDSDKErrorCode) error.code, error);
+        }
         return YES;
     }
     return NO;

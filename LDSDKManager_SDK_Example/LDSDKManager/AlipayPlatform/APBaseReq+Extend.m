@@ -20,7 +20,7 @@
         }
             break;
         case LDSDKShareTypeImage : {
-            apSendMessageToAPReq = [self imagesObject:shareDto];
+            apSendMessageToAPReq = [self imageObject:shareDto];
         }
             break;
         case LDSDKShareTypeNews : {
@@ -51,7 +51,6 @@
     apShareTextObject.text = shareDto.desc;
     return [APBaseReq factoryMessageReq:shareDto media:apShareTextObject];
 
-    return nil;
 }
 
 + (id)imageObject:(MMBaseShareDto *)shareDto {
@@ -115,6 +114,7 @@
         apMediaMessage.thumbUrl = shareImageDto.imageUrl;
     }
     apMediaMessage.mediaObject = media;
+    apSendMessageToAPReq.message = apMediaMessage;
     return apSendMessageToAPReq;
 }
 
