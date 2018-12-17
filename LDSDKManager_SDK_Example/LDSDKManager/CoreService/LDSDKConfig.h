@@ -52,6 +52,7 @@ typedef NS_ENUM(NSInteger, LDSDKPlatformType) {
     LDSDKPlatformAliPay,  ///< 支付宝
     LDSDKPlatformWeibo,   ///< 新浪微博
     LDSDKPlatformTelegaram, ///< 电报、币用
+    LDSDKPlatformDingTalk,  ///< DingTalk
 };
 
 typedef NS_ENUM(NSInteger, LDSDKShareToModule) {

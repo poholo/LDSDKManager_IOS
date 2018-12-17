@@ -418,6 +418,48 @@
           ]
         }
       ]
+    },
+    {
+      "name": "DingTalk",
+      "type": 5,
+      "data": [
+        {
+          "name": "Contract",
+          "type": 0,
+          "data": [
+            {
+              "name": "Text",
+              "type": 0
+            },
+            {
+              "name": "Image",
+              "type": 1
+            },
+            {
+              "name": "News",
+              "type": 2
+            }
+          ]
+        },
+        {
+          "name": "Auth",
+          "type": 99,
+          "data": [
+            {
+              "name": "登录授权",
+              "type": 0
+            },
+            {
+              "name": "扫码登录[不支持]",
+              "type": 1
+            },
+            {
+              "name": "退出登录",
+              "type": 0
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -46,6 +46,10 @@
                     LDSDKShareRedirectURIKey: @"https://sns.whalecloud.com/sina2/callback",
                     LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformWeibo)
             },
+            @{
+                    LDSDKConfigAppIdKey: @"dingoak5hqhuvmpfhpnjvt",
+                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformDingTalk)
+            },
     ];
 
 

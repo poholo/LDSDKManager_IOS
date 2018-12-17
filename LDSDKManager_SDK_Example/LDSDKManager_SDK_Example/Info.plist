@@ -70,6 +70,16 @@
 				<string>ap2018121462531700</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>dingtalk</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>dingoak5hqhuvmpfhpnjvt</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -110,6 +120,8 @@
 		<string>tencentapi.qq.reqContent</string>
 		<string>tencentapi.qzone.reqContent</string>
 		<string>tg</string>
+		<string>dingtalk</string>
+		<string>dingtalk-open</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

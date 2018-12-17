@@ -20,6 +20,7 @@
 @property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> weiboService;
 @property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> wxService;
 @property(nonatomic, strong) id <LDSDKRegisterService, LDSDKShareService> telegramService;
+@property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> dingTalkService;
 
 @end
 
@@ -31,12 +32,15 @@
     self.registerServiceDict[@(LDSDKPlatformWeibo)] = self.weiboService;
     self.registerServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
     self.registerServiceDict[@(LDSDKPlatformTelegaram)] = self.telegramService;
+    self.registerServiceDict[@(LDSDKPlatformDingTalk)] = self.dingTalkService;
 
     self.shareServiceDict[@(LDSDKPlatformQQ)] = self.qqService;
     self.shareServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
     self.shareServiceDict[@(LDSDKPlatformWeibo)] = self.weiboService;
     self.shareServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
     self.shareServiceDict[@(LDSDKPlatformTelegaram)] = self.telegramService;
+    self.shareServiceDict[@(LDSDKPlatformDingTalk)] = self.dingTalkService;
+
 
     self.payServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
     self.payServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
@@ -45,6 +49,7 @@
     self.authServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
     self.authServiceDict[@(LDSDKPlatformQQ)] = self.qqService;
     self.authServiceDict[@(LDSDKPlatformWeibo)] = self.weiboService;
+    self.authServiceDict[@(LDSDKPlatformDingTalk)] = self.dingTalkService;
 }
 
 - (void)register:(NSArray<NSDictionary *> *)configs {
@@ -122,4 +127,12 @@
     }
     return _telegramService;
 }
+
+- (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>)dingTalkService {
+    if (!_dingTalkService) {
+        _dingTalkService = (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>) [NSClassFromString(@"LDSDKDingTalkServiceImp") new];
+    }
+    return _dingTalkService;
+}
+
 @end

@@ -99,6 +99,8 @@ pod 'LDSDKManager'
     <string>waquchild</string>
     <string>tencentapi.qq.reqContent</string>
     <string>tencentapi.qzone.reqContent</string>
+    <string>dingtalk</string>
+    <string>dingtalk-open</string>
 </array>
 ```
 
@@ -156,6 +158,17 @@ pod 'LDSDKManager'
         	<string>apxxxxxxxx</string>
         </array>
     </dict>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>dingtalk</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>dingoak5hqhuvmpfhpnjvt</string>
+        </array>
+    </dict>
+
 </array>
 ```
 

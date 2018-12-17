@@ -7,4 +7,5 @@ target 'LDSDKManager_SDK_Example' do
   pod 'Weibo_SDK'
   pod 'AlipaySDK-iOS'
   pod 'APOpenSdk'
+  pod 'DTShareKit-iOS'
 end
