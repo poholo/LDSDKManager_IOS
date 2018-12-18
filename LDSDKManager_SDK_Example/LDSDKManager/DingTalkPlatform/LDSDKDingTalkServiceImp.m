@@ -41,7 +41,10 @@
 }
 
 - (void)authLogoutPlatformCallback:(LDSDKAuthCallback)callBack {
-
+    self.dataVM.authDict = nil;
+    if (callBack) {
+        callBack(LDSDKLoginSuccess, nil, nil, nil);
+    }
 }
 
 - (BOOL)isPlatformAppInstalled {
