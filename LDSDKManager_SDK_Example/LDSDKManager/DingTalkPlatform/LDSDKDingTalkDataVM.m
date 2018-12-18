@@ -31,7 +31,7 @@
 }
 
 - (NSError *)respError:(id)resp {
-    if ([resp isMemberOfClass:[DTBaseResp class]]) {
+    if ([resp isKindOfClass:[DTBaseResp class]]) {
         DTBaseResp *dtBaseResp = (DTBaseResp *) resp;
         NSInteger errorcode = [self errorCodePlatform:dtBaseResp.errorCode];
         NSString *errMsg = dtBaseResp.errorMessage ? dtBaseResp.errorMessage : @"";
@@ -84,11 +84,13 @@
 }
 
 - (BOOL)canResponseAuthResult:(id)resp {
-    return NO;
+    return [resp isKindOfClass:[DTAuthorizeResp class]];
 }
 
-- (NSDictionary *)wrapAuth:(id)auth {
-    return nil;
+- (NSDictionary *)wrapAuth:(DTAuthorizeResp *)auth {
+    NSMutableDictionary *authDict = [NSMutableDictionary new];
+    authDict[LDSDK_TOKEN_KEY] = auth.accessCode;
+    return authDict;
 }
 
 - (NSDictionary *)wrapAuthUserInfo:(id)userinfo {

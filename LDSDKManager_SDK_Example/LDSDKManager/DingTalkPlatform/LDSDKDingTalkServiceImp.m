@@ -23,7 +23,17 @@
 @implementation LDSDKDingTalkServiceImp
 
 - (void)authPlatformCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict {
+    self.authCallback = callback;
 
+    DTAuthorizeReq *authReq = [DTAuthorizeReq new];
+    authReq.bundleId = [[NSBundle mainBundle] bundleIdentifier];
+    BOOL result = [DTOpenAPI sendReq:authReq];
+    if (!result) {
+        NSError *error = [NSError errorWithDomain:kErrorDomain code:LDSDKLoginFailed userInfo:@{kErrorMessage: @"授权失败"}];
+        if (self.authCallback) {
+            self.authCallback(LDSDKLoginFailed, error, nil, nil);
+        }
+    }
 }
 
 - (void)authPlatformQRCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict {
@@ -89,12 +99,17 @@
 }
 
 - (BOOL)responseResult:(id)resp {
+    NSError *error = [self.dataVM respError:resp];
     if ([self.dataVM canResponseShareResult:resp]) {
-        NSError *error = [self.dataVM respError:resp];
         if (self.shareCallback) {
             self.shareCallback((LDSDKErrorCode) error.code, error);
         }
         return YES;
+    } else if ([self.dataVM canResponseAuthResult:resp]) {
+        self.dataVM.authDict = [self.dataVM wrapAuth:resp];
+        if (self.authCallback) {
+            self.authCallback((LDSDKLoginCode) error.code, error, self.dataVM.authDict, self.dataVM.userInfo);
+        }
     }
     return NO;
 }
@@ -113,12 +128,6 @@
     if ([self responseResult:resp]) {
         return;
     }
-//    if ([resp isKindOfClass:[DTAuthorizeResp class]]) {
-//        DTAuthorizeResp *authResp = (DTAuthorizeResp *)resp;
-//        NSString *accessCode = authResp.accessCode;
-//        [self showAlertTitle:@"授权登录"
-//                     message:[NSString stringWithFormat:@"accessCode: %@, errorCode: %@, errorMsg: %@", accessCode, @(resp.errorCode), resp.errorMessage]];
-//    }
 }
 
 

@@ -122,6 +122,7 @@
 		<string>tg</string>
 		<string>dingtalk</string>
 		<string>dingtalk-open</string>
+		<string>dingtalk-sso</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

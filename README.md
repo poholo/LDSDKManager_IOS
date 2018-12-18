@@ -101,6 +101,7 @@ pod 'LDSDKManager'
     <string>tencentapi.qzone.reqContent</string>
     <string>dingtalk</string>
     <string>dingtalk-open</string>
+    <string>dingtalk-sso</string>
 </array>
 ```
 
