@@ -45,6 +45,11 @@
     self.dataVM.configDto = [MMShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
     self.tencentAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
+    if (error.code != LDSDKSuccess) {
+        self.dataVM.registerSuccess = NO;
+    } else {
+        self.dataVM.registerSuccess = YES;
+    }
     return error;
 }
 
@@ -54,7 +59,7 @@
 }
 
 - (BOOL)isRegistered {
-    return NO;
+    return self.dataVM.registerSuccess;
 }
 
 

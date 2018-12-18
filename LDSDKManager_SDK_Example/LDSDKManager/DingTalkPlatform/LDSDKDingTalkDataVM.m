@@ -5,7 +5,7 @@
 
 #import "LDSDKDingTalkDataVM.h"
 
-#import <DTShareKit-iOS/DTShareKit/DTOpenKit.h>
+#import <DTShareKit/DTOpenKit.h>
 
 #import "MMShareConfigDto.h"
 

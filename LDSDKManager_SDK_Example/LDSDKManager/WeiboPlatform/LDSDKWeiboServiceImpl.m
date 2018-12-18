@@ -46,8 +46,18 @@
     if (!success) {
         error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"Weibo register error"}];
     }
+    if (error.code != LDSDKSuccess) {
+        self.dataVM.registerSuccess = NO;
+    } else {
+        self.dataVM.registerSuccess = YES;
+    }
     return error;
 }
+
+- (BOOL)isRegistered {
+    return self.dataVM.registerSuccess;
+}
+
 
 #pragma mark 处理URL回调
 

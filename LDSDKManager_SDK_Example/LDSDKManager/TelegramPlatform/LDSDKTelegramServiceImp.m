@@ -25,11 +25,12 @@
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
     self.dataVM.configDto = [MMShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
+    self.dataVM.registerSuccess = YES;
     return error;
 }
 
 - (BOOL)isRegistered {
-    return NO;
+    return self.dataVM.registerSuccess;
 }
 
 - (BOOL)handleResultUrl:(NSURL *)url {

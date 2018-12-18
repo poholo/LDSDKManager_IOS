@@ -3,7 +3,7 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import <DTShareKit-iOS/DTShareKit/DTOpenKit.h>
+#import <DTShareKit/DTOpenKit.h>
 
 #import "LDSDKExtendProtocol.h"
 

@@ -5,7 +5,7 @@
 
 #import "LDSDKDingTalkServiceImp.h"
 
-#import <DTShareKit-iOS/DTShareKit/DTOpenKit.h>
+#import <DTShareKit/DTOpenKit.h>
 
 #import "LDSDKDingTalkDataVM.h"
 #import "MMShareConfigDto.h"
@@ -40,13 +40,18 @@
 
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
     self.dataVM.configDto = [MMShareConfigDto createDto:config];
-    [DTOpenAPI registerApp:self.dataVM.configDto.appId];
+    BOOL success = [DTOpenAPI registerApp:self.dataVM.configDto.appId];
     NSError *error = [self.dataVM registerValidate];
+    if (!success || error.code != LDSDKSuccess) {
+        self.dataVM.registerSuccess = NO;
+    } else {
+        self.dataVM.registerSuccess = YES;
+    }
     return error;
 }
 
 - (BOOL)isRegistered {
-    return NO;
+    return self.dataVM.registerSuccess;
 }
 
 - (BOOL)handleResultUrl:(NSURL *)url {

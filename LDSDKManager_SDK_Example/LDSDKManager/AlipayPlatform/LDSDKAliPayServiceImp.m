@@ -48,11 +48,16 @@
     if (!success) {
         error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"AlipayShare register error"}];
     }
+    if (error.code != LDSDKSuccess) {
+        self.dataVM.registerSuccess = NO;
+    } else {
+        self.dataVM.registerSuccess = YES;
+    }
     return error;
 }
 
 - (BOOL)isRegistered {
-    return (self.aliPayScheme && [self.aliPayScheme length]);
+    return self.dataVM.registerSuccess;
 }
 
 - (BOOL)handleResultUrl:(NSURL *)url {
@@ -167,7 +172,6 @@
     }
     return handle;
 }
-
 
 
 #pragma mark -

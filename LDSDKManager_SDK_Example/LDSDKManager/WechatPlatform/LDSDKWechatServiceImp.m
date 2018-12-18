@@ -52,11 +52,16 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     if (!success) {
         error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"Wechat register error"}];
     }
+    if (error.code != LDSDKSuccess) {
+        self.dataVM.registerSuccess = NO;
+    } else {
+        self.dataVM.registerSuccess = YES;
+    }
     return error;
 }
 
 - (BOOL)isRegistered {
-    return YES;
+    return self.dataVM.registerSuccess;
 }
 
 #pragma mark -
