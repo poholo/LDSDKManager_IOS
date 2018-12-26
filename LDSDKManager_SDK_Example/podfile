@@ -5,7 +5,7 @@ target 'LDSDKManager_SDK_Example' do
   pod 'MCTencentOpenAPI'
   pod 'WechatOpenSDK'
   pod 'Weibo_SDK'
-  pod 'AlipaySDK-iOS'
+  pod 'MCAlipaySDK_NO_UTDID', git: 'https://github.com/poholo/MCAlipaySDK'
   pod 'APOpenSdk'
   pod 'MCDingTalk'
 end

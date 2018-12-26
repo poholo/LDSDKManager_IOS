@@ -16,6 +16,7 @@
 @property(nonatomic, strong) MMShareConfigDto *configDto;
 @property(nonatomic, strong) NSDictionary *authDict;
 @property(nonatomic, strong) NSDictionary *userInfo;
+@property(nonatomic, assign) BOOL registerSuccess;
 
 - (NSError *)validateAuthToken:(NSDictionary *)dict;
 

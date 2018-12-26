@@ -7,37 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A666016C845E6B642C06A87 /* LDSDKAliPayDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66626D80CD6ACA68204C63 /* LDSDKAliPayDataVM.m */; };
-		1A6660189792B6C89680ACAE /* APBaseReq+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666D1589198C978DD6B135 /* APBaseReq+Extend.m */; };
 		1A6661706C680801D41B7942 /* LLDPlatformCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6663E9D0D44DBAF04D7A7A /* LLDPlatformCell.m */; };
-		1A6661AC8BE61533A2B96BE9 /* MMShareImageDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666127EA405F1B53D42123 /* MMShareImageDto.m */; };
-		1A6661FFC82017D670279031 /* MMShareMiniProgramDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666006A6086AACBBF260AF /* MMShareMiniProgramDto.m */; };
-		1A6661FFE48E2B346269B625 /* LDSDKWeiboDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */; };
-		1A66629A598A993475C021FD /* MMShareTextDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6665F1140CFB91B8D12FA9 /* MMShareTextDto.m */; };
-		1A666310B4B19D0D5CAF60BC /* LDSDKTelegramServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6664F5FBA12FA70794E939 /* LDSDKTelegramServiceImp.m */; };
-		1A66636E1B052BFFE79C59FF /* WechatApiExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6663679474BC69B8273C51 /* WechatApiExtend.m */; };
 		1A6663A4A5D580317765E6E9 /* LLDPlatform.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A666A647DD6544631A52487 /* LLDPlatform.json */; };
-		1A6663E4D7ED54C2CC1F6D3B /* MMResultDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66600A9EE8BBE7F1549CDF /* MMResultDto.m */; };
-		1A6665854669E28842617F1D /* LDSDKTelegramDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6664B0B69365E5E90ABEF3 /* LDSDKTelegramDataVM.m */; };
-		1A6665B3B72994118BE70B93 /* LDNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666CFEB5DD4366A46A29C8 /* LDNetworkManager.m */; };
-		1A6665C08B0EAF8CE912D5D2 /* MMShareNewsDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666C55E8D06A08183CC200 /* MMShareNewsDto.m */; };
-		1A6666ABF56A49B0ED4446C7 /* LDSDKDingTalkServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666E9C4D02A30CEBAAA2D5 /* LDSDKDingTalkServiceImp.m */; };
-		1A6666E99753C1682E9C58B6 /* LDSDKManagerDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */; };
-		1A666AFC4C4665DECE42B896 /* QQApiObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666D2CBA461049575B8C7A /* QQApiObject+Extend.m */; };
-		1A666B0E84A7F2B56C134278 /* NSString+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666DEE695E8D87C2BDDAFD /* NSString+Extend.m */; };
-		1A666B3625334A07A9EF7639 /* DTBaseReq+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666ED22FF3BE50CCBD24B0 /* DTBaseReq+Extend.m */; };
-		1A666BB0DEE76D1C29E0CB57 /* MMShareFileDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66679D08FA77FE49090CF5 /* MMShareFileDto.m */; };
-		1A666BD1EFB4C0CFCAF3CAF5 /* LDSDKWechatImpDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66626813C120284EDB2F73 /* LDSDKWechatImpDataVM.m */; };
-		1A666BF58D65BA03B6B35F11 /* WBMessageObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666968C480A1A6C6DD1D48 /* WBMessageObject+Extend.m */; };
-		1A666C203D1FB0D283B9F7CA /* MMShareVideoDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6662F2A12414DA553C9979 /* MMShareVideoDto.m */; };
-		1A666C621D8F79D077427166 /* MMBaseShareDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666E17BC92E5C1505C372B /* MMBaseShareDto.m */; };
-		1A666CA45BF42343110E17DC /* NSDictionary+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6662398B5F6F551A787470 /* NSDictionary+Extend.m */; };
-		1A666D8AF25F6DE563D8BB90 /* LDSDKDingTalkDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66636FBB2CBAA6FAF6C26F /* LDSDKDingTalkDataVM.m */; };
 		1A666E1ECEAD6B7C5F356C31 /* LLDPlatformDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66679CCDEC302BCB1E5514 /* LLDPlatformDto.m */; };
-		1A666E488B1131BD86155DC8 /* MMShareAudioDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666F9BFE6FE0D39437114E /* MMShareAudioDto.m */; };
-		1A666EDFC950E1658E2BA4A3 /* LDSDKQQServiceImpDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6666D2372D556033B08462 /* LDSDKQQServiceImpDataVM.m */; };
-		1A666F69734B67EEFAC26B66 /* MMDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A66683DE2E650FCDEEA7AE6 /* MMDto.m */; };
-		1A666F7A1F2F2838B5CC2116 /* MMShareConfigDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A666F8C94A607AEDC1EBB1A /* MMShareConfigDto.m */; };
+		25B5EE9121D235880048389C /* LDNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3621D235880048389C /* LDNetworkManager.m */; };
+		25B5EE9221D235880048389C /* LDSDKManagerDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3821D235880048389C /* LDSDKManagerDataVM.m */; };
+		25B5EE9321D235880048389C /* LDSDKConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3921D235880048389C /* LDSDKConfig.m */; };
+		25B5EE9421D235880048389C /* LDSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3A21D235880048389C /* LDSDKManager.m */; };
+		25B5EE9521D235880048389C /* MMShareConfigDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3C21D235880048389C /* MMShareConfigDto.m */; };
+		25B5EE9621D235880048389C /* MMShareVideoDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3D21D235880048389C /* MMShareVideoDto.m */; };
+		25B5EE9721D235880048389C /* MMDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3E21D235880048389C /* MMDto.m */; };
+		25B5EE9821D235880048389C /* MMShareNewsDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3F21D235880048389C /* MMShareNewsDto.m */; };
+		25B5EE9921D235880048389C /* MMShareMiniProgramDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4021D235880048389C /* MMShareMiniProgramDto.m */; };
+		25B5EE9A21D235880048389C /* MMBaseShareDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4221D235880048389C /* MMBaseShareDto.m */; };
+		25B5EE9B21D235880048389C /* MMShareImageDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4421D235880048389C /* MMShareImageDto.m */; };
+		25B5EE9C21D235880048389C /* MMShareTextDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4521D235880048389C /* MMShareTextDto.m */; };
+		25B5EE9D21D235880048389C /* MMShareAudioDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4621D235880048389C /* MMShareAudioDto.m */; };
+		25B5EE9E21D235880048389C /* MMResultDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4D21D235880048389C /* MMResultDto.m */; };
+		25B5EE9F21D235880048389C /* MMShareFileDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4E21D235880048389C /* MMShareFileDto.m */; };
+		25B5EEA021D235880048389C /* NSDictionary+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE5621D235880048389C /* NSDictionary+Extend.m */; };
+		25B5EEA121D235880048389C /* UIImage+LDExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE5721D235880048389C /* UIImage+LDExtend.m */; };
+		25B5EEA221D235880048389C /* NSString+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE5821D235880048389C /* NSString+Extend.m */; };
+		25B5EEA321D235880048389C /* LDSDKTelegramDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE6521D235880048389C /* LDSDKTelegramDataVM.m */; };
+		25B5EEA421D235880048389C /* LDSDKTelegramServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE6721D235880048389C /* LDSDKTelegramServiceImp.m */; };
+		25B5EEA521D235880048389C /* LDSDKQQServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE6B21D235880048389C /* LDSDKQQServiceImp.m */; };
+		25B5EEA621D235880048389C /* QQApiObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE6C21D235880048389C /* QQApiObject+Extend.m */; };
+		25B5EEA721D235880048389C /* LDSDKQQServiceImpDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE6E21D235880048389C /* LDSDKQQServiceImpDataVM.m */; };
+		25B5EEA821D235890048389C /* WBMessageObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE7121D235880048389C /* WBMessageObject+Extend.m */; };
+		25B5EEA921D235890048389C /* LDSDKWeiboDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE7221D235880048389C /* LDSDKWeiboDataVM.m */; };
+		25B5EEAA21D235890048389C /* LDSDKWeiboServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE7321D235880048389C /* LDSDKWeiboServiceImpl.m */; };
+		25B5EEAB21D235890048389C /* LDSDKWechatServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE7A21D235880048389C /* LDSDKWechatServiceImp.m */; };
+		25B5EEAC21D235890048389C /* WechatApiExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE7B21D235880048389C /* WechatApiExtend.m */; };
+		25B5EEAD21D235890048389C /* LDSDKWechatImpDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE7C21D235880048389C /* LDSDKWechatImpDataVM.m */; };
+		25B5EEAE21D235890048389C /* NSDictionary+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE8021D235880048389C /* NSDictionary+LDSDKAdditions.m */; };
+		25B5EEAF21D235890048389C /* NSString+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE8121D235880048389C /* NSString+LDSDKAdditions.m */; };
+		25B5EEB021D235890048389C /* LDSDKAliPayServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE8421D235880048389C /* LDSDKAliPayServiceImp.m */; };
+		25B5EEB121D235890048389C /* APBaseReq+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE8521D235880048389C /* APBaseReq+Extend.m */; };
+		25B5EEB221D235890048389C /* LDSDKAliPayDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE8821D235880048389C /* LDSDKAliPayDataVM.m */; };
+		25B5EEB321D235890048389C /* LDSDKDingTalkDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE8E21D235880048389C /* LDSDKDingTalkDataVM.m */; };
+		25B5EEB421D235890048389C /* DTBaseReq+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE8F21D235880048389C /* DTBaseReq+Extend.m */; };
+		25B5EEB521D235890048389C /* LDSDKDingTalkServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE9021D235880048389C /* LDSDKDingTalkServiceImp.m */; };
 		25BED6A121B23078000EBCB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6A021B23078000EBCB4 /* AppDelegate.m */; };
 		25BED6A421B23078000EBCB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6A321B23078000EBCB4 /* ViewController.m */; };
 		25BED6A721B23078000EBCB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25BED6A521B23078000EBCB4 /* Main.storyboard */; };
@@ -46,87 +55,100 @@
 		25BED6AF21B23079000EBCB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6AE21B23079000EBCB4 /* main.m */; };
 		25BED6E121B2314E000EBCB4 /* LLDViewDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6B721B2314D000EBCB4 /* LLDViewDataVM.m */; };
 		25BED6E221B2314E000EBCB4 /* LLDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6B821B2314D000EBCB4 /* LLDViewController.m */; };
-		25BED6E421B2314E000EBCB4 /* LDSDKConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6BD21B2314D000EBCB4 /* LDSDKConfig.m */; };
-		25BED6E521B2314E000EBCB4 /* LDSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6BE21B2314D000EBCB4 /* LDSDKManager.m */; };
-		25BED6E621B2314E000EBCB4 /* UIImage+LDExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6C121B2314D000EBCB4 /* UIImage+LDExtend.m */; };
-		25BED6E721B2314E000EBCB4 /* LDSDKQQServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6CB21B2314D000EBCB4 /* LDSDKQQServiceImp.m */; };
-		25BED6EA21B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6D421B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m */; };
-		25BED6EB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m */; };
-		25BED6EC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m */; };
-		25BED6ED21B2314E000EBCB4 /* LDSDKWechatServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6DD21B2314E000EBCB4 /* LDSDKWechatServiceImp.m */; };
-		25BED6EE21B2314E000EBCB4 /* LDSDKAliPayServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImp.m */; };
 		25CAC7CD21BBAA3100F0C267 /* think.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25CAC7CC21BBAA3100F0C267 /* think.jpg */; };
 		25CAC83521BBAF1100F0C267 /* media.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 25CAC83421BBAF1100F0C267 /* media.mp4 */; };
 		B2E1CB74B53D4DFBF93169C4 /* libPods-LDSDKManager_SDK_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1791953689D19644724296 /* libPods-LDSDKManager_SDK_Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A666006A6086AACBBF260AF /* MMShareMiniProgramDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareMiniProgramDto.m; sourceTree = "<group>"; };
-		1A66600A9EE8BBE7F1549CDF /* MMResultDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMResultDto.m; sourceTree = "<group>"; };
 		1A666104BE4EE4F90B3F7772 /* LLDPlatformDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDPlatformDto.h; sourceTree = "<group>"; };
 		1A66611B79FA9885F8402C13 /* LLDPlatformCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDPlatformCell.h; sourceTree = "<group>"; };
-		1A666127EA405F1B53D42123 /* MMShareImageDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareImageDto.m; sourceTree = "<group>"; };
-		1A6662398B5F6F551A787470 /* NSDictionary+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extend.m"; sourceTree = "<group>"; };
-		1A66626813C120284EDB2F73 /* LDSDKWechatImpDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWechatImpDataVM.m; sourceTree = "<group>"; };
-		1A66626D80CD6ACA68204C63 /* LDSDKAliPayDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKAliPayDataVM.m; sourceTree = "<group>"; };
-		1A666296CC6D522C8B773AE2 /* MMShareMiniProgramDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareMiniProgramDto.h; sourceTree = "<group>"; };
-		1A6662F2A12414DA553C9979 /* MMShareVideoDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareVideoDto.m; sourceTree = "<group>"; };
-		1A666359181CF98B134E92ED /* QQApiObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QQApiObject+Extend.h"; sourceTree = "<group>"; };
-		1A6663679474BC69B8273C51 /* WechatApiExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatApiExtend.m; sourceTree = "<group>"; };
-		1A66636FBB2CBAA6FAF6C26F /* LDSDKDingTalkDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKDingTalkDataVM.m; sourceTree = "<group>"; };
-		1A6663B25C0F35D9E8252C6F /* LDSDKDingTalkDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKDingTalkDataVM.h; sourceTree = "<group>"; };
 		1A6663E9D0D44DBAF04D7A7A /* LLDPlatformCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDPlatformCell.m; sourceTree = "<group>"; };
-		1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKManagerDataVM.m; sourceTree = "<group>"; };
-		1A6664B0B69365E5E90ABEF3 /* LDSDKTelegramDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKTelegramDataVM.m; sourceTree = "<group>"; };
-		1A6664F5FBA12FA70794E939 /* LDSDKTelegramServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKTelegramServiceImp.m; sourceTree = "<group>"; };
 		1A66653B7905552ED02382B7 /* LDSDKManager.podspec */ = {isa = PBXFileReference; lastKnownFileType = file.podspec; name = LDSDKManager.podspec; path = ../LDSDKManager.podspec; sourceTree = "<group>"; };
-		1A66654B0E853E5DD9FE5486 /* LDSDKDingTalkServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKDingTalkServiceImp.h; sourceTree = "<group>"; };
-		1A66654E3190D7B8087A5D9E /* LDSDKQQServiceImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKQQServiceImpDataVM.h; sourceTree = "<group>"; };
-		1A6665D40CCA81503F5A8C8A /* WechatApiExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatApiExtend.h; sourceTree = "<group>"; };
-		1A6665F1140CFB91B8D12FA9 /* MMShareTextDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareTextDto.m; sourceTree = "<group>"; };
-		1A66666B817436827BAD2721 /* MMBaseShareDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMBaseShareDto.h; sourceTree = "<group>"; };
-		1A6666C6950E57ACAAC59924 /* LDSDKShareDataVMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKShareDataVMService.h; sourceTree = "<group>"; };
-		1A6666D2372D556033B08462 /* LDSDKQQServiceImpDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKQQServiceImpDataVM.m; sourceTree = "<group>"; };
-		1A66670D1869E685D41869FA /* MMShareImageDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareImageDto.h; sourceTree = "<group>"; };
 		1A66679CCDEC302BCB1E5514 /* LLDPlatformDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDPlatformDto.m; sourceTree = "<group>"; };
-		1A66679D08FA77FE49090CF5 /* MMShareFileDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareFileDto.m; sourceTree = "<group>"; };
-		1A6667AC0ACE7C813E263B62 /* MMResultDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMResultDto.h; sourceTree = "<group>"; };
-		1A6667E1CA4C5465DBD20423 /* MMDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDto.h; sourceTree = "<group>"; };
-		1A66683DE2E650FCDEEA7AE6 /* MMDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDto.m; sourceTree = "<group>"; };
-		1A6668C33E0DEC8B07D8C0E6 /* LDSDKHandleURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKHandleURLProtocol.h; sourceTree = "<group>"; };
-		1A66695B1B0914EC1ABB17EB /* DTBaseReq+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DTBaseReq+Extend.h"; sourceTree = "<group>"; };
-		1A666968C480A1A6C6DD1D48 /* WBMessageObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WBMessageObject+Extend.m"; sourceTree = "<group>"; };
-		1A66699F9DE521FB9D32C88D /* MMShareFileDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareFileDto.h; sourceTree = "<group>"; };
-		1A6669E4450075018B7F50F7 /* MMShareAudioDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareAudioDto.h; sourceTree = "<group>"; };
-		1A6669F906C98CE674981912 /* LDSDKAliPayDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAliPayDataVM.h; sourceTree = "<group>"; };
-		1A666A21677C2B492E9100CE /* LDSDKExtendProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKExtendProtocol.h; sourceTree = "<group>"; };
-		1A666A5330F49741D389291B /* LDSDKTelegramServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKTelegramServiceImp.h; sourceTree = "<group>"; };
-		1A666A61666B776D31289793 /* MMShareConfigDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareConfigDto.h; sourceTree = "<group>"; };
 		1A666A647DD6544631A52487 /* LLDPlatform.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LLDPlatform.json; sourceTree = "<group>"; };
-		1A666AABE1F1D5BB28E2C484 /* APBaseReq+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APBaseReq+Extend.h"; sourceTree = "<group>"; };
-		1A666AFDF5D8878E24EB5225 /* LDSDKTelegramDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKTelegramDataVM.h; sourceTree = "<group>"; };
 		1A666C2C63C803A817872234 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		1A666C55E8D06A08183CC200 /* MMShareNewsDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareNewsDto.m; sourceTree = "<group>"; };
-		1A666C958CAAE2B2351C0C91 /* LDSDKWeiboDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWeiboDataVM.h; sourceTree = "<group>"; };
-		1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWeiboDataVM.m; sourceTree = "<group>"; };
-		1A666CFEB5DD4366A46A29C8 /* LDNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNetworkManager.m; sourceTree = "<group>"; };
-		1A666D1589198C978DD6B135 /* APBaseReq+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APBaseReq+Extend.m"; sourceTree = "<group>"; };
-		1A666D2CBA461049575B8C7A /* QQApiObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QQApiObject+Extend.m"; sourceTree = "<group>"; };
-		1A666DB70B60159947D421E1 /* LDSDKWechatImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWechatImpDataVM.h; sourceTree = "<group>"; };
-		1A666DD0795A4B5F900816A0 /* NSDictionary+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extend.h"; sourceTree = "<group>"; };
-		1A666DEE695E8D87C2BDDAFD /* NSString+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extend.m"; sourceTree = "<group>"; };
-		1A666E17BC92E5C1505C372B /* MMBaseShareDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMBaseShareDto.m; sourceTree = "<group>"; };
-		1A666E59EF570465593128F9 /* NSString+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extend.h"; sourceTree = "<group>"; };
-		1A666E6057B5312757C577CE /* MMShareVideoDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareVideoDto.h; sourceTree = "<group>"; };
-		1A666E760BA7309EEB425C43 /* LDNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNetworkManager.h; sourceTree = "<group>"; };
-		1A666E9C4D02A30CEBAAA2D5 /* LDSDKDingTalkServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKDingTalkServiceImp.m; sourceTree = "<group>"; };
-		1A666EB9DB47880B1B38ED8B /* LDSDKManagerDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKManagerDataVM.h; sourceTree = "<group>"; };
-		1A666ED22FF3BE50CCBD24B0 /* DTBaseReq+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DTBaseReq+Extend.m"; sourceTree = "<group>"; };
-		1A666F27228669CA8AC00880 /* WBMessageObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBMessageObject+Extend.h"; sourceTree = "<group>"; };
-		1A666F5626AE94F6428DB586 /* MMShareTextDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareTextDto.h; sourceTree = "<group>"; };
-		1A666F875F698D73AF04ECAE /* MMShareNewsDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareNewsDto.h; sourceTree = "<group>"; };
-		1A666F8C94A607AEDC1EBB1A /* MMShareConfigDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareConfigDto.m; sourceTree = "<group>"; };
-		1A666F9BFE6FE0D39437114E /* MMShareAudioDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareAudioDto.m; sourceTree = "<group>"; };
+		25B5EE3621D235880048389C /* LDNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNetworkManager.m; sourceTree = "<group>"; };
+		25B5EE3721D235880048389C /* LDNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNetworkManager.h; sourceTree = "<group>"; };
+		25B5EE3821D235880048389C /* LDSDKManagerDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKManagerDataVM.m; sourceTree = "<group>"; };
+		25B5EE3921D235880048389C /* LDSDKConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKConfig.m; sourceTree = "<group>"; };
+		25B5EE3A21D235880048389C /* LDSDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKManager.m; sourceTree = "<group>"; };
+		25B5EE3C21D235880048389C /* MMShareConfigDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareConfigDto.m; sourceTree = "<group>"; };
+		25B5EE3D21D235880048389C /* MMShareVideoDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareVideoDto.m; sourceTree = "<group>"; };
+		25B5EE3E21D235880048389C /* MMDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDto.m; sourceTree = "<group>"; };
+		25B5EE3F21D235880048389C /* MMShareNewsDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareNewsDto.m; sourceTree = "<group>"; };
+		25B5EE4021D235880048389C /* MMShareMiniProgramDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareMiniProgramDto.m; sourceTree = "<group>"; };
+		25B5EE4121D235880048389C /* MMShareFileDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareFileDto.h; sourceTree = "<group>"; };
+		25B5EE4221D235880048389C /* MMBaseShareDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMBaseShareDto.m; sourceTree = "<group>"; };
+		25B5EE4321D235880048389C /* MMResultDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMResultDto.h; sourceTree = "<group>"; };
+		25B5EE4421D235880048389C /* MMShareImageDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareImageDto.m; sourceTree = "<group>"; };
+		25B5EE4521D235880048389C /* MMShareTextDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareTextDto.m; sourceTree = "<group>"; };
+		25B5EE4621D235880048389C /* MMShareAudioDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareAudioDto.m; sourceTree = "<group>"; };
+		25B5EE4721D235880048389C /* MMShareNewsDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareNewsDto.h; sourceTree = "<group>"; };
+		25B5EE4821D235880048389C /* MMShareVideoDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareVideoDto.h; sourceTree = "<group>"; };
+		25B5EE4921D235880048389C /* MMDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDto.h; sourceTree = "<group>"; };
+		25B5EE4A21D235880048389C /* MMShareConfigDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareConfigDto.h; sourceTree = "<group>"; };
+		25B5EE4B21D235880048389C /* MMShareMiniProgramDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareMiniProgramDto.h; sourceTree = "<group>"; };
+		25B5EE4C21D235880048389C /* MMShareImageDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareImageDto.h; sourceTree = "<group>"; };
+		25B5EE4D21D235880048389C /* MMResultDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMResultDto.m; sourceTree = "<group>"; };
+		25B5EE4E21D235880048389C /* MMShareFileDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMShareFileDto.m; sourceTree = "<group>"; };
+		25B5EE4F21D235880048389C /* MMBaseShareDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMBaseShareDto.h; sourceTree = "<group>"; };
+		25B5EE5021D235880048389C /* MMShareAudioDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareAudioDto.h; sourceTree = "<group>"; };
+		25B5EE5121D235880048389C /* MMShareTextDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMShareTextDto.h; sourceTree = "<group>"; };
+		25B5EE5321D235880048389C /* UIImage+LDExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LDExtend.h"; sourceTree = "<group>"; };
+		25B5EE5421D235880048389C /* NSDictionary+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extend.h"; sourceTree = "<group>"; };
+		25B5EE5521D235880048389C /* NSString+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extend.h"; sourceTree = "<group>"; };
+		25B5EE5621D235880048389C /* NSDictionary+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extend.m"; sourceTree = "<group>"; };
+		25B5EE5721D235880048389C /* UIImage+LDExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LDExtend.m"; sourceTree = "<group>"; };
+		25B5EE5821D235880048389C /* NSString+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extend.m"; sourceTree = "<group>"; };
+		25B5EE5A21D235880048389C /* LDSDKExtendProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKExtendProtocol.h; sourceTree = "<group>"; };
+		25B5EE5B21D235880048389C /* LDSDKRegisterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKRegisterService.h; sourceTree = "<group>"; };
+		25B5EE5C21D235880048389C /* LDSDKHandleURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKHandleURLProtocol.h; sourceTree = "<group>"; };
+		25B5EE5D21D235880048389C /* LDSDKPayService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKPayService.h; sourceTree = "<group>"; };
+		25B5EE5E21D235880048389C /* LDSDKShareDataVMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKShareDataVMService.h; sourceTree = "<group>"; };
+		25B5EE5F21D235880048389C /* LDSDKShareService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKShareService.h; sourceTree = "<group>"; };
+		25B5EE6021D235880048389C /* LDSDKAuthService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAuthService.h; sourceTree = "<group>"; };
+		25B5EE6121D235880048389C /* LDSDKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKConfig.h; sourceTree = "<group>"; };
+		25B5EE6221D235880048389C /* LDSDKManagerDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKManagerDataVM.h; sourceTree = "<group>"; };
+		25B5EE6321D235880048389C /* LDSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKManager.h; sourceTree = "<group>"; };
+		25B5EE6521D235880048389C /* LDSDKTelegramDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKTelegramDataVM.m; sourceTree = "<group>"; };
+		25B5EE6621D235880048389C /* LDSDKTelegramServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKTelegramServiceImp.h; sourceTree = "<group>"; };
+		25B5EE6721D235880048389C /* LDSDKTelegramServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKTelegramServiceImp.m; sourceTree = "<group>"; };
+		25B5EE6821D235880048389C /* LDSDKTelegramDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKTelegramDataVM.h; sourceTree = "<group>"; };
+		25B5EE6A21D235880048389C /* LDSDKQQServiceImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKQQServiceImpDataVM.h; sourceTree = "<group>"; };
+		25B5EE6B21D235880048389C /* LDSDKQQServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKQQServiceImp.m; sourceTree = "<group>"; };
+		25B5EE6C21D235880048389C /* QQApiObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QQApiObject+Extend.m"; sourceTree = "<group>"; };
+		25B5EE6D21D235880048389C /* LDSDKQQServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKQQServiceImp.h; sourceTree = "<group>"; };
+		25B5EE6E21D235880048389C /* LDSDKQQServiceImpDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKQQServiceImpDataVM.m; sourceTree = "<group>"; };
+		25B5EE6F21D235880048389C /* QQApiObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QQApiObject+Extend.h"; sourceTree = "<group>"; };
+		25B5EE7121D235880048389C /* WBMessageObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WBMessageObject+Extend.m"; sourceTree = "<group>"; };
+		25B5EE7221D235880048389C /* LDSDKWeiboDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWeiboDataVM.m; sourceTree = "<group>"; };
+		25B5EE7321D235880048389C /* LDSDKWeiboServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWeiboServiceImpl.m; sourceTree = "<group>"; };
+		25B5EE7421D235880048389C /* LDSDKWeiboDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWeiboDataVM.h; sourceTree = "<group>"; };
+		25B5EE7521D235880048389C /* WBMessageObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBMessageObject+Extend.h"; sourceTree = "<group>"; };
+		25B5EE7621D235880048389C /* LDSDKWeiboServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWeiboServiceImpl.h; sourceTree = "<group>"; };
+		25B5EE7821D235880048389C /* LDSDKWechatImpDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWechatImpDataVM.h; sourceTree = "<group>"; };
+		25B5EE7921D235880048389C /* WechatApiExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatApiExtend.h; sourceTree = "<group>"; };
+		25B5EE7A21D235880048389C /* LDSDKWechatServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWechatServiceImp.m; sourceTree = "<group>"; };
+		25B5EE7B21D235880048389C /* WechatApiExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatApiExtend.m; sourceTree = "<group>"; };
+		25B5EE7C21D235880048389C /* LDSDKWechatImpDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWechatImpDataVM.m; sourceTree = "<group>"; };
+		25B5EE7E21D235880048389C /* NSString+LDSDKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LDSDKAdditions.h"; sourceTree = "<group>"; };
+		25B5EE7F21D235880048389C /* NSDictionary+LDSDKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LDSDKAdditions.h"; sourceTree = "<group>"; };
+		25B5EE8021D235880048389C /* NSDictionary+LDSDKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LDSDKAdditions.m"; sourceTree = "<group>"; };
+		25B5EE8121D235880048389C /* NSString+LDSDKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LDSDKAdditions.m"; sourceTree = "<group>"; };
+		25B5EE8221D235880048389C /* LDSDKWechatServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWechatServiceImp.h; sourceTree = "<group>"; };
+		25B5EE8421D235880048389C /* LDSDKAliPayServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKAliPayServiceImp.m; sourceTree = "<group>"; };
+		25B5EE8521D235880048389C /* APBaseReq+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APBaseReq+Extend.m"; sourceTree = "<group>"; };
+		25B5EE8621D235880048389C /* LDSDKAliPayDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAliPayDataVM.h; sourceTree = "<group>"; };
+		25B5EE8721D235880048389C /* LDSDKAliPayServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAliPayServiceImp.h; sourceTree = "<group>"; };
+		25B5EE8821D235880048389C /* LDSDKAliPayDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKAliPayDataVM.m; sourceTree = "<group>"; };
+		25B5EE8921D235880048389C /* APBaseReq+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APBaseReq+Extend.h"; sourceTree = "<group>"; };
+		25B5EE8B21D235880048389C /* DTBaseReq+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DTBaseReq+Extend.h"; sourceTree = "<group>"; };
+		25B5EE8C21D235880048389C /* LDSDKDingTalkDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKDingTalkDataVM.h; sourceTree = "<group>"; };
+		25B5EE8D21D235880048389C /* LDSDKDingTalkServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKDingTalkServiceImp.h; sourceTree = "<group>"; };
+		25B5EE8E21D235880048389C /* LDSDKDingTalkDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKDingTalkDataVM.m; sourceTree = "<group>"; };
+		25B5EE8F21D235880048389C /* DTBaseReq+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DTBaseReq+Extend.m"; sourceTree = "<group>"; };
+		25B5EE9021D235880048389C /* LDSDKDingTalkServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKDingTalkServiceImp.m; sourceTree = "<group>"; };
 		25BED69C21B23078000EBCB4 /* LDSDKManager_SDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LDSDKManager_SDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25BED69F21B23078000EBCB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		25BED6A021B23078000EBCB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -141,28 +163,6 @@
 		25BED6B721B2314D000EBCB4 /* LLDViewDataVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDViewDataVM.m; sourceTree = "<group>"; };
 		25BED6B821B2314D000EBCB4 /* LLDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDViewController.m; sourceTree = "<group>"; };
 		25BED6B921B2314D000EBCB4 /* LLDViewDataVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDViewDataVM.h; sourceTree = "<group>"; };
-		25BED6BD21B2314D000EBCB4 /* LDSDKConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKConfig.m; sourceTree = "<group>"; };
-		25BED6BE21B2314D000EBCB4 /* LDSDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKManager.m; sourceTree = "<group>"; };
-		25BED6C021B2314D000EBCB4 /* UIImage+LDExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LDExtend.h"; sourceTree = "<group>"; };
-		25BED6C121B2314D000EBCB4 /* UIImage+LDExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LDExtend.m"; sourceTree = "<group>"; };
-		25BED6C321B2314D000EBCB4 /* LDSDKRegisterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKRegisterService.h; sourceTree = "<group>"; };
-		25BED6C421B2314D000EBCB4 /* LDSDKPayService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKPayService.h; sourceTree = "<group>"; };
-		25BED6C521B2314D000EBCB4 /* LDSDKShareService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKShareService.h; sourceTree = "<group>"; };
-		25BED6C621B2314D000EBCB4 /* LDSDKAuthService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAuthService.h; sourceTree = "<group>"; };
-		25BED6C721B2314D000EBCB4 /* LDSDKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKConfig.h; sourceTree = "<group>"; };
-		25BED6C821B2314D000EBCB4 /* LDSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKManager.h; sourceTree = "<group>"; };
-		25BED6CA21B2314D000EBCB4 /* LDSDKQQServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKQQServiceImp.h; sourceTree = "<group>"; };
-		25BED6CB21B2314D000EBCB4 /* LDSDKQQServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKQQServiceImp.m; sourceTree = "<group>"; };
-		25BED6D421B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWeiboServiceImpl.m; sourceTree = "<group>"; };
-		25BED6D521B2314E000EBCB4 /* LDSDKWeiboServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWeiboServiceImpl.h; sourceTree = "<group>"; };
-		25BED6D721B2314E000EBCB4 /* LDSDKWechatServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKWechatServiceImp.h; sourceTree = "<group>"; };
-		25BED6D921B2314E000EBCB4 /* NSString+LDSDKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LDSDKAdditions.h"; sourceTree = "<group>"; };
-		25BED6DA21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LDSDKAdditions.h"; sourceTree = "<group>"; };
-		25BED6DB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LDSDKAdditions.m"; sourceTree = "<group>"; };
-		25BED6DC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LDSDKAdditions.m"; sourceTree = "<group>"; };
-		25BED6DD21B2314E000EBCB4 /* LDSDKWechatServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKWechatServiceImp.m; sourceTree = "<group>"; };
-		25BED6DF21B2314E000EBCB4 /* LDSDKAliPayServiceImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKAliPayServiceImp.h; sourceTree = "<group>"; };
-		25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKAliPayServiceImp.m; sourceTree = "<group>"; };
 		25CAC7CC21BBAA3100F0C267 /* think.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = think.jpg; sourceTree = "<group>"; };
 		25CAC83421BBAF1100F0C267 /* media.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = media.mp4; sourceTree = "<group>"; };
 		3AFE1F751C1EB2644AC27411 /* Pods-LDSDKManager_SDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LDSDKManager_SDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,81 +199,197 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1A666179EBF5FFE0FAB07F14 /* TelegramPlatform */ = {
+		25B5EE3321D235880048389C /* LDSDKManager */ = {
 			isa = PBXGroup;
 			children = (
-				1A6664F5FBA12FA70794E939 /* LDSDKTelegramServiceImp.m */,
-				1A666A5330F49741D389291B /* LDSDKTelegramServiceImp.h */,
-				1A6664B0B69365E5E90ABEF3 /* LDSDKTelegramDataVM.m */,
-				1A666AFDF5D8878E24EB5225 /* LDSDKTelegramDataVM.h */,
+				25B5EE3421D235880048389C /* CoreService */,
+				25B5EE6421D235880048389C /* TelegramPlatform */,
+				25B5EE6921D235880048389C /* QQPlatform */,
+				25B5EE7021D235880048389C /* WeiboPlatform */,
+				25B5EE7721D235880048389C /* WechatPlatform */,
+				25B5EE8321D235880048389C /* AlipayPlatform */,
+				25B5EE8A21D235880048389C /* DingTalkPlatform */,
 			);
-			path = TelegramPlatform;
+			name = LDSDKManager;
+			path = ../LDSDKManager;
 			sourceTree = "<group>";
 		};
-		1A66622225E99B7016F4458B /* Net */ = {
+		25B5EE3421D235880048389C /* CoreService */ = {
 			isa = PBXGroup;
 			children = (
-				1A666CFEB5DD4366A46A29C8 /* LDNetworkManager.m */,
-				1A666E760BA7309EEB425C43 /* LDNetworkManager.h */,
+				25B5EE3521D235880048389C /* Net */,
+				25B5EE3821D235880048389C /* LDSDKManagerDataVM.m */,
+				25B5EE3921D235880048389C /* LDSDKConfig.m */,
+				25B5EE3A21D235880048389C /* LDSDKManager.m */,
+				25B5EE3B21D235880048389C /* Dtos */,
+				25B5EE5221D235880048389C /* SDKServiceUtils */,
+				25B5EE5921D235880048389C /* SDKServiceInterface */,
+				25B5EE6121D235880048389C /* LDSDKConfig.h */,
+				25B5EE6221D235880048389C /* LDSDKManagerDataVM.h */,
+				25B5EE6321D235880048389C /* LDSDKManager.h */,
+			);
+			path = CoreService;
+			sourceTree = "<group>";
+		};
+		25B5EE3521D235880048389C /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				25B5EE3621D235880048389C /* LDNetworkManager.m */,
+				25B5EE3721D235880048389C /* LDNetworkManager.h */,
 			);
 			path = Net;
 			sourceTree = "<group>";
 		};
-		1A666314A139BA4A7D40E617 /* MomoPlatform */ = {
+		25B5EE3B21D235880048389C /* Dtos */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = MomoPlatform;
-			sourceTree = "<group>";
-		};
-		1A666CEEC9F1C09AE6080884 /* DingTalkPlatform */ = {
-			isa = PBXGroup;
-			children = (
-				1A666E9C4D02A30CEBAAA2D5 /* LDSDKDingTalkServiceImp.m */,
-				1A66654B0E853E5DD9FE5486 /* LDSDKDingTalkServiceImp.h */,
-				1A66636FBB2CBAA6FAF6C26F /* LDSDKDingTalkDataVM.m */,
-				1A6663B25C0F35D9E8252C6F /* LDSDKDingTalkDataVM.h */,
-				1A666ED22FF3BE50CCBD24B0 /* DTBaseReq+Extend.m */,
-				1A66695B1B0914EC1ABB17EB /* DTBaseReq+Extend.h */,
-			);
-			path = DingTalkPlatform;
-			sourceTree = "<group>";
-		};
-		1A666DEF637993C5C1742BA1 /* Dtos */ = {
-			isa = PBXGroup;
-			children = (
-				1A66683DE2E650FCDEEA7AE6 /* MMDto.m */,
-				1A6667E1CA4C5465DBD20423 /* MMDto.h */,
-				1A666E17BC92E5C1505C372B /* MMBaseShareDto.m */,
-				1A66666B817436827BAD2721 /* MMBaseShareDto.h */,
-				1A6665F1140CFB91B8D12FA9 /* MMShareTextDto.m */,
-				1A666F5626AE94F6428DB586 /* MMShareTextDto.h */,
-				1A666127EA405F1B53D42123 /* MMShareImageDto.m */,
-				1A66670D1869E685D41869FA /* MMShareImageDto.h */,
-				1A666F9BFE6FE0D39437114E /* MMShareAudioDto.m */,
-				1A6669E4450075018B7F50F7 /* MMShareAudioDto.h */,
-				1A666C55E8D06A08183CC200 /* MMShareNewsDto.m */,
-				1A666F875F698D73AF04ECAE /* MMShareNewsDto.h */,
-				1A6662F2A12414DA553C9979 /* MMShareVideoDto.m */,
-				1A666E6057B5312757C577CE /* MMShareVideoDto.h */,
-				1A666F8C94A607AEDC1EBB1A /* MMShareConfigDto.m */,
-				1A666A61666B776D31289793 /* MMShareConfigDto.h */,
-				1A66600A9EE8BBE7F1549CDF /* MMResultDto.m */,
-				1A6667AC0ACE7C813E263B62 /* MMResultDto.h */,
-				1A66679D08FA77FE49090CF5 /* MMShareFileDto.m */,
-				1A66699F9DE521FB9D32C88D /* MMShareFileDto.h */,
-				1A666006A6086AACBBF260AF /* MMShareMiniProgramDto.m */,
-				1A666296CC6D522C8B773AE2 /* MMShareMiniProgramDto.h */,
+				25B5EE3C21D235880048389C /* MMShareConfigDto.m */,
+				25B5EE3D21D235880048389C /* MMShareVideoDto.m */,
+				25B5EE3E21D235880048389C /* MMDto.m */,
+				25B5EE3F21D235880048389C /* MMShareNewsDto.m */,
+				25B5EE4021D235880048389C /* MMShareMiniProgramDto.m */,
+				25B5EE4121D235880048389C /* MMShareFileDto.h */,
+				25B5EE4221D235880048389C /* MMBaseShareDto.m */,
+				25B5EE4321D235880048389C /* MMResultDto.h */,
+				25B5EE4421D235880048389C /* MMShareImageDto.m */,
+				25B5EE4521D235880048389C /* MMShareTextDto.m */,
+				25B5EE4621D235880048389C /* MMShareAudioDto.m */,
+				25B5EE4721D235880048389C /* MMShareNewsDto.h */,
+				25B5EE4821D235880048389C /* MMShareVideoDto.h */,
+				25B5EE4921D235880048389C /* MMDto.h */,
+				25B5EE4A21D235880048389C /* MMShareConfigDto.h */,
+				25B5EE4B21D235880048389C /* MMShareMiniProgramDto.h */,
+				25B5EE4C21D235880048389C /* MMShareImageDto.h */,
+				25B5EE4D21D235880048389C /* MMResultDto.m */,
+				25B5EE4E21D235880048389C /* MMShareFileDto.m */,
+				25B5EE4F21D235880048389C /* MMBaseShareDto.h */,
+				25B5EE5021D235880048389C /* MMShareAudioDto.h */,
+				25B5EE5121D235880048389C /* MMShareTextDto.h */,
 			);
 			path = Dtos;
+			sourceTree = "<group>";
+		};
+		25B5EE5221D235880048389C /* SDKServiceUtils */ = {
+			isa = PBXGroup;
+			children = (
+				25B5EE5321D235880048389C /* UIImage+LDExtend.h */,
+				25B5EE5421D235880048389C /* NSDictionary+Extend.h */,
+				25B5EE5521D235880048389C /* NSString+Extend.h */,
+				25B5EE5621D235880048389C /* NSDictionary+Extend.m */,
+				25B5EE5721D235880048389C /* UIImage+LDExtend.m */,
+				25B5EE5821D235880048389C /* NSString+Extend.m */,
+			);
+			path = SDKServiceUtils;
+			sourceTree = "<group>";
+		};
+		25B5EE5921D235880048389C /* SDKServiceInterface */ = {
+			isa = PBXGroup;
+			children = (
+				25B5EE5A21D235880048389C /* LDSDKExtendProtocol.h */,
+				25B5EE5B21D235880048389C /* LDSDKRegisterService.h */,
+				25B5EE5C21D235880048389C /* LDSDKHandleURLProtocol.h */,
+				25B5EE5D21D235880048389C /* LDSDKPayService.h */,
+				25B5EE5E21D235880048389C /* LDSDKShareDataVMService.h */,
+				25B5EE5F21D235880048389C /* LDSDKShareService.h */,
+				25B5EE6021D235880048389C /* LDSDKAuthService.h */,
+			);
+			path = SDKServiceInterface;
+			sourceTree = "<group>";
+		};
+		25B5EE6421D235880048389C /* TelegramPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				25B5EE6521D235880048389C /* LDSDKTelegramDataVM.m */,
+				25B5EE6621D235880048389C /* LDSDKTelegramServiceImp.h */,
+				25B5EE6721D235880048389C /* LDSDKTelegramServiceImp.m */,
+				25B5EE6821D235880048389C /* LDSDKTelegramDataVM.h */,
+			);
+			path = TelegramPlatform;
+			sourceTree = "<group>";
+		};
+		25B5EE6921D235880048389C /* QQPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				25B5EE6A21D235880048389C /* LDSDKQQServiceImpDataVM.h */,
+				25B5EE6B21D235880048389C /* LDSDKQQServiceImp.m */,
+				25B5EE6C21D235880048389C /* QQApiObject+Extend.m */,
+				25B5EE6D21D235880048389C /* LDSDKQQServiceImp.h */,
+				25B5EE6E21D235880048389C /* LDSDKQQServiceImpDataVM.m */,
+				25B5EE6F21D235880048389C /* QQApiObject+Extend.h */,
+			);
+			path = QQPlatform;
+			sourceTree = "<group>";
+		};
+		25B5EE7021D235880048389C /* WeiboPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				25B5EE7121D235880048389C /* WBMessageObject+Extend.m */,
+				25B5EE7221D235880048389C /* LDSDKWeiboDataVM.m */,
+				25B5EE7321D235880048389C /* LDSDKWeiboServiceImpl.m */,
+				25B5EE7421D235880048389C /* LDSDKWeiboDataVM.h */,
+				25B5EE7521D235880048389C /* WBMessageObject+Extend.h */,
+				25B5EE7621D235880048389C /* LDSDKWeiboServiceImpl.h */,
+			);
+			path = WeiboPlatform;
+			sourceTree = "<group>";
+		};
+		25B5EE7721D235880048389C /* WechatPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				25B5EE7821D235880048389C /* LDSDKWechatImpDataVM.h */,
+				25B5EE7921D235880048389C /* WechatApiExtend.h */,
+				25B5EE7A21D235880048389C /* LDSDKWechatServiceImp.m */,
+				25B5EE7B21D235880048389C /* WechatApiExtend.m */,
+				25B5EE7C21D235880048389C /* LDSDKWechatImpDataVM.m */,
+				25B5EE7D21D235880048389C /* WechatCommon */,
+				25B5EE8221D235880048389C /* LDSDKWechatServiceImp.h */,
+			);
+			path = WechatPlatform;
+			sourceTree = "<group>";
+		};
+		25B5EE7D21D235880048389C /* WechatCommon */ = {
+			isa = PBXGroup;
+			children = (
+				25B5EE7E21D235880048389C /* NSString+LDSDKAdditions.h */,
+				25B5EE7F21D235880048389C /* NSDictionary+LDSDKAdditions.h */,
+				25B5EE8021D235880048389C /* NSDictionary+LDSDKAdditions.m */,
+				25B5EE8121D235880048389C /* NSString+LDSDKAdditions.m */,
+			);
+			path = WechatCommon;
+			sourceTree = "<group>";
+		};
+		25B5EE8321D235880048389C /* AlipayPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				25B5EE8421D235880048389C /* LDSDKAliPayServiceImp.m */,
+				25B5EE8521D235880048389C /* APBaseReq+Extend.m */,
+				25B5EE8621D235880048389C /* LDSDKAliPayDataVM.h */,
+				25B5EE8721D235880048389C /* LDSDKAliPayServiceImp.h */,
+				25B5EE8821D235880048389C /* LDSDKAliPayDataVM.m */,
+				25B5EE8921D235880048389C /* APBaseReq+Extend.h */,
+			);
+			path = AlipayPlatform;
+			sourceTree = "<group>";
+		};
+		25B5EE8A21D235880048389C /* DingTalkPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				25B5EE8B21D235880048389C /* DTBaseReq+Extend.h */,
+				25B5EE8C21D235880048389C /* LDSDKDingTalkDataVM.h */,
+				25B5EE8D21D235880048389C /* LDSDKDingTalkServiceImp.h */,
+				25B5EE8E21D235880048389C /* LDSDKDingTalkDataVM.m */,
+				25B5EE8F21D235880048389C /* DTBaseReq+Extend.m */,
+				25B5EE9021D235880048389C /* LDSDKDingTalkServiceImp.m */,
+			);
+			path = DingTalkPlatform;
 			sourceTree = "<group>";
 		};
 		25BED69321B23078000EBCB4 = {
 			isa = PBXGroup;
 			children = (
+				25B5EE3321D235880048389C /* LDSDKManager */,
 				25BED6EF21B232AE000EBCB4 /* Source */,
 				25BED6B521B2314D000EBCB4 /* Code */,
-				25BED6BA21B2314D000EBCB4 /* LDSDKManager */,
 				25BED69E21B23078000EBCB4 /* LDSDKManager_SDK_Example */,
 				25BED69D21B23078000EBCB4 /* Products */,
 				13D8A04FEBE2B7634A5BFFFF /* Pods */,
@@ -320,129 +436,6 @@
 				1A66611B79FA9885F8402C13 /* LLDPlatformCell.h */,
 			);
 			path = Code;
-			sourceTree = "<group>";
-		};
-		25BED6BA21B2314D000EBCB4 /* LDSDKManager */ = {
-			isa = PBXGroup;
-			children = (
-				25BED6BB21B2314D000EBCB4 /* CoreService */,
-				25BED6C921B2314D000EBCB4 /* QQPlatform */,
-				25BED6D321B2314E000EBCB4 /* WeiboPlatform */,
-				25BED6D621B2314E000EBCB4 /* WechatPlatform */,
-				25BED6DE21B2314E000EBCB4 /* AlipayPlatform */,
-				1A666CEEC9F1C09AE6080884 /* DingTalkPlatform */,
-				1A666179EBF5FFE0FAB07F14 /* TelegramPlatform */,
-				1A666314A139BA4A7D40E617 /* MomoPlatform */,
-			);
-			path = LDSDKManager;
-			sourceTree = "<group>";
-		};
-		25BED6BB21B2314D000EBCB4 /* CoreService */ = {
-			isa = PBXGroup;
-			children = (
-				25BED6BD21B2314D000EBCB4 /* LDSDKConfig.m */,
-				25BED6BE21B2314D000EBCB4 /* LDSDKManager.m */,
-				25BED6BF21B2314D000EBCB4 /* SDKServiceUtils */,
-				25BED6C221B2314D000EBCB4 /* SDKServiceInterface */,
-				25BED6C721B2314D000EBCB4 /* LDSDKConfig.h */,
-				25BED6C821B2314D000EBCB4 /* LDSDKManager.h */,
-				1A6664A4AB6ADA0ED0DD23F2 /* LDSDKManagerDataVM.m */,
-				1A666EB9DB47880B1B38ED8B /* LDSDKManagerDataVM.h */,
-				1A666DEF637993C5C1742BA1 /* Dtos */,
-				1A66622225E99B7016F4458B /* Net */,
-			);
-			path = CoreService;
-			sourceTree = "<group>";
-		};
-		25BED6BF21B2314D000EBCB4 /* SDKServiceUtils */ = {
-			isa = PBXGroup;
-			children = (
-				25BED6C021B2314D000EBCB4 /* UIImage+LDExtend.h */,
-				25BED6C121B2314D000EBCB4 /* UIImage+LDExtend.m */,
-				1A666DEE695E8D87C2BDDAFD /* NSString+Extend.m */,
-				1A666E59EF570465593128F9 /* NSString+Extend.h */,
-				1A6662398B5F6F551A787470 /* NSDictionary+Extend.m */,
-				1A666DD0795A4B5F900816A0 /* NSDictionary+Extend.h */,
-			);
-			path = SDKServiceUtils;
-			sourceTree = "<group>";
-		};
-		25BED6C221B2314D000EBCB4 /* SDKServiceInterface */ = {
-			isa = PBXGroup;
-			children = (
-				25BED6C321B2314D000EBCB4 /* LDSDKRegisterService.h */,
-				25BED6C421B2314D000EBCB4 /* LDSDKPayService.h */,
-				25BED6C521B2314D000EBCB4 /* LDSDKShareService.h */,
-				25BED6C621B2314D000EBCB4 /* LDSDKAuthService.h */,
-				1A6666C6950E57ACAAC59924 /* LDSDKShareDataVMService.h */,
-				1A666A21677C2B492E9100CE /* LDSDKExtendProtocol.h */,
-				1A6668C33E0DEC8B07D8C0E6 /* LDSDKHandleURLProtocol.h */,
-			);
-			path = SDKServiceInterface;
-			sourceTree = "<group>";
-		};
-		25BED6C921B2314D000EBCB4 /* QQPlatform */ = {
-			isa = PBXGroup;
-			children = (
-				25BED6CA21B2314D000EBCB4 /* LDSDKQQServiceImp.h */,
-				25BED6CB21B2314D000EBCB4 /* LDSDKQQServiceImp.m */,
-				1A6666D2372D556033B08462 /* LDSDKQQServiceImpDataVM.m */,
-				1A66654E3190D7B8087A5D9E /* LDSDKQQServiceImpDataVM.h */,
-				1A666D2CBA461049575B8C7A /* QQApiObject+Extend.m */,
-				1A666359181CF98B134E92ED /* QQApiObject+Extend.h */,
-			);
-			path = QQPlatform;
-			sourceTree = "<group>";
-		};
-		25BED6D321B2314E000EBCB4 /* WeiboPlatform */ = {
-			isa = PBXGroup;
-			children = (
-				25BED6D421B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m */,
-				25BED6D521B2314E000EBCB4 /* LDSDKWeiboServiceImpl.h */,
-				1A666968C480A1A6C6DD1D48 /* WBMessageObject+Extend.m */,
-				1A666F27228669CA8AC00880 /* WBMessageObject+Extend.h */,
-				1A666CF12E056EC4A8D23A3D /* LDSDKWeiboDataVM.m */,
-				1A666C958CAAE2B2351C0C91 /* LDSDKWeiboDataVM.h */,
-			);
-			path = WeiboPlatform;
-			sourceTree = "<group>";
-		};
-		25BED6D621B2314E000EBCB4 /* WechatPlatform */ = {
-			isa = PBXGroup;
-			children = (
-				25BED6D721B2314E000EBCB4 /* LDSDKWechatServiceImp.h */,
-				25BED6D821B2314E000EBCB4 /* WechatCommon */,
-				25BED6DD21B2314E000EBCB4 /* LDSDKWechatServiceImp.m */,
-				1A66626813C120284EDB2F73 /* LDSDKWechatImpDataVM.m */,
-				1A666DB70B60159947D421E1 /* LDSDKWechatImpDataVM.h */,
-				1A6663679474BC69B8273C51 /* WechatApiExtend.m */,
-				1A6665D40CCA81503F5A8C8A /* WechatApiExtend.h */,
-			);
-			path = WechatPlatform;
-			sourceTree = "<group>";
-		};
-		25BED6D821B2314E000EBCB4 /* WechatCommon */ = {
-			isa = PBXGroup;
-			children = (
-				25BED6D921B2314E000EBCB4 /* NSString+LDSDKAdditions.h */,
-				25BED6DA21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.h */,
-				25BED6DB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m */,
-				25BED6DC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m */,
-			);
-			path = WechatCommon;
-			sourceTree = "<group>";
-		};
-		25BED6DE21B2314E000EBCB4 /* AlipayPlatform */ = {
-			isa = PBXGroup;
-			children = (
-				25BED6DF21B2314E000EBCB4 /* LDSDKAliPayServiceImp.h */,
-				25BED6E021B2314E000EBCB4 /* LDSDKAliPayServiceImp.m */,
-				1A66626D80CD6ACA68204C63 /* LDSDKAliPayDataVM.m */,
-				1A6669F906C98CE674981912 /* LDSDKAliPayDataVM.h */,
-				1A666D1589198C978DD6B135 /* APBaseReq+Extend.m */,
-				1A666AABE1F1D5BB28E2C484 /* APBaseReq+Extend.h */,
-			);
-			path = AlipayPlatform;
 			sourceTree = "<group>";
 		};
 		25BED6EF21B232AE000EBCB4 /* Source */ = {
@@ -571,50 +564,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25BED6E621B2314E000EBCB4 /* UIImage+LDExtend.m in Sources */,
+				25B5EEA021D235880048389C /* NSDictionary+Extend.m in Sources */,
+				25B5EEB321D235890048389C /* LDSDKDingTalkDataVM.m in Sources */,
+				25B5EEAE21D235890048389C /* NSDictionary+LDSDKAdditions.m in Sources */,
+				25B5EE9C21D235880048389C /* MMShareTextDto.m in Sources */,
+				25B5EEAA21D235890048389C /* LDSDKWeiboServiceImpl.m in Sources */,
+				25B5EEB121D235890048389C /* APBaseReq+Extend.m in Sources */,
+				25B5EEA821D235890048389C /* WBMessageObject+Extend.m in Sources */,
 				25BED6A421B23078000EBCB4 /* ViewController.m in Sources */,
-				25BED6EA21B2314E000EBCB4 /* LDSDKWeiboServiceImpl.m in Sources */,
-				25BED6EC21B2314E000EBCB4 /* NSString+LDSDKAdditions.m in Sources */,
-				25BED6EE21B2314E000EBCB4 /* LDSDKAliPayServiceImp.m in Sources */,
+				25B5EE9821D235880048389C /* MMShareNewsDto.m in Sources */,
+				25B5EE9F21D235880048389C /* MMShareFileDto.m in Sources */,
+				25B5EEB421D235890048389C /* DTBaseReq+Extend.m in Sources */,
+				25B5EEA521D235880048389C /* LDSDKQQServiceImp.m in Sources */,
+				25B5EEA621D235880048389C /* QQApiObject+Extend.m in Sources */,
+				25B5EE9721D235880048389C /* MMDto.m in Sources */,
+				25B5EE9B21D235880048389C /* MMShareImageDto.m in Sources */,
+				25B5EE9A21D235880048389C /* MMBaseShareDto.m in Sources */,
 				25BED6AF21B23079000EBCB4 /* main.m in Sources */,
-				25BED6E421B2314E000EBCB4 /* LDSDKConfig.m in Sources */,
+				25B5EEB221D235890048389C /* LDSDKAliPayDataVM.m in Sources */,
+				25B5EEAB21D235890048389C /* LDSDKWechatServiceImp.m in Sources */,
+				25B5EEA221D235880048389C /* NSString+Extend.m in Sources */,
+				25B5EEA121D235880048389C /* UIImage+LDExtend.m in Sources */,
+				25B5EE9421D235880048389C /* LDSDKManager.m in Sources */,
+				25B5EEA321D235880048389C /* LDSDKTelegramDataVM.m in Sources */,
+				25B5EEAC21D235890048389C /* WechatApiExtend.m in Sources */,
+				25B5EE9321D235880048389C /* LDSDKConfig.m in Sources */,
+				25B5EE9121D235880048389C /* LDNetworkManager.m in Sources */,
+				25B5EEA921D235890048389C /* LDSDKWeiboDataVM.m in Sources */,
+				25B5EE9D21D235880048389C /* MMShareAudioDto.m in Sources */,
 				25BED6E121B2314E000EBCB4 /* LLDViewDataVM.m in Sources */,
 				25BED6A121B23078000EBCB4 /* AppDelegate.m in Sources */,
-				25BED6E521B2314E000EBCB4 /* LDSDKManager.m in Sources */,
+				25B5EEB021D235890048389C /* LDSDKAliPayServiceImp.m in Sources */,
+				25B5EEAF21D235890048389C /* NSString+LDSDKAdditions.m in Sources */,
+				25B5EEA721D235880048389C /* LDSDKQQServiceImpDataVM.m in Sources */,
+				25B5EE9621D235880048389C /* MMShareVideoDto.m in Sources */,
+				25B5EE9521D235880048389C /* MMShareConfigDto.m in Sources */,
+				25B5EE9921D235880048389C /* MMShareMiniProgramDto.m in Sources */,
+				25B5EEA421D235880048389C /* LDSDKTelegramServiceImp.m in Sources */,
+				25B5EE9E21D235880048389C /* MMResultDto.m in Sources */,
 				25BED6E221B2314E000EBCB4 /* LLDViewController.m in Sources */,
-				25BED6E721B2314E000EBCB4 /* LDSDKQQServiceImp.m in Sources */,
-				25BED6EB21B2314E000EBCB4 /* NSDictionary+LDSDKAdditions.m in Sources */,
-				25BED6ED21B2314E000EBCB4 /* LDSDKWechatServiceImp.m in Sources */,
-				1A666EDFC950E1658E2BA4A3 /* LDSDKQQServiceImpDataVM.m in Sources */,
-				1A6666E99753C1682E9C58B6 /* LDSDKManagerDataVM.m in Sources */,
-				1A666F69734B67EEFAC26B66 /* MMDto.m in Sources */,
-				1A666C621D8F79D077427166 /* MMBaseShareDto.m in Sources */,
-				1A66629A598A993475C021FD /* MMShareTextDto.m in Sources */,
-				1A6661AC8BE61533A2B96BE9 /* MMShareImageDto.m in Sources */,
-				1A666E488B1131BD86155DC8 /* MMShareAudioDto.m in Sources */,
-				1A6665C08B0EAF8CE912D5D2 /* MMShareNewsDto.m in Sources */,
-				1A666C203D1FB0D283B9F7CA /* MMShareVideoDto.m in Sources */,
-				1A666AFC4C4665DECE42B896 /* QQApiObject+Extend.m in Sources */,
-				1A666F7A1F2F2838B5CC2116 /* MMShareConfigDto.m in Sources */,
-				1A666BD1EFB4C0CFCAF3CAF5 /* LDSDKWechatImpDataVM.m in Sources */,
-				1A66636E1B052BFFE79C59FF /* WechatApiExtend.m in Sources */,
-				1A6663E4D7ED54C2CC1F6D3B /* MMResultDto.m in Sources */,
-				1A666BF58D65BA03B6B35F11 /* WBMessageObject+Extend.m in Sources */,
-				1A6661FFE48E2B346269B625 /* LDSDKWeiboDataVM.m in Sources */,
 				1A666E1ECEAD6B7C5F356C31 /* LLDPlatformDto.m in Sources */,
+				25B5EE9221D235880048389C /* LDSDKManagerDataVM.m in Sources */,
+				25B5EEAD21D235890048389C /* LDSDKWechatImpDataVM.m in Sources */,
 				1A6661706C680801D41B7942 /* LLDPlatformCell.m in Sources */,
-				1A666B0E84A7F2B56C134278 /* NSString+Extend.m in Sources */,
-				1A666CA45BF42343110E17DC /* NSDictionary+Extend.m in Sources */,
-				1A6665B3B72994118BE70B93 /* LDNetworkManager.m in Sources */,
-				1A666BB0DEE76D1C29E0CB57 /* MMShareFileDto.m in Sources */,
-				1A6661FFC82017D670279031 /* MMShareMiniProgramDto.m in Sources */,
-				1A666016C845E6B642C06A87 /* LDSDKAliPayDataVM.m in Sources */,
-				1A6660189792B6C89680ACAE /* APBaseReq+Extend.m in Sources */,
-				1A666310B4B19D0D5CAF60BC /* LDSDKTelegramServiceImp.m in Sources */,
-				1A6665854669E28842617F1D /* LDSDKTelegramDataVM.m in Sources */,
-				1A6666ABF56A49B0ED4446C7 /* LDSDKDingTalkServiceImp.m in Sources */,
-				1A666D8AF25F6DE563D8BB90 /* LDSDKDingTalkDataVM.m in Sources */,
-				1A666B3625334A07A9EF7639 /* DTBaseReq+Extend.m in Sources */,
+				25B5EEB521D235890048389C /* LDSDKDingTalkServiceImp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,7 +684,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -744,7 +737,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -760,6 +753,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6FNUHS4H7D;
 				INFOPLIST_FILE = LDSDKManager_SDK_Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -780,6 +774,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6FNUHS4H7D;
 				INFOPLIST_FILE = LDSDKManager_SDK_Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

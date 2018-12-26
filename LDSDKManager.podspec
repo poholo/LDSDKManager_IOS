@@ -12,9 +12,9 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
 
-     #组件对外提供服务接口
+    #组件对外提供服务接口
     s.subspec 'CoreService' do |ss|
-        ss.source_files = 'LDSDKManager/CoreService/**/*.{h,m,mm}'
+        ss.source_files = 'LDSDKManager/CoreService/**/*.{h,m,mm}',
                           'LDSDKManager/CoreService/*.{h,m,mm}'
         ss.public_header_files = 'LDSDKManager/CoreService/*.h'
         ss.public_header_files = 'LDSDKManager/CoreService/**/*.h'
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
     #微信平台SDK集成
     s.subspec 'WechatPlatform' do |ss|
         ss.dependency 'LDSDKManager/CoreService'
-        ss.source_files = 'LDSDKManager/WechatPlatform/**/*.{h,m,mm}'
+        ss.source_files = 'LDSDKManager/WechatPlatform/**/*.{h,m,mm}',
                           'LDSDKManager/WechatPlatform/*.{h,m,mm}'
         ss.public_header_files = 'LDSDKManager/WechatPlatform/*.h'
     end
@@ -49,10 +49,26 @@ Pod::Spec.new do |s|
         ss.public_header_files = 'LDSDKManager/AlipayPlatform/*.h'
     end
 
+    #DingTalk_SDK集成
+    s.subspec 'DingTalkPlatform' do |ss|
+        ss.dependency 'LDSDKManager/CoreService'
+        ss.source_files = 'LDSDKManager/DingTalkPlatform/*{h,m,mm}'
+        ss.public_header_files = 'LDSDKManager/DingTalkPlatform/*.h'
+    end
+
+    #Telegram
+    s.subspec 'TelegramPlatform' do |ss|
+        ss.dependency 'LDSDKManager/CoreService'
+        ss.source_files = 'LDSDKManager/TelegramPlatform/*{h,m,mm}'
+        ss.public_header_files = 'LDSDKManager/TelegramPlatform/*.h'
+    end
+
     s.frameworks = 'UIKit', 'CoreGraphics', 'Foundation'
     s.dependency 'MCTencentOpenAPI'
     s.dependency 'WechatOpenSDK'
     s.dependency 'Weibo_SDK'
     s.dependency 'AlipaySDK-iOS'
+    s.dependency 'APOpenSdk'
+    s.dependency 'MCDingTalk'
 
 end

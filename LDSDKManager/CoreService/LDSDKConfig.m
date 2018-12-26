@@ -36,6 +36,9 @@ NSString *const LDSDKShareCallBackKey = @"LDSDKShareCallBackKey";
 NSString *const LDSDKShareMiniProgramIdKey = @"LDSDKShareMiniProgramIdKey";
 NSString *const LDSDKShareNiniProgramTypeKey = @"LDSDKShareNiniProgramTypeKey";
 
+NSString *const LDSDKAuthUrlKey = @"LDSDKAuthUrlKey";
+NSString *const LDSDKAuthSchemaKey = @"LDSDKAuthSchemaKey";
+
 NSString *const kErrorMessage = @"kErrorMessage";
 NSString *const kErrorDomain = @"kErrorDomain";
 NSString *const kErrorObject = @"kErrorObject";

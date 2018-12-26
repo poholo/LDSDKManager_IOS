@@ -81,5 +81,41 @@
     }
 }
 
+- (NSDictionary *)authDict {
+    return nil;
+}
+
+- (void)setAuthDict:(NSDictionary *)authDict {
+
+}
+
+- (NSDictionary *)userInfo {
+    return nil;
+}
+
+- (void)setUserInfo:(NSDictionary *)userInfo {
+
+}
+
+- (NSArray<NSString *> *)permissions {
+    return nil;
+}
+
+- (BOOL)canResponseShareResult:(id)resp {
+    return NO;
+}
+
+- (BOOL)canResponseAuthResult:(id)resp {
+    return NO;
+}
+
+- (NSDictionary *)wrapAuth:(id)auth {
+    return nil;
+}
+
+- (NSDictionary *)wrapAuthUserInfo:(id)userinfo {
+    return nil;
+}
+
 
 @end

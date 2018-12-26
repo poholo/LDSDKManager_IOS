@@ -15,18 +15,10 @@ typedef void (^LDSDKAuthCallback)(LDSDKLoginCode, NSError *error, NSDictionary *
 
 @protocol LDSDKAuthService <NSObject>
 
-/*!
- *  @brief  第三方登陆
- *
- *  @param callback 登陆回调
- */
-- (void)authPlatformCallback:(LDSDKAuthCallback)callback;
+- (void)authPlatformCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict;
 
-- (void)authPlatformQRCallback:(LDSDKAuthCallback)callBack;
+- (void)authPlatformQRCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict;;
 
-/*!
- *  @brief  退出登陆，主要是QQ平台
- */
-- (void)authLogoutPlatformCallback:(LDSDKAuthCallback)callBack;;
+- (void)authLogoutPlatformCallback:(LDSDKAuthCallback)callBack;
 
 @end
