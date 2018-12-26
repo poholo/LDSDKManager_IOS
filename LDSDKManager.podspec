@@ -62,6 +62,13 @@ Pod::Spec.new do |s|
         ss.source_files = 'LDSDKManager/TelegramPlatform/*{h,m,mm}'
         ss.public_header_files = 'LDSDKManager/TelegramPlatform/*.h'
     end
+    
+    s.xcconfig = {
+         'VALID_ARCHS' => 'arm64 x86_64',
+    }
+    s.pod_target_xcconfig = {
+          'VALID_ARCHS' => 'arm64 x86_64'
+    }
 
     s.frameworks = 'UIKit', 'CoreGraphics', 'Foundation'
     s.dependency 'MCTencentOpenAPI'
