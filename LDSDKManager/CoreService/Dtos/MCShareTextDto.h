@@ -3,11 +3,11 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMBaseShareDto.h"
+#import "MCBaseShareDto.h"
 
 /**
  * 文本分享
  */
-@interface MMShareTextDto : MMBaseShareDto
+@interface MCShareTextDto : MCBaseShareDto
 
 @end

@@ -4,13 +4,13 @@
 //
 
 #import <WechatOpenSDK/WXApiObject.h>
-#import "MMResultDto.h"
+#import "MCResultDto.h"
 
 
-@implementation MMResultDto
+@implementation MCResultDto
 
-+ (MMResultDto *)createResult:(id)object {
-    MMResultDto *dto = [MMResultDto new];
++ (MCResultDto *)createResult:(id)object {
+    MCResultDto *dto = [MCResultDto new];
     dto.object = object;
     if ([object isKindOfClass:[BaseResp class]]) {
         BaseResp *resp = (BaseResp *) object;

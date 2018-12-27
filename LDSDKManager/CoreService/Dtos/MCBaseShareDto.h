@@ -3,11 +3,11 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMDto.h"
+#import "MCDto.h"
 #import "LDSDKConfig.h"
 
 
-@interface MMBaseShareDto : MMDto {
+@interface MCBaseShareDto : MCDto {
     NSMutableDictionary<NSString *, NSNumber *> *_supportDict;
 }
 
@@ -27,7 +27,7 @@
 
 - (BOOL)support;
 
-- (MMBaseShareDto *)canReplaceShareDto;
+- (MCBaseShareDto *)canReplaceShareDto;
 
 - (NSString *)keyForPlatform:(LDSDKPlatformType)platformType shareToModule:(LDSDKShareToModule)shareToModule;
 

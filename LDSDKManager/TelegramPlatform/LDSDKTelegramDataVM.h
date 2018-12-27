@@ -10,7 +10,7 @@
 
 @interface LDSDKTelegramDataVM : NSObject <LDSDKShareDataVMService>
 
-@property(nonatomic, strong) MMShareConfigDto *configDto;
+@property(nonatomic, strong) MCShareConfigDto *configDto;
 @property(nonatomic, assign) BOOL registerSuccess;
 
 - (BOOL)share2Telegram:(NSDictionary *)exDict;

@@ -5,17 +5,17 @@
 
 #import "QQApiObject+Extend.h"
 
-#import "MMBaseShareDto.h"
-#import "MMShareImageDto.h"
+#import "MCBaseShareDto.h"
+#import "MCShareImageDto.h"
 #import "UIImage+LDExtend.h"
-#import "MMShareNewsDto.h"
-#import "MMShareAudioDto.h"
-#import "MMShareVideoDto.h"
-#import "MMShareFileDto.h"
+#import "MCShareNewsDto.h"
+#import "MCShareAudioDto.h"
+#import "MCShareVideoDto.h"
+#import "MCShareFileDto.h"
 
 @implementation QQApiObject (Extend)
 
-+ (QQApiObject *)shareObject:(MMBaseShareDto *)shareDto {
++ (QQApiObject *)shareObject:(MCBaseShareDto *)shareDto {
     QQApiObject *apiObject = nil;
     if (shareDto.shareToModule == LDSDKShareToContact) {
         apiObject = [QQApiObject shareCommenObject:shareDto];
@@ -62,7 +62,7 @@
     return apiObject;
 }
 
-+ (QQApiObject *)shareCommenObject:(MMBaseShareDto *)shareDto {
++ (QQApiObject *)shareCommenObject:(MCBaseShareDto *)shareDto {
     QQApiObject *apiObject = nil;
     switch (shareDto.shareType) {
         case LDSDKShareTypeText : {
@@ -70,7 +70,7 @@
         }
             break;
         case LDSDKShareTypeImage : {
-            MMShareImageDto *imageDto = (MMShareImageDto *) shareDto;
+            MCShareImageDto *imageDto = (MCShareImageDto *) shareDto;
             if (imageDto.image) {
                 apiObject = [self imageObject:shareDto];
             } else {
@@ -101,18 +101,18 @@
     return apiObject;
 }
 
-+ (QQApiTextObject *)textObject:(MMBaseShareDto *)shareDto {
++ (QQApiTextObject *)textObject:(MCBaseShareDto *)shareDto {
     QQApiTextObject *apiTextObject = [QQApiTextObject objectWithText:shareDto.desc];
     return apiTextObject;
 }
 
-+ (QQApiImageArrayForQZoneObject *)textZoneObject:(MMBaseShareDto *)shareDto {
++ (QQApiImageArrayForQZoneObject *)textZoneObject:(MCBaseShareDto *)shareDto {
     QQApiImageArrayForQZoneObject *apiImageArrayForQZoneObject = [QQApiImageArrayForQZoneObject objectWithimageDataArray:nil title:shareDto.desc extMap:nil];
     return apiImageArrayForQZoneObject;
 }
 
-+ (QQApiImageObject *)imageObject:(MMBaseShareDto *)shareDto {
-    MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
++ (QQApiImageObject *)imageObject:(MCBaseShareDto *)shareDto {
+    MCShareImageDto *shareImageDto = (MCShareImageDto *) shareDto;
     NSData *imageData1M = [shareImageDto.image ld_compressImageLimitSize:1000 * 1024];
     NSData *imageData5M = [shareImageDto.image ld_compressImageLimitSize:5000 * 1024];
 
@@ -123,16 +123,16 @@
     return apiImageObject;
 }
 
-+ (QQApiWebImageObject *)imageWebObject:(MMBaseShareDto *)shareDto {
-    MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
++ (QQApiWebImageObject *)imageWebObject:(MCBaseShareDto *)shareDto {
+    MCShareImageDto *shareImageDto = (MCShareImageDto *) shareDto;
     QQApiWebImageObject *apiWebImageObject = [QQApiWebImageObject objectWithPreviewImageURL:[NSURL URLWithString:shareImageDto.imageUrl]
                                                                                       title:shareImageDto.title
                                                                                 description:shareImageDto.desc];
     return apiWebImageObject;
 }
 
-+ (QQApiImageArrayForQZoneObject *)imagesObject:(MMBaseShareDto *)shareDto {
-    MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
++ (QQApiImageArrayForQZoneObject *)imagesObject:(MCBaseShareDto *)shareDto {
+    MCShareImageDto *shareImageDto = (MCShareImageDto *) shareDto;
 
     NSData *imageData5M = [shareImageDto.image ld_compressImageLimitSize:5000 * 1024];
     NSAssert(imageData5M, @"image != NULL");
@@ -142,8 +142,8 @@
     return apiImageArrayForQZoneObject;
 }
 
-+ (QQApiNewsObject *)newsObject:(MMBaseShareDto *)shareDto {
-    MMShareNewsDto *shareNewsDto = (MMShareNewsDto *) shareDto;
++ (QQApiNewsObject *)newsObject:(MCBaseShareDto *)shareDto {
+    MCShareNewsDto *shareNewsDto = (MCShareNewsDto *) shareDto;
     QQApiNewsObject *apiNewsObject = nil;
     if (shareNewsDto.image) {
         NSData *imageData = [shareNewsDto.image ld_compressImageLimitSize:1000 * 1024];
@@ -161,8 +161,8 @@
     return apiNewsObject;
 }
 
-+ (QQApiAudioObject *)audioObject:(MMBaseShareDto *)shareDto {
-    MMShareAudioDto *shareAudioDto = (MMShareAudioDto *) shareDto;
++ (QQApiAudioObject *)audioObject:(MCBaseShareDto *)shareDto {
+    MCShareAudioDto *shareAudioDto = (MCShareAudioDto *) shareDto;
     QQApiAudioObject *apiAudioObject = nil;
     if (shareAudioDto.image) {
         NSData *imageData = [shareAudioDto.image ld_compressImageLimitSize:1000 * 1024];
@@ -181,8 +181,8 @@
     return apiAudioObject;
 }
 
-+ (QQApiVideoObject *)videoObject:(MMBaseShareDto *)shareDto {
-    MMShareVideoDto *shareVideoDto = (MMShareVideoDto *) shareDto;
++ (QQApiVideoObject *)videoObject:(MCBaseShareDto *)shareDto {
+    MCShareVideoDto *shareVideoDto = (MCShareVideoDto *) shareDto;
     QQApiVideoObject *apiVideoObject = nil;
     if (shareVideoDto.image) {
         NSData *imageData = [shareVideoDto.image ld_compressImageLimitSize:1000 * 1024];
@@ -202,8 +202,8 @@
     return apiVideoObject;
 }
 
-+ (id)fileObject:(MMBaseShareDto *)shareDto {
-    MMShareFileDto *shareFileDto = (MMShareFileDto *) shareDto;
++ (id)fileObject:(MCBaseShareDto *)shareDto {
+    MCShareFileDto *shareFileDto = (MCShareFileDto *) shareDto;
     QQApiFileObject *qqApiFileObject = nil;
     NSData *imageData = [shareFileDto.image ld_compressImageLimitSize:1000 * 1024];
 
@@ -215,8 +215,8 @@
 }
 
 
-+ (QQApiVideoForQZoneObject *)videoZoneObject:(MMBaseShareDto *)shareDto {
-    MMShareVideoDto *shareVideoDto = (MMShareVideoDto *) shareDto;
++ (QQApiVideoForQZoneObject *)videoZoneObject:(MCBaseShareDto *)shareDto {
+    MCShareVideoDto *shareVideoDto = (MCShareVideoDto *) shareDto;
     QQApiVideoForQZoneObject *apiVideoForQZoneObject = [QQApiVideoForQZoneObject objectWithAssetURL:shareVideoDto.mediaUrl
                                                                                               title:shareVideoDto.title
                                                                                              extMap:nil];

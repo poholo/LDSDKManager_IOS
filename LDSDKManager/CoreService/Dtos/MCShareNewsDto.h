@@ -3,9 +3,9 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMShareImageDto.h"
+#import "MCShareImageDto.h"
 
-@interface MMShareNewsDto : MMShareImageDto
+@interface MCShareNewsDto : MCShareImageDto
 
 @property(nonatomic, strong) NSString *url;
 

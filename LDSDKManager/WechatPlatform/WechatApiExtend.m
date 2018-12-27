@@ -6,18 +6,18 @@
 #import <WechatOpenSDK/WXApiObject.h>
 #import "WechatApiExtend.h"
 
-#import "MMBaseShareDto.h"
-#import "MMShareImageDto.h"
+#import "MCBaseShareDto.h"
+#import "MCShareImageDto.h"
 #import "UIImage+LDExtend.h"
-#import "MMShareAudioDto.h"
-#import "MMShareVideoDto.h"
-#import "MMShareFileDto.h"
-#import "MMShareMiniProgramDto.h"
+#import "MCShareAudioDto.h"
+#import "MCShareVideoDto.h"
+#import "MCShareFileDto.h"
+#import "MCShareMiniProgramDto.h"
 
 
 @implementation WechatApiExtend
 
-+ (BaseReq *)shareObject:(MMBaseShareDto *)shareDto {
++ (BaseReq *)shareObject:(MCBaseShareDto *)shareDto {
     BaseReq *sendMessageToWXReq = nil;
     switch (shareDto.shareType) {
         case LDSDKShareTypeText : {
@@ -25,7 +25,7 @@
         }
             break;
         case LDSDKShareTypeImage : {
-            MMShareImageDto *imageDto = (MMShareImageDto *) shareDto;
+            MCShareImageDto *imageDto = (MCShareImageDto *) shareDto;
             if (imageDto.image) {
                 sendMessageToWXReq = [self imageObject:shareDto];
             } else {
@@ -57,7 +57,7 @@
     return sendMessageToWXReq;
 }
 
-+ (SendMessageToWXReq *)textObject:(MMBaseShareDto *)shareDto {
++ (SendMessageToWXReq *)textObject:(MCBaseShareDto *)shareDto {
     SendMessageToWXReq *sendMessageToWXReq = [SendMessageToWXReq new];
     sendMessageToWXReq.text = shareDto.desc;
     sendMessageToWXReq.bText = YES;
@@ -65,8 +65,8 @@
     return sendMessageToWXReq;
 }
 
-+ (SendMessageToWXReq *)imageObject:(MMBaseShareDto *)shareDto {
-    MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
++ (SendMessageToWXReq *)imageObject:(MCBaseShareDto *)shareDto {
+    MCShareImageDto *shareImageDto = (MCShareImageDto *) shareDto;
     NSData *imageData10M = [shareImageDto.image ld_compressImageLimitSize:10 * 1000 * 1024];
     WXImageObject *wxImageObject = [WXImageObject object];
     wxImageObject.imageData = imageData10M;
@@ -74,8 +74,8 @@
     return sendMessageToWXReq;
 }
 
-+ (SendMessageToWXReq *)imageWebObject:(MMBaseShareDto *)shareDto {
-    MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
++ (SendMessageToWXReq *)imageWebObject:(MCBaseShareDto *)shareDto {
+    MCShareImageDto *shareImageDto = (MCShareImageDto *) shareDto;
     //TODO:: 图片下载机制
     NSData *imageData10M = [shareImageDto.image ld_compressImageLimitSize:10 * 1000 * 1024];
     WXImageObject *wxImageObject = [WXImageObject object];
@@ -84,16 +84,16 @@
     return sendMessageToWXReq;
 }
 
-+ (SendMessageToWXReq *)newsObject:(MMBaseShareDto *)shareDto {
-    MMShareNewsDto *shareNewsDto = (MMShareNewsDto *) shareDto;
++ (SendMessageToWXReq *)newsObject:(MCBaseShareDto *)shareDto {
+    MCShareNewsDto *shareNewsDto = (MCShareNewsDto *) shareDto;
     WXWebpageObject *wxWebpageObject = [WXWebpageObject object];
     wxWebpageObject.webpageUrl = shareNewsDto.url;
     SendMessageToWXReq *sendMessageToWXReq = [self factoryMessageWXReq:shareDto media:wxWebpageObject];
     return sendMessageToWXReq;
 }
 
-+ (SendMessageToWXReq *)audioObject:(MMBaseShareDto *)shareDto {
-    MMShareAudioDto *shareAudioDto = (MMShareAudioDto *) shareDto;
++ (SendMessageToWXReq *)audioObject:(MCBaseShareDto *)shareDto {
+    MCShareAudioDto *shareAudioDto = (MCShareAudioDto *) shareDto;
     WXMusicObject *wxMusicObject = [WXMusicObject object];
     wxMusicObject.musicUrl = shareAudioDto.url;
     wxMusicObject.musicDataUrl = shareAudioDto.mediaUrl;
@@ -101,8 +101,8 @@
     return sendMessageToWXReq;
 }
 
-+ (SendMessageToWXReq *)videoObject:(MMBaseShareDto *)shareDto {
-    MMShareVideoDto *shareVideoDto = (MMShareVideoDto *) shareDto;
++ (SendMessageToWXReq *)videoObject:(MCBaseShareDto *)shareDto {
+    MCShareVideoDto *shareVideoDto = (MCShareVideoDto *) shareDto;
     WXVideoObject *wxVideoObject = [WXVideoObject object];
     wxVideoObject.videoUrl = shareVideoDto.url;
     wxVideoObject.videoLowBandUrl = shareVideoDto.mediaUrl;
@@ -110,8 +110,8 @@
     return sendMessageToWXReq;
 }
 
-+ (SendMessageToWXReq *)fileObject:(MMBaseShareDto *)shareDto {
-    MMShareFileDto *shareFileDto = (MMShareFileDto *) shareDto;
++ (SendMessageToWXReq *)fileObject:(MCBaseShareDto *)shareDto {
+    MCShareFileDto *shareFileDto = (MCShareFileDto *) shareDto;
     WXFileObject *wxFileObject = [WXFileObject object];
     NSURL *URL = [NSURL URLWithString:shareFileDto.mediaUrl];
     wxFileObject.fileExtension = URL.pathExtension;
@@ -121,8 +121,8 @@
     return sendMessageToWXReq;
 }
 
-+ (WXLaunchMiniProgramReq *)miniProgram:(MMBaseShareDto *)shareDto {
-    MMShareMiniProgramDto *shareMiniProgramDto = (MMShareMiniProgramDto *) shareDto;
++ (WXLaunchMiniProgramReq *)miniProgram:(MCBaseShareDto *)shareDto {
+    MCShareMiniProgramDto *shareMiniProgramDto = (MCShareMiniProgramDto *) shareDto;
     WXLaunchMiniProgramReq *wxLaunchMiniProgramReq = [WXLaunchMiniProgramReq object];
     wxLaunchMiniProgramReq.userName = shareMiniProgramDto.miniProgramId;
     wxLaunchMiniProgramReq.miniProgramType = (WXMiniProgramType) shareMiniProgramDto.miniProgramType;
@@ -131,8 +131,8 @@
 }
 
 
-+ (SendMessageToWXReq *)factoryMessageWXReq:(MMBaseShareDto *)shareDto media:(id)media {
-    MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
++ (SendMessageToWXReq *)factoryMessageWXReq:(MCBaseShareDto *)shareDto media:(id)media {
+    MCShareImageDto *shareImageDto = (MCShareImageDto *) shareDto;
     SendMessageToWXReq *sendMessageToWXReq = [SendMessageToWXReq new];
     sendMessageToWXReq.bText = NO;
     sendMessageToWXReq.scene = (int) [WechatApiExtend moduleToPlatform:shareImageDto.shareToModule];

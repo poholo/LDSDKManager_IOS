@@ -7,39 +7,39 @@
 
 #import "LDSDKConfig.h"
 
-@class MMBaseShareDto;
+@class MCBaseShareDto;
 
 
 @protocol LDSDKExtendProtocol <NSObject>
 
 @required
-+ (id)shareObject:(MMBaseShareDto *)shareDto;
++ (id)shareObject:(MCBaseShareDto *)shareDto;
 
-+ (id)textObject:(MMBaseShareDto *)shareDto;
++ (id)textObject:(MCBaseShareDto *)shareDto;
 
-+ (id)imageObject:(MMBaseShareDto *)shareDto;
++ (id)imageObject:(MCBaseShareDto *)shareDto;
 
-+ (id)imageWebObject:(MMBaseShareDto *)shareDto;
++ (id)imageWebObject:(MCBaseShareDto *)shareDto;
 
-+ (id)newsObject:(MMBaseShareDto *)shareDto;
++ (id)newsObject:(MCBaseShareDto *)shareDto;
 
-+ (id)audioObject:(MMBaseShareDto *)shareDto;
++ (id)audioObject:(MCBaseShareDto *)shareDto;
 
-+ (id)videoObject:(MMBaseShareDto *)shareDto;
++ (id)videoObject:(MCBaseShareDto *)shareDto;
 
-+ (id)fileObject:(MMBaseShareDto *)shareDto;
++ (id)fileObject:(MCBaseShareDto *)shareDto;
 
 @optional
 
-+ (id)miniProgram:(MMBaseShareDto *)shareDto;
++ (id)miniProgram:(MCBaseShareDto *)shareDto;
 
 + (NSInteger)moduleToPlatform:(LDSDKShareToModule)module;
 
-+ (id)textZoneObject:(MMBaseShareDto *)shareDto;
++ (id)textZoneObject:(MCBaseShareDto *)shareDto;
 
-+ (id)imagesObject:(MMBaseShareDto *)shareDto;
++ (id)imagesObject:(MCBaseShareDto *)shareDto;
 
-+ (id)videoZoneObject:(MMBaseShareDto *)shareDto;
++ (id)videoZoneObject:(MCBaseShareDto *)shareDto;
 
 
 @end

@@ -8,10 +8,10 @@
 
 #import "LDSDKExtendProtocol.h"
 
-@class MMBaseShareDto;
+@class MCBaseShareDto;
 
 @interface QQApiObject (Extend) <LDSDKExtendProtocol>
 
-+ (QQApiObject *)shareObject:(MMBaseShareDto *)shareDto;
++ (QQApiObject *)shareObject:(MCBaseShareDto *)shareDto;
 
 @end

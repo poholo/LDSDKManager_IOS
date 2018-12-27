@@ -18,6 +18,7 @@ extern NSString *const LDSDK_GENDER_KEY;
 extern NSString *const LDSDKConfigAppIdKey;
 extern NSString *const LDSDKConfigAppSecretKey;
 extern NSString *const LDSDKConfigAppSchemeKey;
+extern NSString *const LDSDKConfigAppInstallUrl;
 extern NSString *const LDSDKConfigAppPlatformTypeKey;
 extern NSString *const LDSDKConfigAppDescriptionKey;
 

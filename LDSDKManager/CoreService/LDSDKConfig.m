@@ -18,6 +18,7 @@ NSString *const LDSDK_GENDER_KEY = @"gender";
 NSString *const LDSDKConfigAppIdKey = @"kAppID";
 NSString *const LDSDKConfigAppSecretKey = @"kAppSecret";
 NSString *const LDSDKConfigAppSchemeKey = @"kAppScheme";
+NSString *const LDSDKConfigAppInstallUrl = @"kAppInstallUrl";
 NSString *const LDSDKConfigAppPlatformTypeKey = @"kAppPlatformType";
 NSString *const LDSDKConfigAppDescriptionKey = @"kAppDescription";
 

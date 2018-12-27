@@ -14,9 +14,9 @@
 #import "UIImage+LDExtend.h"
 #import "LDSDKConfig.h"
 #import "LDSDKQQServiceImpDataVM.h"
-#import "MMBaseShareDto.h"
+#import "MCBaseShareDto.h"
 #import "QQApiObject+Extend.h"
-#import "MMShareConfigDto.h"
+#import "MCShareConfigDto.h"
 
 
 @interface LDSDKQQServiceImp () <TencentSessionDelegate, QQApiInterfaceDelegate>
@@ -42,7 +42,7 @@
 
 //注册平台
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
-    self.dataVM.configDto = [MMShareConfigDto createDto:config];
+    self.dataVM.configDto = [MCShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
     self.tencentAuth = [[TencentOAuth alloc] initWithAppId:self.dataVM.configDto.appId andDelegate:self];
     if (error.code != LDSDKSuccess) {
@@ -86,7 +86,7 @@
         return;
     }
     self.shareCallback = callback;
-    MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
+    MCBaseShareDto *shareDto = [MCBaseShareDto factoryCreateShareDto:exDict];
     QQApiObject *apiObject = [QQApiObject shareObject:shareDto];
     if (!shareDto || !apiObject) {
         if (self.shareCallback) {

@@ -13,11 +13,11 @@
 
 #import "LDSDKConfig.h"
 #import "LDSDKAliPayDataVM.h"
-#import "MMBaseShareDto.h"
+#import "MCBaseShareDto.h"
 #import "LDSDKExtendProtocol.h"
 #import "APBaseReq+Extend.h"
 #import "APOpenAPI.h"
-#import "MMShareConfigDto.h"
+#import "MCShareConfigDto.h"
 
 @interface LDSDKAliPayServiceImp () <APOpenAPIDelegate>
 
@@ -42,7 +42,7 @@
 
 
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
-    self.dataVM.configDto = [MMShareConfigDto createDto:config];
+    self.dataVM.configDto = [MCShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
     BOOL success = [APOpenAPI registerApp:self.dataVM.configDto.appId];
     if (!success) {
@@ -76,7 +76,7 @@
         return;
     }
     self.shareCallback = callback;
-    MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
+    MCBaseShareDto *shareDto = [MCBaseShareDto factoryCreateShareDto:exDict];
 
     APBaseReq *apMediaMessage = [APBaseReq shareObject:shareDto];
 

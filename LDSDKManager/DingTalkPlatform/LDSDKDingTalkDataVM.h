@@ -10,7 +10,7 @@
 
 @interface LDSDKDingTalkDataVM : NSObject <LDSDKShareDataVMService>
 
-@property(nonatomic, strong) MMShareConfigDto *configDto;
+@property(nonatomic, strong) MCShareConfigDto *configDto;
 @property(nonatomic, strong) NSDictionary *authDict;
 @property(nonatomic, strong) NSDictionary *userInfo;
 @property(nonatomic, assign) BOOL registerSuccess;

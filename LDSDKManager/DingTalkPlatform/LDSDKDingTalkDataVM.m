@@ -7,7 +7,7 @@
 
 #import <DTShareKit/DTOpenKit.h>
 
-#import "MMShareConfigDto.h"
+#import "MCShareConfigDto.h"
 
 
 @implementation LDSDKDingTalkDataVM

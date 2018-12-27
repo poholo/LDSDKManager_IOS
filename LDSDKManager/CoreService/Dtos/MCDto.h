@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface MMDto : NSObject
+@interface MCDto : NSObject
 
 @property(nonatomic, strong) NSString *dtoId;
 

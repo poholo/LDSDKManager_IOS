@@ -10,9 +10,9 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 
 #import "UIImage+LDExtend.h"
-#import "MMBaseShareDto.h"
+#import "MCBaseShareDto.h"
 #import "NSString+Extend.h"
-#import "MMShareConfigDto.h"
+#import "MCShareConfigDto.h"
 
 NSString *const kQQ_OPENID_KEY = @"openId";
 NSString *const kQQ_TOKEN_KEY = @"access_token";

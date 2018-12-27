@@ -7,7 +7,7 @@
 
 #import <APOpenSdk/APOpenAPIObject.h>
 
-#import "MMShareConfigDto.h"
+#import "MCShareConfigDto.h"
 
 
 @implementation LDSDKAliPayDataVM

@@ -3,17 +3,17 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMDto.h"
+#import "MCDto.h"
 
 #import "LDSDKConfig.h"
 
 
-@interface MMResultDto : MMDto
+@interface MCResultDto : MCDto
 
 @property(nonatomic, assign) LDSDKErrorCode code;
 @property(nonatomic, strong) NSError *error;
 @property(nonatomic, strong) id object;
 
-+ (MMResultDto *)createResult:(id)object;
++ (MCResultDto *)createResult:(id)object;
 
 @end

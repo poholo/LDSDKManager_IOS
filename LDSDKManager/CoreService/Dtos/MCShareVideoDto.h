@@ -3,10 +3,10 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMShareNewsDto.h"
+#import "MCShareNewsDto.h"
 
 
-@interface MMShareAudioDto : MMShareNewsDto
+@interface MCShareVideoDto : MCShareNewsDto
 
 @property(nonatomic, strong) NSString *mediaUrl;
 

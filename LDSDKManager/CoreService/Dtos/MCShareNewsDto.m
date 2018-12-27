@@ -3,18 +3,15 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMShareImageDto.h"
+#import "MCShareNewsDto.h"
 
 
-@implementation MMShareImageDto
+@implementation MCShareNewsDto
 
 - (void)setValue:(nullable id)value forUndefinedKey:(NSString *)key {
     [super setValue:value forUndefinedKey:key];
-    if ([key isEqualToString:LDSDKShareImageKey]) {
-        self.image = value;
-    } else if ([key isEqualToString:LDSDKShareImageUrlKey]) {
-        self.imageUrl = value;
+    if ([key isEqualToString:LDSDKShareUrlKey]) {
+        self.url = value;
     }
 }
-
 @end

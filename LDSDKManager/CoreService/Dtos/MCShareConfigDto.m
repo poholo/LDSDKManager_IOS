@@ -3,7 +3,7 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMShareConfigDto.h"
+#import "MCShareConfigDto.h"
 
 
 extern NSString *const LDSDKConfigAppIdKey;
@@ -14,7 +14,7 @@ extern NSString *const LDSDKConfigAppDescriptionKey;
 extern NSString *const LDSDKShareRedirectURIKey;
 
 
-@implementation MMShareConfigDto
+@implementation MCShareConfigDto
 
 
 - (void)setValue:(nullable id)value forUndefinedKey:(NSString *)key {
@@ -24,6 +24,8 @@ extern NSString *const LDSDKShareRedirectURIKey;
         self.appSecret = value;
     } else if ([key isEqualToString:LDSDKConfigAppSchemeKey]) {
         self.appSchema = value;
+    } else if ([key isEqualToString:LDSDKConfigAppInstallUrl]) {
+        self.appInstallUrl = value;
     } else if ([key isEqualToString:LDSDKConfigAppPlatformTypeKey]) {
         self.appPlatformType = (LDSDKPlatformType) [value integerValue];
     } else if ([key isEqualToString:LDSDKConfigAppDescriptionKey]) {
@@ -37,6 +39,7 @@ extern NSString *const LDSDKShareRedirectURIKey;
     NSMutableDictionary *dictionary = [NSMutableDictionary new];
     dictionary[LDSDKConfigAppIdKey] = self.appId;
     dictionary[LDSDKConfigAppSecretKey] = self.appSecret;
+    dictionary[LDSDKConfigAppInstallUrl] = self.appInstallUrl;
     dictionary[LDSDKShareRedirectURIKey] = self.redirectURI;
     dictionary[LDSDKConfigAppPlatformTypeKey] = @(self.appPlatformType);
     return dictionary;

@@ -13,8 +13,8 @@
 #import "NSString+LDSDKAdditions.h"
 #import "NSDictionary+LDSDKAdditions.h"
 #import "LDSDKWechatImpDataVM.h"
-#import "MMShareConfigDto.h"
-#import "MMBaseShareDto.h"
+#import "MCShareConfigDto.h"
+#import "MCBaseShareDto.h"
 #import "WechatApiExtend.h"
 #import "NSDictionary+Extend.h"
 
@@ -46,7 +46,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 }
 
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
-    self.dataVM.configDto = [MMShareConfigDto createDto:config];
+    self.dataVM.configDto = [MCShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
     BOOL success = [WXApi registerApp:self.dataVM.configDto.appId enableMTA:YES];
     if (!success) {
@@ -205,7 +205,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
         return;
     }
     self.shareCallback = callback;
-    MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
+    MCBaseShareDto *shareDto = [MCBaseShareDto factoryCreateShareDto:exDict];
     SendMessageToWXReq *sendMessageToWXReq = [WechatApiExtend shareObject:shareDto];
 
     if (!shareDto || !sendMessageToWXReq) {

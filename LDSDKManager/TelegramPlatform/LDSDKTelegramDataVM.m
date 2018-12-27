@@ -37,6 +37,13 @@
 - (BOOL)share2Telegram:(NSDictionary *)exDict {
     NSURL *schema = [NSURL URLWithString:@"tg://"];
     NSString *text = exDict[LDSDKShareTitleKey];
+    if (text.length == 0) {
+        text = exDict[LDSDKShareDescKey];
+    }
+    if (text.length == 0) {
+        text = @"emptyContent";
+    }
+
     NSString *link = exDict[LDSDKShareUrlKey];
     NSString *url = [NSString stringWithFormat:@"tg://msg_url?text=%@&url=%@", [text urlEncode], [link urlEncode]];
 

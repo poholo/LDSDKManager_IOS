@@ -3,51 +3,51 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMBaseShareDto.h"
+#import "MCBaseShareDto.h"
 
-#import "MMShareTextDto.h"
-#import "MMShareImageDto.h"
-#import "MMShareNewsDto.h"
-#import "MMShareAudioDto.h"
-#import "MMShareVideoDto.h"
-#import "MMShareConfigDto.h"
-#import "MMShareFileDto.h"
-#import "MMShareMiniProgramDto.h"
+#import "MCShareTextDto.h"
+#import "MCShareImageDto.h"
+#import "MCShareNewsDto.h"
+#import "MCShareAudioDto.h"
+#import "MCShareVideoDto.h"
+#import "MCShareConfigDto.h"
+#import "MCShareFileDto.h"
+#import "MCShareMiniProgramDto.h"
 
 
-@implementation MMBaseShareDto
+@implementation MCBaseShareDto
 @synthesize supportDict = _supportDict;
 
 + (instancetype)factoryCreateShareDto:(NSDictionary *)exDict {
-    MMBaseShareDto *dto = nil;
+    MCBaseShareDto *dto = nil;
     LDSDKShareType shareType = (LDSDKShareType) [exDict[LDSDKShareTypeKey] integerValue];
     switch (shareType) {
         case LDSDKShareTypeText: {
-            dto = [MMShareTextDto createDto:exDict];
+            dto = [MCShareTextDto createDto:exDict];
         }
             break;
         case LDSDKShareTypeImage: {
-            dto = [MMShareImageDto createDto:exDict];
+            dto = [MCShareImageDto createDto:exDict];
         }
             break;
         case LDSDKShareTypeNews: {
-            dto = [MMShareNewsDto createDto:exDict];
+            dto = [MCShareNewsDto createDto:exDict];
         }
             break;
         case LDSDKShareTypeAudio: {
-            dto = [MMShareAudioDto createDto:exDict];
+            dto = [MCShareAudioDto createDto:exDict];
         }
             break;
         case LDSDKShareTypeVideo: {
-            dto = [MMShareVideoDto createDto:exDict];
+            dto = [MCShareVideoDto createDto:exDict];
         }
             break;
         case LDSDKShareTypeFile: {
-            dto = [MMShareFileDto createDto:exDict];
+            dto = [MCShareFileDto createDto:exDict];
         }
             break;
         case LDSDKShareTypeMiniProgram: {
-            dto = [MMShareMiniProgramDto createDto:exDict];
+            dto = [MCShareMiniProgramDto createDto:exDict];
         }
             break;
     }
@@ -71,7 +71,7 @@
     return NO;
 }
 
-- (MMBaseShareDto *)canReplaceShareDto {
+- (MCBaseShareDto *)canReplaceShareDto {
     return nil;
 }
 

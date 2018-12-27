@@ -3,13 +3,13 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMDto.h"
+#import "MCDto.h"
 
 
-@implementation MMDto
+@implementation MCDto
 
 + (instancetype)createDto:(NSDictionary *)dict {
-    MMDto *dto = [self new];
+    MCDto *dto = [self new];
     [dto setValuesForKeysWithDictionary:dict];
     return dto;
 }

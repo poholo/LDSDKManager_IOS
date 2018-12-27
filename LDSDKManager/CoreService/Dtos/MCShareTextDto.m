@@ -3,10 +3,10 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMShareTextDto.h"
+#import "MCShareTextDto.h"
 
 
-@implementation MMShareTextDto
+@implementation MCShareTextDto
 
 - (void)prepare {
     NSString *qq = [self keyForPlatform:LDSDKPlatformQQ shareToModule:LDSDKShareToContact];
@@ -27,7 +27,7 @@
     return [support boolValue];
 }
 
-- (MMBaseShareDto *)canReplaceShareDto {
+- (MCBaseShareDto *)canReplaceShareDto {
     return self;
 }
 

@@ -10,7 +10,7 @@
 
 @interface LDSDKWechatImpDataVM : NSObject <LDSDKShareDataVMService>
 
-@property(nonatomic, strong) MMShareConfigDto *configDto;
+@property(nonatomic, strong) MCShareConfigDto *configDto;
 
 @property(nonatomic, strong) NSString *code;
 @property(nonatomic, strong) NSDictionary *authDict;

@@ -1,12 +1,11 @@
 //
-// Created by majiancheng on 2018/12/12.
+// Created by majiancheng on 2018/12/4.
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMShareFileDto.h"
+#import "MCShareAudioDto.h"
 
-
-@implementation MMShareFileDto
+@implementation MCShareAudioDto
 
 - (void)setValue:(nullable id)value forUndefinedKey:(NSString *)key {
     [super setValue:value forUndefinedKey:key];

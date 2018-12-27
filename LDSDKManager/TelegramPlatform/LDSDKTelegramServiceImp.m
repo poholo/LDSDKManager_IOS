@@ -6,7 +6,7 @@
 #import "LDSDKTelegramServiceImp.h"
 
 #import "LDSDKTelegramDataVM.h"
-#import "MMShareConfigDto.h"
+#import "MCShareConfigDto.h"
 
 @interface LDSDKTelegramServiceImp ()
 
@@ -23,7 +23,7 @@
 }
 
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
-    self.dataVM.configDto = [MMShareConfigDto createDto:config];
+    self.dataVM.configDto = [MCShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
     self.dataVM.registerSuccess = YES;
     return error;

@@ -5,16 +5,16 @@
 
 #import "WBMessageObject+Extend.h"
 
-#import "MMBaseShareDto.h"
-#import "MMShareImageDto.h"
+#import "MCBaseShareDto.h"
+#import "MCShareImageDto.h"
 #import "UIImage+LDExtend.h"
-#import "MMShareNewsDto.h"
-#import "MMShareVideoDto.h"
+#import "MCShareNewsDto.h"
+#import "MCShareVideoDto.h"
 
 
 @implementation WBMessageObject (Extend)
 
-+ (WBMessageObject *)shareObject:(MMBaseShareDto *)shareDto {
++ (WBMessageObject *)shareObject:(MCBaseShareDto *)shareDto {
     WBMessageObject *messageObject = nil;
     switch (shareDto.shareType) {
         case LDSDKShareTypeText : {
@@ -22,7 +22,7 @@
         }
             break;
         case LDSDKShareTypeImage : {
-            MMShareImageDto *imageDto = (MMShareImageDto *) shareDto;
+            MCShareImageDto *imageDto = (MCShareImageDto *) shareDto;
             if (imageDto.image) {
                 messageObject = [self imageObject:shareDto];
             } else {
@@ -47,14 +47,14 @@
     return messageObject;
 }
 
-+ (WBMessageObject *)textObject:(MMBaseShareDto *)shareDto {
++ (WBMessageObject *)textObject:(MCBaseShareDto *)shareDto {
     WBMessageObject *messageObject = [WBMessageObject message];
     messageObject.text = shareDto.desc;
     return messageObject;
 }
 
-+ (WBMessageObject *)imageObject:(MMBaseShareDto *)shareDto {
-    MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
++ (WBMessageObject *)imageObject:(MCBaseShareDto *)shareDto {
+    MCShareImageDto *shareImageDto = (MCShareImageDto *) shareDto;
     WBMessageObject *messageObject = [WBMessageObject message];
     messageObject.text = shareDto.desc;
 
@@ -66,13 +66,13 @@
     return messageObject;
 }
 
-+ (WBMessageObject *)imageWebObject:(MMBaseShareDto *)shareDto {
++ (WBMessageObject *)imageWebObject:(MCBaseShareDto *)shareDto {
     //TODO url image
     return nil;
 }
 
-+ (WBMessageObject *)newsObject:(MMBaseShareDto *)shareDto {
-    MMShareNewsDto *shareNewsDto = (MMShareNewsDto *) shareDto;
++ (WBMessageObject *)newsObject:(MCBaseShareDto *)shareDto {
+    MCShareNewsDto *shareNewsDto = (MCShareNewsDto *) shareDto;
     WBMessageObject *messageObject = [WBMessageObject message];
     messageObject.text = shareDto.desc;
 
@@ -90,12 +90,12 @@
     return messageObject;
 }
 
-+ (WBMessageObject *)audioObject:(MMBaseShareDto *)shareDto {
++ (WBMessageObject *)audioObject:(MCBaseShareDto *)shareDto {
     return [[self class] newsObject:shareDto];
 }
 
-+ (WBMessageObject *)videoObject:(MMBaseShareDto *)shareDto {
-    MMShareVideoDto *shareVideoDto = (MMShareVideoDto *) shareDto;
++ (WBMessageObject *)videoObject:(MCBaseShareDto *)shareDto {
+    MCShareVideoDto *shareVideoDto = (MCShareVideoDto *) shareDto;
     WBMessageObject *messageObject = [WBMessageObject message];
     messageObject.text = shareDto.desc;
 

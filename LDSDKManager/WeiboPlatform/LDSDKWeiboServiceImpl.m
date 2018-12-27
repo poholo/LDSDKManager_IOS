@@ -15,9 +15,9 @@
 
 #import "LDSDKConfig.h"
 #import "LDSDKWeiboDataVM.h"
-#import "MMShareConfigDto.h"
+#import "MCShareConfigDto.h"
 #import "LDSDKExtendProtocol.h"
-#import "MMBaseShareDto.h"
+#import "MCBaseShareDto.h"
 #import "WBMessageObject+Extend.h"
 #import "LDNetworkManager.h"
 
@@ -40,7 +40,7 @@
 }
 
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
-    self.dataVM.configDto = [MMShareConfigDto createDto:config];
+    self.dataVM.configDto = [MCShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
     BOOL success = [WeiboSDK registerApp:self.dataVM.configDto.appId];
     if (!success) {
@@ -73,7 +73,7 @@
     self.shareCallback = callback;
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
     authRequest.redirectURI = self.dataVM.configDto.redirectURI;
-    MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
+    MCBaseShareDto *shareDto = [MCBaseShareDto factoryCreateShareDto:exDict];
     WBMessageObject *messageObject = [WBMessageObject shareObject:shareDto];
 
     if (!shareDto || !messageObject) {

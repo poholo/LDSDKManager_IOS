@@ -3,11 +3,11 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMBaseShareDto.h"
+#import "MCBaseShareDto.h"
 
 #import <UIKit/UIKit.h>
 
-@interface MMShareImageDto : MMBaseShareDto
+@interface MCShareImageDto : MCBaseShareDto
 
 @property(nonatomic, strong) UIImage *image;
 

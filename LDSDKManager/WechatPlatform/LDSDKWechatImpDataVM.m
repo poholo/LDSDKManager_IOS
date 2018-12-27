@@ -8,7 +8,7 @@
 #import <WechatOpenSDK/WXApi.h>
 
 #import "NSString+Extend.h"
-#import "MMShareConfigDto.h"
+#import "MCShareConfigDto.h"
 
 NSString *const kWX_NICKNAME_KEY = @"nickname";
 NSString *const kWX_AVATARURL_KEY = @"headimgurl";

@@ -3,10 +3,10 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMShareVideoDto.h"
+#import "MCShareVideoDto.h"
 
 
-@implementation MMShareVideoDto
+@implementation MCShareVideoDto
 
 - (void)setValue:(nullable id)value forUndefinedKey:(NSString *)key {
     [super setValue:value forUndefinedKey:key];

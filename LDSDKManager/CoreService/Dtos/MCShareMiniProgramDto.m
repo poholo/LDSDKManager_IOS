@@ -3,10 +3,10 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "MMShareMiniProgramDto.h"
+#import "MCShareMiniProgramDto.h"
 
 
-@implementation MMShareMiniProgramDto
+@implementation MCShareMiniProgramDto
 
 - (void)setValue:(nullable id)value forUndefinedKey:(NSString *)key {
     [super setValue:value forUndefinedKey:key];

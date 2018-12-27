@@ -8,8 +8,8 @@
 #import <DTShareKit/DTOpenKit.h>
 
 #import "LDSDKDingTalkDataVM.h"
-#import "MMShareConfigDto.h"
-#import "MMBaseShareDto.h"
+#import "MCShareConfigDto.h"
+#import "MCBaseShareDto.h"
 #import "DTBaseReq+Extend.h"
 
 @interface LDSDKDingTalkServiceImp () <DTOpenAPIDelegate>
@@ -52,7 +52,7 @@
 }
 
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
-    self.dataVM.configDto = [MMShareConfigDto createDto:config];
+    self.dataVM.configDto = [MCShareConfigDto createDto:config];
     BOOL success = [DTOpenAPI registerApp:self.dataVM.configDto.appId];
     NSError *error = [self.dataVM registerValidate];
     if (!success || error.code != LDSDKSuccess) {
@@ -81,7 +81,7 @@
         return;
     }
     self.shareCallback = callback;
-    MMBaseShareDto *shareDto = [MMBaseShareDto factoryCreateShareDto:exDict];
+    MCBaseShareDto *shareDto = [MCBaseShareDto factoryCreateShareDto:exDict];
     DTBaseReq *req = [DTBaseReq shareObject:shareDto];
     if (!shareDto || !req) {
         if (self.shareCallback) {

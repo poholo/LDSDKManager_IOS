@@ -4,15 +4,15 @@
 //
 
 #import "APBaseReq+Extend.h"
-#import "MMBaseShareDto.h"
-#import "MMShareImageDto.h"
+#import "MCBaseShareDto.h"
+#import "MCShareImageDto.h"
 #import "UIImage+LDExtend.h"
-#import "MMShareNewsDto.h"
+#import "MCShareNewsDto.h"
 
 
 @implementation APBaseReq (Extend)
 
-+ (APBaseReq *)shareObject:(MMBaseShareDto *)shareDto {
++ (APBaseReq *)shareObject:(MCBaseShareDto *)shareDto {
     APSendMessageToAPReq *apSendMessageToAPReq = nil;
     switch (shareDto.shareType) {
         case LDSDKShareTypeText : {
@@ -46,15 +46,15 @@
     return apSendMessageToAPReq;
 }
 
-+ (id)textObject:(MMBaseShareDto *)shareDto {
++ (id)textObject:(MCBaseShareDto *)shareDto {
     APShareTextObject *apShareTextObject = [APShareTextObject new];
     apShareTextObject.text = shareDto.desc;
     return [APBaseReq factoryMessageReq:shareDto media:apShareTextObject];
 
 }
 
-+ (id)imageObject:(MMBaseShareDto *)shareDto {
-    MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
++ (id)imageObject:(MCBaseShareDto *)shareDto {
+    MCShareImageDto *shareImageDto = (MCShareImageDto *) shareDto;
     APShareImageObject *apShareImageObject = [APShareImageObject new];
     apShareImageObject.imageData = [shareImageDto.image ld_compressImageLimitSize:32 * 1024];
     apShareImageObject.imageUrl = shareImageDto.imageUrl;
@@ -62,27 +62,27 @@
     return apSendMessageToAPReq;
 }
 
-+ (id)imageWebObject:(MMBaseShareDto *)shareDto {
++ (id)imageWebObject:(MCBaseShareDto *)shareDto {
     return nil;
 }
 
-+ (id)newsObject:(MMBaseShareDto *)shareDto {
-    MMShareNewsDto *shareNewsDto = (MMShareNewsDto *) shareDto;
++ (id)newsObject:(MCBaseShareDto *)shareDto {
+    MCShareNewsDto *shareNewsDto = (MCShareNewsDto *) shareDto;
     APShareWebObject *apShareWebObject = [APShareWebObject new];
     apShareWebObject.wepageUrl = shareNewsDto.url;
     APBaseReq *apSendMessageToAPReq = [APBaseReq factoryMessageReq:shareNewsDto media:apShareWebObject];
     return apSendMessageToAPReq;
 }
 
-+ (id)audioObject:(MMBaseShareDto *)shareDto {
++ (id)audioObject:(MCBaseShareDto *)shareDto {
     return nil;
 }
 
-+ (id)videoObject:(MMBaseShareDto *)shareDto {
++ (id)videoObject:(MCBaseShareDto *)shareDto {
     return nil;
 }
 
-+ (id)fileObject:(MMBaseShareDto *)shareDto {
++ (id)fileObject:(MCBaseShareDto *)shareDto {
     return nil;
 }
 
@@ -102,14 +102,14 @@
 }
 
 
-+ (APBaseReq *)factoryMessageReq:(MMBaseShareDto *)shareDto media:(id)media {
++ (APBaseReq *)factoryMessageReq:(MCBaseShareDto *)shareDto media:(id)media {
     APSendMessageToAPReq *apSendMessageToAPReq = [APSendMessageToAPReq new];
     apSendMessageToAPReq.scene = (APScene) [APBaseReq moduleToPlatform:shareDto.shareToModule];
     APMediaMessage *apMediaMessage = [APMediaMessage new];
     apMediaMessage.title = shareDto.title;
     apMediaMessage.desc = shareDto.desc;
-    if ([shareDto isKindOfClass:[MMShareImageDto class]]) {
-        MMShareImageDto *shareImageDto = (MMShareImageDto *) shareDto;
+    if ([shareDto isKindOfClass:[MCShareImageDto class]]) {
+        MCShareImageDto *shareImageDto = (MCShareImageDto *) shareDto;
         apMediaMessage.thumbData = [shareImageDto.image ld_compressImageLimitSize:32 * 1024];
         apMediaMessage.thumbUrl = shareImageDto.imageUrl;
     }
