@@ -1,11 +1,28 @@
 # LDSDKManager_IOS
-主要聚合QQ、微信、微博、支付宝等第三方库，抽象封装分享、授权、支付功能，以便其他开发者能快速接入。
+聚合QQ、微信、微博、支付宝、钉钉、Telegram等第三方库，抽象封装分享、授权、支付功能，以便其他开发者能快速接入。
 
 ## 集成方式
 
 ```
 pod 'LDSDKManager'
+
 ```
+
+默认配置LDSDKManager集成的所有库，如果你有选择性的集成，请按照如下集成
+```ruby
+
+pod 'LDSDKManager/QQ'
+pod 'LDSDKManager/Wechat'
+pod 'LDSDKManager/Weibo'
+pod 'LDSDKManager/Alipay'
+pod 'LDSDKManager/DingTalk'
+pod 'LDSDKManager/Telegram'
+
+or 
+pod 'LDSDKManager/All'
+
+```
+
 
 
 ## 集成步骤

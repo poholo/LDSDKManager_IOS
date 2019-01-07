@@ -22,7 +22,6 @@
 		25B5EE9B21D235880048389C /* MCShareImageDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4421D235880048389C /* MCShareImageDto.m */; };
 		25B5EE9C21D235880048389C /* MCShareTextDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4521D235880048389C /* MCShareTextDto.m */; };
 		25B5EE9D21D235880048389C /* MCShareAudioDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4621D235880048389C /* MCShareAudioDto.m */; };
-		25B5EE9E21D235880048389C /* MCResultDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4D21D235880048389C /* MCResultDto.m */; };
 		25B5EE9F21D235880048389C /* MCShareFileDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4E21D235880048389C /* MCShareFileDto.m */; };
 		25B5EEA021D235880048389C /* NSDictionary+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE5621D235880048389C /* NSDictionary+Extend.m */; };
 		25B5EEA121D235880048389C /* UIImage+LDExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE5721D235880048389C /* UIImage+LDExtend.m */; };
@@ -66,7 +65,6 @@
 		1A66653B7905552ED02382B7 /* LDSDKManager.podspec */ = {isa = PBXFileReference; lastKnownFileType = file.podspec; name = LDSDKManager.podspec; path = ../LDSDKManager.podspec; sourceTree = "<group>"; };
 		1A66679CCDEC302BCB1E5514 /* LLDPlatformDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDPlatformDto.m; sourceTree = "<group>"; };
 		1A666A647DD6544631A52487 /* LLDPlatform.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LLDPlatform.json; sourceTree = "<group>"; };
-		1A666B0B7DC51DB12BAFBC12 /* LDSDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKManager.h; sourceTree = "<group>"; };
 		1A666C2C63C803A817872234 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		25B5EE3621D235880048389C /* LDNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDNetworkManager.m; sourceTree = "<group>"; };
 		25B5EE3721D235880048389C /* LDNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDNetworkManager.h; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 		25B5EE4021D235880048389C /* MCShareMiniProgramDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCShareMiniProgramDto.m; sourceTree = "<group>"; };
 		25B5EE4121D235880048389C /* MCShareFileDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareFileDto.h; sourceTree = "<group>"; };
 		25B5EE4221D235880048389C /* MCBaseShareDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCBaseShareDto.m; sourceTree = "<group>"; };
-		25B5EE4321D235880048389C /* MCResultDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCResultDto.h; sourceTree = "<group>"; };
 		25B5EE4421D235880048389C /* MCShareImageDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCShareImageDto.m; sourceTree = "<group>"; };
 		25B5EE4521D235880048389C /* MCShareTextDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCShareTextDto.m; sourceTree = "<group>"; };
 		25B5EE4621D235880048389C /* MCShareAudioDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCShareAudioDto.m; sourceTree = "<group>"; };
@@ -88,7 +85,6 @@
 		25B5EE4A21D235880048389C /* MCShareConfigDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareConfigDto.h; sourceTree = "<group>"; };
 		25B5EE4B21D235880048389C /* MCShareMiniProgramDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareMiniProgramDto.h; sourceTree = "<group>"; };
 		25B5EE4C21D235880048389C /* MCShareImageDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareImageDto.h; sourceTree = "<group>"; };
-		25B5EE4D21D235880048389C /* MCResultDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCResultDto.m; sourceTree = "<group>"; };
 		25B5EE4E21D235880048389C /* MCShareFileDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCShareFileDto.m; sourceTree = "<group>"; };
 		25B5EE4F21D235880048389C /* MCBaseShareDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCBaseShareDto.h; sourceTree = "<group>"; };
 		25B5EE5021D235880048389C /* MCShareAudioDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareAudioDto.h; sourceTree = "<group>"; };
@@ -197,23 +193,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		25B5EE3321D235880048389C /* LDSDKManager */ = {
+		25B5EE3321D235880048389C /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				25B5EE3421D235880048389C /* CoreService */,
+				25B5EE3421D235880048389C /* Core */,
 				25B5EE6421D235880048389C /* TelegramPlatform */,
 				25B5EE6921D235880048389C /* QQPlatform */,
 				25B5EE7021D235880048389C /* WeiboPlatform */,
 				25B5EE7721D235880048389C /* WechatPlatform */,
 				25B5EE8321D235880048389C /* AlipayPlatform */,
 				25B5EE8A21D235880048389C /* DingTalkPlatform */,
-				1A666B0B7DC51DB12BAFBC12 /* LDSDKManager.h */,
 			);
-			name = LDSDKManager;
-			path = ../LDSDKManager;
+			name = SDK;
+			path = ../SDK;
 			sourceTree = "<group>";
 		};
-		25B5EE3421D235880048389C /* CoreService */ = {
+		25B5EE3421D235880048389C /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				25B5EE3521D235880048389C /* Net */,
@@ -227,7 +222,7 @@
 				25B5EE6221D235880048389C /* LDSDKManagerDataVM.h */,
 				25B5EE6321D235880048389C /* LDSDKManager.h */,
 			);
-			path = CoreService;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		25B5EE3521D235880048389C /* Net */ = {
@@ -248,7 +243,6 @@
 				25B5EE4021D235880048389C /* MCShareMiniProgramDto.m */,
 				25B5EE4121D235880048389C /* MCShareFileDto.h */,
 				25B5EE4221D235880048389C /* MCBaseShareDto.m */,
-				25B5EE4321D235880048389C /* MCResultDto.h */,
 				25B5EE4421D235880048389C /* MCShareImageDto.m */,
 				25B5EE4521D235880048389C /* MCShareTextDto.m */,
 				25B5EE4621D235880048389C /* MCShareAudioDto.m */,
@@ -257,7 +251,6 @@
 				25B5EE4A21D235880048389C /* MCShareConfigDto.h */,
 				25B5EE4B21D235880048389C /* MCShareMiniProgramDto.h */,
 				25B5EE4C21D235880048389C /* MCShareImageDto.h */,
-				25B5EE4D21D235880048389C /* MCResultDto.m */,
 				25B5EE4E21D235880048389C /* MCShareFileDto.m */,
 				25B5EE4F21D235880048389C /* MCBaseShareDto.h */,
 				25B5EE5021D235880048389C /* MCShareAudioDto.h */,
@@ -384,7 +377,7 @@
 		25BED69321B23078000EBCB4 = {
 			isa = PBXGroup;
 			children = (
-				25B5EE3321D235880048389C /* LDSDKManager */,
+				25B5EE3321D235880048389C /* SDK */,
 				25BED6EF21B232AE000EBCB4 /* Source */,
 				25BED6B521B2314D000EBCB4 /* Code */,
 				25BED69E21B23078000EBCB4 /* LDSDKManager_SDK_Example */,
@@ -597,7 +590,6 @@
 				25B5EE9521D235880048389C /* MCShareConfigDto.m in Sources */,
 				25B5EE9921D235880048389C /* MCShareMiniProgramDto.m in Sources */,
 				25B5EEA421D235880048389C /* LDSDKTelegramServiceImp.m in Sources */,
-				25B5EE9E21D235880048389C /* MCResultDto.m in Sources */,
 				25BED6E221B2314E000EBCB4 /* LLDViewController.m in Sources */,
 				1A666E1ECEAD6B7C5F356C31 /* LLDPlatformDto.m in Sources */,
 				25B5EE9221D235880048389C /* LDSDKManagerDataVM.m in Sources */,
