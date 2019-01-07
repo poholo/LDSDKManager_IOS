@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'LDSDKManager'
-    s.version          = '1.0.7'
+    s.version          = '1.0.8'
     s.summary          = 'iOS第三方聚合库'
     s.description      = '主要聚合QQ、微信、微博、支付宝等第三方库，抽象封装分享、授权、支付功能，以便其他开发者能快速接入。'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -18,6 +18,8 @@ Pod::Spec.new do |s|
                           'LDSDKManager/CoreService/*.{h,m,mm}'
         ss.public_header_files = 'LDSDKManager/CoreService/*.h'
         ss.public_header_files = 'LDSDKManager/CoreService/**/*.h'
+        ss.dependency 'MCBase/Dto'
+        ss.dependency 'MCBase/Log'
     end
     
     #QQ平台SDK集成

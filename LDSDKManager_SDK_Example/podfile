@@ -2,10 +2,12 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'LDSDKManager_SDK_Example' do
+  pod 'MCBase/Dto'
+  pod 'MCBase/Log'
   pod 'MCTencentOpenAPI'
   pod 'WechatOpenSDK'
   pod 'Weibo_SDK'
-  pod 'MCAlipaySDK_NO_UTDID', git: 'https://github.com/poholo/MCAlipaySDK'
+  pod 'AlipaySDK-iOS'
   pod 'APOpenSdk'
   pod 'MCDingTalk'
 end

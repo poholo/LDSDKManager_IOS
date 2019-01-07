@@ -5,6 +5,8 @@
 
 #import "LDSDKManagerDataVM.h"
 
+#import <MCBase/MCLog.h>
+
 #import "LDSDKConfig.h"
 #import "LDSDKShareService.h"
 #import "LDSDKPayService.h"
@@ -53,14 +55,14 @@
 }
 
 - (void)register:(NSArray<NSDictionary *> *)configs {
-    LDLog(@"*******[PlatformRegister]Start************");
+    MCLog(@"*******[PlatformRegister]Start************");
     for (NSDictionary *config in configs) {
         NSNumber *platformType = config[LDSDKConfigAppPlatformTypeKey];
         id <LDSDKRegisterService> service = self.registerServiceDict[platformType];
         NSError *error = [service registerWithPlatformConfig:config];
-        LDLog(@"[Code]%zd %@", error.code, error.userInfo[kErrorMessage]);
+        MCLog(@"[Code]%zd %@", error.code, error.userInfo[kErrorMessage]);
     }
-    LDLog(@"*******[PlatformRegister]End************");
+    MCLog(@"*******[PlatformRegister]End************");
 }
 
 #pragma mark - getter

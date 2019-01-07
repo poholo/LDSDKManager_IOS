@@ -4,7 +4,8 @@
 //
 
 #import "LDNetworkManager.h"
-#import "LDSDKConfig.h"
+
+#import <MCBase/MCLog.h>
 
 @interface LDNetworkManager () <NSURLSessionDelegate>
 
@@ -43,7 +44,7 @@
                 NSError *err;
                 NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
                 if (err) {
-                    LDLog(@"[JSON]%@", err);
+                    MCLog(@"[JSON]%@", err);
                 }
                 self.callBack(YES, dictionary);
             }

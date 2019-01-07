@@ -8,6 +8,7 @@
 
 #import "LLDViewController.h"
 
+#import <MCBase/MCLog.h>
 #import "LDSDKAuthService.h"
 #import "LDSDKManager.h"
 
@@ -111,7 +112,7 @@
     id <LDSDKAuthService> authService = [[LDSDKManager share] authService:self.dataVM.curPlatformDto.type];
     __weak typeof(self) weakSelf = self;
     [authService authPlatformCallback:^(LDSDKLoginCode code, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo) {
-        LDLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
+        MCLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (code == LDSDKLoginSuccess) {
             if (userInfo == nil && oauthInfo != nil) {
@@ -138,7 +139,7 @@
     id <LDSDKAuthService> authService = [[LDSDKManager share] authService:self.dataVM.curPlatformDto.type];
     __weak typeof(self) weakSelf = self;
     [authService authPlatformQRCallback:^(LDSDKLoginCode code, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo) {
-        LDLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
+        MCLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (code == LDSDKLoginSuccess) {
             if (userInfo == nil && oauthInfo != nil) {
@@ -165,7 +166,7 @@
     id <LDSDKAuthService> authService = [[LDSDKManager share] authService:self.dataVM.curPlatformDto.type];
     __weak typeof(self) weakSelf = self;
     [authService authLogoutPlatformCallback:^(LDSDKLoginCode code, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo) {
-        LDLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
+        MCLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (code == LDSDKLoginSuccess) {
             [strongSelf.infoLabel setText:@"退出登录成功"];

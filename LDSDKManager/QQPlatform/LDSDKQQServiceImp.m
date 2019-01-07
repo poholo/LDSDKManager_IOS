@@ -8,6 +8,8 @@
 
 #import "LDSDKQQServiceImp.h"
 
+
+#import <MCBase/MCLog.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 
@@ -182,11 +184,11 @@
 #pragma mark  WXApiDelegate
 
 - (void)onReq:(QQBaseReq *)req {
-    LDLog(@"%@", req);
+    MCLog(@"%@", req);
 }
 
 - (void)onResp:(QQBaseResp *)resp {
-    LDLog(@"%@", resp);
+    MCLog(@"%@", resp);
     if ([self.dataVM canResponseShareResult:resp] && [self responseResult:resp]) {
         return;
     }
@@ -194,7 +196,7 @@
 }
 
 - (void)isOnlineResponse:(NSDictionary *)response {
-    LDLog(@"%@", response);
+    MCLog(@"%@", response);
 }
 
 #pragma mark -
@@ -245,7 +247,7 @@
 
 //获取用户个人信息回调
 - (void)getUserInfoResponse:(APIResponse *)response {
-    LDLog(@"getUserInfo %d  %@ \n %@", response.retCode, response.message, response.errorMsg);
+    MCLog(@"getUserInfo %d  %@ \n %@", response.retCode, response.message, response.errorMsg);
     if (response.retCode == URLREQUEST_SUCCEED) {  //成功用户资料
         if (response.detailRetCode == kOpenSDKErrorSuccess) {
             if (self.authCallback) {

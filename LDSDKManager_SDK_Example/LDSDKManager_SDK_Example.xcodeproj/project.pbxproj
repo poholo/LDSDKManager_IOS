@@ -16,7 +16,6 @@
 		25B5EE9421D235880048389C /* LDSDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3A21D235880048389C /* LDSDKManager.m */; };
 		25B5EE9521D235880048389C /* MCShareConfigDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3C21D235880048389C /* MCShareConfigDto.m */; };
 		25B5EE9621D235880048389C /* MCShareVideoDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3D21D235880048389C /* MCShareVideoDto.m */; };
-		25B5EE9721D235880048389C /* MCDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3E21D235880048389C /* MCDto.m */; };
 		25B5EE9821D235880048389C /* MCShareNewsDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE3F21D235880048389C /* MCShareNewsDto.m */; };
 		25B5EE9921D235880048389C /* MCShareMiniProgramDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4021D235880048389C /* MCShareMiniProgramDto.m */; };
 		25B5EE9A21D235880048389C /* MCBaseShareDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4221D235880048389C /* MCBaseShareDto.m */; };
@@ -76,7 +75,6 @@
 		25B5EE3A21D235880048389C /* LDSDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDSDKManager.m; sourceTree = "<group>"; };
 		25B5EE3C21D235880048389C /* MCShareConfigDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCShareConfigDto.m; sourceTree = "<group>"; };
 		25B5EE3D21D235880048389C /* MCShareVideoDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCShareVideoDto.m; sourceTree = "<group>"; };
-		25B5EE3E21D235880048389C /* MCDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCDto.m; sourceTree = "<group>"; };
 		25B5EE3F21D235880048389C /* MCShareNewsDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCShareNewsDto.m; sourceTree = "<group>"; };
 		25B5EE4021D235880048389C /* MCShareMiniProgramDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCShareMiniProgramDto.m; sourceTree = "<group>"; };
 		25B5EE4121D235880048389C /* MCShareFileDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareFileDto.h; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 		25B5EE4621D235880048389C /* MCShareAudioDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCShareAudioDto.m; sourceTree = "<group>"; };
 		25B5EE4721D235880048389C /* MCShareNewsDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareNewsDto.h; sourceTree = "<group>"; };
 		25B5EE4821D235880048389C /* MCShareVideoDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareVideoDto.h; sourceTree = "<group>"; };
-		25B5EE4921D235880048389C /* MCDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCDto.h; sourceTree = "<group>"; };
 		25B5EE4A21D235880048389C /* MCShareConfigDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareConfigDto.h; sourceTree = "<group>"; };
 		25B5EE4B21D235880048389C /* MCShareMiniProgramDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareMiniProgramDto.h; sourceTree = "<group>"; };
 		25B5EE4C21D235880048389C /* MCShareImageDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareImageDto.h; sourceTree = "<group>"; };
@@ -247,7 +244,6 @@
 			children = (
 				25B5EE3C21D235880048389C /* MCShareConfigDto.m */,
 				25B5EE3D21D235880048389C /* MCShareVideoDto.m */,
-				25B5EE3E21D235880048389C /* MCDto.m */,
 				25B5EE3F21D235880048389C /* MCShareNewsDto.m */,
 				25B5EE4021D235880048389C /* MCShareMiniProgramDto.m */,
 				25B5EE4121D235880048389C /* MCShareFileDto.h */,
@@ -258,7 +254,6 @@
 				25B5EE4621D235880048389C /* MCShareAudioDto.m */,
 				25B5EE4721D235880048389C /* MCShareNewsDto.h */,
 				25B5EE4821D235880048389C /* MCShareVideoDto.h */,
-				25B5EE4921D235880048389C /* MCDto.h */,
 				25B5EE4A21D235880048389C /* MCShareConfigDto.h */,
 				25B5EE4B21D235880048389C /* MCShareMiniProgramDto.h */,
 				25B5EE4C21D235880048389C /* MCShareImageDto.h */,
@@ -527,7 +522,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example-resources.sh",
 				"${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle",
 				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
 			);
@@ -538,7 +533,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LDSDKManager_SDK_Example/Pods-LDSDKManager_SDK_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4741B4BD009809A02C0BAB06 /* [CP] Check Pods Manifest.lock */ = {
@@ -579,7 +574,6 @@
 				25B5EEB421D235890048389C /* DTBaseReq+Extend.m in Sources */,
 				25B5EEA521D235880048389C /* LDSDKQQServiceImp.m in Sources */,
 				25B5EEA621D235880048389C /* QQApiObject+Extend.m in Sources */,
-				25B5EE9721D235880048389C /* MCDto.m in Sources */,
 				25B5EE9B21D235880048389C /* MCShareImageDto.m in Sources */,
 				25B5EE9A21D235880048389C /* MCBaseShareDto.m in Sources */,
 				25BED6AF21B23079000EBCB4 /* main.m in Sources */,

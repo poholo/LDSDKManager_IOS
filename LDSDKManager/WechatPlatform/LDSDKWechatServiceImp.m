@@ -9,6 +9,7 @@
 #import "LDSDKWechatServiceImp.h"
 
 #import <WechatOpenSDK/WXApi.h>
+#import <MCBase/MCLog.h>
 
 #import "NSString+LDSDKAdditions.h"
 #import "NSDictionary+LDSDKAdditions.h"
@@ -257,11 +258,11 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 #pragma mark - WXApiDelegate
 
 - (void)onReq:(BaseReq *)req {
-    LDLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
+    MCLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 }
 
 - (void)onResp:(BaseResp *)resp {
-    LDLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
+    MCLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 
     if ([self.dataVM canResponseShareResult:resp] && [self responseResult:resp]) {
         return;
@@ -344,7 +345,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    LDLog(@"connectionDidFinishLoading");
+    MCLog(@"connectionDidFinishLoading");
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {

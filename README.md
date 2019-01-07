@@ -198,6 +198,7 @@ SDKManager中LDSDKPlatformType添加相应type；
 1.0.5 a.三方库均用官方和poholo维护的三方库
       b.更新sdk，增加更多的分享类型，以及平台特性。
       c.授权-微博增加用户信息获取
+1.0.8 support MCBase/Dto & Log
 ```
 
 ## Author

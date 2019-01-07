@@ -12,8 +12,8 @@
 #import "LDSDKWeiboServiceImpl.h"
 
 #import <Weibo_SDK/WeiboSDK.h>
+#import <MCBase/MCLog.h>
 
-#import "LDSDKConfig.h"
 #import "LDSDKWeiboDataVM.h"
 #import "MCShareConfigDto.h"
 #import "LDSDKExtendProtocol.h"
@@ -205,11 +205,11 @@
 #pragma mark - WeiboSDKDelegate
 
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request; {
-    LDLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
+    MCLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
 }
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
-    LDLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
+    MCLog(@"[%@]%s", NSStringFromClass([self class]), __FUNCTION__);
     if ([self.dataVM canResponseShareResult:response] && [self responseResult:response]) {
         return;
     }

@@ -102,11 +102,5 @@ typedef NS_ENUM(NSUInteger, LDSDKMiniProgramType) {
     LDSDKMiniProgramTypePreview = 2,         //**< 体验版  */
 };
 
-#if DEBUG
-#define LDLog(fmt, ...) NSLog((@"%s %d " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-#else
-#define LDLog(fmt, ...)
-#endif
-
 @interface LDSDKConfig : NSObject
 @end
