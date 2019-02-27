@@ -208,7 +208,7 @@ SDKManager中LDSDKPlatformType添加相应type；
 修改SDKServiceConfig.plist，添加新SDK支持的Service以及对应实现的文件名。
 
 ## updates
-```xml
+```text
 
 1.0.4 更新依赖方式（pod版），支持最新的sdk
 
