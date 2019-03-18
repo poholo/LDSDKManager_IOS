@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^LDSDKPayCallback)(NSString *signString, NSError *error);
+typedef void (^LDSDKPayCallback)(id result, NSError *error);
 
 @protocol LDSDKPayService <NSObject>
 

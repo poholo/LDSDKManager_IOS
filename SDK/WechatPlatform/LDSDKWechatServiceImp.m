@@ -247,11 +247,6 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     return success;
 }
 
-- (BOOL)handleResultUrl:(NSURL *)url {
-    return [WXApi handleOpenURL:url delegate:self];
-}
-
-
 #pragma mark - WXApiDelegate
 
 - (void)onReq:(BaseReq *)req {
@@ -276,10 +271,9 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
         }
     } else if ([resp isKindOfClass:[PayResp class]]) {
         PayResp *payResp = (PayResp *) resp;
-        NSError *error = [NSError errorWithDomain:@"wxPay"
-                                             code:resp.errCode
-                                         userInfo:@{@"NSLocalizedDescription": resp.errStr}];
-
+        error = [NSError errorWithDomain:@"wxPay"
+                                    code:resp.errCode
+                                userInfo:@{@"NSLocalizedDescription": resp.errStr}];
         if (self.payCallBack) {
             self.payCallBack(payResp.returnKey, error);
         }

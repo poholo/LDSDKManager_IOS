@@ -178,7 +178,7 @@
 #pragma mark -  支付部分
 
 - (void)payOrder:(NSString *)orderString callback:(LDSDKPayCallback)callback {
-    NSLog(@"AliPay");
+    self.payCallBack = callback;
     [self alipayOrder:orderString callback:callback];
 }
 
@@ -196,32 +196,55 @@
 #pragma mark - alipay
 
 - (void)alipayOrder:(NSString *)orderString callback:(LDSDKPayCallback)callback {
-    [[AlipaySDK defaultService]
-            payOrder:orderString
-          fromScheme:self.aliPayScheme
-            callback:^(NSDictionary *resultDic) {
-                NSString *signString = resultDic[@"result"];
-                NSString *memo = resultDic[@"memo"];
-                NSInteger resultStatus = [resultDic[@"resultStatus"] integerValue];
-                if (callback) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        if (resultStatus == 9000) {
-                            callback(signString, nil);
-                        } else {
-                            NSError *error = [NSError errorWithDomain:@"AliPay"
-                                                                 code:0
-                                                             userInfo:@{@"NSLocalizedDescription": memo}];
-                            callback(signString, error);
-                        }
-
-                    });
-                }
-            }];
+    __weak typeof(self) weakSelf = self;
+    [[AlipaySDK defaultService] payOrder:orderString fromScheme:self.aliPayScheme callback:^(NSDictionary *resultDic) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf __processAlipayNext:resultDic];
+    }];
 }
 
 - (void)aliPayProcessOrderWithPaymentResult:(NSURL *)url
                             standbyCallback:(void (^)(NSDictionary *resultDic))callback {
-    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:callback];
+    __weak typeof(self) weakSelf = self;
+    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *dict) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf __processAlipayNext:dict];
+    }];
+}
+
+- (void)__processAlipayNext:(NSDictionary *)resultDict {
+    NSDictionary *params = [self.dataVM authParams:resultDict[@"result"]];
+    NSInteger status = [params[@"resultStatus"] integerValue];
+
+    if (self.payCallBack) {
+        __weak typeof(self) weakSelf = self;
+        [self mainExecute:^{
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if (status == 9000) {
+                self.payCallBack(params, nil);
+            } else {
+                NSError *error = [NSError errorWithDomain:@"AliPay"
+                                                     code:0
+                                                 userInfo:@{@"NSLocalizedDescription": @"支付失败"}];
+                strongSelf.payCallBack(params, error);
+            }
+        }];
+    }
+}
+
+
+- (void)mainExecute:(dispatch_block_t)block {
+    if ([NSThread isMainThread]) {
+        if (block) {
+            block();
+        }
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block();
+            }
+        });
+    }
 }
 
 
