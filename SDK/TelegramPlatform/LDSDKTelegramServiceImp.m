@@ -33,10 +33,6 @@
     return self.dataVM.registerSuccess;
 }
 
-- (BOOL)handleResultUrl:(NSURL *)url {
-    return NO;
-}
-
 - (void)shareContent:(NSDictionary *)exDict {
     self.shareCallback = exDict[LDSDKShareCallBackKey];
     BOOL success = [self.dataVM share2Telegram:exDict];

@@ -58,14 +58,6 @@
     return self.dataVM.registerSuccess;
 }
 
-
-#pragma mark 处理URL回调
-
-- (BOOL)handleResultUrl:(NSURL *)url {
-    return [WeiboSDK handleOpenURL:url delegate:self];
-}
-
-
 #pragma mark 分享部分
 
 - (void)shareContent:(NSDictionary *)exDict {
@@ -146,7 +138,6 @@
     BOOL success = [WeiboSDK handleOpenURL:url delegate:self];
     return success;
 }
-
 
 #pragma mark - Auth
 

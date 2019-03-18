@@ -67,10 +67,6 @@
     return self.dataVM.registerSuccess;
 }
 
-- (BOOL)handleResultUrl:(NSURL *)url {
-    return NO;
-}
-
 - (void)shareContent:(NSDictionary *)exDict {
     NSError *error = [self.dataVM supportContinue:@"DingTalk"];
     LDSDKShareCallback callback = exDict[LDSDKShareCallBackKey];

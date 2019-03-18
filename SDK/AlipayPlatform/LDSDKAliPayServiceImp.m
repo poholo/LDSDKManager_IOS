@@ -60,9 +60,6 @@
     return self.dataVM.registerSuccess;
 }
 
-- (BOOL)handleResultUrl:(NSURL *)url {
-    return [self payProcessOrderWithPaymentResult:url standbyCallback:NULL];
-}
 
 #pragma mark - share
 
@@ -165,14 +162,17 @@
     BOOL handle = [APOpenAPI handleOpenURL:url delegate:self];
     if (!handle) {
         __weak typeof(self) weakSelf = self;
-        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDict) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            [strongSelf processAuth_V2Next:resultDict];
-        }];
+        if ([url.host isEqualToString:@"safepay"]) {
+            return [self payProcessOrderWithPaymentResult:url standbyCallback:NULL];
+        } else {
+            [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDict) {
+                __strong typeof(weakSelf) strongSelf = weakSelf;
+                [strongSelf processAuth_V2Next:resultDict];
+            }];
+        }
     }
     return handle;
 }
-
 
 #pragma mark -
 #pragma mark -  支付部分

@@ -65,17 +65,6 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     return self.dataVM.registerSuccess;
 }
 
-#pragma mark -
-#pragma mark - 处理URL回调
-
-- (BOOL)handleResultUrl:(NSURL *)url {
-    if ([self payProcessOrderWithPaymentResult:url standbyCallback:NULL]) {
-        return YES;
-    }
-    return [WXApi handleOpenURL:url delegate:self];
-}
-
-
 #pragma mark - auth
 
 - (void)authPlatformCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict {
@@ -251,7 +240,14 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 
 - (BOOL)handleURL:(NSURL *)url {
     BOOL success = [WXApi handleOpenURL:url delegate:self];
+    if (!success) {
+        success = [self payProcessOrderWithPaymentResult:url standbyCallback:NULL];
+    }
     return success;
+}
+
+- (BOOL)handleResultUrl:(NSURL *)url {
+    return [WXApi handleOpenURL:url delegate:self];
 }
 
 

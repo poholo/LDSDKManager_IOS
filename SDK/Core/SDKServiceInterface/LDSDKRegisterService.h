@@ -31,13 +31,4 @@
  */
 - (BOOL)isRegistered;
 
-/*!
- *  @brief  统一处理第三方SDK应用的处理回调
- *
- *  @param url ...
- *
- *  @return 处理成功返回YES，否则返回NO
- */
-- (BOOL)handleResultUrl:(NSURL *)url;
-
 @end

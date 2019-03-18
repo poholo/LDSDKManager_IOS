@@ -112,27 +112,30 @@
     id <LDSDKAuthService> authService = [[LDSDKManager share] authService:self.dataVM.curPlatformDto.type];
     __weak typeof(self) weakSelf = self;
     [authService authPlatformCallback:^(LDSDKLoginCode code, NSError *error, NSDictionary *oauthInfo, NSDictionary *userInfo) {
-        MCLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        if (code == LDSDKLoginSuccess) {
-            if (userInfo == nil && oauthInfo != nil) {
-                [strongSelf.infoLabel setText:@"授权成功"];
-            } else {
-                NSString *alert = [NSString stringWithFormat:@"昵称：%@  头像url：%@",
-                                                             userInfo[LDSDK_NICKNAME_KEY],
-                                                             userInfo[LDSDK_AVATARURL_KEY]];
-                NSLog(@"message = %@", alert);
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登陆成功"
-                                                                    message:alert
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"cancel"
-                                                          otherButtonTitles:@"ok", nil];
-                [alertView show];
+                MCLog(@"[Login] %@ %@ %@", oauthInfo, userInfo, error);
+                __strong typeof(weakSelf) strongSelf = weakSelf;
+                if (code == LDSDKLoginSuccess) {
+                    if (userInfo == nil && oauthInfo != nil) {
+                        [strongSelf.infoLabel setText:@"授权成功"];
+                    } else {
+                        NSString *alert = [NSString stringWithFormat:@"昵称：%@  头像url：%@",
+                                                                     userInfo[LDSDK_NICKNAME_KEY],
+                                                                     userInfo[LDSDK_AVATARURL_KEY]];
+                        NSLog(@"message = %@", alert);
+                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"登陆成功"
+                                                                            message:alert
+                                                                           delegate:self
+                                                                  cancelButtonTitle:@"cancel"
+                                                                  otherButtonTitles:@"ok", nil];
+                        [alertView show];
+                    }
+                } else {
+                    [strongSelf.infoLabel setText:error.userInfo[kErrorMessage]];
+                }
             }
-        } else {
-            [strongSelf.infoLabel setText:error.userInfo[kErrorMessage]];
-        }
-    } ext:nil];
+                                  ext:@{LDSDKAuthUrlKey:
+                                          @"apiname=com.alipay.account.auth&app_id=2018081361035295&app_name=mc&auth_type=AUTHACCOUNT&biz_type=openservice&method=alipay.open.auth.sdk.code.get&pid=2088812474291242&product_id=APP_FAST_LOGIN&scope=kuaijie&sign_type=RSA2&target_id=bSLlYCJNFvoQkSJkU1552896876841&sign=UffKQaCgHFl9d2Quiwws05PlEu6Iz0hvhoEXcO%2BMpyLcEGXYO%2FIKkZ0bn9KqO2be8kE8TQb7zftIvPFXd4dkSfvsZY%2BsgQQYhiB5IAPGN2xYe3nzfnDIUXD2CsiqRaU85rxOLmslS%2BK1ZwjRxX0vj0r%2B7i480fXzVufzLJus6R4UMHg6AQ%2Bd5faLGMcPx5mDa0o7TNhjABruSHya3kyWmutlmpNu%2Bari64OZuhinsMlqo4CJj3EmqOly13nbl7A6H2oARFcs29M7R1agSe%2Batlvt5ZnmKrUNT%2BCJV8LITQFs3SCEFSCw5FPzADWeEMzvbH%2BHckBShYso2PRWCxiZtg%3D%3D",
+                                          LDSDKAuthSchemaKey: @"alipay://"}];
 }
 
 - (void)authQRLogin {
@@ -159,7 +162,7 @@
         } else {
             [strongSelf.infoLabel setText:error.userInfo[kErrorMessage]];
         }
-    } ext:nil];
+    }                               ext:nil];
 }
 
 - (void)authLogout {

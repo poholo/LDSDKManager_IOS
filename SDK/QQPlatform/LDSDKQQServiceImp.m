@@ -64,18 +64,6 @@
     return self.dataVM.registerSuccess;
 }
 
-
-#pragma mark -
-#pragma mark 处理URL回调
-
-- (BOOL)handleResultUrl:(NSURL *)url {
-    return [self handleOpenURL:url];
-}
-
-- (BOOL)handleOpenURL:(NSURL *)url {
-    return [TencentOAuth HandleOpenURL:url] || [QQApiInterface handleOpenURL:url delegate:self];
-}
-
 #pragma mark 分享部分
 
 - (void)shareContent:(NSDictionary *)exDict {
