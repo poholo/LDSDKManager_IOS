@@ -145,6 +145,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 }
 
 - (void)wxpayOrder:(NSString *)orderString callback:(LDSDKPayCallback)callback {
+    self.payCallBack = callback;
     NSDictionary *orderDict = [orderString urlParamsDecodeDictionary];
 
     PayReq *request = [[PayReq alloc] init];
@@ -274,10 +275,14 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
             self.shareCallback((LDSDKErrorCode) resp.errCode, error);
         }
     } else if ([resp isKindOfClass:[PayResp class]]) {
-        PayResp *pResp = (PayResp *) resp;
+        PayResp *payResp = (PayResp *) resp;
         NSError *error = [NSError errorWithDomain:@"wxPay"
                                              code:resp.errCode
                                          userInfo:@{@"NSLocalizedDescription": resp.errStr}];
+
+        if (self.payCallBack) {
+            self.payCallBack(payResp.returnKey, error);
+        }
     }
 }
 
