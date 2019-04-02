@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'LDSDKManager'
-    s.version          = '1.0.8'
+    s.version          = '1.0.9'
     s.summary          = 'iOS第三方聚合库'
     s.description      = '聚合QQ、微信、微博、支付宝、钉钉、Telegram等第三方库，抽象封装分享、授权、支付功能，以便其他开发者能快速接入。'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
