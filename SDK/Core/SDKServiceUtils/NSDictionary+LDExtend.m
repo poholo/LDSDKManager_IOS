@@ -3,10 +3,10 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "NSDictionary+Extend.h"
+#import "NSDictionary+LDExtend.h"
 
 
-@implementation NSDictionary (Extend)
+@implementation NSDictionary (LDExtend)
 
 - (NSString *)query {
     NSMutableArray *array = [NSMutableArray new];

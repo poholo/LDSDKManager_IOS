@@ -11,7 +11,7 @@
 
 #import "UIImage+LDExtend.h"
 #import "MCBaseShareDto.h"
-#import "NSString+Extend.h"
+#import "NSString+LDExtend.h"
 #import "MCShareConfigDto.h"
 
 NSString *const kQQ_OPENID_KEY = @"openId";

@@ -23,9 +23,9 @@
 		25B5EE9C21D235880048389C /* MCShareTextDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4521D235880048389C /* MCShareTextDto.m */; };
 		25B5EE9D21D235880048389C /* MCShareAudioDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4621D235880048389C /* MCShareAudioDto.m */; };
 		25B5EE9F21D235880048389C /* MCShareFileDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE4E21D235880048389C /* MCShareFileDto.m */; };
-		25B5EEA021D235880048389C /* NSDictionary+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE5621D235880048389C /* NSDictionary+Extend.m */; };
+		25B5EEA021D235880048389C /* NSDictionary+LDExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE5621D235880048389C /* NSDictionary+LDExtend.m */; };
 		25B5EEA121D235880048389C /* UIImage+LDExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE5721D235880048389C /* UIImage+LDExtend.m */; };
-		25B5EEA221D235880048389C /* NSString+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE5821D235880048389C /* NSString+Extend.m */; };
+		25B5EEA221D235880048389C /* NSString+LDExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE5821D235880048389C /* NSString+LDExtend.m */; };
 		25B5EEA321D235880048389C /* LDSDKTelegramDataVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE6521D235880048389C /* LDSDKTelegramDataVM.m */; };
 		25B5EEA421D235880048389C /* LDSDKTelegramServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE6721D235880048389C /* LDSDKTelegramServiceImp.m */; };
 		25B5EEA521D235880048389C /* LDSDKQQServiceImp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B5EE6B21D235880048389C /* LDSDKQQServiceImp.m */; };
@@ -90,11 +90,11 @@
 		25B5EE5021D235880048389C /* MCShareAudioDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareAudioDto.h; sourceTree = "<group>"; };
 		25B5EE5121D235880048389C /* MCShareTextDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCShareTextDto.h; sourceTree = "<group>"; };
 		25B5EE5321D235880048389C /* UIImage+LDExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LDExtend.h"; sourceTree = "<group>"; };
-		25B5EE5421D235880048389C /* NSDictionary+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extend.h"; sourceTree = "<group>"; };
-		25B5EE5521D235880048389C /* NSString+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extend.h"; sourceTree = "<group>"; };
-		25B5EE5621D235880048389C /* NSDictionary+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extend.m"; sourceTree = "<group>"; };
+		25B5EE5421D235880048389C /* NSDictionary+LDExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LDExtend.h"; sourceTree = "<group>"; };
+		25B5EE5521D235880048389C /* NSString+LDExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LDExtend.h"; sourceTree = "<group>"; };
+		25B5EE5621D235880048389C /* NSDictionary+LDExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LDExtend.m"; sourceTree = "<group>"; };
 		25B5EE5721D235880048389C /* UIImage+LDExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LDExtend.m"; sourceTree = "<group>"; };
-		25B5EE5821D235880048389C /* NSString+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extend.m"; sourceTree = "<group>"; };
+		25B5EE5821D235880048389C /* NSString+LDExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LDExtend.m"; sourceTree = "<group>"; };
 		25B5EE5A21D235880048389C /* LDSDKExtendProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKExtendProtocol.h; sourceTree = "<group>"; };
 		25B5EE5B21D235880048389C /* LDSDKRegisterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKRegisterService.h; sourceTree = "<group>"; };
 		25B5EE5C21D235880048389C /* LDSDKHandleURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDSDKHandleURLProtocol.h; sourceTree = "<group>"; };
@@ -263,11 +263,11 @@
 			isa = PBXGroup;
 			children = (
 				25B5EE5321D235880048389C /* UIImage+LDExtend.h */,
-				25B5EE5421D235880048389C /* NSDictionary+Extend.h */,
-				25B5EE5521D235880048389C /* NSString+Extend.h */,
-				25B5EE5621D235880048389C /* NSDictionary+Extend.m */,
+				25B5EE5421D235880048389C /* NSDictionary+LDExtend.h */,
+				25B5EE5521D235880048389C /* NSString+LDExtend.h */,
+				25B5EE5621D235880048389C /* NSDictionary+LDExtend.m */,
 				25B5EE5721D235880048389C /* UIImage+LDExtend.m */,
-				25B5EE5821D235880048389C /* NSString+Extend.m */,
+				25B5EE5821D235880048389C /* NSString+LDExtend.m */,
 			);
 			path = SDKServiceUtils;
 			sourceTree = "<group>";
@@ -554,7 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25B5EEA021D235880048389C /* NSDictionary+Extend.m in Sources */,
+				25B5EEA021D235880048389C /* NSDictionary+LDExtend.m in Sources */,
 				25B5EEB321D235890048389C /* LDSDKDingTalkDataVM.m in Sources */,
 				25B5EEAE21D235890048389C /* NSDictionary+LDSDKAdditions.m in Sources */,
 				25B5EE9C21D235880048389C /* MCShareTextDto.m in Sources */,
@@ -572,7 +572,7 @@
 				25BED6AF21B23079000EBCB4 /* main.m in Sources */,
 				25B5EEB221D235890048389C /* LDSDKAliPayDataVM.m in Sources */,
 				25B5EEAB21D235890048389C /* LDSDKWechatServiceImp.m in Sources */,
-				25B5EEA221D235880048389C /* NSString+Extend.m in Sources */,
+				25B5EEA221D235880048389C /* NSString+LDExtend.m in Sources */,
 				25B5EEA121D235880048389C /* UIImage+LDExtend.m in Sources */,
 				25B5EE9421D235880048389C /* LDSDKManager.m in Sources */,
 				25B5EEA321D235880048389C /* LDSDKTelegramDataVM.m in Sources */,

@@ -5,7 +5,7 @@
 
 
 #import "LDSDKWeiboDataVM.h"
-#import "NSString+Extend.h"
+#import "NSString+LDExtend.h"
 #import "MCShareConfigDto.h"
 
 #import <Weibo_SDK/WeiboSDK.h>

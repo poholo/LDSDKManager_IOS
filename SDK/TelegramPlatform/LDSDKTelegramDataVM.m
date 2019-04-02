@@ -4,7 +4,7 @@
 //
 
 #import "LDSDKTelegramDataVM.h"
-#import "NSString+Extend.h"
+#import "NSString+LDExtend.h"
 
 
 @implementation LDSDKTelegramDataVM

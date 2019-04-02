@@ -17,7 +17,7 @@
 #import "MCShareConfigDto.h"
 #import "MCBaseShareDto.h"
 #import "WechatApiExtend.h"
-#import "NSDictionary+Extend.h"
+#import "NSDictionary+LDExtend.h"
 
 NSString *const kWX_APPID_KEY = @"appid";
 NSString *const kWX_APPSECRET_KEY = @"secret";
@@ -149,25 +149,12 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     NSDictionary *orderDict = [orderString urlParamsDecodeDictionary];
 
     PayReq *request = [[PayReq alloc] init];
-    request.partnerId = [[[orderDict stringForKey:@"partnerId"] URLDecodedString]
-            stringByReplacingOccurrencesOfString:@"\""
-                                      withString:@""];
-    request.prepayId = [[[orderDict stringForKey:@"prepayId"] URLDecodedString]
-            stringByReplacingOccurrencesOfString:@"\""
-                                      withString:@""];
-    request.package = [[[orderDict stringForKey:@"packageValue"] URLDecodedString]
-            stringByReplacingOccurrencesOfString:@"\""
-                                      withString:@""];
-    request.nonceStr = [[[orderDict stringForKey:@"nonceStr"] URLDecodedString]
-            stringByReplacingOccurrencesOfString:@"\""
-                                      withString:@""];
-    NSString *time = [[[orderDict stringForKey:@"timeStamp"] URLDecodedString]
-            stringByReplacingOccurrencesOfString:@"\""
-                                      withString:@""];
-    request.timeStamp = (UInt32) [time longLongValue];
-    request.sign = [[[orderDict stringForKey:@"weixinSign"] URLDecodedString]
-            stringByReplacingOccurrencesOfString:@"\""
-                                      withString:@""];
+    request.partnerId = orderDict[@"partnerId"];
+    request.prepayId = orderDict[@"prepayId"];
+    request.package = orderDict[@"packageValue"];
+    request.nonceStr = orderDict[@"nonceStr"];
+    request.timeStamp = (UInt32)[orderDict[@"timeStamp"] longLongValue];
+    request.sign = orderDict[@"sign"];
 
     BOOL result = [WXApi sendReq:request];
 

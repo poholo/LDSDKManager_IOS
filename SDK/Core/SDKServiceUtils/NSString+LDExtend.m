@@ -3,10 +3,10 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "NSString+Extend.h"
+#import "NSString+LDExtend.h"
 
 
-@implementation NSString (Extend)
+@implementation NSString (LDExtend)
 
 + (NSString *)filterInvalid:(NSString *)originString {
     if (originString == nil || ![originString isKindOfClass:[NSString class]]) {

@@ -23,7 +23,7 @@
 
     NSArray *regPlatformConfigList = @[
             @{
-                    LDSDKConfigAppIdKey: @"wxe7103e0bd671f704",
+                    LDSDKConfigAppIdKey: @"wxe7103e0bd671f704",  // appid 要与支付的appid对应
                     LDSDKConfigAppSecretKey: @"d92d58696ab48a5ef4784e4e54976ce7",
                     LDSDKConfigAppDescriptionKey: [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"],
                     LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformWeChat)

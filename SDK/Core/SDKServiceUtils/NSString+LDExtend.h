@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (Extend)
+@interface NSString (LDExtend)
 
 + (NSString *)filterInvalid:(NSString *)originString;
 

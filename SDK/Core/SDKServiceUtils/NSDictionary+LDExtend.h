@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (Extend)
+@interface NSDictionary (LDExtend)
 
 - (NSString *)query;
 

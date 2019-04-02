@@ -94,9 +94,10 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     for (NSString *pair in pairs) {
         NSArray *kv = [pair componentsSeparatedByString:@"="];
-        if (kv.count == 2) {
+        if (kv.count >= 2) {
             NSString *key = [kv objectAtIndex:0];
-            NSString *value = [[kv objectAtIndex:1] URLDecodedString];
+            NSArray * values = [kv subarrayWithRange:NSMakeRange(1, kv.count - 1)];
+            NSString *value = [values componentsJoinedByString:@"="];
             [params setObject:value forKey:key];
         }
     }
