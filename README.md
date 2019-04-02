@@ -1,6 +1,19 @@
 # LDSDKManager_IOS
 聚合QQ、微信、微博、支付宝、钉钉、Telegram等第三方库，抽象封装分享、授权、支付功能，以便其他开发者能快速接入。
 
+## updates
+```text
+
+1.0.4 更新依赖方式（pod版），支持最新的sdk
+
+1.0.5 a.三方库均用官方和poholo维护的三方库
+      b.更新sdk，增加更多的分享类型，以及平台特性。
+      c.授权-微博增加用户信息获取
+1.0.8 support MCBase/Dto & Log
+1.0.9 support Wechat & Alipay 支付
+```
+
+
 ## 集成方式
 
 ```
@@ -272,18 +285,6 @@ b. 易拓展，可以通过增加模块使得开发者无需修改代码即可�
 SDKManager中LDSDKPlatformType添加相应type；
 建立新文件夹，导入SDK文件，编写代码实现[SDKServiceInterface文件夹](LDSDKManager/CoreService/SDKServiceInterface) 中的protocol;
 修改SDKServiceConfig.plist，添加新SDK支持的Service以及对应实现的文件名。
-
-## updates
-```text
-
-1.0.4 更新依赖方式（pod版），支持最新的sdk
-
-1.0.5 a.三方库均用官方和poholo维护的三方库
-      b.更新sdk，增加更多的分享类型，以及平台特性。
-      c.授权-微博增加用户信息获取
-1.0.8 support MCBase/Dto & Log
-1.0.9 support Wechat & Alipay 支付
-```
 
 ## Author
 littleplayer mailjiancheng@163.com
