@@ -15,6 +15,7 @@
 #import "LLDViewDataVM.h"
 #import "LLDPlatformDto.h"
 #import "LLDPlatformCell.h"
+#import "LDSDKPayService.h"
 
 @interface LLDViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -102,6 +103,8 @@
             [self authLogout];
         }
         return;
+    } else if (categoriryDto.type == 98) {
+        [self action2Pay:categoriryDto];
     }
 
     LLDShareInfoDto *infoDto = [self.dataVM shareInfoDtoAtCateIndex:indexPath.section - 1 index:indexPath.row];
@@ -191,37 +194,42 @@
     [[[LDSDKManager share] shareService:self.dataVM.curPlatformDto.type] shareContent:shareDict];
 }
 
-- (void)payByWX {
-//    [[LDSDKManager getPayService:LDSDKPlatformWeChat]
-//            payOrder:@""
-//            callback:^(NSString *signString, NSError *error) {
-//                if (error) {
-//                    [self.infoLabel setText:error.localizedDescription];
-//                } else if (signString) {
-//                    [self.infoLabel setText:signString];
-//                }
-//            }];
-}
+- (void)action2Pay:(LLDCategoriryDto *)categoriryDto {
+    id <LDSDKPayService> payService = [[LDSDKManager share] payService:self.dataVM.curPlatformDto.type];
+    __weak typeof(self) weakSelf = self;
 
-- (void)payByAli {
-//    [[LDSDKManager getPayService:LDSDKPlatformAliPay]
-//            payOrder:@"_input_charset=\"utf-8\"&body=\"\u5341\u4e8c\u6708\u8d77\u4e49-"
-//                    @"\u5317\u4eacUME\u56fd\u9645\u5f71\u57ce\u534e\u661f\u5e97\"&notify_url=\"http%"
-//                    @"3A%2F%2F123.58.185.47%2Fservlet%2FAlipaySdk\"&out_trade_no=\"862909311\"&"
-//                    @"partner=\"null\"&payment_type=\"1\"&seller_id=\"null\"&service=\"mobile."
-//                    @"securitypay.pay\"&subject=\"\u5341\u4e8c\u6708\u8d77\u4e49-"
-//                    @"\u5317\u4eacUME\u56fd\u9645\u5f71\u57ce\u534e\u661f\u5e97\"&total_fee=\"2.00\"&"
-//                    @"sign_type=\"RSA\"&sign=\"PHR9yK0cxHqeNYZnXIFAjSYn5zNijIc0oegD%"
-//                    @"2BTV77ZsF3U5LjD9jbxsmjlEv%2B7nWlCbn2%"
-//                    @"2BfmoiE0eTFnxoOqREuP0rkBs5XqAYlszGnU8Lv92x35R0AWpiouwnK8uRg2a9B%"
-//                    @"2Fu1YLgXMf26v8pjAVYBKn7nnJbd23OIPNGPiU12s%3D\""
-//            callback:^(NSString *signString, NSError *error) {
-//                if (error) {
-//                    [self.infoLabel setText:error.localizedDescription];
-//                } else if (signString) {
-//                    [self.infoLabel setText:signString];
-//                }
-//            }];
+#if 1
+    {
+        //alipay
+        NSString *orderInfo = @"alipay_sdk=alipay-sdk-java-3.0.52.ALL&app_id=2019021863246757&biz_content=%7B%22body%22%3A%2210000%E5%83%8F%E7%B4%A0%22%2C%22out_trade_no%22%3A%22040215341515541%22%2C%22passback_params%22%3A%225ca310778fc839662f756450%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22subject%22%3A%22%E8%B1%A1%E7%B4%A0%E5%85%85%E5%80%BC%22%2C%22timeout_express%22%3A%2230m%22%2C%22total_amount%22%3A%220.01%22%7D&charset=UTF-8&format=json&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Fwwwtest.54a64.cn%2F%2Fapi%2Fv1%2Fpay%2Falipay%2Fcallback.json&sign=Qq33pY8IrOvqzK%2B9GFfNZqgpiAPC6imj%2Bh1nyzJI8Cc0x%2BOajBC1gXTyltpqEITxsofa269oe9mh3l3cBSWQ7IHlpzPkYqb7ekZ8FGe3LW%2Btmo9yhBouGQyutvfgRTH3SCQ%2Btb1FK3bSYiu8DnYyaHj64fh%2Few%2B43hUr8%2BnJuo6fEWkzfqfmyAiNsKZx7kkeEdlJFD8IQmKgNJni8yX7EdxdhJg0QacH%2F%2FxQRcJ7zEVRE%2FnV%2FQ58Pk3MLRl0oPGwg7R6lZrIvqu1wbganSViPKWJkLIHZ8ThJ1GCJ81V%2FEqCqD8BajeSc0cL8YfR4Lih%2B8c3Kh3HLE5WbtqwgD4AEA%3D%3D&sign_type=RSA2&timestamp=2019-04-02+15%3A34%3A15&version=1.0";
+        [payService payOrder:orderInfo
+                    callback:^(id result, NSError *error) {
+                        __strong typeof(weakSelf) strongSelf = weakSelf;
+                        if (error) {
+                            strongSelf.infoLabel.text = [NSString stringWithFormat:@"Code:%zd Result:%@", error.code, error.userInfo[kErrorMessage]];
+                            strongSelf.infoLabel.textColor = [UIColor redColor];
+                        } else {
+                            //支付结果信息
+                            /*
+                             * {
+                                    memo = "";
+                                    result = "{\"alipay_trade_app_pay_response\":{\"code\":\"10000\",\"msg\":\"Success\",\"app_id\":\"2019021863246757\",\"auth_app_id\":\"2019021863246757\",\"charset\":\"UTF-8\",\"timestamp\":\"2019-04-02 16:23:31\",\"out_trade_no\":\"040215341515541\",\"total_amount\":\"0.01\",\"trade_no\":\"2019040222001427751034899210\",\"seller_id\":\"2088431140429592\"},\"sign\":\"Cvj8szxrdNHN6I+B76cl6rJsOX1BNz/8MUANiv/rgHm0c53KVCBidqFaX9P6cZAWxDDVHflAt3HN+siEq9xcS44dK5mnFagkaAMsR6CD4CcVqSHb/P5qLShjuvD8QlFEuEZT8pgZlb+03xAPYx4JzbzXMEYdogb6gWRH9v14TNAXoyzTxWj0EdtLKA58Ml5cJMAnIUQGNU48hwXoELem5vLA2AWFzknRDIS/p84kx9L4tKqDG/BLT4AgqN9pjCXAqu4+qMG6k7H6npFeVoNXROIkuKmKTsdO6ESRA5N0YhjAoNrIN3LMFKHcrOiB+gaQoOjoYYu21sFaxfvPNF7i5g==\",\"sign_type\":\"RSA2\"}";
+                                    resultStatus = 9000;
+                                }
+                             */
+                            strongSelf.infoLabel.text = @"支付成功";
+                            strongSelf.infoLabel.textColor = [UIColor greenColor];
+                        }
+                    }];
+    }
+
+#else
+
+    {
+        //wechatpay
+
+    }
+#endif
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

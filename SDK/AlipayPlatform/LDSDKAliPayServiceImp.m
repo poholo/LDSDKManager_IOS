@@ -22,7 +22,6 @@
 @interface LDSDKAliPayServiceImp () <APOpenAPIDelegate>
 
 @property(nonatomic, strong) LDSDKAliPayDataVM *dataVM;
-@property(strong, nonatomic) NSString *aliPayScheme;
 
 @property(nonatomic, copy) LDSDKShareCallback shareCallback;
 @property(nonatomic, copy) LDSDKAuthCallback authCallback;
@@ -184,7 +183,7 @@
 
 - (BOOL)payProcessOrderWithPaymentResult:(NSURL *)url
                          standbyCallback:(void (^)(NSDictionary *))callback {
-    if ([url.scheme.lowercaseString isEqualToString:self.aliPayScheme]) {
+    if ([url.scheme.lowercaseString isEqualToString:self.dataVM.configDto.appSchema]) {
         [self aliPayProcessOrderWithPaymentResult:url standbyCallback:callback];
         return YES;
     } else {
@@ -197,7 +196,7 @@
 
 - (void)alipayOrder:(NSString *)orderString callback:(LDSDKPayCallback)callback {
     __weak typeof(self) weakSelf = self;
-    [[AlipaySDK defaultService] payOrder:orderString fromScheme:self.aliPayScheme callback:^(NSDictionary *resultDic) {
+    [[AlipaySDK defaultService] payOrder:orderString fromScheme:self.dataVM.configDto.appSchema callback:^(NSDictionary *resultDic) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf __processAlipayNext:resultDic];
     }];
@@ -221,12 +220,12 @@
         [self mainExecute:^{
             __strong typeof(weakSelf) strongSelf = weakSelf;
             if (status == 9000) {
-                self.payCallBack(params, nil);
+                self.payCallBack(resultDict, nil);
             } else {
                 NSError *error = [NSError errorWithDomain:@"AliPay"
                                                      code:0
                                                  userInfo:@{@"NSLocalizedDescription": @"支付失败"}];
-                strongSelf.payCallBack(params, error);
+                strongSelf.payCallBack(resultDict, error);
             }
         }];
     }
