@@ -49,7 +49,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
     self.dataVM.configDto = [MCShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
-    BOOL success = [WXApi registerApp:self.dataVM.configDto.appId enableMTA:YES];
+    BOOL success = [WXApi registerApp:self.dataVM.configDto.appId universalLink:nil];
     if (!success) {
         error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"Wechat register error"}];
     }
@@ -73,7 +73,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     req.scope = @"snsapi_userinfo";
     req.state = @"10000";
     UIViewController *viewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    [WXApi sendAuthReq:req viewController:viewController delegate:self];
+    [WXApi sendAuthReq:req viewController:viewController delegate:self completion:nil];
 }
 
 
@@ -156,17 +156,19 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     request.timeStamp = (UInt32)[orderDict[@"timeStamp"] longLongValue];
     request.sign = orderDict[@"sign"];
 
-    BOOL result = [WXApi sendReq:request];
-
-    if (!result) {
-        if (callback) {
-            NSError *error = [NSError errorWithDomain:@"wxPay"
-                                                 code:0
-                                             userInfo:@{@"NSLocalizedDescription": @"无法支付"}];
-            callback(nil, error);
+    [WXApi sendReq:request completion:^(BOOL success) {
+        if (!success) {
+            if (callback) {
+                NSError *error = [NSError errorWithDomain:@"wxPay"
+                                                     code:0
+                                                 userInfo:@{@"NSLocalizedDescription": @"无法支付"}];
+                callback(nil, error);
+            }
         }
-    }
 
+    }];
+
+    
 }
 
 
@@ -194,13 +196,17 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
         return;
     }
 
-    BOOL success = [WXApi sendReq:sendMessageToWXReq];
-    if (!success) {
-        error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"初始化请求失败"}];
-        if (self.shareCallback) {
-            self.shareCallback((LDSDKErrorCode) error.code, error);
-        }
-    }
+    __weak typeof (self) weakSelf = self;
+    [WXApi sendReq:sendMessageToWXReq completion:^(BOOL success) {
+        if (!success) {
+            __strong typeof (weakSelf) strongSelf = weakSelf;
+              NSError *err = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"初始化请求失败"}];
+              if (strongSelf.shareCallback) {
+                  strongSelf.shareCallback((LDSDKErrorCode) err.code, err);
+              }
+          }
+    }];
+  
 }
 
 - (BOOL)responseResult:(BaseResp *)resp {
