@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/poholo/LDSDKManager_IOS'
     s.source           = { :git => "https://github.com/poholo/LDSDKManager_IOS.git", :tag => "#{s.version}" }
 
-    s.platform     = :ios, '8.0'
+    s.platform     = :ios, '9.0'
     s.requires_arc = true
 
     s.default_subspec = 'All'
@@ -45,7 +45,7 @@ Pod::Spec.new do |s|
         ss.source_files = 'SDK/WeiboPlatform/*{h,m,mm}'
         ss.public_header_files = 'SDK/WeiboPlatform/*.h'
         ss.dependency 'LDSDKManager/Core'
-        ss.dependency 'Weibo_SDK'
+        ss.dependency 'Weibo_SDK', '3.2.6'
     end
 
     #支付宝平台SDK集成

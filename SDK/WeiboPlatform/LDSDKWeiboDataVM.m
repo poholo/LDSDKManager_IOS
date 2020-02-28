@@ -72,10 +72,6 @@
             return LDSDKErrorCodeUnsupport;
         }
             break;
-        case WeiboSDKResponseStatusCodePayFail: {
-            return LDSDKErrorCodePayFail;
-        }
-            break;
     }
     return LDSDKErrorUnknow;
 }
@@ -104,10 +100,6 @@
             break;
         case WeiboSDKResponseStatusCodeUnsupport  : {
             return @"不支持";
-        }
-            break;
-        case WeiboSDKResponseStatusCodePayFail: {
-            return @"支付失败";
         }
             break;
     }
