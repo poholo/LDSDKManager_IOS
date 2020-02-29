@@ -49,7 +49,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
     self.dataVM.configDto = [MCShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
-    BOOL success = [WXApi registerApp:self.dataVM.configDto.appId universalLink:nil];
+    BOOL success = [WXApi registerApp:self.dataVM.configDto.appId universalLink:self.dataVM.configDto.redirectURI];
     if (!success) {
         error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"Wechat register error"}];
     }
