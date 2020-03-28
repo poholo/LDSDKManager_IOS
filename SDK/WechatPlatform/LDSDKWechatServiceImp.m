@@ -213,7 +213,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
         if (self.shareCallback) {
             NSError *error = [self.dataVM respError:resp];
-            self.shareCallback((LDSDKErrorCode) resp.errCode, error);
+            self.shareCallback((LDSDKErrorCode) error.code, error);
             return YES;
         }
     } else if ([resp isKindOfClass:[SendAuthResp class]]) {
@@ -260,7 +260,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     NSError *error = [self.dataVM respError:resp];
     if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
         if (self.shareCallback) {
-            self.shareCallback((LDSDKErrorCode) resp.errCode, error);
+            self.shareCallback((LDSDKErrorCode) error.code, error);
         }
     } else if ([resp isKindOfClass:[PayResp class]]) {
         PayResp *payResp = (PayResp *) resp;
