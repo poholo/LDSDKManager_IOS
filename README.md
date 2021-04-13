@@ -11,6 +11,7 @@
       c.授权-微博增加用户信息获取
 1.0.8 support MCBase/Dto & Log
 1.0.9 support Wechat & Alipay 支付
+1.1.2 support Weibo_SDK 3.3.0 跳转没做找不到账号郁闷
 ```
 
 
@@ -33,6 +34,8 @@ pod 'LDSDKManager/Telegram'
 
 or 
 pod 'LDSDKManager/All'
+or 
+pod 'LDSDKManager/Main' #无支付宝
 
 ```
 
@@ -102,6 +105,7 @@ pod 'LDSDKManager/All'
     <string>sinaweibosso</string>
     <string>weibosdk</string>
     <string>weibosdk2.5</string>
+    <string>weibosdk3.3.0</string>
     <string>mqqapi</string>
     <string>mqq</string>
     <string>mqqOpensdkSSoLogin</string>

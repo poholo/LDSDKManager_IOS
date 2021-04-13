@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'LDSDKManager'
-    s.version          = '1.1.1'
+    s.version          = '1.1.2'
     s.summary          = 'iOS第三方聚合库'
     s.description      = '聚合QQ、微信、微博、支付宝、钉钉、Telegram等第三方库，抽象封装分享、授权、支付功能，以便其他开发者能快速接入。'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -45,7 +45,7 @@ Pod::Spec.new do |s|
         ss.source_files = 'SDK/WeiboPlatform/*{h,m,mm}'
         ss.public_header_files = 'SDK/WeiboPlatform/*.h'
         ss.dependency 'LDSDKManager/Core'
-        ss.dependency 'Weibo_SDK', '3.2.6'
+        ss.dependency 'Weibo_SDK', '3.3.0'
     end
 
     #支付宝平台SDK集成
@@ -72,6 +72,14 @@ Pod::Spec.new do |s|
         ss.dependency 'LDSDKManager/Core'
     end
 
+    s.subspec 'Main' do |ss|
+        ss.dependency 'LDSDKManager/QQ'
+        ss.dependency 'LDSDKManager/Wechat'
+        ss.dependency 'LDSDKManager/Weibo'
+        ss.dependency 'LDSDKManager/DingTalk'
+        ss.dependency 'LDSDKManager/Telegram'
+    end
+
     s.subspec 'All' do |all|
         all.dependency 'LDSDKManager/QQ'
         all.dependency 'LDSDKManager/Wechat'
@@ -80,14 +88,6 @@ Pod::Spec.new do |s|
         all.dependency 'LDSDKManager/DingTalk'
         all.dependency 'LDSDKManager/Telegram'
     end
-    
-    s.xcconfig = {
-       'VALID_ARCHS' => 'arm64 x86_64',
-       'USER_HEADER_SEARCH_PATHS' => '${PROJECT_DIR}/Pods/**'
-    }
-    s.pod_target_xcconfig = {
-          'VALID_ARCHS' => 'arm64 x86_64'
-    }
 
     s.frameworks = 'UIKit', 'CoreGraphics', 'Foundation'
 

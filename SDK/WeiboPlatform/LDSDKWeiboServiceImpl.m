@@ -42,7 +42,7 @@
 - (NSError *)registerWithPlatformConfig:(NSDictionary *)config {
     self.dataVM.configDto = [MCShareConfigDto createDto:config];
     NSError *error = [self.dataVM registerValidate];
-    BOOL success = [WeiboSDK registerApp:self.dataVM.configDto.appId];
+    BOOL success = [WeiboSDK registerApp:self.dataVM.configDto.appId universalLink:self.dataVM.configDto.redirectURI];
     if (!success) {
         error = [NSError errorWithDomain:kErrorDomain code:LDSDKErrorCodeCommon userInfo:@{kErrorMessage: @"Weibo register error"}];
     }
@@ -80,8 +80,12 @@
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:messageObject
                                                                                   authInfo:authRequest
                                                                               access_token:self.dataVM.token];
-
-    [WeiboSDK sendRequest:request];
+    
+    __weak typeof(self) weakSelf = self;
+    [WeiboSDK sendRequest:request completion:^(BOOL success) {
+        __strong typeof(self) strongSelf = weakSelf;
+        
+    }];
 }
 
 - (BOOL)responseResult:(WBBaseResponse *)resp {
@@ -153,7 +157,7 @@
     WBAuthorizeRequest *request = [WBAuthorizeRequest request];
     request.redirectURI = self.dataVM.configDto.redirectURI;
     request.scope = @"all";
-    [WeiboSDK sendRequest:request];
+    [WeiboSDK sendRequest:request completion:NULL];
 }
 
 - (void)authPlatformQRCallback:(LDSDKAuthCallback)callback ext:(NSDictionary *)extDict {
