@@ -14,9 +14,9 @@
 
 - (BOOL)isEmptyOrWhitespace;
 
-- (NSString *)URLEncodedString;
+- (NSString *)LDURLEncodedString;
 
-- (NSString *)URLDecodedString;
+- (NSString *)LDURLDecodedString;
 
 - (NSData *)base16Data;
 
