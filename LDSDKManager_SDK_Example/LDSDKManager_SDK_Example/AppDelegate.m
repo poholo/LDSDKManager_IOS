@@ -100,5 +100,9 @@
     return success;
 }
 
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
+    BOOL success = [[LDSDKManager share] handleActivity:userActivity];
+    return success;
+}
 
 @end

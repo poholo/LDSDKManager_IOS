@@ -64,4 +64,12 @@
  *  @return 处理成功返回YES，否则返回NO
  */
 - (BOOL)handleURL:(NSURL *)url;
+
+/*!
+ * @brief 微信1.8.7.1回调
+ * @praram activity
+ *  @return Boolean
+ */
+- (BOOL)handleActivity:(NSUserActivity *)activity;
+
 @end

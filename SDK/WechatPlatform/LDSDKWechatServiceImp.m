@@ -240,6 +240,11 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
     return success;
 }
 
+- (BOOL)handleActivity:(NSUserActivity *)activity {
+    BOOL success = [WXApi handleOpenUniversalLink:activity delegate:self];
+    return success;
+}
+
 #pragma mark - WXApiDelegate
 
 - (void)onReq:(BaseReq *)req {

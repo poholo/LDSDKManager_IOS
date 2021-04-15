@@ -9,4 +9,7 @@
 
 - (BOOL)handleURL:(NSURL *)url;
 
+@optional
+- (BOOL)handleActivity:(NSUserActivity *)activity;
+
 @end

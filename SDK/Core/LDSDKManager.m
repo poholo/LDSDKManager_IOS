@@ -79,4 +79,14 @@
     return NO;
 }
 
+- (BOOL)handleActivity:(NSUserActivity *)activity {
+    for (id <LDSDKHandleURLProtocol> handle in self.dataVM.registerServiceDict.allValues) {
+        if ([handle conformsToProtocol:@protocol(LDSDKHandleURLProtocol)]) {
+            BOOL success = [handle handleActivity:activity];
+            if (success) return YES;
+        }
+    }
+    return NO;
+}
+
 @end
