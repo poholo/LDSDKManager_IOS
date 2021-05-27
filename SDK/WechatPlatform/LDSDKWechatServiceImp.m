@@ -271,7 +271,7 @@ NSString *const kWX_GET_USERINFO_URL = @"https://api.weixin.qq.com/sns/userinfo"
         PayResp *payResp = (PayResp *) resp;
         error = [NSError errorWithDomain:@"wxPay"
                                     code:resp.errCode
-                                userInfo:@{@"NSLocalizedDescription": resp.errStr}];
+                                userInfo:@{@"NSLocalizedDescription": resp.errStr?: @""}];
         if (self.payCallBack) {
             self.payCallBack(payResp.returnKey, error);
         }

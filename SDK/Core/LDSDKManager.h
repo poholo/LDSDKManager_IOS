@@ -20,6 +20,8 @@
 
 + (instancetype)share;
 
+@property(nonatomic, assign) BOOL dynamicHost;
+
 /**
  *  根据配置列表依次注册第三方SDK
  *
