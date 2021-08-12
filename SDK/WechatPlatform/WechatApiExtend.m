@@ -121,7 +121,21 @@
     return sendMessageToWXReq;
 }
 
-+ (WXLaunchMiniProgramReq *)miniProgram:(MCBaseShareDto *)shareDto {
++ (SendMessageToWXReq *)miniProgram:(MCBaseShareDto *)shareDto {
+    MCShareMiniProgramDto *shareMiniProgramDto = (MCShareMiniProgramDto *) shareDto;
+    WXMiniProgramObject *object = [WXMiniProgramObject object];
+    object.webpageUrl = shareMiniProgramDto.url;
+    object.userName = shareMiniProgramDto.miniProgramId;
+    object.path = shareMiniProgramDto.url;
+    object.hdImageData = [shareMiniProgramDto.image ld_compressImageLimitSize:32 * 1024];
+    object.withShareTicket = NO;
+    object.miniProgramType = (NSInteger)shareMiniProgramDto.miniProgramType;
+    
+    SendMessageToWXReq *sendMessageToWXReq = [self factoryMessageWXReq:shareDto media:object];
+    return sendMessageToWXReq;
+}
+
++ (WXLaunchMiniProgramReq *)takeUpminiProgram:(MCBaseShareDto *)shareDto {
     MCShareMiniProgramDto *shareMiniProgramDto = (MCShareMiniProgramDto *) shareDto;
     WXLaunchMiniProgramReq *wxLaunchMiniProgramReq = [WXLaunchMiniProgramReq object];
     wxLaunchMiniProgramReq.userName = shareMiniProgramDto.miniProgramId;

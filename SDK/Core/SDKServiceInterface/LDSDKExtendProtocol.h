@@ -33,6 +33,8 @@
 
 + (id)miniProgram:(MCBaseShareDto *)shareDto;
 
++ (id)takeUpminiProgram:(MCBaseShareDto *)shareDto;
+
 + (NSInteger)moduleToPlatform:(LDSDKShareToModule)module;
 
 + (id)textZoneObject:(MCBaseShareDto *)shareDto;
