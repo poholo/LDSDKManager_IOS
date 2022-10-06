@@ -6,22 +6,22 @@
 //  Copyright (c) 2015年 张海洋. All rights reserved.
 //
 
-#import "LDSDKAliPayServiceImp.h"
+#import "LDSDKTBServiceImp.h"
 
 #import <AlipaySDK/AlipaySDK.h>
 #import <APOpenSdk/APOpenAPIObject.h>
 
 #import "LDSDKConfig.h"
-#import "LDSDKAliPayDataVM.h"
+#import "LDSDKTBDataVM.h"
 #import "MCBaseShareDto.h"
 #import "LDSDKExtendProtocol.h"
 #import "APBaseReq+Extend.h"
 #import "APOpenAPI.h"
 #import "MCShareConfigDto.h"
 
-@interface LDSDKAliPayServiceImp () <APOpenAPIDelegate>
+@interface LDSDKTBServiceImp () <APOpenAPIDelegate>
 
-@property(nonatomic, strong) LDSDKAliPayDataVM *dataVM;
+@property(nonatomic, strong) LDSDKTBDataVM *dataVM;
 
 @property(nonatomic, copy) LDSDKShareCallback shareCallback;
 @property(nonatomic, copy) LDSDKAuthCallback authCallback;
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation LDSDKAliPayServiceImp
+@implementation LDSDKTBServiceImp
 
 
 #pragma mark -
@@ -261,9 +261,9 @@
 
 #pragma mark - getter
 
-- (LDSDKAliPayDataVM *)dataVM {
+- (LDSDKTBDataVM *)dataVM {
     if (!_dataVM) {
-        _dataVM = [LDSDKAliPayDataVM new];
+        _dataVM = [LDSDKTBDataVM new];
     }
     return _dataVM;
 }

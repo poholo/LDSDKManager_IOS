@@ -3,14 +3,14 @@
 // Copyright (c) 2018 majiancheng. All rights reserved.
 //
 
-#import "LDSDKAliPayDataVM.h"
+#import "LDSDKTBDataVM.h"
 
 #import <APOpenSdk/APOpenAPIObject.h>
 
 #import "MCShareConfigDto.h"
 
 
-@implementation LDSDKAliPayDataVM
+@implementation LDSDKTBDataVM
 
 - (NSError *)registerValidate {
     NSError *error;

@@ -4,7 +4,7 @@ platform :ios, '8.0'
 target 'LDSDKManager_SDK_Example' do
   pod 'MCBase/Dto'
   pod 'MCBase/Log'
-  pod 'MCTencentOpenAPI', '4.3.7'
+  pod 'MCTencentOpenAPI', '3.3.7'
   pod 'WechatOpenSDK'
   pod 'Weibo_SDK'
   pod 'AlipaySDK-iOS'

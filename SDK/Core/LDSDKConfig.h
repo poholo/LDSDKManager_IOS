@@ -50,7 +50,7 @@ extern NSString *const kErrorCode;
 typedef NS_ENUM(NSInteger, LDSDKPlatformType) {
     LDSDKPlatformQQ,  ///< QQ
     LDSDKPlatformWeChat,  ///< 微信
-    LDSDKPlatformAliPay,  ///< 支付宝
+    LDSDKPlatformTB,  ///< 支付宝
     LDSDKPlatformWeibo,   ///< 新浪微博
     LDSDKPlatformTelegaram, ///< 电报、币用
     LDSDKPlatformDingTalk,  ///< DingTalk

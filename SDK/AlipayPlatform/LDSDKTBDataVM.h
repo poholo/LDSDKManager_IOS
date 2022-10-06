@@ -6,7 +6,7 @@
 #import "LDSDKShareDataVMService.h"
 
 
-@interface LDSDKAliPayDataVM : NSObject <LDSDKShareDataVMService>
+@interface LDSDKTBDataVM : NSObject <LDSDKShareDataVMService>
 
 @property(nonatomic, strong) MCShareConfigDto *configDto;
 @property(nonatomic, strong) NSDictionary *authDict;

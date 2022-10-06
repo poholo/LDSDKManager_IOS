@@ -38,7 +38,7 @@
                     LDSDKConfigAppSchemeKey: @"waqu",   //用于支付完成的回到schema 不要带://
                     LDSDKConfigAppIdKey: @"2018121462531700",
                     LDSDKConfigAppSecretKey: @"AivRsxOiPoiXklp5",
-                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformAliPay)
+                    LDSDKConfigAppPlatformTypeKey: @(LDSDKPlatformTB)
             },
             @{
                     LDSDKConfigAppIdKey: @"3780912137",

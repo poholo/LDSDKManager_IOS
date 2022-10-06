@@ -17,7 +17,7 @@
 @interface LDSDKManagerDataVM ()
 
 
-@property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> aliPayService;
+@property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> tbService;
 @property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> qqService;
 @property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> weiboService;
 @property(nonatomic, strong) id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol> wxService;
@@ -32,23 +32,23 @@
     self.registerServiceDict[@(LDSDKPlatformQQ)] = self.qqService;
     self.registerServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
     self.registerServiceDict[@(LDSDKPlatformWeibo)] = self.weiboService;
-    self.registerServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
+    self.registerServiceDict[@(LDSDKPlatformTB)] = self.tbService;
     self.registerServiceDict[@(LDSDKPlatformTelegaram)] = self.telegramService;
     self.registerServiceDict[@(LDSDKPlatformDingTalk)] = self.dingTalkService;
 
     self.shareServiceDict[@(LDSDKPlatformQQ)] = self.qqService;
     self.shareServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
     self.shareServiceDict[@(LDSDKPlatformWeibo)] = self.weiboService;
-    self.shareServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
+    self.shareServiceDict[@(LDSDKPlatformTB)] = self.tbService;
     self.shareServiceDict[@(LDSDKPlatformTelegaram)] = self.telegramService;
     self.shareServiceDict[@(LDSDKPlatformDingTalk)] = self.dingTalkService;
 
 
     self.payServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
-    self.payServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
+    self.payServiceDict[@(LDSDKPlatformTB)] = self.tbService;
 
     self.authServiceDict[@(LDSDKPlatformWeChat)] = self.wxService;
-    self.authServiceDict[@(LDSDKPlatformAliPay)] = self.aliPayService;
+    self.authServiceDict[@(LDSDKPlatformTB)] = self.tbService;
     self.authServiceDict[@(LDSDKPlatformQQ)] = self.qqService;
     self.authServiceDict[@(LDSDKPlatformWeibo)] = self.weiboService;
     self.authServiceDict[@(LDSDKPlatformDingTalk)] = self.dingTalkService;
@@ -95,11 +95,11 @@
     return _authServiceDict;
 }
 
-- (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>)aliPayService {
-    if (!_aliPayService) {
-        _aliPayService = (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>) [NSClassFromString(@"LDSDKAliPayServiceImp") new];
+- (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>)tbService {
+    if (!_tbService) {
+        _tbService = (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>) [NSClassFromString(@"LDSDKTBServiceImp") new];
     }
-    return _aliPayService;
+    return _tbService;
 }
 
 - (id <LDSDKAuthService, LDSDKRegisterService, LDSDKShareService, LDSDKPayService, LDSDKHandleURLProtocol>)qqService {
